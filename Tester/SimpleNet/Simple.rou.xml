@@ -1,7 +1,30 @@
-<routes>
-    <vType accel="1.0" decel="5.0" id="Car" length="2.0" maxSpeed="100.0" sigma="0.0" />
-    <route id="route0" edges="1to2 2to3 3to5"/>
-    <vehicle depart="1" id="veh0" route="route0" type="Car" />
-	<vehicle depart="10" id="veh1" route="route0" type="Car" />
-</routes>
+<?xml version="1.0"?>
 
+<!-- generated on Tue Sep 11 14:45:27 2012 by SUMO duarouter Version 0.15.0
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.sf.net/xsd/duarouterConfiguration.xsd">
+
+    <input>
+        <net-file value="Simple.net.xml"/>
+        <trip-files value="trips.xml"/>
+    </input>
+
+    <output>
+        <output-file value="Simple.rou.xml"/>
+    </output>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.sf.net/xsd/routes_file.xsd">
+    <vehicle id="0" depart="0.00">
+        <route edges="Main1toJu1 Main1toJu1.-30 Ju1toJu2 Ju1toJu2.-30 Ju2toJu3 Ju3toOst1"/>
+    </vehicle>
+    <vehicle id="1" depart="10.00">
+        <route edges="Main1toJu1 Main1toJu1.-30 Ju1toJu2 Ju1toJu2.-30 Ju2toJu3 Ju3toOst1"/>
+    </vehicle>
+    <vehicle id="2" depart="20.00">
+        <route edges="Main1toJu1 Main1toJu1.-30 Ju1toJu2 Ju1toJu2.-30 Ju2toJu3 Ju3toOst1"/>
+    </vehicle>
+</routes>
