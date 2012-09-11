@@ -1,0 +1,14 @@
+<connections>
+
+
+	<connection from="Main1toJu1.-30" to="Ju1toS1"  fromLane="0" toLane="0"/>
+	<connection from="Main1toJu1.-30" to="Ju1toJu2" fromLane="1" toLane="0"/>
+	<connection from="Main1toJu1.-30" to="Ju1toJu2" fromLane="2" toLane="1"/>
+	<connection from="Main1toJu1.-30" to="Ju1toN1" fromLane="2" toLane="0"/>
+	
+
+	<connection from="Ju1toJu2.-30" to="Ju2toS2"  fromLane="0" toLane="0"/>
+	<connection from="Ju1toJu2.-30" to="Ju2toJu3" fromLane="1" toLane="0"/>
+	<connection from="Ju1toJu2.-30" to="Ju2toJu3" fromLane="2" toLane="1"/>
+	<connection from="Ju1toJu2.-30" to="Ju2toN2" fromLane="2" toLane="0"/>	
+</connections>

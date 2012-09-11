@@ -1,0 +1,15 @@
+<nodes>
+    <node id="Main1" x="-50.0" y="0.0" />
+
+    <node id="Ju1" x="+30.0" y="0.0" type="traffic_light" />
+	<node id="N1" x="+30.0" y="+200.0" />
+	<node id="S1" x="+30.0" y="-200.0" />
+
+	<node id="Ju2" x="100.0" y="0.0" type="traffic_light" />
+	<node id="N2" x="100.0" y="+200.0" />
+	<node id="S2" x="100.0" y="-200.0" />
+
+	<node id="Ju3" x="200.0" y="0.0" />
+
+	<node id="Ost1" x="300.0" y="0.0" />
+</nodes>
