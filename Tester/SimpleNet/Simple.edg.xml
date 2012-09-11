@@ -1,8 +1,11 @@
 <edges>
     <edge from="Main1" id="Main1toJu1" to="Ju1" numLanes="2" >
+		<split pos="0" lanes="1 2"/>		
 		<split pos="-30" lanes="0 1 2"/>
 	</edge>
-	<edge from="Ju1" id="Ju1toMain1" to="Main1" numLanes="2"/>
+	<edge from="Ju1" id="Ju1toMain1" to="Main1" numLanes="3" >
+		<split pos="0" lanes="0 1"/>		
+	</edge>
 
 	<edge from="N1" id="N1toJu1" to="Ju1"/>
     <edge from="Ju1" id="Ju1toN1" to="N1" />
@@ -11,6 +14,7 @@
     <edge from="Ju1" id="Ju1toS1" to="S1" />	
 
     <edge from="Ju1" id="Ju1toJu2" to="Ju2" numLanes="2" >
+		<split pos="0" lanes="1 2"/>
 		<split pos="-30" lanes="0 1 2"/>
 	</edge>
 
@@ -26,7 +30,26 @@
     <edge from="Ju2" id="Ju2toS2" to="S2" />	
 
 
-	<edge from="Ju2" id="Ju2toJu3" to="Ju3" numLanes="2"/>
-	<edge from="Ju3" id="Ju3toJu2" to="Ju2" numLanes="2"/>
-	<edge from="Ju3" id="Ju3toOst1" to="Ost1" />
+	<edge from="Ju2" id="Ju2toJu3" to="Ju3" numLanes="2" >
+		<split pos="0" lanes="1 2"/>
+		<split pos="-30" lanes="0 1 2"/>
+	</edge>
+
+	<edge from="Ju3" id="Ju3toJu2" to="Ju2" numLanes="2">
+		<split pos="0" lanes="0 1"/>
+		<split pos="-30" lanes="0 1 2"/>
+	</edge>
+
+	<edge from="N3" id="N3toJu3" to="Ju3"/>
+    <edge from="Ju3" id="Ju3toN3" to="N3" />
+    
+	<edge from="S3" id="S3toJu3" to="Ju3" />
+    <edge from="Ju3" id="Ju3toS3" to="S3" />	
+
+	<edge from="Ju3" id="Ju3toOst1" to="Ost1" numLanes="2"/>
+
+	<edge from="Ost1" id="Ost1toJu3" to="Ju3" numLanes="2">
+		<split pos="0" lanes="0 1"/>
+		<split pos="-30" lanes="0 1 2"/>
+	</edge>
 </edges>
