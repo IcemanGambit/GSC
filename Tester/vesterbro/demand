@@ -1,0 +1,4 @@
+<routes>
+	<vType id="v1" accel="0.8" decel="4.5" sigma="0.5" length="5" minGap="2.5" maxSpeed="70" guiShape="passenger"/>
+	<vType id="v2" accel="0.8" decel="4.5" sigma="0.5" length="15" minGap="3.5" maxSpeed="50" guiShape="bus"/>
+</routes>

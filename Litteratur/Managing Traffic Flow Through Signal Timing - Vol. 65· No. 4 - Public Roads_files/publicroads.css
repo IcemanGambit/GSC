@@ -1,0 +1,420 @@
+/* This is the style sheet for Public Roads Publication. */
+body {
+	margin:0;
+}
+h3 { color:#000000;
+}
+hr {
+	border-style:solid;
+	border-width: 1px;
+	border-color: #BBCEE3;
+}
+#container
+{
+	padding: 1em 1em;
+}
+.margin {
+	margin: 15px;
+}
+.marginvertical {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+#leftsidebar {
+	width: 138px;
+	margin: 0;
+	float: left;
+}
+#leftnav p {
+	margin:3px 3px 3px 9px;
+	font-size:.9em;
+	font-weight: normal;
+	
+}
+#leftnav {
+	width: 130px;
+	float: left;
+	margin: 0px 0 0 0;
+	padding: 0;
+}
+#leftnav a {
+	display:block;
+	width: 120px;
+	border:1px solid black;
+	border-bottom-width: 1px;
+	color: #FFFFFF;
+	padding:4px;
+	text-decoration:none;
+	background-color: #000066;
+	}
+
+#leftnav a:hover {
+	background-color: #EEEEEE;
+	color: #000000;
+	text-decoration:none;
+	}
+.lnav {border:1px solid black;
+	 background-color: #EEEEEE;
+	 padding:4px;
+	 width: 120px;
+		}
+.none {
+	display:none;
+}
+.subnav {
+	font-weight: normal;
+	font-size: 12px;
+	color: #ffffff;
+	background-color: #000066;
+	text-align: center;
+	
+} 
+ul.expanded li, ol.expanded li, li.expanded {
+	margin-bottom: 1em;
+}		 
+.subnav a {font-weight: normal; 
+		 font-size: 12px;
+         color: #ffffff;
+         background-color: #000066;
+		 text-align: center;}
+		 
+.subnav a:hover {
+	font-weight: normal;
+	font-size: 12px;
+	color: #ffffff;
+	background-color: #000066;
+	text-decoration: none;
+} 
+.style1 {
+	color: #FFFFFF;
+	font-weight: bold;
+   }
+.style2 {color: #999900}
+.style3 {
+	font-size: 11px;
+	font-style: italic;
+	font-weight: bold;
+   }
+.indent {
+	margin-right: 15px;
+	margin-left: 18px;
+	margin-top: 0px;
+	margin-bottom: 12px;
+}
+.showemptycells table, .showemptycells table tr, .showemptycells table tr td {
+	empty-cells:show;
+	border-collapse: collapse;
+}
+table.showemptycells, table.showemptycells tr, table.showemptycells tr td {
+	empty-cells:show;
+	border-collapse: collapse;
+	border-color:#333333;
+}
+.indent p {
+	margin: 0;
+}
+
+.title h1 {
+	margin:0px;
+}
+.title {
+	padding: 8px;
+}
+.zeromargin {
+	margin-bottom: 15px;
+	margin-top: 15px;
+}
+.authorbio {
+	margin-top: 35px;
+}
+.authorbio p {
+	font-size:12px;
+	}
+.zeromargin2 {
+	margin: 0px;
+	
+}
+.zeromargin2 p {
+	margin: 0px;
+	vertical-align: top;
+}
+.zeromargin p, .zeromargin h1, .zeromargin h2, .zeromargin h3, .zeromargin img, .zeromargin ol li  {
+	margin: 0;
+	font-style: normal;
+}
+.zeromargin ol {
+	padding: 0;
+}
+.zeromargin ol li {
+	font-style: italic;
+}
+.style4 {
+		text-align: center;
+		font-size: 11px;
+		font-style: italic;
+		font-weight: bold; }
+
+.blue {
+	color: #0066CC;
+	font-size: 12px;
+  }
+  
+.blue2 {
+	 color: #000099;
+	 font-weight: bold;
+	 text-align: center;
+  }
+
+.table
+{
+	border: solid #ccc 2px; padding: 5px;
+		
+}
+
+.caption
+  {
+   font-weight: bold;   
+   text-align: center;
+   }
+   .photocredits {
+	font-size:11px;
+	text-align: center;
+	padding: 0px;
+	margin: 0px;
+   }
+div.image {float: left;}     
+	 
+div.imagecaption
+{
+	float: center;
+	background: #f1e0c1;
+	border: #999 solid 1px 1px;
+	margin: 5px 5px;
+	width: 450px;
+	padding: 5px;
+	font-weight : bold;
+	text-align: justify;
+	height : auto;
+}
+div.imagecaption img
+{
+	float: center;
+	background-color: #fff;
+	padding: 5px 5px;
+}
+
+.clear
+{
+	clear: left;
+}
+
+
+.right
+{
+	text-align: right; 
+	font-weight: bold;
+}
+
+.row {
+	background-color: #BFCAD5;
+	font-size: 100%;
+	font-weight: bold;
+	padding: 1em;
+		}	
+.highlight {
+	background-color: #BFCAD5;
+	padding:15px;
+}
+.row2 {
+	background-color: #f1e0c1; 
+	text-align: center;
+	}
+.row3 {
+	background-color: #f1e0c1;
+	font-size: 100%;
+	padding: 1em;
+		}	
+	
+.center {
+text-align: center;
+}
+
+.tfoot { 
+	border: solid #ccc 2px; padding: 10px;
+ 	/*border-top-width: 2px;
+	border-top-style: solid;
+	border-top-color: #BBCEE3;
+	padding: 10em;
+	background-color: #E7EEF5;*/
+}
+
+
+.libcolorgr {
+	background-color: #D9ECFF;
+} 
+.libcolorwhite {background-color: #ffffff;} 
+.periodcol {color: #FFFFFF; padding-left: 50px; text-align:left;}
+.rowheader {
+	font-size: 100%;
+	font-weight: bold;
+	padding: .6em;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: #000066;
+}
+.styledtable table tr th {
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #BBCEE3;
+	padding: 0.4em;
+	background-color: #E7EEF5;
+	empty-cells:show;
+	border-collapse: collapse;
+}
+table.img {
+	margin:8px;
+}
+td.caption2 {
+	padding:5px;
+	text-align:left;
+	font-weight:bold;
+	vertical-align:top;
+}
+.img {
+	margin-top: 0px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+ul.inside {
+	list-style-position:inside;
+}
+.img2 {
+	margin-top: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+.img3 {
+	margin-top: 15px;
+	margin-right: 15px;
+	margin-bottom: 15px;
+	margin-left: 15px;
+}
+.styledtable table {
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	clear:both;
+	empty-cells:show;
+	border-collapse: collapse;
+}
+
+.styledtable table tr td {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #BBCEE3;
+	padding: 5px;
+	empty-cells:show;
+	border-collapse: collapse;
+	padding-left: 20px;
+}
+.styledtable2 table td {
+	border-width: 1px;
+	border-style: solid;
+	border-color: #BBCEE3;
+	padding: 0.2em;
+	padding-left: 1%;
+	empty-cells:show;
+	border-collapse: collapse;
+	text-align: left;
+	margin-left: 30px;
+}
+.styledtable2 table tr td {
+	padding-left: 1.5em;
+}
+.styledtable2 table td ul li {
+	text-align:left;
+}
+
+.styledtable2 table {
+	border-width: 1px;
+	border-style: solid;
+	border-color: #BBCEE3;
+	empty-cells:show;
+	border-collapse: collapse;
+	
+}
+table.styledtable3 {
+	border-width: 1px;
+	border-style: solid;
+	border-color: #BBCEE3;
+	empty-cells:show;
+	border-collapse: collapse;
+}
+.styledtable2 table th  {
+	border-width: 1px;
+	border-style: solid;
+	border-color: #BBCEE3;
+	padding: 0.2em;
+	empty-cells:show;
+	border-collapse: collapse;
+	text-align: left;
+	padding-left: 20px;
+}
+.tableheader {
+	background-color: #E7EEF5;
+	border-bottom-color: #BBCEE3;
+	padding: 0.2em;
+	empty-cells:show;
+	border-collapse: collapse;
+	border-bottom-style: solid;
+	border-bottom-width: medium;
+}
+.styledtable2 table tr {
+	border-width: 1px;
+	border-style: solid;
+	border-color: #BBCEE3;
+	padding: .2em;
+	empty-cells:show;
+	border-collapse: collapse;
+}
+.pastissues table tr td {
+	padding-left: 50px;
+}
+.pastissues table tr th {
+	padding-left: 50px;
+}
+.coversionlist table tr:hover {
+	background-color:#AEDFFF;
+}
+.coversionlist table tr td {
+	padding-left: 8px;
+}
+.coversionlist table tr th {
+	padding-left: 8px;
+}
+
+/* FEEDBACK BUTTON STYLES */
+
+form.inline, form.inline * { display: inline; margin:0; padding:0; }
+
+button { overflow:visible; width:auto }
+
+button.link  { 
+	text-align: left;
+	color:#00f;
+	background: none;
+	padding:0; 
+	margin:0;
+	border:#fff solid 0px;
+	cursor:pointer;
+	display:inline;
+	-moz-user-select: text; 
+}
+button.link span { text-decoration:underline }
