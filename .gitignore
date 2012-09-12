@@ -1,0 +1,6 @@
+Report/bin/
+*.net.xml
+*.rou.alt.xml
+*.rou.xml
+*.sumocfg
+
