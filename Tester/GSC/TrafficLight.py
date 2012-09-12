@@ -1,55 +1,55 @@
-import sys ,os
+import sys, os, StringIO
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import traci 
 
 """
-_getNextGreen(string, string) -> int
+_getNextGreen(string, string, string, int) -> [[int, int],]
 
-returns the next simulation step where tlID changes to a green light
+returns the interval of simulation steps where tlID has a green light at the specified connection within maxtime
 """
 
-def getNextGreen(tlID, inConId, outConId):
-	# Get next time the traffic light switch
-	# Get the lane at the traffic light 
-	# Check that the lane has green
+def getNextGreen(tlID, inConId, outConId, maxtime):
 
-
-	#Get lane id of vehicle
-	j=0
-	print traci.vehicle.getLaneID(vhID)
-	for i in traci.trafficlights.getControlledLinks(tlID):
-		j+=1
-		if traci.vehicle.getLaneID(vhID) in i[0]:
-			print j
-		
-
-	#Get next time the traffic light switch
+	# Next time the traffic light switch
 	next = traci.trafficlights.getNextSwitch(tlID)
-	#print "next " + str(next)
+	
+	#Get light position
+	p=0
+	for i in traci.trafficlights.getControlledLinks(tlID):
+		if not (inConId in i[0] and outConId in i[0]):
+			p+=1
 
+	#get redGreen string for next switch
 	f = StringIO.StringIO(traci.trafficlights.getCompleteRedYellowGreenDefinition(tlID))
-	readingPhase = False
-	duration = 0
+	step = 0
+	parsingGreen = False
+	startGreen = step
+	lights = []
 	while True:
 		line = f.readline()
+		#Reload file as EOF has been reached
 		if not line:
-			break
+			f = StringIO.StringIO(traci.trafficlights.getCompleteRedYellowGreenDefinition(tlID))
 		if line == "Phase:\n":
-			readingPhase=True
 			line = f.readline()
-		if readingPhase:
-			duration += int(line.split(": ")[1])
-			if duration == next:
-				#print "next"
+			step += int(line.split(": ")[1])
+			if step > maxtime:
+				break
+			if step >= next:
 				f.readline()
 				f.readline()
 				line = f.readline()
 				redGreen = line.split(": ")[1]
-				#print redGreen
-			#print duration
-		
-			readingPhase=False
-
-	print
+				if parsingGreen and not redGreen[p].lower() == "g":
+					lights.append([startGreen, step])
+					parsingGreen = False
+				if not parsingGreen and redGreen[p].lower() == "g":
+					startGreen = step
+					parsingGreen = True
+				
 	f.close()
+	
+	return lights
+	
+	
 

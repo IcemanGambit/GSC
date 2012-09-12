@@ -1,4 +1,4 @@
-import os, subprocess, sys, StringIO
+import os, subprocess, sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import traci 
 import GSC
@@ -13,7 +13,9 @@ step = 0
 
 while step==0 or traci.simulation.getMinExpectedNumber() > 0:
 	traci.simulationStep()
-	print GSC.Vehicle.getRecommentedSpeed(1)
+	
+	if step in range(0,1):
+		print GSC.TrafficLight.getNextGreen("Ju1", "Main1toJu1.-30_2", "Ju1toN1_0", 400000)
 	
 		
 	step+=1
