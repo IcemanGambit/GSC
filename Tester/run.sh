@@ -15,7 +15,7 @@ fi
 
 if [ -f $1"/"trips.xml ]
 then
-	echo "Reuses routes"
+	echo "Reusing routes"
 else
 	echo "Generate new routes"
 	python $1"/"genTrips.py $1
