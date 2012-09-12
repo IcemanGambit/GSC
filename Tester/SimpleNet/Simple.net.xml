@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on Tue Sep 11 16:12:19 2012 by SUMO netconvert Version 0.15.0
+<!-- generated on Wed Sep 12 10:26:43 2012 by SUMO netconvert Version 0.15.0
 <?xml version="1.0" encoding="UTF-8"?>
 
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.sf.net/xsd/netconvertConfiguration.xsd">
@@ -23,410 +23,410 @@
     <location netOffset="50.00,200.00" convBoundary="0.00,0.00,350.00,400.00" origBoundary="-50.00,-200.00,300.00,200.00" projParameter="!"/>
 
     <edge id=":Ju1_0" function="internal">
-        <lane id=":Ju1_0_0" index="0" speed="13.90" length="5.00" shape="78.35,211.35 78.16,209.99 77.57,209.03 76.61,208.44 75.25,208.25"/>
+        <lane id=":Ju1_0_0" index="0" speed="16.60" length="5.00" shape="78.35,211.35 78.16,209.99 77.57,209.03 76.61,208.44 75.25,208.25"/>
     </edge>
     <edge id=":Ju1_1" function="internal">
-        <lane id=":Ju1_1_0" index="0" speed="13.90" length="22.70" shape="78.35,211.35 78.35,206.40 78.35,200.00 78.35,193.60 78.35,188.65"/>
+        <lane id=":Ju1_1_0" index="0" speed="16.60" length="22.70" shape="78.35,211.35 78.35,206.40 78.35,200.00 78.35,193.60 78.35,188.65"/>
     </edge>
     <edge id=":Ju1_2" function="internal">
-        <lane id=":Ju1_2_0" index="0" speed="13.90" length="3.11" shape="78.35,211.35 78.57,208.25"/>
+        <lane id=":Ju1_2_0" index="0" speed="16.60" length="3.11" shape="78.35,211.35 78.57,208.25"/>
     </edge>
     <edge id=":Ju1_16" function="internal">
-        <lane id=":Ju1_16_0" index="0" speed="13.90" length="12.90" shape="78.57,208.25 78.75,205.66 79.95,201.60 81.95,199.16 84.75,198.35"/>
+        <lane id=":Ju1_16_0" index="0" speed="16.60" length="12.90" shape="78.57,208.25 78.75,205.66 79.95,201.60 81.95,199.16 84.75,198.35"/>
     </edge>
     <edge id=":Ju1_3" function="internal">
-        <lane id=":Ju1_3_0" index="0" speed="13.90" length="2.41" shape="78.35,211.35 79.18,210.11 80.00,209.70"/>
+        <lane id=":Ju1_3_0" index="0" speed="16.60" length="2.41" shape="78.35,211.35 79.18,210.11 80.00,209.70"/>
     </edge>
     <edge id=":Ju1_17" function="internal">
-        <lane id=":Ju1_17_0" index="0" speed="13.90" length="2.41" shape="80.00,209.70 80.83,210.11 81.65,211.35"/>
+        <lane id=":Ju1_17_0" index="0" speed="16.60" length="2.41" shape="80.00,209.70 80.83,210.11 81.65,211.35"/>
     </edge>
     <edge id=":Ju1_4" function="internal">
-        <lane id=":Ju1_4_0" index="0" speed="13.90" length="5.00" shape="84.75,208.25 83.39,208.44 82.43,209.03 81.84,209.99 81.65,211.35"/>
+        <lane id=":Ju1_4_0" index="0" speed="16.60" length="5.00" shape="84.75,208.25 83.39,208.44 82.43,209.03 81.84,209.99 81.65,211.35"/>
     </edge>
     <edge id=":Ju1_5" function="internal">
-        <lane id=":Ju1_5_0" index="0" speed="13.90" length="9.50" shape="84.75,208.25 75.25,208.25"/>
+        <lane id=":Ju1_5_0" index="0" speed="16.60" length="9.50" shape="84.75,208.25 75.25,208.25"/>
     </edge>
     <edge id=":Ju1_6" function="internal">
-        <lane id=":Ju1_6_0" index="0" speed="13.90" length="9.50" shape="84.75,204.95 75.25,204.95"/>
+        <lane id=":Ju1_6_0" index="0" speed="16.60" length="9.50" shape="84.75,204.95 75.25,204.95"/>
     </edge>
     <edge id=":Ju1_7" function="internal">
-        <lane id=":Ju1_7_0" index="0" speed="13.90" length="3.39" shape="84.75,201.65 81.95,200.84 81.65,200.47"/>
+        <lane id=":Ju1_7_0" index="0" speed="16.60" length="3.39" shape="84.75,201.65 81.95,200.84 81.65,200.47"/>
     </edge>
     <edge id=":Ju1_18" function="internal">
-        <lane id=":Ju1_18_0" index="0" speed="13.90" length="12.62" shape="81.65,200.47 79.95,198.40 78.75,194.34 78.35,188.65"/>
+        <lane id=":Ju1_18_0" index="0" speed="16.60" length="12.62" shape="81.65,200.47 79.95,198.40 78.75,194.34 78.35,188.65"/>
     </edge>
     <edge id=":Ju1_8" function="internal">
-        <lane id=":Ju1_8_0" index="0" speed="13.90" length="7.85" shape="81.65,188.65 81.84,191.45 82.43,193.45 83.39,194.65 84.75,195.05"/>
+        <lane id=":Ju1_8_0" index="0" speed="16.60" length="7.85" shape="81.65,188.65 81.84,191.45 82.43,193.45 83.39,194.65 84.75,195.05"/>
     </edge>
     <edge id=":Ju1_9" function="internal">
-        <lane id=":Ju1_9_0" index="0" speed="13.90" length="22.70" shape="81.65,188.65 81.65,193.60 81.65,200.00 81.65,206.40 81.65,211.35"/>
+        <lane id=":Ju1_9_0" index="0" speed="16.60" length="22.70" shape="81.65,188.65 81.65,193.60 81.65,200.00 81.65,206.40 81.65,211.35"/>
     </edge>
     <edge id=":Ju1_10" function="internal">
-        <lane id=":Ju1_10_0" index="0" speed="13.90" length="6.41" shape="81.65,188.65 81.29,195.05"/>
+        <lane id=":Ju1_10_0" index="0" speed="16.60" length="6.41" shape="81.65,188.65 81.29,195.05"/>
     </edge>
     <edge id=":Ju1_19" function="internal">
-        <lane id=":Ju1_19_0" index="0" speed="13.90" length="12.60" shape="81.29,195.05 81.25,195.78 80.05,200.88 78.05,203.93 75.25,204.95"/>
+        <lane id=":Ju1_19_0" index="0" speed="16.60" length="12.60" shape="81.29,195.05 81.25,195.78 80.05,200.88 78.05,203.93 75.25,204.95"/>
     </edge>
     <edge id=":Ju1_11" function="internal">
-        <lane id=":Ju1_11_0" index="0" speed="13.90" length="2.41" shape="81.65,188.65 80.82,189.89 80.00,190.30"/>
+        <lane id=":Ju1_11_0" index="0" speed="16.60" length="2.41" shape="81.65,188.65 80.82,189.89 80.00,190.30"/>
     </edge>
     <edge id=":Ju1_20" function="internal">
-        <lane id=":Ju1_20_0" index="0" speed="13.90" length="2.41" shape="80.00,190.30 79.17,189.89 78.35,188.65"/>
+        <lane id=":Ju1_20_0" index="0" speed="16.60" length="2.41" shape="80.00,190.30 79.17,189.89 78.35,188.65"/>
     </edge>
     <edge id=":Ju1_12" function="internal">
-        <lane id=":Ju1_12_0" index="0" speed="13.90" length="5.00" shape="75.25,191.75 76.61,191.56 77.57,190.97 78.16,190.01 78.35,188.65"/>
+        <lane id=":Ju1_12_0" index="0" speed="16.60" length="5.00" shape="75.25,191.75 76.61,191.56 77.57,190.97 78.16,190.01 78.35,188.65"/>
     </edge>
     <edge id=":Ju1_13" function="internal">
-        <lane id=":Ju1_13_0" index="0" speed="13.90" length="9.50" shape="75.25,195.05 84.75,195.05"/>
+        <lane id=":Ju1_13_0" index="0" speed="16.60" length="9.50" shape="75.25,195.05 84.75,195.05"/>
     </edge>
     <edge id=":Ju1_14" function="internal">
-        <lane id=":Ju1_14_0" index="0" speed="13.90" length="9.50" shape="75.25,198.35 84.75,198.35"/>
+        <lane id=":Ju1_14_0" index="0" speed="16.60" length="9.50" shape="75.25,198.35 84.75,198.35"/>
     </edge>
     <edge id=":Ju1_15" function="internal">
-        <lane id=":Ju1_15_0" index="0" speed="13.90" length="3.39" shape="75.25,198.35 78.05,199.16 78.35,199.53"/>
+        <lane id=":Ju1_15_0" index="0" speed="16.60" length="3.39" shape="75.25,198.35 78.05,199.16 78.35,199.53"/>
     </edge>
     <edge id=":Ju1_21" function="internal">
-        <lane id=":Ju1_21_0" index="0" speed="13.90" length="12.62" shape="78.35,199.53 80.05,201.60 81.25,205.66 81.65,211.35"/>
+        <lane id=":Ju1_21_0" index="0" speed="16.60" length="12.62" shape="78.35,199.53 80.05,201.60 81.25,205.66 81.65,211.35"/>
     </edge>
     <edge id=":Ju1toJu2.-30_0" function="internal">
-        <lane id=":Ju1toJu2.-30_0_0" index="0" speed="13.90" length="4.46" shape="118.50,195.05 121.50,191.75"/>
+        <lane id=":Ju1toJu2.-30_0_0" index="0" speed="16.60" length="4.46" shape="118.50,195.05 121.50,191.75"/>
     </edge>
     <edge id=":Ju1toJu2.-30_1" function="internal">
-        <lane id=":Ju1toJu2.-30_1_0" index="0" speed="13.90" length="3.00" shape="118.50,195.05 121.50,195.05"/>
+        <lane id=":Ju1toJu2.-30_1_0" index="0" speed="16.60" length="3.00" shape="118.50,195.05 121.50,195.05"/>
     </edge>
     <edge id=":Ju1toJu2.-30_2" function="internal">
-        <lane id=":Ju1toJu2.-30_2_0" index="0" speed="13.90" length="3.00" shape="118.50,198.35 121.50,198.35"/>
+        <lane id=":Ju1toJu2.-30_2_0" index="0" speed="16.60" length="3.00" shape="118.50,198.35 121.50,198.35"/>
     </edge>
     <edge id=":Ju2_0" function="internal">
-        <lane id=":Ju2_0_0" index="0" speed="13.90" length="5.00" shape="148.35,211.35 148.16,209.99 147.57,209.03 146.61,208.44 145.25,208.25"/>
+        <lane id=":Ju2_0_0" index="0" speed="16.60" length="5.00" shape="148.35,211.35 148.16,209.99 147.57,209.03 146.61,208.44 145.25,208.25"/>
     </edge>
     <edge id=":Ju2_1" function="internal">
-        <lane id=":Ju2_1_0" index="0" speed="13.90" length="22.70" shape="148.35,211.35 148.35,206.40 148.35,200.00 148.35,193.60 148.35,188.65"/>
+        <lane id=":Ju2_1_0" index="0" speed="16.60" length="22.70" shape="148.35,211.35 148.35,206.40 148.35,200.00 148.35,193.60 148.35,188.65"/>
     </edge>
     <edge id=":Ju2_2" function="internal">
-        <lane id=":Ju2_2_0" index="0" speed="13.90" length="3.11" shape="148.35,211.35 148.57,208.25"/>
+        <lane id=":Ju2_2_0" index="0" speed="16.60" length="3.11" shape="148.35,211.35 148.57,208.25"/>
     </edge>
     <edge id=":Ju2_16" function="internal">
-        <lane id=":Ju2_16_0" index="0" speed="13.90" length="12.90" shape="148.57,208.25 148.75,205.66 149.95,201.60 151.95,199.16 154.75,198.35"/>
+        <lane id=":Ju2_16_0" index="0" speed="16.60" length="12.90" shape="148.57,208.25 148.75,205.66 149.95,201.60 151.95,199.16 154.75,198.35"/>
     </edge>
     <edge id=":Ju2_3" function="internal">
-        <lane id=":Ju2_3_0" index="0" speed="13.90" length="2.41" shape="148.35,211.35 149.17,210.11 150.00,209.70"/>
+        <lane id=":Ju2_3_0" index="0" speed="16.60" length="2.41" shape="148.35,211.35 149.17,210.11 150.00,209.70"/>
     </edge>
     <edge id=":Ju2_17" function="internal">
-        <lane id=":Ju2_17_0" index="0" speed="13.90" length="2.41" shape="150.00,209.70 150.82,210.11 151.65,211.35"/>
+        <lane id=":Ju2_17_0" index="0" speed="16.60" length="2.41" shape="150.00,209.70 150.82,210.11 151.65,211.35"/>
     </edge>
     <edge id=":Ju2_4" function="internal">
-        <lane id=":Ju2_4_0" index="0" speed="13.90" length="5.00" shape="154.75,208.25 153.39,208.44 152.43,209.03 151.84,209.99 151.65,211.35"/>
+        <lane id=":Ju2_4_0" index="0" speed="16.60" length="5.00" shape="154.75,208.25 153.39,208.44 152.43,209.03 151.84,209.99 151.65,211.35"/>
     </edge>
     <edge id=":Ju2_5" function="internal">
-        <lane id=":Ju2_5_0" index="0" speed="13.90" length="9.50" shape="154.75,208.25 145.25,208.25"/>
+        <lane id=":Ju2_5_0" index="0" speed="16.60" length="9.50" shape="154.75,208.25 145.25,208.25"/>
     </edge>
     <edge id=":Ju2_6" function="internal">
-        <lane id=":Ju2_6_0" index="0" speed="13.90" length="9.50" shape="154.75,204.95 145.25,204.95"/>
+        <lane id=":Ju2_6_0" index="0" speed="16.60" length="9.50" shape="154.75,204.95 145.25,204.95"/>
     </edge>
     <edge id=":Ju2_7" function="internal">
-        <lane id=":Ju2_7_0" index="0" speed="13.90" length="3.39" shape="154.75,201.65 151.95,200.84 151.65,200.47"/>
+        <lane id=":Ju2_7_0" index="0" speed="16.60" length="3.39" shape="154.75,201.65 151.95,200.84 151.65,200.47"/>
     </edge>
     <edge id=":Ju2_18" function="internal">
-        <lane id=":Ju2_18_0" index="0" speed="13.90" length="12.62" shape="151.65,200.47 149.95,198.40 148.75,194.34 148.35,188.65"/>
+        <lane id=":Ju2_18_0" index="0" speed="16.60" length="12.62" shape="151.65,200.47 149.95,198.40 148.75,194.34 148.35,188.65"/>
     </edge>
     <edge id=":Ju2_8" function="internal">
-        <lane id=":Ju2_8_0" index="0" speed="13.90" length="7.85" shape="151.65,188.65 151.84,191.45 152.43,193.45 153.39,194.65 154.75,195.05"/>
+        <lane id=":Ju2_8_0" index="0" speed="16.60" length="7.85" shape="151.65,188.65 151.84,191.45 152.43,193.45 153.39,194.65 154.75,195.05"/>
     </edge>
     <edge id=":Ju2_9" function="internal">
-        <lane id=":Ju2_9_0" index="0" speed="13.90" length="22.70" shape="151.65,188.65 151.65,193.60 151.65,200.00 151.65,206.40 151.65,211.35"/>
+        <lane id=":Ju2_9_0" index="0" speed="16.60" length="22.70" shape="151.65,188.65 151.65,193.60 151.65,200.00 151.65,206.40 151.65,211.35"/>
     </edge>
     <edge id=":Ju2_10" function="internal">
-        <lane id=":Ju2_10_0" index="0" speed="13.90" length="6.41" shape="151.65,188.65 151.29,195.05"/>
+        <lane id=":Ju2_10_0" index="0" speed="16.60" length="6.41" shape="151.65,188.65 151.29,195.05"/>
     </edge>
     <edge id=":Ju2_19" function="internal">
-        <lane id=":Ju2_19_0" index="0" speed="13.90" length="12.60" shape="151.29,195.05 151.25,195.78 150.05,200.88 148.05,203.93 145.25,204.95"/>
+        <lane id=":Ju2_19_0" index="0" speed="16.60" length="12.60" shape="151.29,195.05 151.25,195.78 150.05,200.88 148.05,203.93 145.25,204.95"/>
     </edge>
     <edge id=":Ju2_11" function="internal">
-        <lane id=":Ju2_11_0" index="0" speed="13.90" length="2.41" shape="151.65,188.65 150.83,189.89 150.00,190.30"/>
+        <lane id=":Ju2_11_0" index="0" speed="16.60" length="2.41" shape="151.65,188.65 150.83,189.89 150.00,190.30"/>
     </edge>
     <edge id=":Ju2_20" function="internal">
-        <lane id=":Ju2_20_0" index="0" speed="13.90" length="2.41" shape="150.00,190.30 149.18,189.89 148.35,188.65"/>
+        <lane id=":Ju2_20_0" index="0" speed="16.60" length="2.41" shape="150.00,190.30 149.18,189.89 148.35,188.65"/>
     </edge>
     <edge id=":Ju2_12" function="internal">
-        <lane id=":Ju2_12_0" index="0" speed="13.90" length="5.00" shape="145.25,191.75 146.61,191.56 147.57,190.97 148.16,190.01 148.35,188.65"/>
+        <lane id=":Ju2_12_0" index="0" speed="16.60" length="5.00" shape="145.25,191.75 146.61,191.56 147.57,190.97 148.16,190.01 148.35,188.65"/>
     </edge>
     <edge id=":Ju2_13" function="internal">
-        <lane id=":Ju2_13_0" index="0" speed="13.90" length="9.50" shape="145.25,195.05 154.75,195.05"/>
+        <lane id=":Ju2_13_0" index="0" speed="16.60" length="9.50" shape="145.25,195.05 154.75,195.05"/>
     </edge>
     <edge id=":Ju2_14" function="internal">
-        <lane id=":Ju2_14_0" index="0" speed="13.90" length="9.50" shape="145.25,198.35 154.75,198.35"/>
+        <lane id=":Ju2_14_0" index="0" speed="16.60" length="9.50" shape="145.25,198.35 154.75,198.35"/>
     </edge>
     <edge id=":Ju2_15" function="internal">
-        <lane id=":Ju2_15_0" index="0" speed="13.90" length="3.39" shape="145.25,198.35 148.05,199.16 148.35,199.53"/>
+        <lane id=":Ju2_15_0" index="0" speed="16.60" length="3.39" shape="145.25,198.35 148.05,199.16 148.35,199.53"/>
     </edge>
     <edge id=":Ju2_21" function="internal">
-        <lane id=":Ju2_21_0" index="0" speed="13.90" length="12.62" shape="148.35,199.53 150.05,201.60 151.25,205.66 151.65,211.35"/>
+        <lane id=":Ju2_21_0" index="0" speed="16.60" length="12.62" shape="148.35,199.53 150.05,201.60 151.25,205.66 151.65,211.35"/>
     </edge>
     <edge id=":Ju2toJu1.-30_0" function="internal">
-        <lane id=":Ju2toJu1.-30_0_0" index="0" speed="13.90" length="3.00" shape="111.50,208.25 108.50,208.25"/>
+        <lane id=":Ju2toJu1.-30_0_0" index="0" speed="16.60" length="3.00" shape="111.50,208.25 108.50,208.25"/>
     </edge>
     <edge id=":Ju2toJu1.-30_1" function="internal">
-        <lane id=":Ju2toJu1.-30_1_0" index="0" speed="13.90" length="3.00" shape="111.50,204.95 108.50,204.95"/>
+        <lane id=":Ju2toJu1.-30_1_0" index="0" speed="16.60" length="3.00" shape="111.50,204.95 108.50,204.95"/>
     </edge>
     <edge id=":Ju2toJu1.-30_2" function="internal">
-        <lane id=":Ju2toJu1.-30_2_0" index="0" speed="13.90" length="4.46" shape="111.50,204.95 108.50,201.65"/>
+        <lane id=":Ju2toJu1.-30_2_0" index="0" speed="16.60" length="4.46" shape="111.50,204.95 108.50,201.65"/>
     </edge>
     <edge id=":Ju2toJu3.-30_0" function="internal">
-        <lane id=":Ju2toJu3.-30_0_0" index="0" speed="13.90" length="4.46" shape="218.50,195.05 221.50,191.75"/>
+        <lane id=":Ju2toJu3.-30_0_0" index="0" speed="16.60" length="4.46" shape="218.50,195.05 221.50,191.75"/>
     </edge>
     <edge id=":Ju2toJu3.-30_1" function="internal">
-        <lane id=":Ju2toJu3.-30_1_0" index="0" speed="13.90" length="3.00" shape="218.50,195.05 221.50,195.05"/>
+        <lane id=":Ju2toJu3.-30_1_0" index="0" speed="16.60" length="3.00" shape="218.50,195.05 221.50,195.05"/>
     </edge>
     <edge id=":Ju2toJu3.-30_2" function="internal">
-        <lane id=":Ju2toJu3.-30_2_0" index="0" speed="13.90" length="3.00" shape="218.50,198.35 221.50,198.35"/>
+        <lane id=":Ju2toJu3.-30_2_0" index="0" speed="16.60" length="3.00" shape="218.50,198.35 221.50,198.35"/>
     </edge>
     <edge id=":Ju3_0" function="internal">
-        <lane id=":Ju3_0_0" index="0" speed="13.90" length="5.00" shape="248.35,211.35 248.16,209.99 247.57,209.03 246.61,208.44 245.25,208.25"/>
+        <lane id=":Ju3_0_0" index="0" speed="16.60" length="5.00" shape="248.35,211.35 248.16,209.99 247.57,209.03 246.61,208.44 245.25,208.25"/>
     </edge>
     <edge id=":Ju3_1" function="internal">
-        <lane id=":Ju3_1_0" index="0" speed="13.90" length="22.70" shape="248.35,211.35 248.35,206.40 248.35,200.00 248.35,193.60 248.35,188.65"/>
+        <lane id=":Ju3_1_0" index="0" speed="16.60" length="22.70" shape="248.35,211.35 248.35,206.40 248.35,200.00 248.35,193.60 248.35,188.65"/>
     </edge>
     <edge id=":Ju3_2" function="internal">
-        <lane id=":Ju3_2_0" index="0" speed="13.90" length="3.11" shape="248.35,211.35 248.57,208.25"/>
+        <lane id=":Ju3_2_0" index="0" speed="16.60" length="3.11" shape="248.35,211.35 248.57,208.25"/>
     </edge>
     <edge id=":Ju3_16" function="internal">
-        <lane id=":Ju3_16_0" index="0" speed="13.90" length="12.90" shape="248.57,208.25 248.75,205.66 249.95,201.60 251.95,199.16 254.75,198.35"/>
+        <lane id=":Ju3_16_0" index="0" speed="16.60" length="12.90" shape="248.57,208.25 248.75,205.66 249.95,201.60 251.95,199.16 254.75,198.35"/>
     </edge>
     <edge id=":Ju3_3" function="internal">
-        <lane id=":Ju3_3_0" index="0" speed="13.90" length="2.41" shape="248.35,211.35 249.18,210.11 250.00,209.70"/>
+        <lane id=":Ju3_3_0" index="0" speed="16.60" length="2.41" shape="248.35,211.35 249.18,210.11 250.00,209.70"/>
     </edge>
     <edge id=":Ju3_17" function="internal">
-        <lane id=":Ju3_17_0" index="0" speed="13.90" length="2.41" shape="250.00,209.70 250.82,210.11 251.65,211.35"/>
+        <lane id=":Ju3_17_0" index="0" speed="16.60" length="2.41" shape="250.00,209.70 250.82,210.11 251.65,211.35"/>
     </edge>
     <edge id=":Ju3_4" function="internal">
-        <lane id=":Ju3_4_0" index="0" speed="13.90" length="5.00" shape="254.75,208.25 253.39,208.44 252.42,209.03 251.84,209.99 251.65,211.35"/>
+        <lane id=":Ju3_4_0" index="0" speed="16.60" length="5.00" shape="254.75,208.25 253.39,208.44 252.42,209.03 251.84,209.99 251.65,211.35"/>
     </edge>
     <edge id=":Ju3_5" function="internal">
-        <lane id=":Ju3_5_0" index="0" speed="13.90" length="9.50" shape="254.75,208.25 245.25,208.25"/>
+        <lane id=":Ju3_5_0" index="0" speed="16.60" length="9.50" shape="254.75,208.25 245.25,208.25"/>
     </edge>
     <edge id=":Ju3_6" function="internal">
-        <lane id=":Ju3_6_0" index="0" speed="13.90" length="9.50" shape="254.75,204.95 245.25,204.95"/>
+        <lane id=":Ju3_6_0" index="0" speed="16.60" length="9.50" shape="254.75,204.95 245.25,204.95"/>
     </edge>
     <edge id=":Ju3_7" function="internal">
-        <lane id=":Ju3_7_0" index="0" speed="13.90" length="3.39" shape="254.75,201.65 251.95,200.84 251.65,200.47"/>
+        <lane id=":Ju3_7_0" index="0" speed="16.60" length="3.39" shape="254.75,201.65 251.95,200.84 251.65,200.47"/>
     </edge>
     <edge id=":Ju3_18" function="internal">
-        <lane id=":Ju3_18_0" index="0" speed="13.90" length="12.62" shape="251.65,200.47 249.95,198.40 248.75,194.34 248.35,188.65"/>
+        <lane id=":Ju3_18_0" index="0" speed="16.60" length="12.62" shape="251.65,200.47 249.95,198.40 248.75,194.34 248.35,188.65"/>
     </edge>
     <edge id=":Ju3_8" function="internal">
-        <lane id=":Ju3_8_0" index="0" speed="13.90" length="7.85" shape="251.65,188.65 251.84,191.45 252.43,193.45 253.39,194.65 254.75,195.05"/>
+        <lane id=":Ju3_8_0" index="0" speed="16.60" length="7.85" shape="251.65,188.65 251.84,191.45 252.43,193.45 253.39,194.65 254.75,195.05"/>
     </edge>
     <edge id=":Ju3_9" function="internal">
-        <lane id=":Ju3_9_0" index="0" speed="13.90" length="22.70" shape="251.65,188.65 251.65,193.60 251.65,200.00 251.65,206.40 251.65,211.35"/>
+        <lane id=":Ju3_9_0" index="0" speed="16.60" length="22.70" shape="251.65,188.65 251.65,193.60 251.65,200.00 251.65,206.40 251.65,211.35"/>
     </edge>
     <edge id=":Ju3_10" function="internal">
-        <lane id=":Ju3_10_0" index="0" speed="13.90" length="6.41" shape="251.65,188.65 251.29,195.05"/>
+        <lane id=":Ju3_10_0" index="0" speed="16.60" length="6.41" shape="251.65,188.65 251.29,195.05"/>
     </edge>
     <edge id=":Ju3_19" function="internal">
-        <lane id=":Ju3_19_0" index="0" speed="13.90" length="12.60" shape="251.29,195.05 251.25,195.78 250.05,200.88 248.05,203.93 245.25,204.95"/>
+        <lane id=":Ju3_19_0" index="0" speed="16.60" length="12.60" shape="251.29,195.05 251.25,195.78 250.05,200.88 248.05,203.93 245.25,204.95"/>
     </edge>
     <edge id=":Ju3_11" function="internal">
-        <lane id=":Ju3_11_0" index="0" speed="13.90" length="2.41" shape="251.65,188.65 250.82,189.89 250.00,190.30"/>
+        <lane id=":Ju3_11_0" index="0" speed="16.60" length="2.41" shape="251.65,188.65 250.82,189.89 250.00,190.30"/>
     </edge>
     <edge id=":Ju3_20" function="internal">
-        <lane id=":Ju3_20_0" index="0" speed="13.90" length="2.41" shape="250.00,190.30 249.18,189.89 248.35,188.65"/>
+        <lane id=":Ju3_20_0" index="0" speed="16.60" length="2.41" shape="250.00,190.30 249.18,189.89 248.35,188.65"/>
     </edge>
     <edge id=":Ju3_12" function="internal">
-        <lane id=":Ju3_12_0" index="0" speed="13.90" length="5.00" shape="245.25,191.75 246.61,191.56 247.58,190.97 248.16,190.01 248.35,188.65"/>
+        <lane id=":Ju3_12_0" index="0" speed="16.60" length="5.00" shape="245.25,191.75 246.61,191.56 247.58,190.97 248.16,190.01 248.35,188.65"/>
     </edge>
     <edge id=":Ju3_13" function="internal">
-        <lane id=":Ju3_13_0" index="0" speed="13.90" length="9.50" shape="245.25,195.05 254.75,195.05"/>
+        <lane id=":Ju3_13_0" index="0" speed="16.60" length="9.50" shape="245.25,195.05 254.75,195.05"/>
     </edge>
     <edge id=":Ju3_14" function="internal">
-        <lane id=":Ju3_14_0" index="0" speed="13.90" length="9.50" shape="245.25,198.35 254.75,198.35"/>
+        <lane id=":Ju3_14_0" index="0" speed="16.60" length="9.50" shape="245.25,198.35 254.75,198.35"/>
     </edge>
     <edge id=":Ju3_15" function="internal">
-        <lane id=":Ju3_15_0" index="0" speed="13.90" length="3.39" shape="245.25,198.35 248.05,199.16 248.35,199.53"/>
+        <lane id=":Ju3_15_0" index="0" speed="16.60" length="3.39" shape="245.25,198.35 248.05,199.16 248.35,199.53"/>
     </edge>
     <edge id=":Ju3_21" function="internal">
-        <lane id=":Ju3_21_0" index="0" speed="13.90" length="12.62" shape="248.35,199.53 250.05,201.60 251.25,205.66 251.65,211.35"/>
+        <lane id=":Ju3_21_0" index="0" speed="16.60" length="12.62" shape="248.35,199.53 250.05,201.60 251.25,205.66 251.65,211.35"/>
     </edge>
     <edge id=":Ju3toJu2.-30_0" function="internal">
-        <lane id=":Ju3toJu2.-30_0_0" index="0" speed="13.90" length="3.00" shape="181.50,208.25 178.50,208.25"/>
+        <lane id=":Ju3toJu2.-30_0_0" index="0" speed="16.60" length="3.00" shape="181.50,208.25 178.50,208.25"/>
     </edge>
     <edge id=":Ju3toJu2.-30_1" function="internal">
-        <lane id=":Ju3toJu2.-30_1_0" index="0" speed="13.90" length="3.00" shape="181.50,204.95 178.50,204.95"/>
+        <lane id=":Ju3toJu2.-30_1_0" index="0" speed="16.60" length="3.00" shape="181.50,204.95 178.50,204.95"/>
     </edge>
     <edge id=":Ju3toJu2.-30_2" function="internal">
-        <lane id=":Ju3toJu2.-30_2_0" index="0" speed="13.90" length="4.46" shape="181.50,204.95 178.50,201.65"/>
+        <lane id=":Ju3toJu2.-30_2_0" index="0" speed="16.60" length="4.46" shape="181.50,204.95 178.50,201.65"/>
     </edge>
     <edge id=":Main1_0" function="internal">
-        <lane id=":Main1_0_0" index="0" speed="13.90" length="9.64" shape="0.00,204.95 -2.48,203.30 -3.30,201.65 -2.48,200.00 0.00,198.35"/>
+        <lane id=":Main1_0_0" index="0" speed="16.60" length="9.64" shape="0.00,204.95 -2.48,203.30 -3.30,201.65 -2.48,200.00 0.00,198.35"/>
     </edge>
     <edge id=":Main1toJu1.-30_0" function="internal">
-        <lane id=":Main1toJu1.-30_0_0" index="0" speed="13.90" length="4.46" shape="48.50,195.05 51.50,191.75"/>
+        <lane id=":Main1toJu1.-30_0_0" index="0" speed="16.60" length="4.46" shape="48.50,195.05 51.50,191.75"/>
     </edge>
     <edge id=":Main1toJu1.-30_1" function="internal">
-        <lane id=":Main1toJu1.-30_1_0" index="0" speed="13.90" length="3.00" shape="48.50,195.05 51.50,195.05"/>
+        <lane id=":Main1toJu1.-30_1_0" index="0" speed="16.60" length="3.00" shape="48.50,195.05 51.50,195.05"/>
     </edge>
     <edge id=":Main1toJu1.-30_2" function="internal">
-        <lane id=":Main1toJu1.-30_2_0" index="0" speed="13.90" length="3.00" shape="48.50,198.35 51.50,198.35"/>
+        <lane id=":Main1toJu1.-30_2_0" index="0" speed="16.60" length="3.00" shape="48.50,198.35 51.50,198.35"/>
     </edge>
     <edge id=":N1_0" function="internal">
-        <lane id=":N1_0_0" index="0" speed="13.90" length="4.82" shape="81.65,400.00 80.82,401.24 80.00,401.65 79.17,401.24 78.35,400.00"/>
+        <lane id=":N1_0_0" index="0" speed="16.60" length="4.82" shape="81.65,400.00 80.82,401.24 80.00,401.65 79.17,401.24 78.35,400.00"/>
     </edge>
     <edge id=":N2_0" function="internal">
-        <lane id=":N2_0_0" index="0" speed="13.90" length="4.82" shape="151.65,400.00 150.83,401.24 150.00,401.65 149.18,401.24 148.35,400.00"/>
+        <lane id=":N2_0_0" index="0" speed="16.60" length="4.82" shape="151.65,400.00 150.83,401.24 150.00,401.65 149.18,401.24 148.35,400.00"/>
     </edge>
     <edge id=":N3_0" function="internal">
-        <lane id=":N3_0_0" index="0" speed="13.90" length="4.82" shape="251.65,400.00 250.82,401.24 250.00,401.65 249.18,401.24 248.35,400.00"/>
+        <lane id=":N3_0_0" index="0" speed="16.60" length="4.82" shape="251.65,400.00 250.82,401.24 250.00,401.65 249.18,401.24 248.35,400.00"/>
     </edge>
     <edge id=":Ost1_0" function="internal">
-        <lane id=":Ost1_0_0" index="0" speed="13.90" length="9.64" shape="350.00,198.35 352.48,200.00 353.30,201.65 352.48,203.30 350.00,204.95"/>
+        <lane id=":Ost1_0_0" index="0" speed="16.60" length="9.64" shape="350.00,198.35 352.48,200.00 353.30,201.65 352.48,203.30 350.00,204.95"/>
     </edge>
     <edge id=":Ost1toJu3.-30_0" function="internal">
-        <lane id=":Ost1toJu3.-30_0_0" index="0" speed="13.90" length="3.00" shape="281.50,208.25 278.50,208.25"/>
+        <lane id=":Ost1toJu3.-30_0_0" index="0" speed="16.60" length="3.00" shape="281.50,208.25 278.50,208.25"/>
     </edge>
     <edge id=":Ost1toJu3.-30_1" function="internal">
-        <lane id=":Ost1toJu3.-30_1_0" index="0" speed="13.90" length="3.00" shape="281.50,204.95 278.50,204.95"/>
+        <lane id=":Ost1toJu3.-30_1_0" index="0" speed="16.60" length="3.00" shape="281.50,204.95 278.50,204.95"/>
     </edge>
     <edge id=":Ost1toJu3.-30_2" function="internal">
-        <lane id=":Ost1toJu3.-30_2_0" index="0" speed="13.90" length="4.46" shape="281.50,204.95 278.50,201.65"/>
+        <lane id=":Ost1toJu3.-30_2_0" index="0" speed="16.60" length="4.46" shape="281.50,204.95 278.50,201.65"/>
     </edge>
     <edge id=":S1_0" function="internal">
-        <lane id=":S1_0_0" index="0" speed="13.90" length="4.82" shape="78.35,0.00 79.18,-1.24 80.00,-1.65 80.83,-1.24 81.65,0.00"/>
+        <lane id=":S1_0_0" index="0" speed="16.60" length="4.82" shape="78.35,0.00 79.18,-1.24 80.00,-1.65 80.83,-1.24 81.65,0.00"/>
     </edge>
     <edge id=":S2_0" function="internal">
-        <lane id=":S2_0_0" index="0" speed="13.90" length="4.82" shape="148.35,0.00 149.17,-1.24 150.00,-1.65 150.82,-1.24 151.65,0.00"/>
+        <lane id=":S2_0_0" index="0" speed="16.60" length="4.82" shape="148.35,0.00 149.17,-1.24 150.00,-1.65 150.82,-1.24 151.65,0.00"/>
     </edge>
     <edge id=":S3_0" function="internal">
-        <lane id=":S3_0_0" index="0" speed="13.90" length="4.82" shape="248.35,0.00 249.18,-1.24 250.00,-1.65 250.82,-1.24 251.65,0.00"/>
+        <lane id=":S3_0_0" index="0" speed="16.60" length="4.82" shape="248.35,0.00 249.18,-1.24 250.00,-1.65 250.82,-1.24 251.65,0.00"/>
     </edge>
 
     <edge id="Ju1toJu2" from="Ju1" to="Ju1toJu2.-30" priority="-1">
-        <lane id="Ju1toJu2_0" index="0" speed="13.90" length="33.75" shape="84.75,195.05 118.50,195.05"/>
-        <lane id="Ju1toJu2_1" index="1" speed="13.90" length="33.75" shape="84.75,198.35 118.50,198.35"/>
+        <lane id="Ju1toJu2_0" index="0" speed="16.60" length="33.75" shape="84.75,195.05 118.50,195.05"/>
+        <lane id="Ju1toJu2_1" index="1" speed="16.60" length="33.75" shape="84.75,198.35 118.50,198.35"/>
     </edge>
     <edge id="Ju1toJu2.-30" from="Ju1toJu2.-30" to="Ju2" priority="-1">
-        <lane id="Ju1toJu2.-30_0" index="0" speed="13.90" length="23.75" shape="121.50,191.75 145.25,191.75"/>
-        <lane id="Ju1toJu2.-30_1" index="1" speed="13.90" length="23.75" shape="121.50,195.05 145.25,195.05"/>
-        <lane id="Ju1toJu2.-30_2" index="2" speed="13.90" length="23.75" shape="121.50,198.35 145.25,198.35"/>
+        <lane id="Ju1toJu2.-30_0" index="0" speed="16.60" length="23.75" shape="121.50,191.75 145.25,191.75"/>
+        <lane id="Ju1toJu2.-30_1" index="1" speed="16.60" length="23.75" shape="121.50,195.05 145.25,195.05"/>
+        <lane id="Ju1toJu2.-30_2" index="2" speed="16.60" length="23.75" shape="121.50,198.35 145.25,198.35"/>
     </edge>
     <edge id="Ju1toMain1" from="Ju1" to="Main1" priority="-1" shape="80.00,203.30 0.00,203.30">
-        <lane id="Ju1toMain1_0" index="0" speed="13.90" length="75.25" shape="75.25,208.25 0.00,208.25"/>
-        <lane id="Ju1toMain1_1" index="1" speed="13.90" length="75.25" shape="75.25,204.95 0.00,204.95"/>
+        <lane id="Ju1toMain1_0" index="0" speed="16.60" length="75.25" shape="75.25,208.25 0.00,208.25"/>
+        <lane id="Ju1toMain1_1" index="1" speed="16.60" length="75.25" shape="75.25,204.95 0.00,204.95"/>
     </edge>
     <edge id="Ju1toN1" from="Ju1" to="N1" priority="-1">
-        <lane id="Ju1toN1_0" index="0" speed="13.90" length="188.65" shape="81.65,211.35 81.65,400.00"/>
+        <lane id="Ju1toN1_0" index="0" speed="16.60" length="188.65" shape="81.65,211.35 81.65,400.00"/>
     </edge>
     <edge id="Ju1toS1" from="Ju1" to="S1" priority="-1">
-        <lane id="Ju1toS1_0" index="0" speed="13.90" length="188.65" shape="78.35,188.65 78.35,0.00"/>
+        <lane id="Ju1toS1_0" index="0" speed="16.60" length="188.65" shape="78.35,188.65 78.35,0.00"/>
     </edge>
     <edge id="Ju2toJu1" from="Ju2" to="Ju2toJu1.-30" priority="-1" shape="150.00,203.30 110.00,203.30">
-        <lane id="Ju2toJu1_0" index="0" speed="13.90" length="33.75" shape="145.25,208.25 111.50,208.25"/>
-        <lane id="Ju2toJu1_1" index="1" speed="13.90" length="33.75" shape="145.25,204.95 111.50,204.95"/>
+        <lane id="Ju2toJu1_0" index="0" speed="16.60" length="33.75" shape="145.25,208.25 111.50,208.25"/>
+        <lane id="Ju2toJu1_1" index="1" speed="16.60" length="33.75" shape="145.25,204.95 111.50,204.95"/>
     </edge>
     <edge id="Ju2toJu1.-30" from="Ju2toJu1.-30" to="Ju1" priority="-1">
-        <lane id="Ju2toJu1.-30_0" index="0" speed="13.90" length="23.75" shape="108.50,208.25 84.75,208.25"/>
-        <lane id="Ju2toJu1.-30_1" index="1" speed="13.90" length="23.75" shape="108.50,204.95 84.75,204.95"/>
-        <lane id="Ju2toJu1.-30_2" index="2" speed="13.90" length="23.75" shape="108.50,201.65 84.75,201.65"/>
+        <lane id="Ju2toJu1.-30_0" index="0" speed="16.60" length="23.75" shape="108.50,208.25 84.75,208.25"/>
+        <lane id="Ju2toJu1.-30_1" index="1" speed="16.60" length="23.75" shape="108.50,204.95 84.75,204.95"/>
+        <lane id="Ju2toJu1.-30_2" index="2" speed="16.60" length="23.75" shape="108.50,201.65 84.75,201.65"/>
     </edge>
     <edge id="Ju2toJu3" from="Ju2" to="Ju2toJu3.-30" priority="-1">
-        <lane id="Ju2toJu3_0" index="0" speed="13.90" length="63.75" shape="154.75,195.05 218.50,195.05"/>
-        <lane id="Ju2toJu3_1" index="1" speed="13.90" length="63.75" shape="154.75,198.35 218.50,198.35"/>
+        <lane id="Ju2toJu3_0" index="0" speed="16.60" length="63.75" shape="154.75,195.05 218.50,195.05"/>
+        <lane id="Ju2toJu3_1" index="1" speed="16.60" length="63.75" shape="154.75,198.35 218.50,198.35"/>
     </edge>
     <edge id="Ju2toJu3.-30" from="Ju2toJu3.-30" to="Ju3" priority="-1">
-        <lane id="Ju2toJu3.-30_0" index="0" speed="13.90" length="23.75" shape="221.50,191.75 245.25,191.75"/>
-        <lane id="Ju2toJu3.-30_1" index="1" speed="13.90" length="23.75" shape="221.50,195.05 245.25,195.05"/>
-        <lane id="Ju2toJu3.-30_2" index="2" speed="13.90" length="23.75" shape="221.50,198.35 245.25,198.35"/>
+        <lane id="Ju2toJu3.-30_0" index="0" speed="16.60" length="23.75" shape="221.50,191.75 245.25,191.75"/>
+        <lane id="Ju2toJu3.-30_1" index="1" speed="16.60" length="23.75" shape="221.50,195.05 245.25,195.05"/>
+        <lane id="Ju2toJu3.-30_2" index="2" speed="16.60" length="23.75" shape="221.50,198.35 245.25,198.35"/>
     </edge>
     <edge id="Ju2toN2" from="Ju2" to="N2" priority="-1">
-        <lane id="Ju2toN2_0" index="0" speed="13.90" length="188.65" shape="151.65,211.35 151.65,400.00"/>
+        <lane id="Ju2toN2_0" index="0" speed="16.60" length="188.65" shape="151.65,211.35 151.65,400.00"/>
     </edge>
     <edge id="Ju2toS2" from="Ju2" to="S2" priority="-1">
-        <lane id="Ju2toS2_0" index="0" speed="13.90" length="188.65" shape="148.35,188.65 148.35,0.00"/>
+        <lane id="Ju2toS2_0" index="0" speed="16.60" length="188.65" shape="148.35,188.65 148.35,0.00"/>
     </edge>
     <edge id="Ju3toJu2" from="Ju3" to="Ju3toJu2.-30" priority="-1" shape="250.00,203.30 180.00,203.30">
-        <lane id="Ju3toJu2_0" index="0" speed="13.90" length="63.75" shape="245.25,208.25 181.50,208.25"/>
-        <lane id="Ju3toJu2_1" index="1" speed="13.90" length="63.75" shape="245.25,204.95 181.50,204.95"/>
+        <lane id="Ju3toJu2_0" index="0" speed="16.60" length="63.75" shape="245.25,208.25 181.50,208.25"/>
+        <lane id="Ju3toJu2_1" index="1" speed="16.60" length="63.75" shape="245.25,204.95 181.50,204.95"/>
     </edge>
     <edge id="Ju3toJu2.-30" from="Ju3toJu2.-30" to="Ju2" priority="-1">
-        <lane id="Ju3toJu2.-30_0" index="0" speed="13.90" length="23.75" shape="178.50,208.25 154.75,208.25"/>
-        <lane id="Ju3toJu2.-30_1" index="1" speed="13.90" length="23.75" shape="178.50,204.95 154.75,204.95"/>
-        <lane id="Ju3toJu2.-30_2" index="2" speed="13.90" length="23.75" shape="178.50,201.65 154.75,201.65"/>
+        <lane id="Ju3toJu2.-30_0" index="0" speed="16.60" length="23.75" shape="178.50,208.25 154.75,208.25"/>
+        <lane id="Ju3toJu2.-30_1" index="1" speed="16.60" length="23.75" shape="178.50,204.95 154.75,204.95"/>
+        <lane id="Ju3toJu2.-30_2" index="2" speed="16.60" length="23.75" shape="178.50,201.65 154.75,201.65"/>
     </edge>
     <edge id="Ju3toN3" from="Ju3" to="N3" priority="-1">
-        <lane id="Ju3toN3_0" index="0" speed="13.90" length="188.65" shape="251.65,211.35 251.65,400.00"/>
+        <lane id="Ju3toN3_0" index="0" speed="16.60" length="188.65" shape="251.65,211.35 251.65,400.00"/>
     </edge>
     <edge id="Ju3toOst1" from="Ju3" to="Ost1" priority="-1">
-        <lane id="Ju3toOst1_0" index="0" speed="13.90" length="95.25" shape="254.75,195.05 350.00,195.05"/>
-        <lane id="Ju3toOst1_1" index="1" speed="13.90" length="95.25" shape="254.75,198.35 350.00,198.35"/>
+        <lane id="Ju3toOst1_0" index="0" speed="16.60" length="95.25" shape="254.75,195.05 350.00,195.05"/>
+        <lane id="Ju3toOst1_1" index="1" speed="16.60" length="95.25" shape="254.75,198.35 350.00,198.35"/>
     </edge>
     <edge id="Ju3toS3" from="Ju3" to="S3" priority="-1">
-        <lane id="Ju3toS3_0" index="0" speed="13.90" length="188.65" shape="248.35,188.65 248.35,0.00"/>
+        <lane id="Ju3toS3_0" index="0" speed="16.60" length="188.65" shape="248.35,188.65 248.35,0.00"/>
     </edge>
     <edge id="Main1toJu1" from="Main1" to="Main1toJu1.-30" priority="-1">
-        <lane id="Main1toJu1_0" index="0" speed="13.90" length="48.50" shape="0.00,195.05 48.50,195.05"/>
-        <lane id="Main1toJu1_1" index="1" speed="13.90" length="48.50" shape="0.00,198.35 48.50,198.35"/>
+        <lane id="Main1toJu1_0" index="0" speed="16.60" length="48.50" shape="0.00,195.05 48.50,195.05"/>
+        <lane id="Main1toJu1_1" index="1" speed="16.60" length="48.50" shape="0.00,198.35 48.50,198.35"/>
     </edge>
     <edge id="Main1toJu1.-30" from="Main1toJu1.-30" to="Ju1" priority="-1">
-        <lane id="Main1toJu1.-30_0" index="0" speed="13.90" length="23.75" shape="51.50,191.75 75.25,191.75"/>
-        <lane id="Main1toJu1.-30_1" index="1" speed="13.90" length="23.75" shape="51.50,195.05 75.25,195.05"/>
-        <lane id="Main1toJu1.-30_2" index="2" speed="13.90" length="23.75" shape="51.50,198.35 75.25,198.35"/>
+        <lane id="Main1toJu1.-30_0" index="0" speed="16.60" length="23.75" shape="51.50,191.75 75.25,191.75"/>
+        <lane id="Main1toJu1.-30_1" index="1" speed="16.60" length="23.75" shape="51.50,195.05 75.25,195.05"/>
+        <lane id="Main1toJu1.-30_2" index="2" speed="16.60" length="23.75" shape="51.50,198.35 75.25,198.35"/>
     </edge>
     <edge id="N1toJu1" from="N1" to="Ju1" priority="-1">
-        <lane id="N1toJu1_0" index="0" speed="13.90" length="188.65" shape="78.35,400.00 78.35,211.35"/>
+        <lane id="N1toJu1_0" index="0" speed="16.60" length="188.65" shape="78.35,400.00 78.35,211.35"/>
     </edge>
     <edge id="N2toJu2" from="N2" to="Ju2" priority="-1">
-        <lane id="N2toJu2_0" index="0" speed="13.90" length="188.65" shape="148.35,400.00 148.35,211.35"/>
+        <lane id="N2toJu2_0" index="0" speed="16.60" length="188.65" shape="148.35,400.00 148.35,211.35"/>
     </edge>
     <edge id="N3toJu3" from="N3" to="Ju3" priority="-1">
-        <lane id="N3toJu3_0" index="0" speed="13.90" length="188.65" shape="248.35,400.00 248.35,211.35"/>
+        <lane id="N3toJu3_0" index="0" speed="16.60" length="188.65" shape="248.35,400.00 248.35,211.35"/>
     </edge>
     <edge id="Ost1toJu3" from="Ost1" to="Ost1toJu3.-30" priority="-1" shape="350.00,203.30 280.00,203.30">
-        <lane id="Ost1toJu3_0" index="0" speed="13.90" length="68.50" shape="350.00,208.25 281.50,208.25"/>
-        <lane id="Ost1toJu3_1" index="1" speed="13.90" length="68.50" shape="350.00,204.95 281.50,204.95"/>
+        <lane id="Ost1toJu3_0" index="0" speed="16.60" length="68.50" shape="350.00,208.25 281.50,208.25"/>
+        <lane id="Ost1toJu3_1" index="1" speed="16.60" length="68.50" shape="350.00,204.95 281.50,204.95"/>
     </edge>
     <edge id="Ost1toJu3.-30" from="Ost1toJu3.-30" to="Ju3" priority="-1">
-        <lane id="Ost1toJu3.-30_0" index="0" speed="13.90" length="23.75" shape="278.50,208.25 254.75,208.25"/>
-        <lane id="Ost1toJu3.-30_1" index="1" speed="13.90" length="23.75" shape="278.50,204.95 254.75,204.95"/>
-        <lane id="Ost1toJu3.-30_2" index="2" speed="13.90" length="23.75" shape="278.50,201.65 254.75,201.65"/>
+        <lane id="Ost1toJu3.-30_0" index="0" speed="16.60" length="23.75" shape="278.50,208.25 254.75,208.25"/>
+        <lane id="Ost1toJu3.-30_1" index="1" speed="16.60" length="23.75" shape="278.50,204.95 254.75,204.95"/>
+        <lane id="Ost1toJu3.-30_2" index="2" speed="16.60" length="23.75" shape="278.50,201.65 254.75,201.65"/>
     </edge>
     <edge id="S1toJu1" from="S1" to="Ju1" priority="-1">
-        <lane id="S1toJu1_0" index="0" speed="13.90" length="188.65" shape="81.65,0.00 81.65,188.65"/>
+        <lane id="S1toJu1_0" index="0" speed="16.60" length="188.65" shape="81.65,0.00 81.65,188.65"/>
     </edge>
     <edge id="S2toJu2" from="S2" to="Ju2" priority="-1">
-        <lane id="S2toJu2_0" index="0" speed="13.90" length="188.65" shape="151.65,0.00 151.65,188.65"/>
+        <lane id="S2toJu2_0" index="0" speed="16.60" length="188.65" shape="151.65,0.00 151.65,188.65"/>
     </edge>
     <edge id="S3toJu3" from="S3" to="Ju3" priority="-1">
-        <lane id="S3toJu3_0" index="0" speed="13.90" length="188.65" shape="251.65,0.00 251.65,188.65"/>
+        <lane id="S3toJu3_0" index="0" speed="16.60" length="188.65" shape="251.65,0.00 251.65,188.65"/>
     </edge>
 
     <tlLogic id="Ju1" type="static" programID="0" offset="0">
         <phase duration="31" state="rrrrGGGgrrrrGGGg"/>
-        <phase duration="4" state="rrrryyygrrrryyyg"/>
+        <phase duration="5" state="rrrryyygrrrryyyg"/>
         <phase duration="6" state="rrrrrrrGrrrrrrrG"/>
-        <phase duration="4" state="rrrrrrryrrrrrrry"/>
+        <phase duration="5" state="rrrrrrryrrrrrrry"/>
         <phase duration="31" state="GGggrrrrGGggrrrr"/>
-        <phase duration="4" state="yyggrrrryyggrrrr"/>
+        <phase duration="5" state="yyggrrrryyggrrrr"/>
         <phase duration="6" state="rrGGrrrrrrGGrrrr"/>
-        <phase duration="4" state="rryyrrrrrryyrrrr"/>
+        <phase duration="5" state="rryyrrrrrryyrrrr"/>
     </tlLogic>
     <tlLogic id="Ju2" type="static" programID="0" offset="0">
         <phase duration="31" state="rrrrGGGgrrrrGGGg"/>
-        <phase duration="4" state="rrrryyygrrrryyyg"/>
+        <phase duration="5" state="rrrryyygrrrryyyg"/>
         <phase duration="6" state="rrrrrrrGrrrrrrrG"/>
-        <phase duration="4" state="rrrrrrryrrrrrrry"/>
+        <phase duration="5" state="rrrrrrryrrrrrrry"/>
         <phase duration="31" state="GGggrrrrGGggrrrr"/>
-        <phase duration="4" state="yyggrrrryyggrrrr"/>
+        <phase duration="5" state="yyggrrrryyggrrrr"/>
         <phase duration="6" state="rrGGrrrrrrGGrrrr"/>
-        <phase duration="4" state="rryyrrrrrryyrrrr"/>
+        <phase duration="5" state="rryyrrrrrryyrrrr"/>
     </tlLogic>
     <tlLogic id="Ju3" type="static" programID="0" offset="0">
         <phase duration="31" state="rrrrGGGgrrrrGGGg"/>
-        <phase duration="4" state="rrrryyygrrrryyyg"/>
+        <phase duration="5" state="rrrryyygrrrryyyg"/>
         <phase duration="6" state="rrrrrrrGrrrrrrrG"/>
-        <phase duration="4" state="rrrrrrryrrrrrrry"/>
+        <phase duration="5" state="rrrrrrryrrrrrrry"/>
         <phase duration="31" state="GGggrrrrGGggrrrr"/>
-        <phase duration="4" state="yyggrrrryyggrrrr"/>
+        <phase duration="5" state="yyggrrrryyggrrrr"/>
         <phase duration="6" state="rrGGrrrrrrGGrrrr"/>
-        <phase duration="4" state="rryyrrrrrryyrrrr"/>
+        <phase duration="5" state="rryyrrrrrryyrrrr"/>
     </tlLogic>
 
     <junction id="Ju1" type="traffic_light" x="80.00" y="200.00" incLanes="N1toJu1_0 Ju2toJu1.-30_0 Ju2toJu1.-30_1 Ju2toJu1.-30_2 S1toJu1_0 Main1toJu1.-30_0 Main1toJu1.-30_1 Main1toJu1.-30_2" intLanes=":Ju1_0_0 :Ju1_1_0 :Ju1_16_0 :Ju1_17_0 :Ju1_4_0 :Ju1_5_0 :Ju1_6_0 :Ju1_18_0 :Ju1_8_0 :Ju1_9_0 :Ju1_19_0 :Ju1_20_0 :Ju1_12_0 :Ju1_13_0 :Ju1_14_0 :Ju1_21_0" shape="76.75,211.35 83.25,211.35 84.75,209.85 84.75,193.45 83.25,188.65 76.75,188.65 75.25,190.15 75.25,209.85">
