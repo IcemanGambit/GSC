@@ -20,7 +20,7 @@ def _getGreenSpans(vhId, maxtime):
 
 	
 """
-	getGreenSpans(int, int) -> int
+	getRecommentedSpeed(string, int) -> int
 
 	returns the recommented speed to reach the green light for next intersection within maxtime simulation steps
 """
