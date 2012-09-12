@@ -11,13 +11,14 @@ traci.init(PORT)
 
 step = 0
 
-print GSC.Vehicle.getRecommentedSpeed(1)
+
 
 
 
 while step==0 or traci.simulation.getMinExpectedNumber() > 0:
 	traci.simulationStep()
-	
+	print GSC.Vehicle.getRecommentedSpeed(1)
+	"""
 	#TraCI control
 	
 	#Get lane id of vehicle
@@ -59,7 +60,7 @@ while step==0 or traci.simulation.getMinExpectedNumber() > 0:
 	print
 	f.close()
 	
-	
+	"""
 	
 	step+=1
 

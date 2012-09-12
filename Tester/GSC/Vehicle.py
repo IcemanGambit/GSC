@@ -15,4 +15,5 @@ def _getGreenSpans(vhId, maxtime):
 	returns the recommented speed to reach the green light for next intersection
 """
 def getRecommentedSpeed(vhId):
+	print traci.vehicle.getLaneID("0")
 	return 0
