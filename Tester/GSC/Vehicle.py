@@ -20,10 +20,26 @@ def _getGreenSpans(vhId, maxtime):
 
 	
 """
-	getGreenSpans(int, int) -> int
+	getRecommentedSpeed(string, int) -> int
 
 	returns the recommented speed to reach the green light for next intersection within maxtime simulation steps
 """
 def getRecommentedSpeed(vhId, maxtime):
 	print getGreenSpans(vhId, maxtime)
 	return 0
+
+"""
+	getNextTraficLight(string) > string
+
+	returns the next intersection
+"""
+def _getNextTraficLight(vhId):
+	raise NotImplementedError
+"""
+	getNextTraficLight(string) > string
+
+	returns the next intersection
+"""
+def _getDistanceNextTraficLight(vhId):
+	raise NotImplementedError
+
