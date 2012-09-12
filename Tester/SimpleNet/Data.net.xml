@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on Tue Sep 11 13:45:25 2012 by SUMO netconvert Version 0.15.0
+<!-- generated on Wed Sep 12 10:56:05 2012 by SUMO netconvert Version 0.15.0
 <?xml version="1.0" encoding="UTF-8"?>
 
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.sf.net/xsd/netconvertConfiguration.xsd">
 
     <input>
-        <node-files value="hello.nod.xml"/>
-        <edge-files value="hello.edg.xml"/>
-        <connection-files value="hello.con.xml"/>
+        <node-files value="SimpleNet/Data.nod.xml"/>
+        <edge-files value="SimpleNet/Data.edg.xml"/>
+        <connection-files value="SimpleNet/Data.con.xml"/>
     </input>
 
     <output>
-        <output-file value="hello.net.xml"/>
+        <output-file value="SimpleNet/Data.net.xml"/>
     </output>
 
 </configuration>

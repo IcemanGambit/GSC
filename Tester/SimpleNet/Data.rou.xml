@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 
-<!-- generated on Tue Sep 11 14:45:27 2012 by SUMO duarouter Version 0.15.0
+<!-- generated on Wed Sep 12 10:49:33 2012 by SUMO duarouter Version 0.15.0
 <?xml version="1.0" encoding="UTF-8"?>
 
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.sf.net/xsd/duarouterConfiguration.xsd">
 
     <input>
-        <net-file value="Simple.net.xml"/>
-        <trip-files value="trips.xml"/>
+        <net-file value="SimpleNet/Data.net.xml"/>
+        <trip-files value="SimpleNet/trips.xml"/>
     </input>
 
     <output>
-        <output-file value="Simple.rou.xml"/>
+        <output-file value="SimpleNet/Data.rou.xml"/>
     </output>
 
 </configuration>

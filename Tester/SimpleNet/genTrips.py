@@ -7,7 +7,7 @@ if sys.argv[1] == "":
 noTrips = 30
 places = [['Main1toJu1', 'Ju3toOst1']]
 
-trips = open(sys.argv[1]+".xml", "w")
+trips = open(sys.argv[1]+"/trips.xml", "w")
 
 print >> trips, "<trips>"
 TID=0 
