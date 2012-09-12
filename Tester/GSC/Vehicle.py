@@ -25,8 +25,35 @@ def _getGreenSpans(vhId, maxtime):
 	returns the recommented speed to reach the green light for next intersection within maxtime simulation steps
 """
 def getRecommentedSpeed(vhId, maxtime):
-	print getGreenSpans(vhId, maxtime)
-	return 0
+
+	distance = _getDistanceNextTraficLight(vhId)
+	spans = _getGreenSpans(vhId, maxtime)
+
+	t = traci.simulation.getCurrentTime()
+	maxSpeed = traci.lane.getMaxSpeed(traci.vehicle.getLaneID(vhId))
+
+	smax = 0
+	smin = 0
+
+	for span in spans:
+
+		deltaTbegin = span[0] - t
+		if(deltaTbegin <= 0):
+			deltaTbegin = 0
+			smax = maxSpeed	#light is green drive as fast as we want
+		else
+			smax = distance/deltaTbegin
+
+		deltaTend =  span[1] - t
+		smin = distance/deltaTend
+		
+		if smin <= maxSpeed: # we have a timespan we can reach before it go red
+			if smax > maxSpeed:	#we can drive max speed
+				return maxSpeed 
+			else				
+				return smax	#if we drive max speed i will not be green in time slow down!
+	
+	return maxSpeed
 
 """
 	getNextTraficLight(string) > string
@@ -36,10 +63,15 @@ def getRecommentedSpeed(vhId, maxtime):
 def _getNextTraficLight(vhId):
 	raise NotImplementedError
 """
-	getNextTraficLight(string) > string
+	getDistanceNextTraficLight(int) > int
 
-	returns the next intersection
+	returns the euclidean distance to next intersection %TODO this might need fix to road length 
 """
 def _getDistanceNextTraficLight(vhId):
-	raise NotImplementedError
+	#first we want the TL cordinate
+	TL = _getNextTraficLight(vhId)
+	TL_cord = traci.junction.getPosition(TL) #note that Junction and traficlight is not the same but have identical id
+	Vh_cord = traci.vehicle.getPosition(vhId)
+	return sqrt(((TL_cord[0]-Vh_cord[0])**2) + ((TL_cord[1]-Vh_cord[1])**2))
+		
 
