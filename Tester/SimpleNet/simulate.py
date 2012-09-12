@@ -14,8 +14,9 @@ step = 0
 while step==0 or traci.simulation.getMinExpectedNumber() > 0:
 	traci.simulationStep()
 	
-	if step in range(0,1):
-		print GSC.TrafficLight.getNextGreen("Ju1", "Main1toJu1.-30_2", "Ju1toN1_0", 400000)
+	if step in range(0,50):
+		#print GSC.TrafficLight.getNextGreen("Ju1", "Main1toJu1.-30_2", "Ju1toN1_0", 400000)
+		print GSC.Vehicle._getNextTrafficLight("0")
 	
 		
 	step+=1

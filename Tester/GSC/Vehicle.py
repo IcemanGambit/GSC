@@ -9,14 +9,10 @@ import TrafficLight
 	returns the timeframes of green light for the next intersection
 """
 def _getGreenSpans(vhId, maxtime):	
-
+	raise NotImplementedError
 	#Get the next traffic light
 	#Get next time the traffic light switch to green
-	print TrafficLight.getNextGreen(vhID, "Ju1")
-	
-
-	return [[0,0],[0,0]]
-	
+	print TrafficLight.getNextGreen(vhID, "Ju1")	
 
 	
 """
@@ -29,12 +25,30 @@ def getRecommentedSpeed(vhId, maxtime):
 	return 0
 
 """
-	getNextTraficLight(string) > string
+	getNextTrafficLight(string) > string
 
 	returns the next intersection
 """
-def _getNextTraficLight(vhId):
-	raise NotImplementedError
+def _getNextTrafficLight(vhId):
+	route = traci.vehicle.getRoute(vhId)
+	egde = traci.vehicle.getRoadID(vhId)
+	startId = -1
+	if egde in route:
+		startId = route.index(egde)
+	else:
+		return None
+		
+	print "startid"
+	print startId
+		
+	for egdeId in range(startId, len(route)):
+		for tl in traci.trafficlights.getIDList():
+			for i in traci.trafficlights.getControlledLinks(tl):
+				for TLlane in i[0]:
+					if route[egdeId] == TLlane.split("_")[0]:
+						if (egdeId > 0 and not route[egdeId-1]==TLlane.split("_")[0]) or egdeId==0:
+							return tl
+	
 """
 	getNextTraficLight(string) > string
 
