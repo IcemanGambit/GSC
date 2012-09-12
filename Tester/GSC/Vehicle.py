@@ -17,3 +17,19 @@ def _getGreenSpans(vhId, maxtime):
 def getRecommentedSpeed(vhId):
 	print traci.vehicle.getLaneID("0")
 	return 0
+
+"""
+	getNextTraficLight(string) > string
+
+	returns the next intersection
+"""
+def _getNextTraficLight(vhId):
+	raise NotImplementedError
+"""
+	getNextTraficLight(string) > string
+
+	returns the next intersection
+"""
+def _getDistanceNextTraficLight(vhId):
+	raise NotImplementedError
+
