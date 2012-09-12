@@ -4,4 +4,5 @@ Report/bin/
 *.rou.xml
 *.sumocfg
 *trips.xml
-
+*.pyc
+*/traci

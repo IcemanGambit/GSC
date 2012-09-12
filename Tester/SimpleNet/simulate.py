@@ -1,7 +1,7 @@
 import os, subprocess, sys, StringIO
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import traci 
-	
+import GSC
 sumoBinary = "sumo-gui"
 PORT = 8813
 
@@ -10,6 +10,11 @@ process = subprocess.Popen("%s -c %s" % (sumoBinary, sys.argv[1] + "/Data.sumocf
 traci.init(PORT)
 
 step = 0
+
+print GSC.Vehicle.getRecommentedSpeed(1)
+
+
+
 while step==0 or traci.simulation.getMinExpectedNumber() > 0:
 	traci.simulationStep()
 	
