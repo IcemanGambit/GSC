@@ -1,7 +1,7 @@
 import sys, os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import traci
-import TrafficLight 
+import TrafficLight, Route 
 
 """
 	getGreenSpans(string, int) -> [[int,int],[int,int],...]
@@ -9,15 +9,10 @@ import TrafficLight
 	returns the timeframes of green light for the next intersection
 """
 def _getGreenSpans(vhId, maxtime):	
-
-	#Get the next traffic light
-	#Get next time the traffic light switch to green
-	print TrafficLight.getNextGreen(vhID, "Ju1")
-	
-
-	return [[0,0],[0,0]]
-	
-
+	TL = _getNextTrafficLight(vhId)
+	if TL:
+		return TrafficLight.getNextGreen(TL[0],TL[1], TL[2], maxtime)
+	return []
 	
 """
 	getRecommentedSpeed(string, int) -> int
@@ -55,13 +50,23 @@ def getRecommentedSpeed(vhId, maxtime):
 	
 	return maxSpeed
 
-"""
-	getNextTraficLight(string) > string
 
-	returns the next intersection
 """
-def _getNextTraficLight(vhId):
-	raise NotImplementedError
+	getNextTrafficLight(string) > [string, string, string]
+
+	returns the next intersection puls the incomming and outgoing egdes on the route
+"""
+def _getNextTrafficLight(vhId):
+	egde = traci.vehicle.getRoadID(vhId)
+	nextTL = Route.getTrafficLightsOnRoute(vhId)
+	if len(nextTL)== 0:
+		return None
+	if egde == nextTL[0][1]:
+		Route.visitTrafficLight(vhId)
+	if len(nextTL)== 0:
+		return None
+	return nextTL[0]
+	
 """
 	getDistanceNextTraficLight(int) > int
 

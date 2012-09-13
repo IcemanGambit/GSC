@@ -8,7 +8,7 @@ _getNextGreen(string, string, string, int) -> [[int, int],]
 returns the interval of simulation steps where tlID has a green light at the specified connection within maxtime
 """
 
-def getNextGreen(tlID, inConId, outConId, maxtime):
+def getNextGreen(tlID, inEgdeId, outEgdeId, maxtime):
 
 	# Next time the traffic light switch
 	next = traci.trafficlights.getNextSwitch(tlID)
@@ -16,8 +16,10 @@ def getNextGreen(tlID, inConId, outConId, maxtime):
 	#Get light position
 	p=0
 	for i in traci.trafficlights.getControlledLinks(tlID):
-		if not (inConId in i[0] and outConId in i[0]):
-			p+=1
+		if (inEgdeId == i[0][0].split("_")[0] and outEgdeId == i[0][1].split("_")[0]):
+			break
+		p+=1
+	#TODO: check if p is too large
 
 	#get redGreen string for next switch
 	f = StringIO.StringIO(traci.trafficlights.getCompleteRedYellowGreenDefinition(tlID))
