@@ -1,4 +1,4 @@
-import sys, os
+import sys, os, math
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import traci
 import TrafficLight, Route 
@@ -20,33 +20,38 @@ def _getGreenSpans(vhId, maxtime):
 	returns the recommented speed to reach the green light for next intersection within maxtime simulation steps
 """
 def getRecommentedSpeed(vhId, maxtime):
-
-	distance = _getDistanceNextTraficLight(vhId)
+	distance = _getDistanceNextTrafficLight(vhId)
 	spans = _getGreenSpans(vhId, maxtime)
 
 	t = traci.simulation.getCurrentTime()
 	maxSpeed = traci.lane.getMaxSpeed(traci.vehicle.getLaneID(vhId))
 
+	print distance
+	if distance == None:
+		return maxSpeed
+
 	smax = 0
 	smin = 0
+	
+	print spans
 
 	for span in spans:
-
 		deltaTbegin = span[0] - t
+		print deltaTbegin
 		if(deltaTbegin <= 0):
 			deltaTbegin = 0
-			smax = maxSpeed	#light is green drive as fast as we want
-		else
-			smax = distance/deltaTbegin
+			return maxSpeed	#light is green drive as fast as we want
+		else:
+			smax = distance/(deltaTbegin/1000)
 
 		deltaTend =  span[1] - t
-		smin = distance/deltaTend
+		smin = distance/(deltaTend/1000)
 		
 		if smin <= maxSpeed: # we have a timespan we can reach before it go red
 			if smax > maxSpeed:	#we can drive max speed
 				return maxSpeed 
-			else				
-				return smax	#if we drive max speed i will not be green in time slow down!
+			else:		
+				return smax	#if we drive max speed I will not be green in time slow down!
 	
 	return maxSpeed
 
@@ -61,7 +66,7 @@ def _getNextTrafficLight(vhId):
 	nextTL = Route.getTrafficLightsOnRoute(vhId)
 	if len(nextTL)== 0:
 		return None
-	if egde == nextTL[0][1]:
+	if egde == nextTL[0][2]:
 		Route.visitTrafficLight(vhId)
 	if len(nextTL)== 0:
 		return None
@@ -72,11 +77,13 @@ def _getNextTrafficLight(vhId):
 
 	returns the euclidean distance to next intersection %TODO this might need fix to road length 
 """
-def _getDistanceNextTraficLight(vhId):
+def _getDistanceNextTrafficLight(vhId):
 	#first we want the TL cordinate
-	TL = _getNextTraficLight(vhId)
-	TL_cord = traci.junction.getPosition(TL) #note that Junction and traficlight is not the same but have identical id
+	TL = _getNextTrafficLight(vhId)
+	if not TL:
+		return None
+	TL_cord = traci.junction.getPosition(TL[0]) #note that Junction and traficlight is not the same but have identical id
 	Vh_cord = traci.vehicle.getPosition(vhId)
-	return sqrt(((TL_cord[0]-Vh_cord[0])**2) + ((TL_cord[1]-Vh_cord[1])**2))
+	return math.sqrt(((TL_cord[0]-Vh_cord[0])**2) + ((TL_cord[1]-Vh_cord[1])**2))
 		
 

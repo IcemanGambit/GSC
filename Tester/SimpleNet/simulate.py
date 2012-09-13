@@ -10,18 +10,16 @@ process = subprocess.Popen("%s -c %s" % (sumoBinary, sys.argv[1] + "/Data.sumocf
 traci.init(PORT)
 
 step = 0
-GSCvehIds["0"]
+GSCvehIds = ["4"]
 
 while step==0 or traci.simulation.getMinExpectedNumber() > 0:
 	traci.simulationStep()
 	
-
-	if step in range(0,1):
-		print GSC.TrafficLight.getNextGreen("Ju1", "Main1toJu1.-30_2", "Ju1toN1_0", 400000)
-	
-	for v in traci.vehicle.getIDList()
-		if v in GSCvehIds
-			traci.vehicle.setMaxSpeed(v,GSC.Vehivle.getRecommentedSpeed(v))
+	for v in traci.vehicle.getIDList():
+		if v in GSCvehIds:
+			speed = GSC.Vehicle.getRecommentedSpeed(v, 400000)
+			print "speed " + v + " " + str(speed)
+			traci.vehicle.setMaxSpeed(v, speed)
 
 	step+=1
 
