@@ -84,6 +84,6 @@ def _getDistanceNextTrafficLight(vhId):
 		return None
 	TL_cord = traci.junction.getPosition(TL[0]) #note that Junction and traficlight is not the same but have identical id
 	Vh_cord = traci.vehicle.getPosition(vhId)
-	return math.sqrt(((TL_cord[0]-Vh_cord[0])**2) + ((TL_cord[1]-Vh_cord[1])**2))
+	return math.sqrt(((TL_cord[0]-Vh_cord[0])**2) + ((TL_cord[1]-Vh_cord[1])**2)) - 20
 		
 
