@@ -20,9 +20,9 @@ while step==0 or traci.simulation.getMinExpectedNumber() > 0:
 	traci.simulationStep()	
 
 	for v in traci.vehicle.getIDList():
-		if v in GSCvehIds:
-			speed = GSC.Vehicle.getRecommentedSpeed(v, 400000)
-			traci.vehicle.setMaxSpeed(v, speed)
+		#if v in GSCvehIds:
+		speed = GSC.Vehicle.getRecommentedSpeed(v, 200, 400000)
+		traci.vehicle.setMaxSpeed(v, speed)
 	step+=1
 
 #Clean up

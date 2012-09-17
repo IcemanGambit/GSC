@@ -19,27 +19,27 @@ def _getGreenSpans(vhId, maxtime):
 
 	returns the recommented speed to reach the green light for next intersection within maxtime simulation steps
 """
-def getRecommentedSpeed(vhId, maxtime):
+def getRecommentedSpeed(vhId,minDistance, maxtime):
 	distance = _getDistanceNextTrafficLight(vhId)
 	spans = _getGreenSpans(vhId, maxtime)
 
 	t = traci.simulation.getCurrentTime()
 	maxSpeed = traci.lane.getMaxSpeed(traci.vehicle.getLaneID(vhId))
 
-	#print distance
 	if distance == None:
+		return maxSpeed
+	if distance >= minDistance:
 		return maxSpeed
 
 	smax = 0
 	smin = 0
-	
-	#print spans
 
 	for span in spans:
 		deltaTbegin = span[0] - t
 		#print deltaTbegin
 		if t > span[1]:
 			continue
+
 		if(deltaTbegin <= 0):
 			return maxSpeed	#light is green drive as fast as we want
 		else:
