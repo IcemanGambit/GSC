@@ -26,20 +26,21 @@ def getRecommentedSpeed(vhId, maxtime):
 	t = traci.simulation.getCurrentTime()
 	maxSpeed = traci.lane.getMaxSpeed(traci.vehicle.getLaneID(vhId))
 
-	print distance
+	#print distance
 	if distance == None:
 		return maxSpeed
 
 	smax = 0
 	smin = 0
 	
-	print spans
+	#print spans
 
 	for span in spans:
 		deltaTbegin = span[0] - t
-		print deltaTbegin
+		#print deltaTbegin
+		if t > span[1]:
+			continue
 		if(deltaTbegin <= 0):
-			deltaTbegin = 0
 			return maxSpeed	#light is green drive as fast as we want
 		else:
 			smax = distance/(deltaTbegin/1000)
@@ -73,7 +74,7 @@ def _getNextTrafficLight(vhId):
 	return nextTL[0]
 	
 """
-	getDistanceNextTraficLight(int) > int
+	getDistanceNextTraficLight(int) -> int
 
 	returns the euclidean distance to next intersection %TODO this might need fix to road length 
 """
