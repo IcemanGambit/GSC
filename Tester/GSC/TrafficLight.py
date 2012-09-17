@@ -26,7 +26,6 @@ def getNextGreen(tlId, inEgdeId, outEgdeId, maxtime):
 		
 			if temp[len(temp)-1][1]>=maxtime:
 				break
-			print temp
 		return temp
 	
 	#Get light position
