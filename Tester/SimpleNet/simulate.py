@@ -20,7 +20,7 @@ while step==0 or traci.simulation.getMinExpectedNumber() > 0:
 			speed = GSC.Vehicle.getRecommentedSpeed(v, 400000)
 			print "speed " + v + " " + str(speed)
 			traci.vehicle.setMaxSpeed(v, speed)
-			traci.vehicle.setColor(v, [255,0,0,0])
+			traci.vehicle.setColor(v, (255,0,0,0))
 
 	step+=1
 
