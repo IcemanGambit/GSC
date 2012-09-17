@@ -17,11 +17,13 @@ while step==0 or traci.simulation.getMinExpectedNumber() > 0:
 	
 	for v in traci.vehicle.getIDList():
 		if v in GSCvehIds:
-			speed = GSC.Vehicle.getRecommentedSpeed(v, 400000)
-			print "speed " + v + " " + str(speed)
-			traci.vehicle.setMaxSpeed(v, speed)
-			traci.vehicle.setColor(v, (255,0,0,0))
-
+			speed = GSC.Vehicle.getRecommentedSpeed(v, 200, 400000)
+			print "speed " + str(round(traci.vehicle.getSpeed(v),2)) + " of " + str(speed)
+			print "dec " + str(traci.vehicle.getDecel(v))
+			print "acc " + str(traci.vehicle.getAccel(v))
+			traci.vehicle.setSpeed(v, speed)
+			traci.vehicle.setColor(v, (0,0,0,0))
+	
 	step+=1
 
 #Clean up
