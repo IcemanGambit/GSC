@@ -1,4 +1,4 @@
-import os, subprocess, sys
+import os, subprocess, sys, random
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import traci 
 import GSC
@@ -12,20 +12,20 @@ traci.init(PORT)
 step = 0
 
 f = open("testResults", "w")
-GSCvehIds = ['13']
+GSCvehIds = []
 totalSpeed = 0
 divSpeed = 0
-testAll = False
+testAll = True
 
 while step==0 or traci.simulation.getMinExpectedNumber() > 0:
 	traci.simulationStep()	
-
 	for v in traci.vehicle.getIDList():
 		if testAll or v in GSCvehIds:
 			speed = GSC.Vehicle.getRecommentedSpeed(v, 200, 400000)
 			traci.vehicle.setMaxSpeed(v, speed)
-			print traci.vehicle.getDrivingDistance(v, "Main1toJu1", 0)
+	GSC.Test.processDataCollection()
 	step+=1
+GSC.Test.flushDataCollection()
 
 #Clean up
 traci.close()

@@ -27,7 +27,7 @@ def getNextGreen(tlId, inEgdeId, outEgdeId, maxtime):
 		
 			if temp[len(temp)-1][1]>=cur+maxtime:
 				break
-			print temp
+			#print temp
 			i+=1
 		return temp
 	
