@@ -48,6 +48,13 @@ def collectAvgerageSpeed(vehicles = None):
 def printOverallAvgerageSpeed(outputFile):
 	print >> outputFile, "Avg. speed: " +  str(totalSpeedAll/divSpeed)
 
+def processDataCollection():
+	return
+
+
+
+
+
 
 
 

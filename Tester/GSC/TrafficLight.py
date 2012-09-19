@@ -25,8 +25,9 @@ def getNextGreen(tlId, inEgdeId, outEgdeId, maxtime):
 				temp.append([t[0]+((d+i)*m), t[1]+((d+i)*m)])
 				#temp.append([t[0]*(d+i),t[1]*(d+i)])
 		
-			if temp[len(temp)-1][1]>=maxtime:
+			if temp[len(temp)-1][1]>=cur+maxtime:
 				break
+			print temp
 			i+=1
 		return temp
 	

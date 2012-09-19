@@ -12,17 +12,19 @@ traci.init(PORT)
 step = 0
 
 f = open("testResults", "w")
-GSCvehIds = ['40']
+GSCvehIds = ['13']
 totalSpeed = 0
 divSpeed = 0
+testAll = False
 
 while step==0 or traci.simulation.getMinExpectedNumber() > 0:
 	traci.simulationStep()	
 
 	for v in traci.vehicle.getIDList():
-		#if v in GSCvehIds:
-		speed = GSC.Vehicle.getRecommentedSpeed(v, 200, 400000)
-		traci.vehicle.setMaxSpeed(v, speed)
+		if testAll or v in GSCvehIds:
+			speed = GSC.Vehicle.getRecommentedSpeed(v, 200, 400000)
+			traci.vehicle.setMaxSpeed(v, speed)
+			print traci.vehicle.getDrivingDistance(v, "Main1toJu1", 0)
 	step+=1
 
 #Clean up
