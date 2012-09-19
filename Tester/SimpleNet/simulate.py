@@ -15,7 +15,7 @@ f = open("testResults", "w")
 GSCvehIds = []
 totalSpeed = 0
 divSpeed = 0
-testAll = True
+testAll = False
 
 while step==0 or traci.simulation.getMinExpectedNumber() > 0:
 	traci.simulationStep()	

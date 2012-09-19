@@ -1,6 +1,6 @@
-import traci
+import traci, Vehicle
 
-vehicleSpeeds = {}
+vehicleData = {}
 routes = {}
 
 """
@@ -13,44 +13,57 @@ def processDataCollection(vehicles = None):
 		vehicles = traci.vehicle.getIDList()
 	
 	for vhId in vehicles:
+		#Process routes
 		r =','.join(traci.vehicle.getRoute(vhId))
-		if vhId in vehicleSpeeds:
-			vehicleSpeeds[vhId].append(traci.vehicle.getSpeed(vhId))
-		else:
-			vehicleSpeeds[vhId] = [traci.vehicle.getSpeed(vhId)]
 		if r in routes:
 			if vhId not in routes[r]:
 				routes[r].append(vhId)
 		else:
 			routes[r] = [vhId]
-
+			
+		#Process speed and distance data
+		if vhId in vehicleData:
+			vehicleData[vhId].append([Vehicle.getTotalDistanceDriven(vhId), traci.vehicle.getSpeed(vhId)])
+		else:
+			vehicleData[vhId] = [[Vehicle.getTotalDistanceDriven(vhId), traci.vehicle.getSpeed(vhId)]]
+		
 """
 	flushDataCollection() ->
 	
 	print content of vehicleSpeeds to mulitiple files, one for each route type
 """
-def flushDataCollection():
+def flushDataCollection(vehicles = None):
 	print "Flusing test results"
+	
 	rId =0
 	for r in routes:
 		speedChart = open("Test/speedChart_" + str(rId), "w")
+		distanceChart = open("Test/distanceChart_" + str(rId), "w")
+
 		i = 0
 		a = 0
-		for vh in vehicleSpeeds:
+		for vh in vehicleData:
 			if vh in routes[r]:
 				speedChart.write(str(vh) + "\t ")
+				distanceChart.write(str(vh) + "\t ")
 		speedChart.write("\n")
-		while a < len(vehicleSpeeds): #TODO: +1?
-			for vh, speeds in vehicleSpeeds.iteritems():
+		distanceChart.write("\n")
+		while a < len(vehicleData): #TODO: +1?
+			for vh, data in vehicleData.iteritems():
 				if vh in routes[r]:
-					if(len(speeds)> i):
-						speedChart.write(str(speeds[i]) + "\t ")
+					if(len(data)> i):
+						speedChart.write(str(data[i][1]) + "\t ")
+						distanceChart.write(str(data[i][0]) + "\t ")
 					else:
 						a += 1
 			i+=1
 			speedChart.write("\n")
+			distanceChart.write("\n")
 		speedChart.close()
+		distanceChart.close()
 		rId +=1
+		
+	
 
 
 ## Unused functions
