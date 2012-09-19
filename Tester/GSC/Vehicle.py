@@ -86,4 +86,32 @@ def _getDistanceNextTrafficLight(vhId):
 	return math.sqrt(((TL_cord[0]-Vh_cord[0])**2) + ((TL_cord[1]-Vh_cord[1])**2)) - 20
 
 
+_previusDistance = {}
+def getTotalDistanceDriven(vhId):
+	if not vhId in _previusDistance:
+		_previusDistance[vhId] = [0,traci.vehicle.getLaneID(vhId)]	
+	
+	if _previusDistance[vhId][1] != traci.vehicle.getLaneID(vhId):
+		_previusDistance[vhId][0] += traci.lane.getLength(_previusDistance[vhId][1])
+		_previusDistance[vhId][1] = traci.vehicle.getLaneID(vhId)
+
+
+
+	return _previusDistance[vhId][0] + traci.vehicle.getLanePosition(vhId)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
