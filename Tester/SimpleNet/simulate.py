@@ -9,18 +9,20 @@ PORT = 8813
 process = subprocess.Popen("%s -c %s" % (sumoBinary, sys.argv[1] + "/Data.sumocfg"), shell=True, stdout=sys.stdout)
 traci.init(PORT)
 
-step = 0
-
-f = open("testResults", "w")
+#Insert string integers of vehicles to test specically. Set tesPercet to False.
 GSCvehIds = []
-totalSpeed = 0
-divSpeed = 0
-testAll = False
 
+#Finding the vehicles to test
+testPercent = True
+percent = 10
+total = 500
+vehicles = random.sample(xrange(total), total*percent/100)
+
+step = 0
 while step==0 or traci.simulation.getMinExpectedNumber() > 0:
-	traci.simulationStep()	
+	traci.simulationStep()
 	for v in traci.vehicle.getIDList():
-		if testAll or v in GSCvehIds:
+		if (testPercent and int(v) in vehicles) or v in GSCvehIds:
 			speed = GSC.Vehicle.getRecommentedSpeed(v, 200, 400000)
 			traci.vehicle.setMaxSpeed(v, speed)
 	GSC.Test.processDataCollection()

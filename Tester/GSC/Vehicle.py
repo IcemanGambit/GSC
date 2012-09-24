@@ -19,6 +19,7 @@ def _getGreenSpans(vhId, maxtime):
 
 	returns the recommented speed to reach the green light for next intersection within maxtime simulation steps
 """
+#TODO: Do not slow down while in cross section
 def getRecommentedSpeed(vhId,minDistance, maxtime):
 	distance = _getDistanceNextTrafficLight(vhId)
 	spans = _getGreenSpans(vhId, maxtime)
@@ -26,33 +27,36 @@ def getRecommentedSpeed(vhId,minDistance, maxtime):
 	t = traci.simulation.getCurrentTime()
 	maxSpeed = traci.lane.getMaxSpeed(traci.vehicle.getLaneID(vhId))
 
+	#If there are no more traffic lights on route or
+	#traffic light too far away
+	#just drive at max speed
 	if distance == None:
 		return maxSpeed
 	if distance >= minDistance:
 		return maxSpeed
 
+
+	#Calculate optimal speed
 	smax = 0
 	smin = 0
-
 	for span in spans:
 		deltaTbegin = span[0] - t
-		#print deltaTbegin
 		if t > span[1]:
 			continue
 
 		if(deltaTbegin <= 0):
-			return maxSpeed	#light is green drive as fast as we want
+			return maxSpeed	#light is green: drive as fast possible
 		else:
 			smax = distance/(deltaTbegin/1000)
 
 		deltaTend =  span[1] - t
 		smin = distance/(deltaTend/1000)
 		
-		if smin <= maxSpeed: # we have a timespan we can reach before it go red
-			if smax > maxSpeed:	#we can drive max speed
+		if smin <= maxSpeed: #We can reace the timespan before it goes red
+			if smax > maxSpeed:	#We can drive at max speed
 				return maxSpeed 
 			else:		
-				return smax	#if we drive max speed I will not be green in time slow down!
+				return smax	#If we drive max speed, I will not be green in time. Slow down!
 	
 	return maxSpeed
 
@@ -69,17 +73,17 @@ def _getNextTrafficLight(vhId):
 		return None
 	if egde == nextTL[0][2]:
 		Route.visitTrafficLight(vhId)
-	if len(nextTL)== 0:
+	if len(nextTL)== 0: #TODO: One of these seem redundant
 		return None
 	return nextTL[0]
 	
 """
-	getDistanceNextTraficLight(int) -> int
+	getDistanceNextTraficLight(string) -> int
 
-	returns the euclidean distance to next intersection %TODO this might need fix to road length 
+	returns the euclidean distance to next intersection  
 """
+#TODO this might need fix to road length
 def _getDistanceNextTrafficLight(vhId):
-	#first we want the TL cordinate
 	TL = _getNextTrafficLight(vhId)
 	if not TL:
 		return None
@@ -87,19 +91,20 @@ def _getDistanceNextTrafficLight(vhId):
 	Vh_cord = traci.vehicle.getPosition(vhId)
 	return math.sqrt(((TL_cord[0]-Vh_cord[0])**2) + ((TL_cord[1]-Vh_cord[1])**2)) - 20
 
+"""
+	getTotalDistanceDriven(string) -> int
 
-_previusDistance = {}
+"""
+_previousDistance = {}
 def getTotalDistanceDriven(vhId):
-	if not vhId in _previusDistance:
-		_previusDistance[vhId] = [0,traci.vehicle.getLaneID(vhId)]	
+	if not vhId in _previousDistance:
+		_previousDistance[vhId] = [0,traci.vehicle.getLaneID(vhId)]	
 	
-	if _previusDistance[vhId][1] != traci.vehicle.getLaneID(vhId):
-		_previusDistance[vhId][0] += traci.lane.getLength(_previusDistance[vhId][1])
-		_previusDistance[vhId][1] = traci.vehicle.getLaneID(vhId)
+	if _previousDistance[vhId][1] != traci.vehicle.getLaneID(vhId):
+		_previousDistance[vhId][0] += traci.lane.getLength(_previousDistance[vhId][1])
+		_previousDistance[vhId][1] = traci.vehicle.getLaneID(vhId)
 
-
-
-	return _previusDistance[vhId][0] + traci.vehicle.getLanePosition(vhId)
+	return _previousDistance[vhId][0] + traci.vehicle.getLanePosition(vhId)
 
 
 
