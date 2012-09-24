@@ -121,4 +121,32 @@ def getTotalDistanceDriven(vhId):
 
 
 
+_previusDistance = {}
+def getTotalDistanceDriven(vhId):
+	if not vhId in _previusDistance:
+		_previusDistance[vhId] = [0,traci.vehicle.getLaneID(vhId)]	
+	
+	if _previusDistance[vhId][1] != traci.vehicle.getLaneID(vhId):
+		_previusDistance[vhId][0] += traci.lane.getLength(_previusDistance[vhId][1])
+		_previusDistance[vhId][1] = traci.vehicle.getLaneID(vhId)
+
+
+
+	return _previusDistance[vhId][0] + traci.vehicle.getLanePosition(vhId)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
