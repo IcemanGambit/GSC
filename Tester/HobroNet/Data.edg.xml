@@ -1,0 +1,84 @@
+<edges>
+	<!-- begin Junction Vesterbro osterbro hobro kongch -->
+    <edge from="Vesterbro_N" id="1_S" to="Ju_Vesterbro_Ostre_KongCh_hobro" numLanes="1" speed="16.6" >
+		<split pos="0" lanes="1 2"/>	
+		<split pos="-60" lanes="0 1 2 3"/>
+	</edge>
+
+    <edge from="Ju_Vesterbro_Ostre_KongCh_hobro" id="1_N" to="Vesterbro_N" numLanes="4" speed="16.6" >
+		<split pos="0" lanes="0 1"/>	
+	</edge>
+
+	<edge from="KongCh_V" id="2_O" to="Ju_Vesterbro_Ostre_KongCh_hobro" numLanes="2" speed="16.6" >
+		<split pos="0" lanes="1 2"/>	
+		<split pos="-60" lanes="0 1 2 3"/>
+	</edge>
+	<edge from="Ju_Vesterbro_Ostre_KongCh_hobro" id="2_V" to="KongCh_V" numLanes="2" speed="16.6" >
+	</edge>
+
+	<edge from="Ostre_O" id="3_V" to="Ju_Vesterbro_Ostre_KongCh_hobro" speed="16.6" numLanes="2" >
+		<split pos="0" lanes="1 2"/>	
+		<split pos="-60" lanes="0 1 2 3"/>
+	</edge>
+	<edge from="Ju_Vesterbro_Ostre_KongCh_hobro" id="3_O" to="Ostre_O" speed="16.6" numLanes="2"/>
+
+    <edge from="Hobrovej_N_1" id="4_N" to="Ju_Vesterbro_Ostre_KongCh_hobro" speed="16.6" numLanes="2">
+		<split pos="0" lanes="1 2"/>	
+		<split pos="-60" lanes="0 1 2 3"/>
+	</edge>
+    <edge from="Ju_Vesterbro_Ostre_KongCh_hobro" id="4_S" to="Hobrovej_N_1" speed="16.6" numLanes="4">
+		<split pos="0" lanes="0 1"/>	
+	</edge>
+
+ 
+	<!-- End Junction Vesterbro osterbro hobro kongch -->
+
+    <edge from="Hobrovej_N_1" id="5_S" to="Ju_Hobrovej_sonderSkov" speed="16.6" numLanes="2"/>
+    <edge from="Ju_Hobrovej_sonderSkov" id="5_N" to="Hobrovej_N_1" speed="16.6" numLanes="2"/>
+
+    <edge from="sonderSkov_V" id="6_O" to="Ju_Hobrovej_sonderSkov" speed="16.6" numLanes="1"/>
+    <edge from="Ju_Hobrovej_sonderSkov" id="6_V" to="sonderSkov_V" speed="16.6" numLanes="1"/>
+
+    <edge from="Ju_Hobrovej_RornersVej_N" id="7_N" to="Ju_Hobrovej_sonderSkov" speed="16.6" numLanes="2"/>
+    <edge from="Ju_Hobrovej_sonderSkov" id="7_S" to="Ju_Hobrovej_RornersVej_N" speed="16.6" numLanes="2"/>
+
+    <edge from="Ju_Hobrovej_RornersVej_N" id="8_S" to="Ju_Hobrovej_RornersVej_S" speed="16.6" numLanes="2"/>
+    <edge from="Ju_Hobrovej_RornersVej_S" id="8_N" to="Ju_Hobrovej_RornersVej_N" speed="16.6" numLanes="2"/>
+
+	<edge from="Ju_Hobrovej_RornersVej_N" id="9_O" to="RornersVej_O_N" speed="16.6" numLanes="1"/>
+    <edge from="Ju_Hobrovej_RornersVej_S" id="10_O" to="RornersVej_O_S" speed="16.6" numLanes="1"/>
+
+	<edge from="Ju_Hobrovej_RornersVej_S" id="11_S" to="Ju_Hobrovej_MollerPark" speed="16.6" numLanes="2"/>
+    <edge from="Ju_Hobrovej_MollerPark" id="11_N" to="Ju_Hobrovej_RornersVej_S" speed="16.6" numLanes="2"/>
+	
+	<edge from="MollerPark_V" id="12_O" to="Ju_Hobrovej_MollerPark" speed="16.6" numLanes="1"/>
+    <edge from="Ju_Hobrovej_MollerPark" id="12_V" to="MollerPark_V" speed="16.6" numLanes="1"/>
+	
+	<edge from="Ju_Hobrovej_LilleHobro" id="13_N" to="Ju_Hobrovej_MollerPark" speed="16.6" numLanes="2"/>
+    <edge from="Ju_Hobrovej_MollerPark" id="13_S" to="Ju_Hobrovej_LilleHobro" speed="16.6" numLanes="2"/>
+
+	<edge from="Ju_Hobrovej_LilleHobro" id="14_O" to="LilleHobro_V" speed="16.6" numLanes="1"/>
+    <edge from="LilleHobro_V" id="14_V" to="Ju_Hobrovej_LilleHobro" speed="16.6" numLanes="1"/>
+
+	<edge from="Ju_Hobrovej_LilleHobro" id="15_N" to="Ju_Hobrovej_ParkVej" speed="16.6" numLanes="2"/>
+    <edge from="Ju_Hobrovej_ParkVej" id="15_S" to="Ju_Hobrovej_LilleHobro" speed="16.6" numLanes="2"/>
+
+	<edge from="ParkVej_V" id="16_O" to="Ju_Hobrovej_ParkVej" speed="16.6" numLanes="1"/>
+    <edge from="Ju_Hobrovej_ParkVej" id="16_V" to="ParkVej_V" speed="16.6" numLanes="1"/>
+
+	<edge from="Ju_hobrovej_VestreAlle_NyKervej" id="17_N" to="Ju_Hobrovej_ParkVej" speed="16.6" numLanes="2"/>
+    <edge from="Ju_Hobrovej_ParkVej" id="17_S" to="Ju_hobrovej_VestreAlle_NyKervej" speed="16.6" numLanes="2"/>
+
+	<edge from="Ju_hobrovej_VestreAlle_NyKervej" id="18_S" to="hobrovej_S" speed="16.6" numLanes="2"/>
+    <edge from="hobrovej_S" id="18_N" to="Ju_hobrovej_VestreAlle_NyKervej" speed="16.6" numLanes="2"/>
+
+	<edge from="Ju_hobrovej_VestreAlle_NyKervej" id="19_V" to="VestreAlle_NV" speed="16.6" numLanes="1"/>
+    <edge from="VestreAlle_NV" id="19_O" to="Ju_hobrovej_VestreAlle_NyKervej" speed="16.6" numLanes="1"/>
+
+	<edge from="Ju_hobrovej_VestreAlle_NyKervej" id="20_O" to="NyKervej_O_1" speed="16.6" numLanes="1"/>
+    <edge from="NyKervej_O_1" id="20_V" to="Ju_hobrovej_VestreAlle_NyKervej" speed="16.6" numLanes="1"/>
+
+	<edge from="NyKervej_O_2" id="21_V" to="NyKervej_O_1" speed="16.6" numLanes="1"/>
+    <edge from="NyKervej_O_1" id="21_O" to="NyKervej_O_2" speed="16.6" numLanes="1"/>
+
+</edges>
