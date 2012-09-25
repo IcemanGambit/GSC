@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on Tue Sep 25 13:30:08 2012 by SUMO netconvert Version 0.15.0
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.sf.net/xsd/netconvertConfiguration.xsd">
+
+    <input>
+        <sumo-net-file value="Data.net.xml"/>
+    </input>
+
+    <output>
+        <plain-output-prefix value="test"/>
+    </output>
+
+    <processing>
+        <no-turnarounds value="true"/>
+        <offset.disable-normalization value="true"/>
+    </processing>
+
+</configuration>
+-->
+
+<edges version="0.13" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.sf.net/xsd/edges_file.xsd">
+    <edge id="10_O" from="Ju_Hobrovej_RornersVej_S" to="RornersVej_O_S" priority="-1" numLanes="1" speed="16.60"/>
+    <edge id="11_N" from="Ju_Hobrovej_MollerPark" to="Ju_Hobrovej_RornersVej_S" priority="-1" numLanes="2" speed="16.60"/>
+    <edge id="11_S" from="Ju_Hobrovej_RornersVej_S" to="Ju_Hobrovej_MollerPark" priority="-1" numLanes="2" speed="16.60"/>
+    <edge id="12_O" from="MollerPark_V" to="Ju_Hobrovej_MollerPark" priority="-1" numLanes="1" speed="16.60"/>
+    <edge id="12_V" from="Ju_Hobrovej_MollerPark" to="MollerPark_V" priority="-1" numLanes="1" speed="16.60"/>
+    <edge id="13_N" from="Ju_Hobrovej_LilleHobro" to="Ju_Hobrovej_MollerPark" priority="-1" numLanes="2" speed="16.60"/>
+    <edge id="13_S" from="Ju_Hobrovej_MollerPark" to="Ju_Hobrovej_LilleHobro" priority="-1" numLanes="2" speed="16.60"/>
+    <edge id="14_O" from="Ju_Hobrovej_LilleHobro" to="LilleHobro_V" priority="-1" numLanes="1" speed="16.60"/>
+    <edge id="14_V" from="LilleHobro_V" to="Ju_Hobrovej_LilleHobro" priority="-1" numLanes="1" speed="16.60"/>
+    <edge id="15_N" from="Ju_Hobrovej_LilleHobro" to="Ju_Hobrovej_ParkVej" priority="-1" numLanes="2" speed="16.60"/>
+    <edge id="15_S" from="Ju_Hobrovej_ParkVej" to="Ju_Hobrovej_LilleHobro" priority="-1" numLanes="2" speed="16.60"/>
+    <edge id="16_O" from="ParkVej_V" to="Ju_Hobrovej_ParkVej" priority="-1" numLanes="1" speed="16.60"/>
+    <edge id="16_V" from="Ju_Hobrovej_ParkVej" to="ParkVej_V" priority="-1" numLanes="1" speed="16.60"/>
+    <edge id="17_N" from="Ju_hobrovej_VestreAlle_NyKervej" to="Ju_Hobrovej_ParkVej" priority="-1" numLanes="2" speed="16.60"/>
+    <edge id="17_S" from="Ju_Hobrovej_ParkVej" to="Ju_hobrovej_VestreAlle_NyKervej" priority="-1" numLanes="2" speed="16.60"/>
+    <edge id="18_N" from="hobrovej_S" to="Ju_hobrovej_VestreAlle_NyKervej" priority="-1" numLanes="2" speed="16.60"/>
+    <edge id="18_S" from="Ju_hobrovej_VestreAlle_NyKervej" to="hobrovej_S" priority="-1" numLanes="2" speed="16.60"/>
+    <edge id="19_O" from="VestreAlle_NV" to="Ju_hobrovej_VestreAlle_NyKervej" priority="-1" numLanes="1" speed="16.60"/>
+    <edge id="19_V" from="Ju_hobrovej_VestreAlle_NyKervej" to="VestreAlle_NV" priority="-1" numLanes="1" speed="16.60"/>
+    <edge id="1_N" from="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" to="Vesterbro_N_N" priority="-1" numLanes="2" speed="16.60" shape="242.53,1131.98 253.70,1251.87" spreadType="center"/>
+    <edge id="1_S" from="Vesterbro_N_S" to="1_S.-60" priority="-1" numLanes="2" speed="16.60" shape="240.59,1245.77 234.75,1196.95" spreadType="center"/>
+    <edge id="1_S.-60" from="1_S.-60" to="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" priority="-1" numLanes="4" speed="16.60" shape="238.02,1196.56 230.89,1136.99" spreadType="center"/>
+    <edge id="20_O" from="Ju_hobrovej_VestreAlle_NyKervej" to="NyKervej_O_1" priority="-1" numLanes="1" speed="16.60"/>
+    <edge id="20_V" from="NyKervej_O_1" to="Ju_hobrovej_VestreAlle_NyKervej" priority="-1" numLanes="1" speed="16.60"/>
+    <edge id="21_O" from="NyKervej_O_1" to="NyKervej_O_2" priority="-1" numLanes="1" speed="16.60"/>
+    <edge id="21_V" from="NyKervej_O_2" to="NyKervej_O_1" priority="-1" numLanes="1" speed="16.60"/>
+    <edge id="2_O" from="KongCh_V" to="2_O.-60" priority="-1" numLanes="2" speed="16.60" shape="69.01,1216.52 175.21,1152.52" spreadType="center"/>
+    <edge id="2_O.-60" from="2_O.-60" to="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" priority="-1" numLanes="4" speed="16.60" shape="176.92,1155.34 228.31,1124.37" spreadType="center"/>
+    <edge id="2_V" from="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" to="KongCh_V" priority="-1" numLanes="2" speed="16.60" shape="230.89,1136.99 70.71,1219.34" spreadType="center"/>
+    <edge id="3_O" from="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" to="Ostre_O" priority="-1" numLanes="2" speed="16.60" shape="240.75,1117.41 381.16,1078.81" spreadType="center"/>
+    <edge id="3_V" from="Ostre_O" to="3_V.-60" priority="-1" numLanes="2" speed="16.60" shape="382.34,1081.89 299.73,1113.57" spreadType="center"/>
+    <edge id="3_V.-60" from="3_V.-60" to="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" priority="-1" numLanes="4" speed="16.60" shape="298.55,1110.49 242.53,1131.98" spreadType="center"/>
+    <edge id="4_N" from="Hobrovej_N_1" to="4_N.-60" priority="-1" numLanes="2" speed="16.60" spreadType="center"/>
+    <edge id="4_N.-60" from="4_N.-60" to="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" priority="-1" numLanes="4" speed="16.60" shape="234.40,1057.75 240.75,1117.41" spreadType="center"/>
+    <edge id="4_S" from="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" to="Hobrovej_S_1" priority="-1" numLanes="2" speed="16.60" shape="228.31,1124.37 217.45,968.37"/>
+    <edge id="5_N" from="Ju_Hobrovej_sonderSkov" to="Hobrovej_N_1" priority="-1" numLanes="2" speed="16.60"/>
+    <edge id="5_S" from="Hobrovej_S_1" to="Ju_Hobrovej_sonderSkov" priority="-1" numLanes="2" speed="16.60"/>
+    <edge id="6_O" from="sonderSkov_V" to="Ju_Hobrovej_sonderSkov" priority="-1" numLanes="1" speed="16.60"/>
+    <edge id="6_V" from="Ju_Hobrovej_sonderSkov" to="sonderSkov_V" priority="-1" numLanes="1" speed="16.60"/>
+    <edge id="7_N" from="Ju_Hobrovej_RornersVej_N" to="Ju_Hobrovej_sonderSkov" priority="-1" numLanes="2" speed="16.60"/>
+    <edge id="7_S" from="Ju_Hobrovej_sonderSkov" to="Ju_Hobrovej_RornersVej_N" priority="-1" numLanes="2" speed="16.60"/>
+    <edge id="8_N" from="Ju_Hobrovej_RornersVej_S" to="Ju_Hobrovej_RornersVej_N" priority="-1" numLanes="2" speed="16.60"/>
+    <edge id="8_S" from="Ju_Hobrovej_RornersVej_N" to="Ju_Hobrovej_RornersVej_S" priority="-1" numLanes="2" speed="16.60"/>
+    <edge id="9_O" from="Ju_Hobrovej_RornersVej_N" to="RornersVej_O_N" priority="-1" numLanes="1" speed="16.60"/>
+</edges>
