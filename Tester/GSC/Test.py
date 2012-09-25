@@ -14,7 +14,7 @@ def processDataCollection(vehicles = None):
 	
 	for vhId in vehicles:
 		#Process routes
-		r =','.join(traci.vehicle.getRoute(vhId))
+		r =', '.join(traci.vehicle.getRoute(vhId))
 		if r in routes:
 			if vhId not in routes[r]:
 				routes[r].append(vhId)
@@ -32,6 +32,54 @@ def processDataCollection(vehicles = None):
 	
 	print content of vehicleSpeeds to mulitiple files, one for each route type
 """
+def flushDataCollection(vehicles = None):
+	print "Flusing test results"
+	
+	initText = """
+\\begin{figure}
+\\begin{tikzpicture}
+\\begin{axis}[
+legend style={
+	anchor=west
+},
+axis x line=bottom,
+axis y line=left,
+ymin=-1,
+point meta=explicit symbolic,
+xlabel=%s,
+ylabel=%s
+]"""
+	endText = """
+\\end{axis}
+\\end{tikzpicture}
+\\label{tik:%s}
+\\caption{%s}
+\\end{figure}"""
+
+	rId = 0
+	for r in routes:
+		speedChart = open("Test/speedChart_" + str(rId), "w")
+		distanceChart = open("Test/distanceChart_" + str(rId), "w")
+		print >> speedChart, initText % ("Time", "Speed")
+		print >> distanceChart, initText % ("Time", "Distance")
+		for vh, data in vehicleData.iteritems():
+			if vh in routes[r]:
+				print >> speedChart, "\\addplot[] coordinates {"
+				print >> distanceChart, "\\addplot[] coordinates {"
+				t = 0
+				for i in data:
+					print >> speedChart, "(" + str(t) + ", " + str(i[1]) + ")"
+					print >> distanceChart, "(" + str(t) + ", " + str(i[0]) + ")"
+					t+=1
+				print >> speedChart, "};"# \\addlegendentry{"+ vh + "}"
+				print >> distanceChart, "};"# \\addlegendentry{"+ vh + "}"
+		print >> speedChart, endText % (r, r)
+		print >> distanceChart, endText % (r,r)
+		rId += 1
+				
+		
+
+'''
 def flushDataCollection(vehicles = None):
 	print "Flusing test results"
 	
@@ -62,7 +110,7 @@ def flushDataCollection(vehicles = None):
 		speedChart.close()
 		distanceChart.close()
 		rId +=1
-		
+		'''
 	
 
 

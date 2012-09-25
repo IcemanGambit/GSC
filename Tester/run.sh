@@ -19,14 +19,14 @@ then
 else
 	echo "Generate new routes"
 	python $1"/"genTrips.py $1
-	duarouter --net-file $1"/Data".net.xml --trip-files $1"/"trips.xml --output-file $1"/Data".rou.xml
+	duarouter --net-file $1"/"Data.net.xml --trip-files $1"/"trips.xml --route-files $1"/"Data.rou.xml --output-file $1"/Data".rou.xml
 fi
 
 echo "<?xml version='1.0' encoding='iso-8859-1'?>
 <configuration xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='http://sumo.sf.net/xsd/sumoConfiguration.xsd'>
     <input>
         <net-file value='Data.net.xml'/>
-        <route-files value='Data.rou.xml'/>
+        <route-files value='Data.rou.alt.xml'/>
     </input>
     <time>
        <begin value='0'/>

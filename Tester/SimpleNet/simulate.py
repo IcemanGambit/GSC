@@ -14,7 +14,7 @@ GSCvehIds = []
 
 #Finding the vehicles to test
 testPercent = True
-percent = 10
+percent = 100 #Driving with GSC
 total = 500
 vehicles = random.sample(xrange(total), total*percent/100)
 

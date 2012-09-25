@@ -97,52 +97,18 @@ def _getDistanceNextTrafficLight(vhId):
 """
 _previousDistance = {}
 def getTotalDistanceDriven(vhId):
+	laneID = traci.vehicle.getLaneID(vhId)
+	roadID = traci.vehicle.getRoadID(vhId)
+
 	if not vhId in _previousDistance:
-		_previousDistance[vhId] = [0,traci.vehicle.getLaneID(vhId)]	
+		_previousDistance[vhId] = [0,roadID, laneID]	
 	
-	if _previousDistance[vhId][1] != traci.vehicle.getLaneID(vhId):
-		_previousDistance[vhId][0] += traci.lane.getLength(_previousDistance[vhId][1])
-		_previousDistance[vhId][1] = traci.vehicle.getLaneID(vhId)
+	if _previousDistance[vhId][1] != roadID:
+		_previousDistance[vhId][0] += traci.lane.getLength(_previousDistance[vhId][2])
+		_previousDistance[vhId][1] = roadID
+		_previousDistance[vhId][2] = laneID
 
 	return _previousDistance[vhId][0] + traci.vehicle.getLanePosition(vhId)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-_previusDistance = {}
-def getTotalDistanceDriven(vhId):
-	if not vhId in _previusDistance:
-		_previusDistance[vhId] = [0,traci.vehicle.getLaneID(vhId)]	
-	
-	if _previusDistance[vhId][1] != traci.vehicle.getLaneID(vhId):
-		_previusDistance[vhId][0] += traci.lane.getLength(_previusDistance[vhId][1])
-		_previusDistance[vhId][1] = traci.vehicle.getLaneID(vhId)
-
-
-
-	return _previusDistance[vhId][0] + traci.vehicle.getLanePosition(vhId)
-
-
-
-
-
-
-
-
-
-
 
 
 
