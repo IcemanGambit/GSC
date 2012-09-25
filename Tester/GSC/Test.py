@@ -32,7 +32,7 @@ def processDataCollection(vehicles = None):
 	
 	print content of vehicleSpeeds to mulitiple files, one for each route type
 """
-def flushDataCollection(vehicles = None):
+def flushDataCollection(percent, vehicles = None):
 	print "Flusing test results"
 	
 	initText = """
@@ -52,16 +52,16 @@ ylabel=%s
 	endText = """
 \\end{axis}
 \\end{tikzpicture}
-\\label{tik:%s}
-\\caption{%s}
+\\label{tik:%i:%s}
+\\caption{%i percent diving with GSC on route %s}
 \\end{figure}"""
 
 	rId = 0
 	for r in routes:
-		speedChart = open("Test/speedChart_" + str(rId), "w")
-		distanceChart = open("Test/distanceChart_" + str(rId), "w")
-		print >> speedChart, initText % ("Time", "Speed")
-		print >> distanceChart, initText % ("Time", "Distance")
+		speedChart = open("Test/"+str(percent)+ "/speed_" + str(rId), "w")
+		distanceChart = open("Test/"+str(percent)+ "/distance_" + str(rId), "w")
+		print >> speedChart, initText % ("Time (s)", "Speed (m/s)")
+		print >> distanceChart, initText % ("Time (s)", "Distance (m)")
 		for vh, data in vehicleData.iteritems():
 			if vh in routes[r]:
 				print >> speedChart, "\\addplot[] coordinates {"
@@ -73,98 +73,9 @@ ylabel=%s
 					t+=1
 				print >> speedChart, "};"# \\addlegendentry{"+ vh + "}"
 				print >> distanceChart, "};"# \\addlegendentry{"+ vh + "}"
-		print >> speedChart, endText % (r, r)
-		print >> distanceChart, endText % (r,r)
+		print >> speedChart, endText % (percent, r, percent, r)
+		print >> distanceChart, endText % (percent, r, percent, r)
 		rId += 1
-				
-		
-
-'''
-def flushDataCollection(vehicles = None):
-	print "Flusing test results"
-	
-	rId =0
-	for r in routes:
-		speedChart = open("Test/speedChart_" + str(rId), "w")
-		distanceChart = open("Test/distanceChart_" + str(rId), "w")
-
-		i = 0
-		a = 0
-		for vh in vehicleData:
-			if vh in routes[r]:
-				speedChart.write(str(vh) + "\t ")
-				distanceChart.write(str(vh) + "\t ")
-		speedChart.write("\n")
-		distanceChart.write("\n")
-		while a < len(vehicleData): #TODO: +1?
-			for vh, data in vehicleData.iteritems():
-				if vh in routes[r]:
-					if(len(data)> i):
-						speedChart.write(str(data[i][1]) + "\t ")
-						distanceChart.write(str(data[i][0]) + "\t ")
-					else:
-						a += 1
-			i+=1
-			speedChart.write("\n")
-			distanceChart.write("\n")
-		speedChart.close()
-		distanceChart.close()
-		rId +=1
-		'''
-	
-
-
-## Unused functions
-
-totalSpeedAll = 0
-divSpeed = 0
-
-"""
-	printSpeed(file, string) ->
-	
-	Prints the speed of given vehicle to file
-"""
-def printSpeed(outputFile, vhId):
-	print >> outputFile, "Speed, "+ vhId +": " + str(traci.vehicle.getSpeed(vhId))
-	
-"""
-	printSpeed(file, [string,]) ->
-	
-	Prints the speed of the given vehicles to file. 
-	If parameter is None, all vehicles in the net are used.
-"""
-def printSpeeds(outputFile, vehicles = None):
-	if vehicles == None:
-		vehicles = traci.vehicle.getIDList()
-	
-	for v in vehicles:
-		printSpeed(outputFile,v)
-
-"""
-	printAverageSpeed(file, [string,]) ->
-	
-	Prints the average speed of the given vehicles to file. 
-	If parameter is None, all vehicles in the net are used.
-"""
-def printAverageSpeed(outputFile, vehicles = None):
-	if vehicles == None:
-		vehicles = traci.vehicle.getIDList()
-	
-	totalSpeed = 0
-	for v in vehicles:
-		totalSpeed += traci.vehicle.getSpeed(v)
-	print >> outputFile, "Avg. speed: " + str(totalSpeed/len(vehicles))
-
-def collectAvgerageSpeed(vehicles = None):
-	if vehicles == None:
-		vehicles = traci.vehicle.getIDList()
-	totalSpeedAll += traci.vehicle.getSpeed(vhId)
-	divSpeed += 1
-
-def printOverallAvgerageSpeed(outputFile):
-	print >> outputFile, "Avg. speed: " +  str(totalSpeedAll/divSpeed)
-
-
 
 
 

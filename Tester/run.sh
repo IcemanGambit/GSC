@@ -40,11 +40,11 @@ echo "<?xml version='1.0' encoding='iso-8859-1'?>
 </configuration>" > $1"/Data.sumocfg"
 
 #For testing
-if [ -d Test ] 
-then
-	find Test -delete
-	mkdir Test
-fi
+#if [ -d Test ] 
+#then
+#	find Test -delete
+#	mkdir Test
+#fi
 
 echo "run SUMO"
 python $1"/"simulate.py $1
