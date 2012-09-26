@@ -46,14 +46,15 @@
   	<edge from="Ju_Hobrovej_sonderSkov_V" id="4_1_1" to="Ju_Hobrovej_sonderSkov_O" speed="16.6" numLanes="1" />
   	<edge from="Ju_Hobrovej_sonderSkov_O" id="4_1_1" to="Ju_Hobrovej_sonderSkov_V" speed="16.6" numLanes="1" />
    	<edge from="Ju_Hobrovej_sonderSkov_OS" id="4_1_1" to="Ju_Hobrovej_sonderSkov_O" speed="16.6" numLanes="1" />
-  
+  	<edge from="Ju_Hobrovej_sonderSkov_V" id="4_1_1" to="Ju_Hobrovej_sonderSkov_VS" speed="16.6" numLanes="1" />
+    
 	<!-- Hobrovej_2 id 5-->
-    <edge from="Hobrovej_S_1" id="5_S" to="Ju_Hobrovej_sonderSkov_V" speed="16.6" numLanes="4" spreadType="center">
-		<split pos="0" lanes="2 3"/>		
+    <edge from="Hobrovej_S_1" id="5_S" to="Ju_Hobrovej_sonderSkov_V" speed="16.6" numLanes="2" >
+		<split pos="0" lanes="1 2"/>		
 		<split pos="-30" lanes="0 1 2"/>
 	</edge>
-    <edge from="Ju_Hobrovej_sonderSkov_O" id="5_N" to="Hobrovej_N_1" speed="16.6" numLanes="4" spreadType="center">
-		<split pos="0" lanes="2 3"/>
+    <edge from="Ju_Hobrovej_sonderSkov_O" id="5_N" to="Hobrovej_N_1" speed="16.6" numLanes="2" spreadType="center">
+		<split pos="0" lanes="1 2"/>
 	</edge>
 
 	<!-- sonderSkov id 6-->
@@ -63,31 +64,39 @@
 
     <edge from="Ju_Hobrovej_sonderSkov_V" id="6_V" to="sonderSkov_V" speed="16.6" numLanes="1"/>
 	
-	<!-- begin Junction hobro RornersVej -->
+	<!-- begin Junction hobro RornersVej N -->
+	<!-- Inner Junction Connection-->
+	<edge from="Ju_Hobrovej_RornersVej_NO" id="9_O" to="RornersVej_O_N" speed="16.6" numLanes="1"/>
+	
 
 	<!-- Hobrovej_3 id 7-->
-    <edge from="Ju_Hobrovej_RornersVej_N" id="7_N" to="Ju_Hobrovej_sonderSkov_OS" speed="16.6" numLanes="3"  >
+    <edge from="Ju_Hobrovej_RornersVej_NO" id="7_N" to="Ju_Hobrovej_sonderSkov_OS" speed="16.6" numLanes="3"  >
 		<split pos="0" lanes="0 1"/>
-		<split pos="-40" lanes="0 1 2"/>
+		<split pos="-60" lanes="0 1 2"/>
 	</edge>
-    <edge from="Ju_Hobrovej_sonderSkov_V" id="7_S" to="Ju_Hobrovej_RornersVej_N" speed="16.6" numLanes="3" >
+	
+
+	<!-- begin Junction hobro RornersVej S -->
+	<!-- Inner Junction Connection-->
+	<edge from="Ju_Hobrovej_RornersVej_SV" id="7_1" to="Ju_Hobrovej_RornersVej_SO" speed="16.6" numLanes="1"  />
+	<edge from="Ju_Hobrovej_RornersVej_SV" id="7_2" to="Ju_Hobrovej_RornersVej_SSV" speed="16.6" numLanes="2" />
+	<edge from="Ju_Hobrovej_RornersVej_SSO" id="7_3" to="Ju_Hobrovej_RornersVej_SO" speed="16.6" numLanes="2" />
+
+    <edge from="Ju_Hobrovej_sonderSkov_VS" id="7_S" to="Ju_Hobrovej_RornersVej_SV" speed="16.6" numLanes="3" >
 		<split pos="0" lanes="0 1"/>		
-		<split pos="-20" lanes="0 1 2"/>
+		<split pos="-25" lanes="0 1 2"/>
 	</edge>
 	<!-- End Junction hobro sonderskov -->
 
-    <edge from="Ju_Hobrovej_RornersVej_N" id="8_S" to="Ju_Hobrovej_RornersVej_S" speed="16.6" numLanes="3">
+    <edge from="Ju_Hobrovej_RornersVej_SO" id="8_N" to="Ju_Hobrovej_RornersVej_NO" speed="16.6" numLanes="3">
 		<split pos="0" lanes="0 1"/>		
 	</edge>
-    <edge from="Ju_Hobrovej_RornersVej_S" id="8_N" to="Ju_Hobrovej_RornersVej_N" speed="16.6" numLanes="3">
-		<split pos="0" lanes="0 1"/>		
-	</edge>
+	<!-- End Junction hobro RornersVej N -->
 
-	<edge from="Ju_Hobrovej_RornersVej_N" id="9_O" to="RornersVej_O_N" speed="16.6" numLanes="1"/>
-    <edge from="Ju_Hobrovej_RornersVej_S" id="10_O" to="RornersVej_O_S" speed="16.6" numLanes="1"/>
+    <edge from="Ju_Hobrovej_RornersVej_SO" id="10_O" to="RornersVej_O_S" speed="16.6" numLanes="1"/>
 
-	<edge from="Ju_Hobrovej_RornersVej_S" id="11_S" to="Ju_Hobrovej_MollerPark" speed="16.6" numLanes="2"/>
-    <edge from="Ju_Hobrovej_MollerPark" id="11_N" to="Ju_Hobrovej_RornersVej_S" speed="16.6" numLanes="2"/>
+	<edge from="Ju_Hobrovej_RornersVej_SSV" id="11_S" to="Ju_Hobrovej_MollerPark" speed="16.6" numLanes="2"/>
+    <edge from="Ju_Hobrovej_MollerPark" id="11_N" to="Ju_Hobrovej_RornersVej_SSO" speed="16.6" numLanes="2"/>
 	
 	<!-- End Junction hobro RornersVej -->
 	<edge from="MollerPark_V" id="12_O" to="Ju_Hobrovej_MollerPark" speed="16.6" numLanes="1"/>
