@@ -43,10 +43,10 @@
 
 	<!-- begin Junction hobro sonderskov -->
 	<!-- Inner Junction Connection-->
-  	<edge from="Ju_Hobrovej_sonderSkov_V" id="4_1_1" to="Ju_Hobrovej_sonderSkov_O" speed="16.6" numLanes="1" />
-  	<edge from="Ju_Hobrovej_sonderSkov_O" id="4_1_1" to="Ju_Hobrovej_sonderSkov_V" speed="16.6" numLanes="1" />
-   	<edge from="Ju_Hobrovej_sonderSkov_OS" id="4_1_1" to="Ju_Hobrovej_sonderSkov_O" speed="16.6" numLanes="1" />
-  	<edge from="Ju_Hobrovej_sonderSkov_V" id="4_1_1" to="Ju_Hobrovej_sonderSkov_VS" speed="16.6" numLanes="1" />
+  	<edge from="Ju_Hobrovej_sonderSkov_V" id="4_1_1" to="Ju_Hobrovej_sonderSkov_O" speed="16.6" numLanes="2" />
+  	<edge from="Ju_Hobrovej_sonderSkov_O" id="4_1_2" to="Ju_Hobrovej_sonderSkov_V" speed="16.6" numLanes="2" />
+   	<edge from="Ju_Hobrovej_sonderSkov_OS" id="4_1_3" to="Ju_Hobrovej_sonderSkov_O" speed="16.6" numLanes="2" />
+  	<edge from="Ju_Hobrovej_sonderSkov_V" id="4_1_4" to="Ju_Hobrovej_sonderSkov_VS" speed="16.6" numLanes="2" />
     
 	<!-- Hobrovej_2 id 5-->
     <edge from="Hobrovej_S_1" id="5_S" to="Ju_Hobrovej_sonderSkov_V" speed="16.6" numLanes="2" >

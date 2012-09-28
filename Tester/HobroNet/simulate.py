@@ -13,7 +13,7 @@ traci.init(PORT)
 GSCvehIds = []
 
 #Finding the vehicles to test
-testPercent = True
+testPercent = False
 percent = 10
 total = 500
 vehicles = random.sample(xrange(total), total*percent/100)
@@ -25,9 +25,9 @@ while step==0 or traci.simulation.getMinExpectedNumber() > 0:
 		if (testPercent and int(v) in vehicles) or v in GSCvehIds:
 			speed = GSC.Vehicle.getRecommentedSpeed(v, 200, 400000)
 			traci.vehicle.setMaxSpeed(v, speed)
-	GSC.Test.processDataCollection()
+	#GSC.Test.processDataCollection()
 	step+=1
-GSC.Test.flushDataCollection()
+#GSC.Test.flushDataCollection()
 
 #Clean up
 traci.close()
