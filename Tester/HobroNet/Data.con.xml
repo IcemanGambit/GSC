@@ -52,4 +52,18 @@
 
 	<!-- End Junction hobro sonderskov-->
 
+
+	<!-- Begin Junction Hobrovej_MollerPark -->
+
+	<connection from="11_S.-50" to="12_V"  fromLane="0" toLane="0"/>
+	<connection from="11_S.-50" to="13_S"  fromLane="1" toLane="0"/>
+	<connection from="11_S.-50" to="13_S"  fromLane="2" toLane="1"/>	
+
+	<connection from="12_O" to="11_N"  fromLane="0" toLane="0"/>	
+	<connection from="12_O" to="13_S"  fromLane="0" toLane="0"/>
+
+	<connection from="13_N.-40" to="11_N"  fromLane="0" toLane="1"/>	
+	<connection from="13_N.-40" to="11_N"  fromLane="1" toLane="0"/>
+	<connection from="13_N.-40" to="12_V"  fromLane="2" toLane="0"/>
+	<!-- End Junction Hobrovej_MollerPark-->
 </connections>
