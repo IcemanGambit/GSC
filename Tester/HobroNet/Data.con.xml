@@ -1,5 +1,5 @@
 <connections>
-	<!-- begin Junction Vesterbro osterbro hobro kongch -->
+	<!-- begin Junction Vesterbro osteralle hobro kongch -->
 	<!-- from kongch -->
 	<connection from="2_O.-60" to="4_S"  fromLane="0" toLane="0"/>
 	<connection from="2_O.-60" to="3_O"  fromLane="1" toLane="0"/>
@@ -10,7 +10,7 @@
 	<connection from="1_S.-60" to="4_S"  fromLane="1" toLane="0"/>
 	<connection from="1_S.-60" to="4_S"  fromLane="2" toLane="1"/>
 	<connection from="1_S.-60" to="3_O"  fromLane="3" toLane="0"/>
-	<!-- from osterbro -->
+	<!-- from osteralle -->
 	<connection from="3_V.-60" to="1_N"  fromLane="0" toLane="0"/>
 	<connection from="3_V.-60" to="2_V"  fromLane="1" toLane="0"/>
 	<connection from="3_V.-60" to="2_V"  fromLane="2" toLane="1"/>
@@ -20,7 +20,7 @@
 	<connection from="4_N.-60" to="1_N"  fromLane="1" toLane="0"/>
 	<connection from="4_N.-60" to="1_N"  fromLane="2" toLane="1"/>
 	<connection from="4_N.-60" to="2_V"  fromLane="3" toLane="0"/>
-	<!-- End Junction Vesterbro osterbro hobro kongch -->
+	<!-- End Junction Vesterbro osteralle hobro kongch -->
 
 	<!-- begin Connection Hobro_1 to hobro_2 -->
 	<connection from="5_N" to="4_N"  fromLane="0" toLane="0"/>

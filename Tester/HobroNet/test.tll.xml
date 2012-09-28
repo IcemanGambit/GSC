@@ -33,7 +33,7 @@
         <phase duration="5" state="rrrrrrrryyyrrrrrrrryyy"/>
     </tlLogic>
 
-    <connection from="1_S.-60" to="2_V" fromLane="0" toLane="0" tl="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" linkIndex="0"/>
+    <connection from="1_S.-60" to="2_V" fromLane="0" toLane="0" tl="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" linkIndex="0"/> 
     <connection from="1_S.-60" to="4_S" fromLane="0" toLane="0" tl="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" linkIndex="1"/>
     <connection from="1_S.-60" to="4_S" fromLane="1" toLane="1" tl="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" linkIndex="2"/>
     <connection from="1_S.-60" to="3_O" fromLane="2" toLane="1" tl="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" linkIndex="3"/>
