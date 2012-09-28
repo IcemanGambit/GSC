@@ -33,7 +33,10 @@
 	<join nodes="Ju_Hobrovej_RornersVej_SO Ju_Hobrovej_RornersVej_SV Ju_Hobrovej_RornersVej_SSV Ju_Hobrovej_RornersVej_SSO"/>
 		
 	<node id="MollerPark_V" x="9.9068435" y="57.0362399" />
-	<node id="Ju_Hobrovej_MollerPark" x="9.9093107" y="57.0359856"  />
+	<node id="Ju_Hobrovej_MollerPark" x="9.9093107" y="57.0359856"  type="traffic_light" />
+	<node id="Ju_Hobrovej_MollerPark_NO" x="9.9093607" y="57.0359856"  type="traffic_light" />
+
+	<join nodes="Ju_Hobrovej_MollerPark Ju_Hobrovej_MollerPark_NO"/>
 
 	<node id="LilleHobro_V" x="9.9073217" y="57.0355894" />
 	<node id="Ju_Hobrovej_LilleHobro" x="9.9091042" y="57.0354238"  />
