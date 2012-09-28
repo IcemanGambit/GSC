@@ -22,14 +22,52 @@
 -->
 
 <tlLogics version="0.13" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.sf.net/xsd/tllogic_file.xsd">
-    <tlLogic id="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" type="static" programID="0" offset="0">
-        <phase duration="31" state="ggggrrrrrrrrgggg"/>
-        <phase duration="4" state="yyyyrrrrrrrryyyy"/>
-        <phase duration="2" state="rrrryyyyyyyyrrrr"/>
-        <phase duration="31" state="rrrrGGGGGGGGrrrr"/>
-        <phase duration="4" state="rrrryyyyyyyyrrrr"/>
-        <phase duration="2" state="yyyyrrrrrrrryyyy"/>
-    </tlLogic>
+	<tlLogic id="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" type="static" programID="0" offset="0">
+		<phase duration="31" state="gggrrrrrrrrrgggr"/> <!-- 1 -->
+		<phase duration="4" state="yyyrrrrrrrrryyyr"/>
+		<phase duration="2" state="rrryyrrryrrrrrry"/>
+		<phase duration="10" state="rrrggrrrgrrrrrrg"/> <!-- 2 -->
+		<phase duration="4" state="rrrygrrrgrrrrrry"/>
+		<phase duration="2" state="rrrrgyyygyyrrrrr"/>
+		<phase duration="31" state="rrrrgggggggrrrrr"/> <!-- 3 -->
+		<phase duration="4" state="rrrryyyygggrrrrr"/>
+		<phase duration="2" state="rrrrrrrrgggyyrrr"/>
+		<phase duration="10" state="rrrrrrrrgggGGrrr"/> <!-- 4 -->
+		<phase duration="4" state="rrrrrrrryyyygrrr"/>
+		<phase duration="2" state="yyyrrrrrrrrrgyyr"/>
+	</tlLogic>
+
+	<!-- from vesterbro -->
+    <connection from="1_S.-60" to="2_V" fromLane="0" toLane="0" tl="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" linkIndex="0"/>
+    <connection from="1_S.-60" to="4_S" fromLane="1" toLane="0" tl="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" linkIndex="1"/>
+    <connection from="1_S.-60" to="4_S" fromLane="2" toLane="1" tl="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" linkIndex="2"/>
+    <connection from="1_S.-60" to="3_O" fromLane="3" toLane="0" tl="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" linkIndex="3"/>
+    
+    <!-- from kongch -->
+    <connection from="2_O.-60" to="4_S" fromLane="0" toLane="0" tl="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" linkIndex="4"/>
+    <connection from="2_O.-60" to="3_O" fromLane="1" toLane="0" tl="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" linkIndex="5"/>
+    <connection from="2_O.-60" to="3_O" fromLane="2" toLane="1" tl="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" linkIndex="6"/>
+    <connection from="2_O.-60" to="1_N" fromLane="3" toLane="0" tl="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" linkIndex="7"/>
+
+	<!-- from osteralle -->
+	<connection from="3_V.-60" to="1_N" fromLane="0" toLane="0" tl="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" linkIndex="8"/>
+	<connection from="3_V.-60" to="2_V" fromLane="1" toLane="0" tl="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" linkIndex="9"/>
+	<connection from="3_V.-60" to="2_V" fromLane="2" toLane="1" tl="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" linkIndex="10"/>
+	<connection from="3_V.-60" to="4_S" fromLane="3" toLane="0" tl="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" linkIndex="11"/>
+	
+	<!-- from hobro -->
+	<connection from="4_N.-60" to="3_O" fromLane="0" toLane="0" tl="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" linkIndex="12"/>
+	<connection from="4_N.-60" to="1_N" fromLane="1" toLane="0" tl="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" linkIndex="13"/>
+	<connection from="4_N.-60" to="1_N" fromLane="2" toLane="1" tl="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" linkIndex="14"/>
+	<connection from="4_N.-60" to="2_V" fromLane="3" toLane="0" tl="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" linkIndex="15"/>
+</tlLogics>
+
+<tlLogics version="0.13" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.sf.net/xsd/tllogic_file.xsd">
+	<tlLogic id="cluster_Ju_Hobrovej_sonderSkov_V Ju_Hobrovej_sonderSkov_O Ju_Hobrovej_sonderSkov_OS" type="static" programID="0" offset="0">
+		<phase duration="31" state="gggrrrrrrrrrgggr"/> <!-- 1 -->
+		<phase duration="4" state="yyyrrrrrrrrryyyr"/>
+		<phase duration="2" state="rrryyrrryrrrrrry"/>
+	</tlLogic>
 
 	<!-- from vesterbro -->
     <connection from="1_S.-60" to="2_V" fromLane="0" toLane="0" tl="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" linkIndex="0"/>
