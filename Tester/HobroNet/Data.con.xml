@@ -42,6 +42,8 @@
 	<connection from="5_S.-30" to="7_S"  fromLane="1" toLane="0"/>
 	<connection from="5_S.-30" to="7_S"  fromLane="2" toLane="1"/>	
 
+	<delete from="6_O.-30" to="7_S"  fromLane="0" toLane="1"/>
+	<delete from="6_O.-30" to="5_N"  fromLane="1" toLane="1"/>
 	<connection from="6_O.-30" to="7_S"  fromLane="0" toLane="0"/>	
 	<connection from="6_O.-30" to="5_N"  fromLane="1" toLane="0"/>
 
@@ -66,7 +68,6 @@
 	<connection from="13_N.-40" to="12_V"  fromLane="2" toLane="0"/>
 	<!-- End Junction Hobrovej_MollerPark-->
 
-	<!-- Begin Junction Hobrovej_LilleHobro -->
 	<connection from="13_S" to="15_S"  fromLane="0" toLane="0"/>
 	<connection from="13_S" to="15_S"  fromLane="1" toLane="0"/>
 	<connection from="13_S" to="14_V"  fromLane="1" toLane="0"/>
@@ -95,7 +96,6 @@
 	<connection from="20_V" to="17_N"  fromLane="0" toLane="1"/>
 	<connection from="20_V" to="19_V"  fromLane="1" toLane="0"/>
 	<connection from="20_V" to="18_S"  fromLane="2" toLane="0"/>
-
 
 	<!-- End Junction hobrovej_VestreAlle_NyKervej -->
 </connections>
