@@ -109,6 +109,7 @@
 	<edge from="MollerPark_V" id="12_O" to="Ju_Hobrovej_MollerPark" speed="16.6" numLanes="1"/>
     <edge from="Ju_Hobrovej_MollerPark" id="12_V" to="MollerPark_V" speed="16.6" numLanes="1"/>
 	
+	<!-- Begin Junction Hobrovej_LilleHobro -->
 	<edge from="Ju_Hobrovej_LilleHobro" id="13_N" to="Ju_Hobrovej_MollerPark" speed="16.6" numLanes="3">
 		<split pos="0" lanes="0 1"/>
 		<split pos="-40" lanes="0 1 2"/>	
@@ -119,23 +120,42 @@
 	<edge from="Ju_Hobrovej_LilleHobro" id="14_O" to="LilleHobro_V" speed="16.6" numLanes="1"/>
     <edge from="LilleHobro_V" id="14_V" to="Ju_Hobrovej_LilleHobro" speed="16.6" numLanes="1"/>
 
+	<!-- Begin Junction Hobrovej_ParkVej -->
+	<!-- Inner Junction Connection-->
+	<edge from="Ju_Hobrovej_ParkVej" id="12_1" to="Ju_Hobrovej_ParkVej_S" speed="16.6" numLanes="1"  />
+
 	<edge from="Ju_Hobrovej_LilleHobro" id="15_N" to="Ju_Hobrovej_ParkVej" speed="16.6" numLanes="2"/>
-    <edge from="Ju_Hobrovej_ParkVej" id="15_S" to="Ju_Hobrovej_LilleHobro" speed="16.6" numLanes="2"/>
+    <edge from="Ju_Hobrovej_ParkVej_V" id="15_S" to="Ju_Hobrovej_LilleHobro" speed="16.6" numLanes="3">
+		<split pos="0" lanes="0 1"/>
+		<split pos="-30" lanes="0 1 2"/>	
+	</edge>	<!-- End Junction Hobrovej_LilleHobro -->
 
 	<edge from="ParkVej_V" id="16_O" to="Ju_Hobrovej_ParkVej" speed="16.6" numLanes="1"/>
     <edge from="Ju_Hobrovej_ParkVej" id="16_V" to="ParkVej_V" speed="16.6" numLanes="1"/>
 
-	<edge from="Ju_hobrovej_VestreAlle_NyKervej" id="17_N" to="Ju_Hobrovej_ParkVej" speed="16.6" numLanes="2"/>
-    <edge from="Ju_Hobrovej_ParkVej" id="17_S" to="Ju_hobrovej_VestreAlle_NyKervej" speed="16.6" numLanes="2"/>
+	<edge from="Ju_hobrovej_VestreAlle_NyKervej" id="17_N" to="Ju_Hobrovej_ParkVej_V" speed="16.6" numLanes="3">
+		<split pos="0" lanes="0 1"/>
+	</edge>
+    <edge from="Ju_Hobrovej_ParkVej_S" id="17_S" to="Ju_hobrovej_VestreAlle_NyKervej" speed="16.6" numLanes="3">
+		<split pos="0" lanes="1 2"/>
+		<split pos="-60" lanes="0 1 2 3"/>
+	</edge>
 
-	<edge from="Ju_hobrovej_VestreAlle_NyKervej" id="18_S" to="hobrovej_S" speed="16.6" numLanes="2"/>
-    <edge from="hobrovej_S" id="18_N" to="Ju_hobrovej_VestreAlle_NyKervej" speed="16.6" numLanes="2"/>
+	<!-- End Junction Hobrovej_ParkVej -->
+	<edge from="Ju_hobrovej_VestreAlle_NyKervej_S" id="18_S" to="hobrovej_S" speed="16.6" numLanes="2"/>
+    <edge from="hobrovej_S" id="18_N" to="Ju_hobrovej_VestreAlle_NyKervej" speed="16.6" numLanes="4">
+	<split pos="0" lanes="1 2"/>
+		<split pos="-60" lanes="0 1 2 3"/>
+	</edge>
 
 	<edge from="Ju_hobrovej_VestreAlle_NyKervej" id="19_V" to="VestreAlle_NV" speed="16.6" numLanes="1"/>
-    <edge from="VestreAlle_NV" id="19_O" to="Ju_hobrovej_VestreAlle_NyKervej" speed="16.6" numLanes="1"/>
+    <edge from="VestreAlle_NV" id="19_O" to="Ju_hobrovej_VestreAlle_NyKervej" speed="16.6" numLanes="3">
+	<split pos="0" lanes="1"/>
+		<split pos="-60" lanes="0 1 2"/>
+	</edge>
 
 	<edge from="Ju_hobrovej_VestreAlle_NyKervej" id="20_O" to="NyKervej_O_1" speed="16.6" numLanes="1"/>
-    <edge from="NyKervej_O_1" id="20_V" to="Ju_hobrovej_VestreAlle_NyKervej" speed="16.6" numLanes="1"/>
+    <edge from="NyKervej_O_1" id="20_V" to="Ju_hobrovej_VestreAlle_NyKervej" speed="16.6" numLanes="3"/>
 
 	<edge from="NyKervej_O_2" id="21_V" to="NyKervej_O_1" speed="16.6" numLanes="1"/>
     <edge from="NyKervej_O_1" id="21_O" to="NyKervej_O_2" speed="16.6" numLanes="1"/>
