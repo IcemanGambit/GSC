@@ -69,7 +69,7 @@
 		<phase duration="2" state="rrryyrrr"/>
 		<phase duration="21" state="rrrggrrr"/> <!-- 2 -->
 		<phase duration="4" state="rrryyrrr"/>
-		<phase duration="2" state="yyyrryyy"/>
+		<phase duration="2" state="yyyrryyy"/>	
 	</tlLogic>
 
     <connection from="5_S.-30" to="6_V" fromLane="0" toLane="0" tl="cluster_Ju_Hobrovej_sonderSkov_O_Ju_Hobrovej_sonderSkov_OS_Ju_Hobrovej_sonderSkov_V_Ju_Hobrovej_sonderSkov_VS" linkIndex="0"/>
