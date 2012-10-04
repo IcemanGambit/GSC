@@ -90,7 +90,5 @@
 	<connection from="20_V" to="17_N"  fromLane="0" toLane="1"/>
 	<connection from="20_V" to="19_V"  fromLane="1" toLane="0"/>
 	<connection from="20_V" to="18_S"  fromLane="2" toLane="0"/>
-
-
 	<!-- End Junction hobrovej_VestreAlle_NyKervej -->
 </connections>

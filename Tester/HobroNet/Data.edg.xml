@@ -140,8 +140,13 @@
 		<split pos="0" lanes="1 2"/>
 		<split pos="-60" lanes="0 1 2 3"/>
 	</edge>
-
+	
+	<!-- Inner Junction Connection-->
+	<edge from="Ju_hobrovej_VestreAlle_NyKervej" id="18_1" to="Ju_hobrovej_VestreAlle_NyKervej_S" speed="16.6" numLanes="1"  />
+	<edge from="Ju_hobrovej_VestreAlle_NyKervej_S" id="18_2" to="Ju_hobrovej_VestreAlle_NyKervej" speed="16.6" numLanes="1"  />
+	
 	<!-- End Junction Hobrovej_ParkVej -->
+	
 	<edge from="Ju_hobrovej_VestreAlle_NyKervej_S" id="18_S" to="hobrovej_S" speed="16.6" numLanes="2"/>
     <edge from="hobrovej_S" id="18_N" to="Ju_hobrovej_VestreAlle_NyKervej" speed="16.6" numLanes="4">
 	<split pos="0" lanes="1 2"/>
