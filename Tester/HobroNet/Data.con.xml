@@ -42,6 +42,8 @@
 	<connection from="5_S.-30" to="7_S"  fromLane="1" toLane="0"/>
 	<connection from="5_S.-30" to="7_S"  fromLane="2" toLane="1"/>	
 
+	<delete from="6_O.-30" to="7_S"  fromLane="0" toLane="1"/>
+	<delete from="6_O.-30" to="5_N"  fromLane="1" toLane="1"/>
 	<connection from="6_O.-30" to="7_S"  fromLane="0" toLane="0"/>	
 	<connection from="6_O.-30" to="5_N"  fromLane="1" toLane="0"/>
 
