@@ -43,12 +43,18 @@
 
 		
 	<node id="ParkVej_V" x="9.9066370" y="57.0347614" />
-	<node id="Ju_Hobrovej_ParkVej" x="9.9089102" y="57.0345651"  />
+	<node id="Ju_Hobrovej_ParkVej" x="9.9088534" y="57.0345814"  />
+	<node id="Ju_Hobrovej_ParkVej_S" x="9.9088917" y="57.0345241"  />
+	<join nodes="Ju_Hobrovej_ParkVej Ju_Hobrovej_ParkVej_S"/>
+
+	<node id="Ju_Hobrovej_ParkVej_V" x="9.9088865" y="57.0345763"  />
 	
 	<node id="hobrovej_S" x="9.9079412" y="57.0309349" />
 	<node id="VestreAlle_NV" x="9.9066370" y="57.0342351" />
 	<node id="NyKervej_O_1" x="9.9092455" y="57.0333361" />
 	<node id="NyKervej_O_2" x="9.9120713" y="57.0331232" />
-	<node id="Ju_hobrovej_VestreAlle_NyKervej" x="9.9085716" y="57.0334899" />
+	<node id="Ju_hobrovej_VestreAlle_NyKervej" x="9.9085716" y="57.0334899" type="traffic_light"/>
+	<node id="Ju_hobrovej_VestreAlle_NyKervej_S" x="9.9085220" y="57.0334798" type="traffic_light"/>
+	<join nodes="Ju_hobrovej_VestreAlle_NyKervej Ju_hobrovej_VestreAlle_NyKervej_S"/>
 
 </nodes>

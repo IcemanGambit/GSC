@@ -66,4 +66,30 @@
 	<connection from="13_N.-40" to="11_N"  fromLane="1" toLane="0"/>
 	<connection from="13_N.-40" to="12_V"  fromLane="2" toLane="0"/>
 	<!-- End Junction Hobrovej_MollerPark-->
+
+
+
+	<!-- Begin Junction hobrovej_VestreAlle_NyKervej -->
+	<!-- from hobro N -->
+	<connection from="17_S.-60" to="19_V"  fromLane="0" toLane="0"/>
+	<connection from="17_S.-60" to="18_S"  fromLane="1" toLane="0"/>
+	<connection from="17_S.-60" to="18_S"  fromLane="2" toLane="1"/>
+	<connection from="17_S.-60" to="20_O"  fromLane="3" toLane="0"/>
+
+	<!-- from Hobro S -->
+	<connection from="18_N.-60" to="20_O"  fromLane="0" toLane="0"/>
+	<connection from="18_N.-60" to="17_N"  fromLane="1" toLane="0"/>
+	<connection from="18_N.-60" to="17_N"  fromLane="2" toLane="1"/>
+	<connection from="18_N.-60" to="19_V"  fromLane="3" toLane="0"/>
+	<!-- from VesterAlle -->
+	<connection from="19_O.-60" to="18_S"  fromLane="0" toLane="1"/>
+	<connection from="19_O.-60" to="20_O"  fromLane="1" toLane="0"/>
+	<connection from="19_O.-60" to="17_N"  fromLane="2" toLane="0"/>
+	<!-- from nykaer -->
+	<connection from="20_V" to="17_N"  fromLane="0" toLane="1"/>
+	<connection from="20_V" to="19_V"  fromLane="1" toLane="0"/>
+	<connection from="20_V" to="18_S"  fromLane="2" toLane="0"/>
+
+
+	<!-- End Junction hobrovej_VestreAlle_NyKervej -->
 </connections>
