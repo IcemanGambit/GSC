@@ -23,18 +23,33 @@
 
 <tlLogics version="0.13" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.sf.net/xsd/tllogic_file.xsd">
 	<tlLogic id="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" type="static" programID="0" offset="0">
-		<phase duration="31" state="gggrrrrrrrrrgggr"/> <!-- 1 -->
+		<phase duration="6"  state="rrrGGrrrGrrrrrrG"/> <!-- 1 -->
+		<phase duration="4"  state="rrrGyrrryrrrrrrG"/>
+		<phase duration="2"  state="yyygrrrrrrrryyyg"/>
+		<phase duration="31" state="ggggrrrrrrrrgggg"/> <!-- 2 -->
+		<phase duration="4"  state="yyyyrrrrrrrryyyy"/>
+		<phase duration="2"  state="rrrrrrrryyyyyrrr"/>
+		<phase duration="6"  state="rrrrrrrrgggGGrrr"/> <!-- 3 -->
+		<phase duration="4"  state="rrrrrrrrggggyrrr"/>
+		<phase duration="2"  state="rrrryyyyggggrrrr"/>
+		<phase duration="31" state="rrrrggggggggrrrr"/> <!-- 4 -->
+		<phase duration="4"  state="rrrrgyyygyyyrrrr"/>
+		<phase duration="2"  state="rrrygrrrgrrrrrry"/>
+		
+		<!--
+		<phase duration="31" state="gggrrrrrrrrrgggr"/> 
 		<phase duration="4" state="yyyrrrrrrrrryyyr"/>
 		<phase duration="2" state="rrryyrrryrrrrrry"/>
-		<phase duration="10" state="rrrggrrrgrrrrrrg"/> <!-- 2 -->
+		<phase duration="10" state="rrrggrrrgrrrrrrg"/> 
 		<phase duration="4" state="rrrygrrrgrrrrrry"/>
 		<phase duration="2" state="rrrrgyyygyyrrrrr"/>
-		<phase duration="31" state="rrrrgggggggrrrrr"/> <!-- 3 -->
+		<phase duration="31" state="rrrrgggggggrrrrr"/> 
 		<phase duration="4" state="rrrryyyygggrrrrr"/>
 		<phase duration="2" state="rrrrrrrrgggyyrrr"/>
-		<phase duration="10" state="rrrrrrrrgggGGrrr"/> <!-- 4 -->
+		<phase duration="10" state="rrrrrrrrgggGGrrr"/>
 		<phase duration="4" state="rrrrrrrryyyygrrr"/>
 		<phase duration="2" state="yyyrrrrrrrrrgyyr"/>
+		-->
 	</tlLogic>
 
 	<!-- from vesterbro -->
@@ -107,30 +122,40 @@
 	<connection from="13_N.-40" to="12_V"  fromLane="2" toLane="0" tl="cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" linkIndex="7"/>
 	
 	<!-- Begin Junction hobrovej_VestreAlle_NyKervej -->
-	<tlLogic id="cluster_Ju_hobrovej_VestreAlle_NyKervej_Ju_hobrovej_VestreAlle_NyKervej_S" type="static" programID="0" offset="0">
+	<tlLogic id="Ju_hobrovej_VestreAlle_NyKervej" type="static" programID="0" offset="0">
+		<phase duration="6"  state="rrrGrrrGrrrrrr"/> <!-- 1 -->
+		<phase duration="2"  state="yyygyyygrrrrrr"/>
+		<phase duration="31" state="ggggggggrrrrrr"/> <!-- 2 -->
+		<phase duration="4"  state="yyyyyyyyrrrrrr"/>
+		<phase duration="2"  state="rrrrrrrrrryrry"/>
+		<phase duration="6"  state="rrrrrrrrrrGrrG"/> <!-- 3 -->
+		<phase duration="2"  state="rrrrrrrryygyyg"/>
+		<phase duration="31" state="rrrrrrrrgggggg"/> <!-- 4 -->
+		<phase duration="4"  state="rrrrrrrryyyyyy"/>
+		<phase duration="2"  state="rrryrrryrrrrrr"/>
 	</tlLogic>
 
 	<!-- from hobro N -->
-	<connection from="17_S.-60" to="19_V"  fromLane="0" toLane="0" tl="cluster_Ju_hobrovej_VestreAlle_NyKervej_Ju_hobrovej_VestreAlle_NyKervej_S" linkIndex="0"/>
-	<connection from="17_S.-60" to="18_S"  fromLane="1" toLane="0" tl="cluster_Ju_hobrovej_VestreAlle_NyKervej_Ju_hobrovej_VestreAlle_NyKervej_S" linkIndex="1"/>
-	<connection from="17_S.-60" to="18_S"  fromLane="2" toLane="1" tl="cluster_Ju_hobrovej_VestreAlle_NyKervej_Ju_hobrovej_VestreAlle_NyKervej_S" linkIndex="2"/>
-	<connection from="17_S.-60" to="20_O"  fromLane="3" toLane="0" tl="cluster_Ju_hobrovej_VestreAlle_NyKervej_Ju_hobrovej_VestreAlle_NyKervej_S" linkIndex="3"/>
+	<connection from="17_S.-60" to="19_V"  fromLane="0" toLane="0" tl="Ju_hobrovej_VestreAlle_NyKervej" linkIndex="0"/>
+	<connection from="17_S.-60" to="18_S"  fromLane="1" toLane="0" tl="Ju_hobrovej_VestreAlle_NyKervej" linkIndex="1"/>
+	<connection from="17_S.-60" to="18_S"  fromLane="2" toLane="1" tl="Ju_hobrovej_VestreAlle_NyKervej" linkIndex="2"/>
+	<connection from="17_S.-60" to="20_O"  fromLane="3" toLane="0" tl="Ju_hobrovej_VestreAlle_NyKervej" linkIndex="3"/>
 
 	<!-- from Hobro S -->
-	<connection from="18_N.-60" to="20_O"  fromLane="0" toLane="0" tl="cluster_Ju_hobrovej_VestreAlle_NyKervej_Ju_hobrovej_VestreAlle_NyKervej_S" linkIndex="4"/>
-	<connection from="18_N.-60" to="17_N"  fromLane="1" toLane="0" tl="cluster_Ju_hobrovej_VestreAlle_NyKervej_Ju_hobrovej_VestreAlle_NyKervej_S" linkIndex="5"/>
-	<connection from="18_N.-60" to="17_N"  fromLane="2" toLane="1" tl="cluster_Ju_hobrovej_VestreAlle_NyKervej_Ju_hobrovej_VestreAlle_NyKervej_S" linkIndex="6"/>
-	<connection from="18_N.-60" to="19_V"  fromLane="3" toLane="0" tl="cluster_Ju_hobrovej_VestreAlle_NyKervej_Ju_hobrovej_VestreAlle_NyKervej_S" linkIndex="7"/>
+	<connection from="18_N.-60" to="20_O"  fromLane="0" toLane="0" tl="Ju_hobrovej_VestreAlle_NyKervej" linkIndex="4"/>
+	<connection from="18_N.-60" to="17_N"  fromLane="1" toLane="0" tl="Ju_hobrovej_VestreAlle_NyKervej" linkIndex="5"/>
+	<connection from="18_N.-60" to="17_N"  fromLane="2" toLane="1" tl="Ju_hobrovej_VestreAlle_NyKervej" linkIndex="6"/>
+	<connection from="18_N.-60" to="19_V"  fromLane="3" toLane="0" tl="Ju_hobrovej_VestreAlle_NyKervej" linkIndex="7"/>
 
 	<!-- from VesterAlle -->
-	<connection from="19_O.-60" to="18_S"  fromLane="0" toLane="0" tl="cluster_Ju_hobrovej_VestreAlle_NyKervej_Ju_hobrovej_VestreAlle_NyKervej_S" linkIndex="8"/>
-	<connection from="19_O.-60" to="20_O"  fromLane="1" toLane="0" tl="cluster_Ju_hobrovej_VestreAlle_NyKervej_Ju_hobrovej_VestreAlle_NyKervej_S" linkIndex="9"/>
-	<connection from="19_O.-60" to="17_N"  fromLane="2" toLane="0" tl="cluster_Ju_hobrovej_VestreAlle_NyKervej_Ju_hobrovej_VestreAlle_NyKervej_S" linkIndex="10"/>
+	<connection from="19_O.-60" to="18_S"  fromLane="0" toLane="0" tl="Ju_hobrovej_VestreAlle_NyKervej" linkIndex="8"/>
+	<connection from="19_O.-60" to="20_O"  fromLane="1" toLane="0" tl="Ju_hobrovej_VestreAlle_NyKervej" linkIndex="9"/>
+	<connection from="19_O.-60" to="17_N"  fromLane="2" toLane="0" tl="Ju_hobrovej_VestreAlle_NyKervej" linkIndex="10"/>
 
 	<!-- from nykaer -->
-	<connection from="20_V" to="17_N"      fromLane="0" toLane="0" tl="cluster_Ju_hobrovej_VestreAlle_NyKervej_Ju_hobrovej_VestreAlle_NyKervej_S" linkIndex="11"/>
-	<connection from="20_V" to="19_V"      fromLane="1" toLane="0" tl="cluster_Ju_hobrovej_VestreAlle_NyKervej_Ju_hobrovej_VestreAlle_NyKervej_S" linkIndex="12"/>
-	<connection from="20_V" to="18_S"      fromLane="2" toLane="0" tl="cluster_Ju_hobrovej_VestreAlle_NyKervej_Ju_hobrovej_VestreAlle_NyKervej_S" linkIndex="13"/>
+	<connection from="20_V" to="17_N"      fromLane="0" toLane="0" tl="Ju_hobrovej_VestreAlle_NyKervej" linkIndex="11"/>
+	<connection from="20_V" to="19_V"      fromLane="1" toLane="0" tl="Ju_hobrovej_VestreAlle_NyKervej" linkIndex="12"/>
+	<connection from="20_V" to="18_S"      fromLane="2" toLane="0" tl="Ju_hobrovej_VestreAlle_NyKervej" linkIndex="13"/>
 	<!-- End Junction hobrovej_VestreAlle_NyKervej -->
 	
 </tlLogics>

@@ -162,7 +162,7 @@
 	</edge>
 
 	<edge from="Ju_hobrovej_VestreAlle_NyKervej" id="19_V" to="VestreAlle_NV" speed="16.6" numLanes="1"/>
-    <edge from="VestreAlle_NV" id="19_O" to="Ju_hobrovej_VestreAlle_NyKervej_S" speed="16.6" numLanes="3">
+    <edge from="VestreAlle_NV" id="19_O" to="Ju_hobrovej_VestreAlle_NyKervej" speed="16.6" numLanes="3">
 	<split pos="0" lanes="1"/>
 		<split pos="-60" lanes="0 1 2"/>
 	</edge>
