@@ -23,18 +23,33 @@
 
 <tlLogics version="0.13" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.sf.net/xsd/tllogic_file.xsd">
 	<tlLogic id="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" type="static" programID="0" offset="0">
-		<phase duration="31" state="gggrrrrrrrrrgggr"/> <!-- 1 -->
+		<phase duration="6"  state="rrrGGrrrGrrrrrrG"/> <!-- 1 -->
+		<phase duration="4"  state="rrrGyrrryrrrrrrG"/>
+		<phase duration="2"  state="yyygrrrrrrrryyyg"/>
+		<phase duration="31" state="ggggrrrrrrrrgggg"/> <!-- 2 -->
+		<phase duration="4"  state="yyyyrrrrrrrryyyy"/>
+		<phase duration="2"  state="rrrrrrrryyyyyrrr"/>
+		<phase duration="6"  state="rrrrrrrrgggGGrrr"/> <!-- 3 -->
+		<phase duration="4"  state="rrrrrrrrggggyrrr"/>
+		<phase duration="2"  state="rrrryyyyggggrrrr"/>
+		<phase duration="31" state="rrrrggggggggrrrr"/> <!-- 4 -->
+		<phase duration="4"  state="rrrrgyyygyyyrrrr"/>
+		<phase duration="2"  state="rrrygrrrgrrrrrry"/>
+		
+		<!--
+		<phase duration="31" state="gggrrrrrrrrrgggr"/> 
 		<phase duration="4" state="yyyrrrrrrrrryyyr"/>
 		<phase duration="2" state="rrryyrrryrrrrrry"/>
-		<phase duration="10" state="rrrggrrrgrrrrrrg"/> <!-- 2 -->
+		<phase duration="10" state="rrrggrrrgrrrrrrg"/> 
 		<phase duration="4" state="rrrygrrrgrrrrrry"/>
 		<phase duration="2" state="rrrrgyyygyyrrrrr"/>
-		<phase duration="31" state="rrrrgggggggrrrrr"/> <!-- 3 -->
+		<phase duration="31" state="rrrrgggggggrrrrr"/> 
 		<phase duration="4" state="rrrryyyygggrrrrr"/>
 		<phase duration="2" state="rrrrrrrrgggyyrrr"/>
-		<phase duration="10" state="rrrrrrrrgggGGrrr"/> <!-- 4 -->
+		<phase duration="10" state="rrrrrrrrgggGGrrr"/>
 		<phase duration="4" state="rrrrrrrryyyygrrr"/>
 		<phase duration="2" state="yyyrrrrrrrrrgyyr"/>
+		-->
 	</tlLogic>
 
 	<!-- from vesterbro -->
@@ -108,7 +123,16 @@
 	
 	<!-- Begin Junction hobrovej_VestreAlle_NyKervej -->
 	<tlLogic id="Ju_hobrovej_VestreAlle_NyKervej" type="static" programID="0" offset="0">
-		
+		<phase duration="6"  state="rrrGrrrGrrrrrr"/> <!-- 1 -->
+		<phase duration="2"  state="yyygyyygrrrrrr"/>
+		<phase duration="31" state="ggggggggrrrrrr"/> <!-- 2 -->
+		<phase duration="4"  state="yyyyyyyyrrrrrr"/>
+		<phase duration="2"  state="rrrrrrrrrryrry"/>
+		<phase duration="6"  state="rrrrrrrrrrGrrG"/> <!-- 3 -->
+		<phase duration="2"  state="rrrrrrrryygyyg"/>
+		<phase duration="31" state="rrrrrrrrgggggg"/> <!-- 4 -->
+		<phase duration="4"  state="rrrrrrrryyyyyy"/>
+		<phase duration="2"  state="rrryrrryrrrrrr"/>
 	</tlLogic>
 
 	<!-- from hobro N -->
