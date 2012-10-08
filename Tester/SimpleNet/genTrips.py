@@ -4,6 +4,7 @@ if sys.argv[1] == "":
 	print "Please enter the name of your files"
 	sys.exit()
 
+
 #places = [['Main1toJu1', 'Ju3toOst1'],['Main1toJu1', 'Ju3toOst1'],['Main1toJu1', 'Ju2toS2'],['Main1toJu1', 'Ju1toS1'],['Ost1toJu3', 'Ju1toMain1'],['Ost1toJu3', 'Ju1toMain1'],['Ost1toJu3', 'Ju1toS1'],['N1toJu1', 'Ju1toS1'],['N2toJu2', 'Ju2toS2'],['S1toJu1', 'Ju1toN1']]
 
 places = ['Main1toJu1', 'Ju3toOst1', 'Ju2toS2', 'Ju1toS1', 'Ost1toJu3', 'Ju1toMain1', 'N1toJu1', 'N2toJu2', 'S1toJu1', 'Ju1toN1']
@@ -34,6 +35,7 @@ for fromID in range(0, len(places)):
 			TID += 1
 			ODmatrix[fromID][toID] -= 1
 details.sort(key=lambda d: d[3])
+
 
 
 trips = open(sys.argv[1]+"/trips.xml", "w")

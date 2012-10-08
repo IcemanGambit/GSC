@@ -5,9 +5,13 @@ then
 	echo "Regenerating network file"
 	if [ -f $1"/"Data.con.xml ]
 	then
-		netconvert --node-files=$1"/"Data.nod.xml --edge-files=$1"/"Data.edg.xml --connection-files=$1"/"Data.con.xml --output-file=$1"/"Data.net.xml
+		netconvert --node-files=$1"/"Data.nod.xml --edge-files=$1"/"Data.edg.xml --connection-files=$1"/"Data.con.xml --output-file=$1"/"Data.net.xml --proj.utm
+		echo "Adding connection"
+		netconvert --sumo-net-file=$1"/"Data.net.xml --connection-files=$1"/"Data.con.xml --output-file=$1"/"Data.net.xml
+		echo "Adding traffic lights"
+		netconvert --sumo-net-file=$1"/"Data.net.xml --tllogic-files $1"/"Data.tll.xml --output-file=$1"/"Data.net.xml
 	else
-		netconvert --node-files=$1"/"Data.nod.xml --edge-files=$1"/"Data.edg.xml --output-file=$1"/"Data.net.xml
+		netconvert --node-files=$1"/"Data.nod.xml --edge-files=$1"/"Data.edg.xml --output-file=$1"/"Data.net.xml --proj.utm
 	fi
 else
 	echo "Reusing network file"
