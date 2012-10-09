@@ -24,7 +24,8 @@ def getTrafficLightsOnRoute(vhId):
 		for tl in traci.trafficlights.getIDList(): #Loop over all traffic lights
 			for i in traci.trafficlights.getControlledLinks(tl): #Loop over all links at traffic light
 				for TLlane in i[0]: #Loop over all lanes in link
-					if route[egdeId] == TLlane.split("_")[0]:#We are at this lane
+					l = TLlane[:TLlane.rfind('_')]
+					if route[egdeId] == l:#We are at this lane
 						if len(TLs) > 0 and not TLs[len(TLs)-1][0] == tl:
 							TLs.append([tl, route[egdeId-1], route[egdeId]]) #TODO: Same as below. Redundant?
 						elif len(TLs) > 0:

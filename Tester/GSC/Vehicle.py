@@ -11,7 +11,8 @@ import TrafficLight, Route
 def _getGreenSpans(vhId, maxtime):	
 	TL = _getNextTrafficLight(vhId)
 	if TL:
-		return TrafficLight.getNextGreen(TL[0],TL[1], TL[2], maxtime)
+		g =TrafficLight.getNextGreen(TL[0],TL[1], TL[2], maxtime)
+		return g
 	return []
 	
 """
@@ -30,9 +31,12 @@ def getRecommentedSpeed(vhId,minDistance, maxtime):
 	#If there are no more traffic lights on route or
 	#traffic light too far away
 	#just drive at max speed
+
 	if distance == None:
+		print "none"
 		return maxSpeed
 	if distance >= minDistance:
+		print "larger than min distance"
 		return maxSpeed
 
 
@@ -45,19 +49,29 @@ def getRecommentedSpeed(vhId,minDistance, maxtime):
 			continue
 
 		if(deltaTbegin <= 0):
-			return maxSpeed	#light is green: drive as fast possible
+			print "begin before 0"
+			smax = maxSpeed 	#light is green: drive as fast possible
 		else:
 			smax = distance/(deltaTbegin/1000)
 
 		deltaTend =  span[1] - t
+	
+		if deltaTend <= 0:	
+			continue
+
 		smin = distance/(deltaTend/1000)
+
+		if smin > maxSpeed:
+			continue
 		
 		if smin <= maxSpeed: #We can reace the timespan before it goes red
 			if smax > maxSpeed:	#We can drive at max speed
+				print "smax larger"
 				return maxSpeed 
-			else:		
+			else:
+				print "else"
 				return smax	#If we drive max speed, I will not be green in time. Slow down!
-	
+	print "end"
 	return maxSpeed
 
 
@@ -73,7 +87,7 @@ def _getNextTrafficLight(vhId):
 		return None
 	if egde == nextTL[0][2]:
 		Route.visitTrafficLight(vhId)
-	if len(nextTL)== 0: #TODO: One of these seem redundant
+	if len(nextTL)== 0: 
 		return None
 	return nextTL[0]
 	
