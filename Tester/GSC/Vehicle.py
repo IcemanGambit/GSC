@@ -33,10 +33,10 @@ def getRecommentedSpeed(vhId,minDistance, maxtime):
 	#just drive at max speed
 
 	if distance == None:
-		print "none"
+		#print "none"
 		return maxSpeed
 	if distance >= minDistance:
-		print "larger than min distance"
+		#print "larger than min distance"
 		return maxSpeed
 
 
@@ -49,7 +49,7 @@ def getRecommentedSpeed(vhId,minDistance, maxtime):
 			continue
 
 		if(deltaTbegin <= 0):
-			print "begin before 0"
+			#print "begin before 0"
 			smax = maxSpeed 	#light is green: drive as fast possible
 		else:
 			smax = distance/(deltaTbegin/1000)
@@ -66,12 +66,12 @@ def getRecommentedSpeed(vhId,minDistance, maxtime):
 		
 		if smin <= maxSpeed: #We can reace the timespan before it goes red
 			if smax > maxSpeed:	#We can drive at max speed
-				print "smax larger"
+				#print "smax larger"
 				return maxSpeed 
 			else:
-				print "else"
+				#print "else"
 				return smax	#If we drive max speed, I will not be green in time. Slow down!
-	print "end"
+	#print "end"
 	return maxSpeed
 
 
