@@ -41,12 +41,12 @@ def getNextGreen(tlId, inEgdeId, outEgdeId, maxtime):
 	#Get light position in phase description
 	p=0
 	for i in traci.trafficlights.getControlledLinks(tlId):
-		#TLlane[:TLlane.rfind('_')]
 		pos0 = i[0][0].rfind('_')
 		pos1 = i[0][1].rfind('_')
 		if (inEgdeId == i[0][0][:pos0] and outEgdeId == i[0][1][:pos1]):
 			break
 		p+=1
+	print p
 	
 	PhaseDefinition = traci.trafficlights.getCompleteRedYellowGreenDefinition(tlId)	
 	f = StringIO.StringIO(PhaseDefinition)

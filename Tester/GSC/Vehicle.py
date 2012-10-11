@@ -21,6 +21,7 @@ def _getGreenSpans(vhId, maxtime):
 	returns the recommented speed to reach the green light for next intersection within maxtime simulation steps
 """
 #TODO: Do not slow down while in cross section
+#TODO: Account for acceleration, as do not drive at max speed
 def getRecommentedSpeed(vhId,minDistance, maxtime):
 	distance = _getDistanceNextTrafficLight(vhId)
 	spans = _getGreenSpans(vhId, maxtime)
@@ -49,7 +50,7 @@ def getRecommentedSpeed(vhId,minDistance, maxtime):
 		
 		#If slowest speed is larger than max speed
 		# -> look at next span
-		smin = distance/(deltaTend/1000)
+		smin = distance/(deltaTend/1000) * 1.1 #Adjusting for uncertainties
 		if smin > maxSpeed:
 			continue
 
@@ -59,13 +60,18 @@ def getRecommentedSpeed(vhId,minDistance, maxtime):
 		else:
 			smax = distance/(deltaTbegin/1000)	#Set speed to reach when it changes
 
+		#print  str(deltaTbegin) + "\t" +  str(deltaTend)
+		#print str(smin) + "\t" + str(smax)
+		
 		#If we can reace the timespan before it goes red
-		if smin <= maxSpeed: 
-			#Only drive at max speed
+		if smin <= maxSpeed: #TODO: Redundant check? See around line 54
+			#Only drive at max speed and not slower than 0
 			if smax > maxSpeed:
-				return maxSpeed 
-			else:
-				return smax
+				smax = maxSpeed
+			if smax < 0:
+				smax = 0
+				
+			return smax
 
 	#No traffic light ahead
 	return maxSpeed
