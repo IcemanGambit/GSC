@@ -6,6 +6,7 @@ from types import *
 import os
 lights = {}
 lightSize = {}
+
 """
 	_getNextGreen(string, string, string, int) -> [[int, int],]
 
