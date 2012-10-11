@@ -46,7 +46,6 @@ def getNextGreen(tlId, inEgdeId, outEgdeId, maxtime):
 		if (inEgdeId == i[0][0][:pos0] and outEgdeId == i[0][1][:pos1]):
 			break
 		p+=1
-	print p
 	
 	PhaseDefinition = traci.trafficlights.getCompleteRedYellowGreenDefinition(tlId)	
 	f = StringIO.StringIO(PhaseDefinition)

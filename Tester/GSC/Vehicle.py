@@ -40,8 +40,8 @@ def getRecommentedSpeed(vhId,minDistance, maxtime):
 	smin = 0 #Reaching just before light changes to red
 	
 	for span in spans:
-		deltaTbegin = span[0] - t
-		deltaTend =  span[1] - t
+		deltaTbegin = span[0] - t + 1
+		deltaTend =  span[1] - t - 1
 		
 		#If first span has passed
 		# -> look at next span
@@ -50,7 +50,7 @@ def getRecommentedSpeed(vhId,minDistance, maxtime):
 		
 		#If slowest speed is larger than max speed
 		# -> look at next span
-		smin = distance/(deltaTend/1000) * 1.1 #Adjusting for uncertainties
+		smin = distance/(deltaTend/1000)
 		if smin > maxSpeed:
 			continue
 
@@ -63,19 +63,33 @@ def getRecommentedSpeed(vhId,minDistance, maxtime):
 		#print  str(deltaTbegin) + "\t" +  str(deltaTend)
 		#print str(smin) + "\t" + str(smax)
 		
-		#If we can reace the timespan before it goes red
-		if smin <= maxSpeed: #TODO: Redundant check? See around line 54
-			#Only drive at max speed and not slower than 0
-			if smax > maxSpeed:
-				smax = maxSpeed
-			if smax < 0:
-				smax = 0
-				
-			return smax
+		#Only drive at max speed and not slower than 0
+		if smax > maxSpeed:
+			smax = maxSpeed
+		if smax < 0:
+			smax = 0
+		
+		#We can reace the timespan before it goes red
+		return smax
 
 	#No traffic light ahead
 	return maxSpeed
 
+def getAltRecommentedSpeed(vhId,minDistance, maxtime):
+	distance = _getDistanceNextTrafficLight(vhId)
+	spans = _getGreenSpans(vhId, maxtime)
+
+	t = traci.simulation.getCurrentTime()
+	maxSpeed = traci.lane.getMaxSpeed(traci.vehicle.getLaneID(vhId))
+
+	#If there are no more traffic lights on route or
+	#traffic light too far away
+	# -> drive at max speed of the road
+	if distance == None or distance >= minDistance:
+		return maxSpeed
+	
+	
+	
 
 """
 	getNextTrafficLight(string) > [string, string, string]
