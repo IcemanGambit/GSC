@@ -21,6 +21,7 @@ def _getGreenSpans(vhId, maxtime):
 	returns the recommented speed to reach the green light for next intersection within maxtime simulation steps
 """
 #TODO: Do not slow down while in cross section
+#TODO: Account for acceleration, as do not drive at max speed
 def getRecommentedSpeed(vhId,minDistance, maxtime):
 	distance = _getDistanceNextTrafficLight(vhId)
 	spans = _getGreenSpans(vhId, maxtime)
@@ -30,50 +31,65 @@ def getRecommentedSpeed(vhId,minDistance, maxtime):
 
 	#If there are no more traffic lights on route or
 	#traffic light too far away
-	#just drive at max speed
-
-	if distance == None:
-		#print "none"
+	# -> drive at max speed of the road
+	if distance == None or distance >= minDistance:
 		return maxSpeed
-	if distance >= minDistance:
-		#print "larger than min distance"
-		return maxSpeed
-
 
 	#Calculate optimal speed
-	smax = 0
-	smin = 0
-	for span in spans:
-		deltaTbegin = span[0] - t
-		if t > span[1]:
-			continue
-
-		if(deltaTbegin <= 0):
-			#print "begin before 0"
-			smax = maxSpeed 	#light is green: drive as fast possible
-		else:
-			smax = distance/(deltaTbegin/1000)
-
-		deltaTend =  span[1] - t
+	smax = 0 #Reaching just as light changes to green
+	smin = 0 #Reaching just before light changes to red
 	
-		if deltaTend <= 0:	
-			continue
-
-		smin = distance/(deltaTend/1000)
-
-		if smin > maxSpeed:
+	for span in spans:
+		deltaTbegin = span[0] - t + 1
+		deltaTend =  span[1] - t - 1
+		
+		#If first span has passed
+		# -> look at next span
+		if t > span[1] or deltaTend <= 0:
 			continue
 		
-		if smin <= maxSpeed: #We can reace the timespan before it goes red
-			if smax > maxSpeed:	#We can drive at max speed
-				#print "smax larger"
-				return maxSpeed 
-			else:
-				#print "else"
-				return smax	#If we drive max speed, I will not be green in time. Slow down!
-	#print "end"
+		#If slowest speed is larger than max speed
+		# -> look at next span
+		smin = distance/(deltaTend/1000)
+		if smin > maxSpeed:
+			continue
+
+		#If light is green
+		if(deltaTbegin <= 0):
+			smax = maxSpeed 					#Drive as fast possible
+		else:
+			smax = distance/(deltaTbegin/1000)	#Set speed to reach when it changes
+
+		#print  str(deltaTbegin) + "\t" +  str(deltaTend)
+		#print str(smin) + "\t" + str(smax)
+		
+		#Only drive at max speed and not slower than 0
+		if smax > maxSpeed:
+			smax = maxSpeed
+		if smax < 0:
+			smax = 0
+		
+		#We can reace the timespan before it goes red
+		return smax
+
+	#No traffic light ahead
 	return maxSpeed
 
+def getAltRecommentedSpeed(vhId,minDistance, maxtime):
+	distance = _getDistanceNextTrafficLight(vhId)
+	spans = _getGreenSpans(vhId, maxtime)
+
+	t = traci.simulation.getCurrentTime()
+	maxSpeed = traci.lane.getMaxSpeed(traci.vehicle.getLaneID(vhId))
+
+	#If there are no more traffic lights on route or
+	#traffic light too far away
+	# -> drive at max speed of the road
+	if distance == None or distance >= minDistance:
+		return maxSpeed
+	
+	
+	
 
 """
 	getNextTrafficLight(string) > [string, string, string]
@@ -103,7 +119,9 @@ def _getDistanceNextTrafficLight(vhId):
 		return None
 	TL_cord = traci.junction.getPosition(TL[0]) #note that Junction and traficlight is not the same but have identical id
 	Vh_cord = traci.vehicle.getPosition(vhId)
-	return math.sqrt(((TL_cord[0]-Vh_cord[0])**2) + ((TL_cord[1]-Vh_cord[1])**2)) - 20
+	#print TL[0]
+	#print TrafficLight.getRadius(TL[0])
+	return math.sqrt(((TL_cord[0]-Vh_cord[0])**2) + ((TL_cord[1]-Vh_cord[1])**2)) - TrafficLight.getRadius(TL[0])
 
 """
 	getTotalDistanceDriven(string) -> int

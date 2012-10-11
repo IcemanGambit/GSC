@@ -1,8 +1,11 @@
 import sys, os, StringIO, math
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import traci 
-
+import xml.parsers.expat
+from types import *
+import os
 lights = {}
+lightSize = {}
 
 """
 	_getNextGreen(string, string, string, int) -> [[int, int],]
@@ -38,7 +41,6 @@ def getNextGreen(tlId, inEgdeId, outEgdeId, maxtime):
 	#Get light position in phase description
 	p=0
 	for i in traci.trafficlights.getControlledLinks(tlId):
-		#TLlane[:TLlane.rfind('_')]
 		pos0 = i[0][0].rfind('_')
 		pos1 = i[0][1].rfind('_')
 		if (inEgdeId == i[0][0][:pos0] and outEgdeId == i[0][1][:pos1]):
@@ -81,5 +83,41 @@ def getNextGreen(tlId, inEgdeId, outEgdeId, maxtime):
 	lights[tlId, inEgdeId, outEgdeId][0] = step
 	return getNextGreen(tlId, inEgdeId, outEgdeId, maxtime)
 	
-	
+
+
+
+
+
+def getRadius(tlId):	
+	assert type(tlId) is StringType, "tlId is not a string: %r" % id
+
+	if tlId in lightSize:
+		return lightSize[tlId]
+
+	#math function to calculate the radius
+	def _calculateSize(x,y,points):
+		r = 0
+		for ps in points:
+			p = ps.split(",")
+			r += math.sqrt(pow(float(x)-float(p[0]),2)+pow(float(y)-float(p[1]),2))
+		return (r / len(points))
+
+	#xml handler functions
+	def _start_element(name, attrs):		
+		if name == "junction" and "shape" in attrs and "id" in attrs and "x" in attrs and "y" in attrs:
+			lightSize[attrs["id"]] = _calculateSize(attrs["x"],attrs["y"],attrs["shape"].split(" "))
+			
+		
+	p = xml.parsers.expat.ParserCreate()
+
+	p.StartElementHandler = _start_element
+
+	if sys.argv[1][-1:] == "/":
+		f = open( sys.argv[1] + "Data.net.xml")
+	else:
+		f = open( sys.argv[1] + "/Data.net.xml")
+
+	print "PARSING"
+	p.ParseFile(f)
+	return 0
 
