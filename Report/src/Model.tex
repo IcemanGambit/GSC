@@ -1,15 +1,23 @@
 \section{Model}
 In this section we describe the model that is used.
-\\\\
+
+\begin{comment}\\\\
 \noindent\begin{tabular}{ll}
 $\Sigma$ & alphabet\\
 $\mathbb{R}$ & set of real numbers\\
 $\mathbb{N}$ & set of natual numbers not including zero\\
 $\mathbb{N}_0$ & set of natual numbers including zero
 \end{tabular}
+\end{comment}
 
-\section{Map}
-A map is defined as a fully connected, directed graph of vertices and edges, where edges, $E$, are annotered with a length, $l$, a maximum speed limit, $s$. The edge is directed from $v_1$ to $v_2$.
+\subsection{Map}
+A map is a fully connected, directed graph, $G = (V, E)$ where $V$ is a set of vertices or junctions, $E$ is a set of edges representing roads and $C$ is a set of connections between egde lanes at vertices.
+
+Every edge $e\in E$ has a starting point $e.v_1$, an end point $e.v_2$, a length $e.l$ and a maximum speed $e.s$.
+We limit the map such that every vertice has at least one egde and at most four egdes.
+
+\begin{comment}
+A map is fully connected, directed graph of vertices and edges, where edges, $E$, are annotered with a length, $l$, a maximum speed limit, $s$. The edge is directed from $v_1$ to $v_2$.
 \begin{align}
 \mathcal{V} &= \{v \mid v \in \Sigma^*\}\\
 \mathcal{E} &= \{(v_1, v_2, l, s) \mid v_1, v_2 \in \mathcal{V}, l\in \mathbb{R}, s\in\mathbb{N}\}\\
@@ -19,6 +27,7 @@ With this, we can define a map as a pair of vertices and egdes.
 \[
 m = (V, E) \mid V\subseteq \mathcal{V}, E\subseteq \mathcal{E}
 \]
+\end{comment}
 
 We assume that
 \begin{itemize}
@@ -28,43 +37,69 @@ We assume that
 \item There is at least one connection for each egde
 \item Egdes in connections are connected in $E$
 \end{itemize}
+\end{comment}
 
-\section{Trajectory}
+\subsection{Trajectory}
+A trajectory, $T$, is a sequence of connected edges on the map, $\langle e_1, e_2, \dots e_n \rangle$, where $e_i.v_2 = e_{i+1}.v_1$ for $0\leq i< n$.
+The vehicle starts at the first edge and moves along the sequence until the end of the sequence has been reached.
+
+\begin{comment}
 A trajectory is a sequence of connected edges on the map, on which a vehicle can move. The vehicle starts at the first edge and moves along the sequence until the end of the sequence has been reached.
 Let 
 \[
 \mathcal{T}_E = \{(e_1, e_2, \dots, e_n)\mid e_i \in E\}
 \]
 and be the set of all trajectories and $t\in \mathcal{T}$ be one such trajectory.
+\end{comment}
 
-\section{Vehicle}
+\subsection{Vehicle}
+A vehicle, $h$, is an entity that moves along a trajectory.
+Each vehicle has a maximum speed, $h.s$, a constant acceleration, $h.a$ and deceleration, $h.d$.
+
+\begin{comment}
 A vehicle is an entity that moves along a trajectory. Each vehicle has a maximum speed and a constant acceleration and deceleration.
 Let
 \[
 \mathcal{H} = \{(s, a, d)\mid s, a, d\in \mathbb{N}\}
 \]
 and be the set of all vehicles and $h\in \mathcal{H}$ be one such vehicle.
+\end{comment}
 
-\section{Traffic Light}
+\subsection{Traffic Light Phases}
+The phases of a traffic light, $l.p$ is defined as $\langle(g_1, t_1),(g_2, t_2),\dots, (g_n, t_n) \rangle$ where the light setting is $g_i\in \{r, y, g\}$ for $t_i$ seconds.
+The phases of a traffic light defines the light settings when possible sensors are not triggered. 
+A sensor can detect whether a vehicle is located at the sensor or not. Sensors can be induction loops, video cameras or others. We let $\mathcal{S}$ be the set of sensors.
+\begin{comment}
 A traffic light controls the flow of traffic at a junction (vertice). 
 There is a program of red, yellow and green light setting for each connection between two lanes in the junction.
 We call this a program or \textit{phase}. A phase, $P$, is a sequence of light settings and time spans. A light setting can either be green, red or yellow. At a green light traffic is allowed to pass the junction along the connection, at red light, traffic is stopped, and a yellow light setting signals a change between red and green. Hence $P$ is defined as
 \[
 \mathcal{P} =\{ \langle(g_1, t_1),(g_2, t_2),\dots, (g_n, t_n) \rangle\mid g_i\in \{r, y, g\}, t_i\in \mathbb{N}\}
 \]
-The phases of a traffic light defines the light settings when possible sensors are not triggered. 
-A sensor can detect whether a vehicle is located at the sensor or not. Sensors can be induction loops, video cameras or others. We let $\mathcal{S}$ be the set of sensors.
+\end{comment}
 
+\subsection{Connections}
+A road segment can have more than one lane, and we therefore need to define the connections between all lanes in the traffic lights.
+These connections represent the two lanes one can travel between in a junction and the traffic light phase for that connection.
+A connection, $c$ is bidirectional between two egdes, $c.e_1$ and $c.e_2$ and their associated lane identifier, $c.l_1$ and $c.l_2$. A connection is also associated with the vertice, $c.v$ that connects the two egdes and the phase, $c.p$.
+
+\begin{comment}
 In addition to egdes and vertices, we define et set of connections between two egdes. These connections represent the two lanes one can travel between in a junction. Each connection has a phase of traffic light settings.Lanes are indexed from $0$, and the set of connections is defined as
 \[
 \mathcal{C}_{(V, E)} = \{(e_1, l_1, e_2, l_2, p) \mid e_1, e_2 \in E, l_1, l_2\in \mathbb{N}_0, p\in \mathcal{P}\}
 \]
 We assume that $e_1$ and $e_2$ are connected in $(V, E)$.
+\end{comment}
+
+\subsection{Traffic Light}
+A traffic light, $l$ controls the flow of traffic at a junction (vertice), and is associated with that vertice, $l.v$ and a set of sensors, $l.s$.
+
+\begin{comment}
 Now, we can describe the set of traffic lights as a triple of a vertice, a set of connections with a phase and a set of sensors.
 \[
 \mathcal{L}_{(V,E)} = \{(v, c, s)\mid v\in V, c\subseteq \mathcal{C}_{(V,E)}, s\in \mathcal{S}\}
 \]
-
+\end{comment}
 
 
 

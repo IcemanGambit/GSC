@@ -1,14 +1,17 @@
 \documentclass[10pt, a4paper]{article} %twoside
+\pagestyle{plain}
 
-% BASIC PACKAGES
+%%%%% METADATA %%%%%%%%%%%%%%%%%%%%%%%%
+\author{Karsten Jakobsen, Sabrine Conny Hj\o llund Mouritsen}
+%\institute{Department of Computer Science, Aalborg University, Denmark}
+\title{Green Speed Control}
+\date{December 2012}
+
+
+%%%%% BASIC PACKAGES %%%%%%%%%%%%%%%%%%
 % Support for Danish characters UTF-8
 \usepackage{ucs}
 \usepackage[utf8x]{inputenc}
-
-% BIBLIOGRAPHY
-%\usepackage[round]{natbib}
-\bibliographystyle{splncs03}
-%\bibliographystyle{plainnat}
 
 % English bibliography
 \usepackage[english]{babel}
@@ -36,20 +39,25 @@
 \usepackage{amsthm}			% AMS theorem package
 \usepackage{amsfonts}
 \usepackage{amsmath}		% AMS math symbols
-%\usepackage{amssymb}		% More symbols!
+\usepackage{amssymb}		% More symbols!
 \usepackage{mathtools}		% Even more symbols!
 \usepackage{latexsym}		% Holy shit I can't believe there are still more symbols!
 \usepackage{stmaryrd}		% Symbols! When will it end?
-%\usepackage{textcomp}		% The unholy God of symbols has spoken. We need more symbols
-%\usepackage{gensymb}
+\usepackage{textcomp}		% The unholy God of symbols has spoken. We need more symbols
+\usepackage{gensymb}
+
+% ALGORITHMS
+%\usepackage{algorithmic}
+\usepackage[ruled]{algorithm}
+\usepackage{algpseudocode}
+%Algorithmic should use "Input:" and "Output:" instead of "require:" and "ensure:"
+\algrenewcommand{\algorithmicrequire}{\textbf{Input:}}
+\algrenewcommand{\algorithmicensure}{\textbf{Output:}}
 
 %Multiline comments etc..
 \usepackage{verbatim} 
 
-%Hopefully give us definitions..
-%\input{Definitions.tex}
-
-%Support for figures and various stuff for tables
+%Figures and tabels
 \usepackage[pdftex]{graphicx}	% JPEG, PNG
 %\usepackage{caption}			% Put captions on everything, including stuff you can't normally do it to (for example subfigures)
 \usepackage{wrapfig}			% Stuff for wrap figs
@@ -61,8 +69,10 @@
 \usepackage{multicol}			% Same as multirow, but for columns. (This package may be redundant)
 \usepackage{longtable}			% Tables split over several pages
 \usepackage{slashbox}			% Slashed cells, eg. boxes that are split diagonally
+
 %Path for images, images are in image/, compiled images are in bin/images/
 \graphicspath{{bin/images/}}
+
 %Allow LaTeX to accept images with dot in the filename
 \usepackage{grffile}
 
@@ -105,8 +115,8 @@
     pdftoolbar 		= true,        					% show Acrobat’s toolbar?
     pdfmenubar 		= true,        					% show Acrobat’s menu?
     pdffitwindow 	= true,      					% page fit to window when opened
-    pdftitle 		= {Petri-nets with firing conditions},			    	% title
-    pdfauthor 		= {Karsten Jakobsen, Anne Kathrine Jensen, Sabrine Conny Hj\oe llund Mouritsen and Thomas S\oe nders\oe  Nielsen}, 
+    pdftitle 		= {Green Speed Control},    	% title
+    pdfauthor 		= {Karsten Jakobsen and Sabrine Conny Hj\oe llund Mouritsen}, 
     pdfsubject 		= {Computer Science},   		% subject of the document
     pdfcreator 		= {LaTeX},   					% creator of the document
     pdfproducer 	= {PdfLaTex}, 					% producer of the document
@@ -119,42 +129,8 @@
     urlcolor 		= black           				% color of external links
 }
 
-
-% Different font in captions
-\newcommand{\captionfonts}{\small}
-
-\makeatletter  % Allow the use of @ in command names
-\long\def\@makecaption#1#2{%
-  \vskip\abovecaptionskip
-  \sbox\@tempboxa{{\captionfonts #1: #2}}%
-  \ifdim \wd\@tempboxa >\hsize
-    {\captionfonts #1: #2\par}
-  \else
-    \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
-  \fi
-  \vskip\belowcaptionskip}
-\makeatother   % Cancel the effect of \makeatletter
-
-% ALGORITHMS%
-%\usepackage{algorithmic}
-\usepackage[ruled]{algorithm}
-\usepackage{algpseudocode}
-%Algorithmic should use "Input:" and "Output:" instead of "require:" and "ensure:"
-\algrenewcommand{\algorithmicrequire}{\textbf{Input:}}
-\algrenewcommand{\algorithmicensure}{\textbf{Output:}}
-%\newcommand{\theHalgorithm}{\arabic{algorithm}}
-
-% CUSTOM MACROS
-
-
-% METADATA
-\author{Karsten Jakobsen, Sabrine Conny Hj\o llund Mouritsen}
-%\institute{Department of Computer Science, Aalborg University, Denmark}
-\title{Green Speed Control}
-
-\date{December 2012}
-
-\pagestyle{plain}
+%%%%% CUSTOM MACROS %%%%%%%%%%%%%%%%%%%
+\newtheorem{definition}{Definition}
 
 \begin{document}
 
@@ -163,8 +139,10 @@ REPLACE-WITH-CONTENTS
 %%%%%%%%%% DO NOT EDIT ABOVE, THIS WILL BE AUTO GENERATED %%%%%%%%%%
 
 % BIBLIOGRAPHY 
-%A void complaints from bibtex about no citations!
+\bibliographystyle{splncs03}
+%\bibliographystyle{plainnat}
 
+%A void complaints from bibtex about no citations!
 \raggedright % Disable justified right margin 
 \bibliography{bibliography} %Put in a bibliography
 
