@@ -11,7 +11,7 @@ $\mathbb{N}_0$ & set of natual numbers including zero
 \end{comment}
 
 \subsection{Map}
-A map is a fully connected, directed graph, $G = (V, E)$ where $V$ is a set of vertices or junctions, $E$ is a set of edges representing roads and $C$ is a set of connections between egde lanes at vertices.
+A map is a fully connected, directed graph, $G = (V, E)$ where $V$ is a set of vertices or junctions and $E$ is a set of edges representing roads.
 
 Every edge $e\in E$ has a starting point $e.v_1$, an end point $e.v_2$, a length $e.l$ and a maximum speed $e.s$.
 We limit the map such that every vertice has at least one egde and at most four egdes.
@@ -27,7 +27,7 @@ With this, we can define a map as a pair of vertices and egdes.
 \[
 m = (V, E) \mid V\subseteq \mathcal{V}, E\subseteq \mathcal{E}
 \]
-\end{comment}
+
 
 We assume that
 \begin{itemize}
@@ -41,7 +41,7 @@ We assume that
 
 \subsection{Trajectory}
 A trajectory, $T$, is a sequence of connected edges on the map, $\langle e_1, e_2, \dots e_n \rangle$, where $e_i.v_2 = e_{i+1}.v_1$ for $0\leq i< n$.
-The vehicle starts at the first edge and moves along the sequence until the end of the sequence has been reached.
+The vehicle starts at $e_1$ and moves along the sequence until $e_n$ has been reached.
 
 \begin{comment}
 A trajectory is a sequence of connected edges on the map, on which a vehicle can move. The vehicle starts at the first edge and moves along the sequence until the end of the sequence has been reached.
@@ -55,6 +55,17 @@ and be the set of all trajectories and $t\in \mathcal{T}$ be one such trajectory
 \subsection{Vehicle}
 A vehicle, $h$, is an entity that moves along a trajectory.
 Each vehicle has a maximum speed, $h.s$, a constant acceleration, $h.a$ and deceleration, $h.d$.
+We operate with two types of vehicles: cars and trucks. See Table \ref{table.vehicleTypes} for their specifications.
+\begin{table}
+\centering
+\begin{tabular}{|l|l|l|}\hline
+				& Car	& Truck \\\hline
+Max speed 		& 		& \\\hline
+Acceleration 	&		& \\\hline
+Deceleration 	&		& \\\hline
+\end{tabular}
+\caption{Types of vehicles}\label{table.vehicleTypes}
+\end{table}
 
 \begin{comment}
 A vehicle is an entity that moves along a trajectory. Each vehicle has a maximum speed and a constant acceleration and deceleration.
@@ -68,7 +79,6 @@ and be the set of all vehicles and $h\in \mathcal{H}$ be one such vehicle.
 \subsection{Traffic Light Phases}
 The phases of a traffic light, $l.p$ is defined as $\langle(g_1, t_1),(g_2, t_2),\dots, (g_n, t_n) \rangle$ where the light setting is $g_i\in \{r, y, g\}$ for $t_i$ seconds.
 The phases of a traffic light defines the light settings when possible sensors are not triggered. 
-A sensor can detect whether a vehicle is located at the sensor or not. Sensors can be induction loops, video cameras or others. We let $\mathcal{S}$ be the set of sensors.
 \begin{comment}
 A traffic light controls the flow of traffic at a junction (vertice). 
 There is a program of red, yellow and green light setting for each connection between two lanes in the junction.
@@ -77,6 +87,9 @@ We call this a program or \textit{phase}. A phase, $P$, is a sequence of light s
 \mathcal{P} =\{ \langle(g_1, t_1),(g_2, t_2),\dots, (g_n, t_n) \rangle\mid g_i\in \{r, y, g\}, t_i\in \mathbb{N}\}
 \]
 \end{comment}
+
+\subsection{Sensors}
+A sensor can detect whether a vehicle is located at the sensor or not. Sensors can be induction loops, video cameras or others. We let $\mathcal{S}$ be the set of sensors.
 
 \subsection{Connections}
 A road segment can have more than one lane, and we therefore need to define the connections between all lanes in the traffic lights.
