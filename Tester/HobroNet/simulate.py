@@ -18,10 +18,10 @@ noVehicles = i -1
 f.close()
 
 #Insert string integers of vehicles to test specically. Set tesPercet to False.
-GSCvehIds = ['107']
+GSCvehIds = ['253']
 
 #Finding the vehicles to test
-testPercent = True
+testPercent = False
 percent = 100
 controlledVehicles = random.sample(xrange(noVehicles), noVehicles*percent/100)
 

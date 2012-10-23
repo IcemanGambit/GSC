@@ -78,6 +78,8 @@ def getNextGreen(tlId, inEgdeId, outEgdeId, maxtime):
 				
 			step += duration
 	f.close()
+	if(parsingGreen == True):
+		lights[tlId, inEgdeId, outEgdeId][1].append([startGreen, step])
 	
 	#Record and call function again
 	lights[tlId, inEgdeId, outEgdeId][0] = step

@@ -29,7 +29,7 @@ def getRecommentedSpeed(vhId,minDistance, maxtime):
 	t = traci.simulation.getCurrentTime()
 	maxSpeed = traci.lane.getMaxSpeed(traci.vehicle.getLaneID(vhId))
 	
-	if (traci.vehicle.getRoadID(vhId)[0:11] == ":cluster_Ju"):
+	if traci.vehicle.getRoadID(vhId).find("Ju_") >= 0:
 		return maxSpeed
 
 
@@ -42,10 +42,9 @@ def getRecommentedSpeed(vhId,minDistance, maxtime):
 	#Calculate optimal speed
 	smax = 0 #Reaching just as light changes to green
 	smin = 0 #Reaching just before light changes to red
-	
 	for span in spans:
-		deltaTbegin = span[0] - t + 1
-		deltaTend =  span[1] - t - 1
+		deltaTbegin = (span[0] - t) + 1
+		deltaTend =  (span[1] - t) - 1
 		
 		#If first span has passed
 		# -> look at next span
