@@ -76,8 +76,22 @@ Let
 and be the set of all vehicles and $h\in \mathcal{H}$ be one such vehicle.
 \end{comment}
 
+\subsection{Connections}
+A road segment can have more than one lane, and we therefore need to define the connections between all lanes in the traffic lights.
+These connections represent the two lanes one can travel between in a junction and the traffic light phase for that connection.
+A connection, $c$ is bidirectional between two egdes, $c.e_1$ and $c.e_2$ at their associated lane identifier, $c.l_1$ and $c.l_2$. A connection is also associated with the vertice, $c.v$ that connects the two egdes and the phase, $c.p$.
+
+\begin{comment}
+In addition to egdes and vertices, we define et set of connections between two egdes. These connections represent the two lanes one can travel between in a junction. Each connection has a phase of traffic light settings.Lanes are indexed from $0$, and the set of connections is defined as
+\[
+\mathcal{C}_{(V, E)} = \{(e_1, l_1, e_2, l_2, p) \mid e_1, e_2 \in E, l_1, l_2\in \mathbb{N}_0, p\in \mathcal{P}\}
+\]
+We assume that $e_1$ and $e_2$ are connected in $(V, E)$.
+\end{comment}
+
 \subsection{Traffic Light Phases}
-The phases of a traffic light, $l.p$ is defined as $\langle(g_1, t_1),(g_2, t_2),\dots, (g_n, t_n) \rangle$ where the light setting is $g_i\in \{r, y, g\}$ for $t_i$ seconds.
+SUMO limits the allowed light settings to red, $r$, yellow, $y$ and green, $g$, where red indicates that the connection may not be passed, green indicates that the connection may be passed, and yellow indicates a transition between the other two. 
+The phases of a traffic light, $l.p$ is defined as $\langle(f_1, t_1),(f_2, t_2),\dots, (f_n, t_n) \rangle$ where the light setting is $f_i\in \{r, y, g\}$ for $t_i$ seconds.
 The phases of a traffic light defines the light settings when possible sensors are not triggered. 
 \begin{comment}
 A traffic light controls the flow of traffic at a junction (vertice). 
@@ -89,20 +103,7 @@ We call this a program or \textit{phase}. A phase, $P$, is a sequence of light s
 \end{comment}
 
 \subsection{Sensors}
-A sensor can detect whether a vehicle is located at the sensor or not. Sensors can be induction loops, video cameras or others. We let $\mathcal{S}$ be the set of sensors.
-
-\subsection{Connections}
-A road segment can have more than one lane, and we therefore need to define the connections between all lanes in the traffic lights.
-These connections represent the two lanes one can travel between in a junction and the traffic light phase for that connection.
-A connection, $c$ is bidirectional between two egdes, $c.e_1$ and $c.e_2$ and their associated lane identifier, $c.l_1$ and $c.l_2$. A connection is also associated with the vertice, $c.v$ that connects the two egdes and the phase, $c.p$.
-
-\begin{comment}
-In addition to egdes and vertices, we define et set of connections between two egdes. These connections represent the two lanes one can travel between in a junction. Each connection has a phase of traffic light settings.Lanes are indexed from $0$, and the set of connections is defined as
-\[
-\mathcal{C}_{(V, E)} = \{(e_1, l_1, e_2, l_2, p) \mid e_1, e_2 \in E, l_1, l_2\in \mathbb{N}_0, p\in \mathcal{P}\}
-\]
-We assume that $e_1$ and $e_2$ are connected in $(V, E)$.
-\end{comment}
+A sensor can detect whether a vehicle is located at the sensor or not. Sensors can be induction loops, video cameras or others.
 
 \subsection{Traffic Light}
 A traffic light, $l$ controls the flow of traffic at a junction (vertice), and is associated with that vertice, $l.v$ and a set of sensors, $l.s$.
