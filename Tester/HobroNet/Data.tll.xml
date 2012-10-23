@@ -26,15 +26,15 @@
 		<phase duration="6"  state="rrrGGrrrGrrrrrrG"/> <!-- 1 -->
 		<phase duration="4"  state="rrrGyrrryrrrrrrG"/>
 		<phase duration="2"  state="yyygrrrrrrrryyyg"/>
-		<phase duration="31" state="ggggrrrrrrrrgggg"/> <!-- 2 -->
+		<phase duration="31" state="GGGgrrrrrrrrGGGg"/> <!-- 2 -->
 		<phase duration="4"  state="yyyyrrrrrrrryyyy"/>
 		<phase duration="2"  state="rrrrrrrryyyyyrrr"/>
 		<phase duration="6"  state="rrrrrrrrgggGGrrr"/> <!-- 3 -->
 		<phase duration="4"  state="rrrrrrrrggggyrrr"/>
 		<phase duration="2"  state="rrrryyyyggggrrrr"/>
-		<phase duration="31" state="rrrrggggggggrrrr"/> <!-- 4 -->
-		<phase duration="4"  state="rrrrgyyygyyyrrrr"/>
-		<phase duration="2"  state="rrrygrrrgrrrrrry"/>
+		<phase duration="31" state="rrrrGGGgGGGgrrrr"/> <!-- 4 -->
+		<phase duration="4"  state="rrrrGyyyGyyyrrrr"/>
+		<phase duration="2"  state="rrryGrrrGrrrrrry"/>
 		
 		<!--
 		<phase duration="31" state="gggrrrrrrrrrgggr"/> 
