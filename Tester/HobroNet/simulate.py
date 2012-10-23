@@ -35,7 +35,7 @@ while step==0 or traci.simulation.getMinExpectedNumber() > 0:
 			#print traci.vehicle.getSpeed(v)
 			#print "max: " + str(speed)
 			#print "actual: " + str(traci.vehicle.getSpeed(v))
-			print speed - traci.vehicle.getSpeed(v)
+			#print speed - traci.vehicle.getSpeed(v)
 	#GSC.Test.processDataCollection()
 	step+=1
 #GSC.Test.flushDataCollection()

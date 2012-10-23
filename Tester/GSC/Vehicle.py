@@ -28,6 +28,10 @@ def getRecommentedSpeed(vhId,minDistance, maxtime):
 
 	t = traci.simulation.getCurrentTime()
 	maxSpeed = traci.lane.getMaxSpeed(traci.vehicle.getLaneID(vhId))
+	
+	if (traci.vehicle.getRoadID(vhId)[0:11] == ":cluster_Ju"):
+		return maxSpeed
+
 
 	#If there are no more traffic lights on route or
 	#traffic light too far away
