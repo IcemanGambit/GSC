@@ -32,13 +32,9 @@ while step==0 or traci.simulation.getMinExpectedNumber() > 0:
 		if (testPercent and int(v) in controlledVehicles) or v in GSCvehIds:
 			speed = GSC.Vehicle.getRecommentedSpeed(v, 2000, 400000)
 			traci.vehicle.setSpeed(v, speed)
-			#print traci.vehicle.getSpeed(v)
-			#print "max: " + str(speed)
-			#print "actual: " + str(traci.vehicle.getSpeed(v))
-			#print speed - traci.vehicle.getSpeed(v)
-	#GSC.Test.processDataCollection()
+	GSC.Test.processDataCollection()
 	step+=1
-#GSC.Test.flushDataCollection()
+GSC.Test.flushDataCollection()
 
 #Clean up
 traci.close()
