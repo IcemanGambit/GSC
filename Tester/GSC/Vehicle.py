@@ -42,6 +42,9 @@ def getRecommentedSpeed(vhId,minDistance, maxtime):
 	#Calculate optimal speed
 	smax = 0 #Reaching just as light changes to green
 	smin = 0 #Reaching just before light changes to red
+	if(vhId == "1161"):
+		print traci.vehicle.getRoadID(vhId)
+		print spans
 	for span in spans:
 		deltaTbegin = (span[0] - t) + 1
 		deltaTend =  (span[1] - t) - 1

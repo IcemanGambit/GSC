@@ -21,7 +21,7 @@ f.close()
 GSCvehIds = ['253']
 
 #Finding the vehicles to test
-testPercent = False
+testPercent = True
 percent = 100
 controlledVehicles = random.sample(xrange(noVehicles), noVehicles*percent/100)
 
