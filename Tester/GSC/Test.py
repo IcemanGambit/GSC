@@ -1,4 +1,4 @@
-import traci, Vehicle
+import traci, Vehicle, os
 
 vehicleData = {}
 routes = {}
@@ -23,16 +23,16 @@ def processDataCollection(vehicles = None):
 			
 		#Process speed and distance data
 		if vhId in vehicleData:
-			vehicleData[vhId].append([Vehicle.getTotalDistanceDriven(vhId), traci.vehicle.getSpeed(vhId), traci.vehicle.getFuelConsumption(vhId)])
+			vehicleData[vhId].append([Vehicle.getTotalDistanceDriven(vhId), traci.vehicle.getSpeed(vhId), vehicleData[vhId][len(vehicleData[vhId])-1][2] + traci.vehicle.getFuelConsumption(vhId)])
 		else:
-			vehicleData[vhId] = [[Vehicle.getTotalDistanceDriven(vhId), traci.vehicle.getSpeed(vhId)], traci.vehicle.getFuelConsumption(vhId)]
+			vehicleData[vhId] = [[Vehicle.getTotalDistanceDriven(vhId), traci.vehicle.getSpeed(vhId), traci.vehicle.getFuelConsumption(vhId)]]
 		
 """
 	flushDataCollection() ->
 	
 	print content of vehicleSpeeds to mulitiple files, one for each route type
 """
-def flushDataCollection(percent, vehicles = None):
+def flushDataCollection(percent):
 	print "Flusing test results"
 	
 	initText = """
@@ -53,8 +53,13 @@ ylabel=%s
 \\end{axis}
 \\end{tikzpicture}
 \\label{tik:%i:%s}
-\\caption{%i percent diving with GSC on route %s}
+\\caption{%i percent diving with GSC on route $%s$}
 \\end{figure}"""
+
+	try:
+		os.makedirs("Test/"+str(percent))
+	except OSError as exception:
+		print "Test/"+str(percent) + " already exist"
 
 	rId = 0
 	for r in routes:
@@ -63,7 +68,7 @@ ylabel=%s
 		fuelChart = open("Test/"+str(percent)+ "/fuel_" + str(rId) + ".tex", "w")
 		print >> speedChart, initText % ("Time (s)", "Speed (m/s)")
 		print >> distanceChart, initText % ("Time (s)", "Distance (m)")
-		print >> fuelChart, initText % ("Time (s)", "Fuel (m)")
+		print >> fuelChart, initText % ("Time (s)", "Fuel (mL)")
 		for vh, data in vehicleData.iteritems():
 			if vh in routes[r]:
 				print >> speedChart, "\\addplot[] coordinates {"

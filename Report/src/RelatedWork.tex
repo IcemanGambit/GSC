@@ -1,14 +1,42 @@
 \section{Related Work}
 
-The main purpose of our work is to help drivers reduce their fuel consumption.
-Another way of reducing the stop-and-go behavior at traffic lights than influencing the drivers, is to adjust the phases of the traffic lights to the currect status of the traffic. One such mehtod has been proposed in \cite{SOTL} that generates green waves based on interactions with cars and traffic lights. Their results show a decrease in waiting time by 50 \% in their comparisons.
+The main purpose of our work is to help drivers reduce their fuel consumption by adjusting driving speed to traffic lights.
+Road authorities try to design traffic light signals such that maximise flow of traffic in all directions.
+This can be very difficult, especially in junctions with changing traffic density through out the day.
+Two main techinques are used in traffic lights today: pretimed traffic controllers, where the signals loop between red, yellow and green in a predefined pattern; and traffic actuated controllers, where approacing vehicles are detected by road-side detectors such that the signals can be adjusted to the current traffic flow.
+The latter techinque has become more widespread in recent years. %TODO: Citation?
+
+%TODO: Agent or interconnected
+
+
+One such mehtod has been proposed in \cite{SOTL} that generates green waves based on interactions with cars and traffic lights. Their results show a decrease in waiting time by 50 \% in their comparisons.
 
 The authors of \cite{ITLC} also propose a mehtod for adjusting the traffic lights to the traffic. They use reinforcement learning and a voting system amongst cars at or near a traffic light to calculate the total gain of different light settings. Their results showed that they where able to reduce both congestion and waiting time.
 
-The authors of \cite{VANETsim} have proposed an idea similar to ours, only they also rely on communication between nearby cars.
-Similarly they use the simulator SUMO (Simulation of Urban MObility) and the interface TraCI (Traffic Control Interface) to simulate their methods. Their network is, however, very simple, and do not include any crossing traffic. Their results are therefore based on a very sterilised environment.
+The authors of \cite{VANETsim} have proposed an idea similar to ours, in that they evaluate whether drivers should accelerate or decelerate when approaching a traffic light.
+Similarly they use the simulator SUMO (Simulation of Urban MObility) and the interface TraCI (Traffic Control Interface) to simulate their methods. 
+Contrary to our approach, they rely on communication between nearby cars to estimate the number of blocking cars in front of the vehicles such that they can calculate the exact distance.
+Their network is also very simple, and do not include any crossing traffic or road senors. 
+Their results are therefore based on a very sterilised environment, where as ours is more realistic.
 
 Another related issue is to re-route drivers in order to avoid congestion. This way, drivers, will be able to drive more smoothly an hence reduce their fuel consumption. 
-Three strategies for re-routing drivers to avoid congestion has been proposed in \cite{congestionAvoidance}. They collect real time data on the congestion levels from both the cars and road-side sensors, and provide individual re-routing strategies to the drivers based on the results. Through simulations they show promissing results.
+Three strategies for re-routing drivers to avoid congestion has been proposed in \cite{congestionAvoidance}. They collect real time data on the congestion levels from both cars and road-side sensors, and provide individual re-routing strategies to the drivers based on the results. Through simulations they show promissing results.
+
+\subsection{Simulations}
+Simulations are a well used technique for testing hypothesis in the traffic worlds.
+Several types of simulation algorithms exist including macroscopic, mesoscopic, microscopic and hybrids which can be any combination of the aforementioned. Macroscopic algorithms model the flow flow of traffic abstracting the individual vehicles away, where as mesoscopic models the vehicles but still at an abstract level. Microscopic algorithms models vehicles and their behaviour in detail which allows a much more detailed analysis \cite{meso-micro}. We will need a simulator that operates on the microscopic level such that we can model for exampel turn lanes.
+
+Several methods for modeling the movement of vehicles also exist. Amongst these are Monte Carlo models \cite{} that use random data, car following models \cite{} where cars follow leading cars, automatas where vehicles follow deterministc rules \cite{} and much more.
+
+Two major microscopic traffic simulators of today are SUMO (Simulation of Urban Mobility)\cite{sumo} and VISSIM (VISSIM: A microscopic Simulation Tool to Evaluate Actuated Signal Control including Bus Priority)
+
+%Models: macro, meso, micro, hybrid
+%Models: monte carlo, celular automata, Discrete event and continuous-time simulation, Car-following models
+%Tools: SUMO, VISSIM
+
+
+
+
+
 
 

@@ -1,8 +1,7 @@
-\section{Mathematics}
+\section{Calculate the Recommended Speed}
 
-\subsection{Without acceleration or deceleration}
-Calculating the needed speed, $h$, when acceleration and deceleration is not taking into consideration, for arriving at the next traffic light while it is green.
-We use the standard formula for calculating velocity and calculate two velocities: one for arriving at the traffic light just as it changes to green and one when it chances to red. The desired velocity is therefore somewhere in between.
+We use the standard formula of velocity to calculate the recommended speed, $h$ for arriving at the next traffic light while it is green.
+We calculate two velocities: one for arriving at the traffic light just as it changes to green and one as it chances to red, and the recommended velocity is therefore somewhere in between.
 \[h_g = \frac{s}{t_g}\]
 \[h_r = \frac{s}{t_r}\]
 
@@ -17,3 +16,48 @@ where
 \item $h_g$ is the speed one need to drive in order to arrive at the traffic light when it changes to red
 \item $h$ is the recommened speed
 \end{itemize}
+
+In practice we use Algorithm~\ref{alg.recommendedSpeed} to get the recommended speed.
+
+\begin{algorithm}
+\caption{GetRecommendedSpeed()}\label{alg.recommendedSpeed}
+\begin{algorithmic}
+\State $nextTL = $ next traffic light on route
+\State $d=$ distance to $nextTL$. $\infty$ if no traffic light ahead
+\State $spans = $ list of start and end time points in which $nextTL$ is green
+\State $t=$ current time
+\State $h_{max} = $ speed limit
+\State $h_g = 0$
+\State $h_r = 0$
+
+\If {vehicle in junction or $d = \infty$ or $nextTL$ too far ahead}
+\Return $h_{max}$
+\EndIf
+
+\ForAll {$(s_1, s_2)$ in $spans$}
+\State $t_s = s_1 - t$ \Comment Seconds until $nextTL$ is green
+\State $t_e = s_2 - t$ \Comment Seconds until $nextTL$ is red
+\State $h_r = \frac{d}{t_e}$
+
+\If{$t> s_2$ or $s_2 \leq 0$ or $h_r > h_{max}$}
+\State continue
+\EndIf
+
+\If{$t_s \leq 0$}
+\State $h_g=h_{max}$
+\Else
+\State $h_g = \frac{d}{t_s}$
+\EndIf
+
+\If{$h_g < 0$}
+\State $h_g = 0$
+\ElsIf{$h_g > h_{max}$}
+\State $h_g=h_{max}$
+\EndIf
+
+\State\Return $h_g$
+\EndFor
+\State\Return $h_{max}$
+
+\end{algorithmic}
+\end{algorithm}

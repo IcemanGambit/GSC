@@ -20,8 +20,6 @@ def _getGreenSpans(vhId, maxtime):
 
 	returns the recommented speed to reach the green light for next intersection within maxtime simulation steps
 """
-#TODO: Do not slow down while in cross section
-#TODO: Account for acceleration, as do not drive at max speed
 def getRecommentedSpeed(vhId,minDistance, maxtime):
 	distance = _getDistanceNextTrafficLight(vhId)
 	spans = _getGreenSpans(vhId, maxtime)
@@ -77,22 +75,6 @@ def getRecommentedSpeed(vhId,minDistance, maxtime):
 
 	#No traffic light ahead
 	return maxSpeed
-
-def getAltRecommentedSpeed(vhId,minDistance, maxtime):
-	distance = _getDistanceNextTrafficLight(vhId)
-	spans = _getGreenSpans(vhId, maxtime)
-
-	t = traci.simulation.getCurrentTime()
-	maxSpeed = traci.lane.getMaxSpeed(traci.vehicle.getLaneID(vhId))
-
-	#If there are no more traffic lights on route or
-	#traffic light too far away
-	# -> drive at max speed of the road
-	if distance == None or distance >= minDistance:
-		return maxSpeed
-	
-	
-	
 
 """
 	getNextTrafficLight(string) > [string, string, string]
