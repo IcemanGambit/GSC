@@ -4,12 +4,14 @@ import traci
 import xml.parsers.expat
 from types import *
 import os
-lights = {}
+lights = {}  
 lightSize = {}
 
 """
 	_getNextGreen(string, string, string, int) -> [[int, int],]
 
+	lights[tlID, egdeId, egdeId] -> (omloeb, (t1, t2), (t3, t_4), )
+	
 	returns the interval of simulation steps where tlID has a green light at the specified connection within maxtime
 """
 
@@ -32,7 +34,6 @@ def getNextGreen(tlId, inEgdeId, outEgdeId, maxtime):
 				if t[1]+((omloeb+i)*m) >= cur:
 					greenSpan.append([t[0]+((omloeb+i)*m), t[1]+((omloeb+i)*m)])
 	
-			#TODO: This -1 might cause trouple
 			if len(greenSpan) > 0 and greenSpan[len(greenSpan)-1][1]>=cur+maxtime:
 				break
 			i+=1
