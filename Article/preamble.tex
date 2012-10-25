@@ -1,12 +1,4 @@
-\documentclass[10pt, a4paper]{article} %twoside
-\pagestyle{plain}
-
-%%%%% METADATA %%%%%%%%%%%%%%%%%%%%%%%%
-\author{Karsten Jakobsen, Sabrine Conny Hj\o llund Mouritsen}
-%\institute{Department of Computer Science, Aalborg University, Denmark}
-\title{Green Speed Control}
-\date{December 2012}
-
+\documentclass{acm_proc_article-sp}
 
 %%%%% BASIC PACKAGES %%%%%%%%%%%%%%%%%%
 % Support for Danish characters UTF-8
@@ -32,11 +24,11 @@
 % inline lists
 \usepackage{paralist}
 
-% Compact itemize
-%\usepackage{mdwlist}
+%Compact versions of bullet lists: itemize*, enumerate* and description* 
+\usepackage{mdwlist}
 
 % MATHEMATICS
-\usepackage{amsthm}			% AMS theorem package
+%\usepackage{amsthm}			% AMS theorem package
 \usepackage{amsfonts}
 \usepackage{amsmath}		% AMS math symbols
 \usepackage{amssymb}		% More symbols!
@@ -58,10 +50,9 @@
 \usepackage{verbatim} 
 
 %Figures and tabels
-\usepackage[pdftex]{graphicx}	% JPEG, PNG
-%\usepackage{caption}			% Put captions on everything, including stuff you can't normally do it to (for example subfigures)
+%\usepackage[pdftex]{graphicx}	% JPEG, PNG
 \usepackage{wrapfig}			% Stuff for wrap figs
-\usepackage{subfig}				% insert several subfigures in a figure
+%\usepackage{subfig}				% insert several subfigures in a figure
 \usepackage{flafter}			% prevents floats from appearing before their definiton
 \usepackage{sidecap}			% Allows text next to image
 \usepackage{array}				% Used with tables - give the ability to align text to center or bottom of cell.
@@ -76,13 +67,8 @@
 %Allow LaTeX to accept images with dot in the filename
 \usepackage{grffile}
 
-% tikz
-%\usepackage[version=0.96]{pgf}
-%\usepackage{tikz}
-%\input{tikzstyle.tex}
-
 \usepackage{pgfplots}
-\pgfplotsset{width=10cm}
+\pgfplotsset{width=6cm}
 
 % Conditionals nice
 \usepackage{ifthen}
@@ -134,12 +120,36 @@
 
 \begin{document}
 
+\title{Green Speed Control}
+
+\numberofauthors{2}
+\author{
+% Separate each 3 authors with an 'and'
+% 1st. author
+\alignauthor
+Karsten Jakobsen\\
+       \affaddr{Institute of Computer Science}\\
+       \affaddr{Aalborg University}\\
+       \affaddr{Denmark}\\
+       \email{karstenjjakobsen@gmail.com}
+% 2nd. author
+\alignauthor 
+Sabrine C. H. Mouritsen\\
+       \affaddr{Institute of Computer Science}\\
+       \affaddr{Aalborg University}\\
+       \affaddr{Denmark}\\
+       \email{sabrinemouse@gmail.com}
+}
+
+%\date{27th of May 2011}
+\maketitle
+
 %%%%%%%%%% DO NOT EDIT BELOW, THIS WILL BE AUTO GENERATED %%%%%%%%%%
 REPLACE-WITH-CONTENTS
 %%%%%%%%%% DO NOT EDIT ABOVE, THIS WILL BE AUTO GENERATED %%%%%%%%%%
 
 % BIBLIOGRAPHY 
-\bibliographystyle{splncs03}
+\bibliographystyle{abbrv}
 %\bibliographystyle{plainnat}
 
 %A void complaints from bibtex about no citations!
@@ -147,8 +157,8 @@ REPLACE-WITH-CONTENTS
 \bibliography{bibliography} %Put in a bibliography
 
 % Appendix
-\justifying
-\clearpage
+%\justifying
+%\clearpage
 %\appendix
 %\input{src/Appendix.tex}
 
