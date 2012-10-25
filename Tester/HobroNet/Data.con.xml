@@ -27,7 +27,7 @@
 	<connection from="4_N.-60" to="1_N"  fromLane="2" toLane="1"/>
 	<connection from="4_N.-60" to="2_V"  fromLane="3" toLane="0"/>
 
-
+	<!-- fix turninlane connection -->
 	<delete from="4_N" to="4_N.-60"  fromLane="0" toLane="3"/>
 	<delete from="4_N" to="4_N.-60"  fromLane="0" toLane="2"/>
 	<delete from="4_N" to="4_N.-60"  fromLane="0" toLane="1"/>
@@ -72,6 +72,14 @@
 
 	<!-- Begin Junction Hobrovej_MollerPark -->
 
+
+	<!-- fix turninlane connection -->
+	<delete from="11_S" to="11_S.-50"  fromLane="0" toLane="0"/>
+	<delete from="11_S" to="11_S.-50"  fromLane="1" toLane="0"/>
+	<delete from="11_S" to="11_S.-50"  fromLane="1" toLane="1"/>
+
+
+
 	<connection from="11_S.-50" to="12_V"  fromLane="0" toLane="0"/>
 	<connection from="11_S.-50" to="13_S"  fromLane="1" toLane="0"/>
 	<connection from="11_S.-50" to="13_S"  fromLane="2" toLane="1"/>	
@@ -79,8 +87,8 @@
 	<connection from="12_O" to="11_N"  fromLane="0" toLane="0"/>	
 	<connection from="12_O" to="13_S"  fromLane="0" toLane="0"/>
 
-	<connection from="13_N.-40" to="11_N"  fromLane="0" toLane="1"/>	
-	<connection from="13_N.-40" to="11_N"  fromLane="1" toLane="0"/>
+	<connection from="13_N.-40" to="11_N"  fromLane="0" toLane="0"/>	
+	<connection from="13_N.-40" to="11_N"  fromLane="1" toLane="1"/>
 	<connection from="13_N.-40" to="12_V"  fromLane="2" toLane="0"/>
 	<!-- End Junction Hobrovej_MollerPark-->
 

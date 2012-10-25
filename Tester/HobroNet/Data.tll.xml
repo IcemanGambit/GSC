@@ -117,8 +117,8 @@
 	<connection from="12_O" to="11_N"  fromLane="0" toLane="0" tl="cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" linkIndex="3"/>	
 	<connection from="12_O" to="13_S"  fromLane="0" toLane="0" tl="cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" linkIndex="4"/>
 
-	<connection from="13_N.-40" to="11_N"  fromLane="0" toLane="1" tl="cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" linkIndex="5"/>	
-	<connection from="13_N.-40" to="11_N"  fromLane="1" toLane="0" tl="cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" linkIndex="6"/>
+	<connection from="13_N.-40" to="11_N"  fromLane="0" toLane="0" tl="cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" linkIndex="5"/>	
+	<connection from="13_N.-40" to="11_N"  fromLane="1" toLane="1" tl="cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" linkIndex="6"/>
 	<connection from="13_N.-40" to="12_V"  fromLane="2" toLane="0" tl="cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" linkIndex="7"/>
 	
 	<!-- Begin Junction hobrovej_VestreAlle_NyKervej -->
