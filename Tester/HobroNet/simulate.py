@@ -7,7 +7,7 @@ PORT = 8813
 
 
 #Run SUMO and TraCI
-process = subprocess.Popen("%s -c %s" % (sumoBinary, sys.argv[1] + "/Data.sumocfg"), shell=True, stdout=sys.stdout)
+process = subprocess.Popen("%s -c %s  --lanechange.allow-swap " % (sumoBinary, sys.argv[1]  + "/Data.sumocfg"), shell=True, stdout=sys.stdout)
 traci.init(PORT)
 
 #Get total number of vehicles TODO: This is an ugly hack
