@@ -76,14 +76,20 @@ ybar,
 		os.makedirs("Test/"+str(percent))
 	except OSError as exception:
 		print "Test/"+str(percent) + "already exist"
+	
+	routeChart = open("Test/"+str(percent)+ "/routes.tex", "w")
+	avgChart = open("Test/"+str(percent)+ "/avg.tex", "w")
+	
+	avgChart.write("Routes\t")
+	
 	rId = 0
 	for r in routes:
 		speedChart = open("Test/"+str(percent)+ "/speed_" + str(rId) + ".tex", "w")
 		distanceChart = open("Test/"+str(percent)+ "/distance_" + str(rId) + ".tex", "w")
 		fuelChart = open("Test/"+str(percent)+ "/fuel_" + str(rId) + ".tex", "w")
 		timeChart = open("Test/"+str(percent)+ "/time_" + str(rId) + ".tex", "w")
-		avgChart = open("Test/"+str(percent)+ "/avg.tex", "w")
 		
+		print >> routeChart, str(rId) + ": " + r
 		print >> speedChart, initText % ("Time (s)", "Speed (m/s)",)
 		print >> distanceChart, initText % ("Time (s)", "Distance (m)",)
 		print >> fuelChart, initText % ("Time (s)", "Fuel (mL)",)
@@ -117,20 +123,17 @@ ybar,
 					avgValues[r]= [1,travelTime]
 
 		print >> timeChart, "};"# \\addlegendentry{"+ vh + "}"
-		print >> speedChart, endText % (percent, r, percent, r)
-		print >> distanceChart, endText % (percent, r, percent, r)
-		print >> fuelChart, endText % (percent, r, percent, r)
-		print >> timeChart, endText % (percent, r, percent, r)
+		print >> speedChart, endText % (percent, rId, percent, rId)
+		print >> distanceChart, endText % (percent, rId, percent, rId)
+		print >> fuelChart, endText % (percent, rId, percent, rId)
+		print >> timeChart, endText % (percent, rId, percent, rId)
+
+		avgChart.write(str(rId)+ "\t")
 		rId += 1
 
-		#TODO:Not tested yet
-		avgChart.write("Routes\t")
-		for r in avgValues:
-			avgChart.write(r+ "\t")
-		avgChart.write("\nTravel time\t")
-		for r in avgValues:
-			avgChart.write(str(avgValues[r][1]/avgValues[r][0]) + "\t")
-		avgChart.write("\n")
-
+	avgChart.write("\nTravel time\t")
+	for r in avgValues:
+		avgChart.write(str(avgValues[r][1]/avgValues[r][0]) + "\t")
+	avgChart.write("\n")
 
 
