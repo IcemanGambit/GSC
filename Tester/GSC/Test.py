@@ -3,7 +3,7 @@ import traci, Vehicle, os
 vehicleData = {}
 vehicleTime = {} # [[depart, end], ]
 routes = {}
-avgValues = {}
+avgValues = {} # [[number_of_vehicles_on_route, total_travel_time, total_fuel_consumption]]
 
 """
 	processDataCollection([string,])->
@@ -15,7 +15,8 @@ def processDataCollection(vehicles = None):
 		vehicles = traci.vehicle.getIDList()
 	
 	for vhId in vehicles:
-		#Process routes
+		#Process routes. 
+		#	routes[r] -> all vehicles on route r
 		r =', '.join(traci.vehicle.getRoute(vhId))
 		if r in routes:
 			if vhId not in routes[r]:
@@ -23,13 +24,15 @@ def processDataCollection(vehicles = None):
 		else:
 			routes[r] = [vhId]
 			
-		#Process speed, distance and fuel data
+		#Process speed, distance and fuel data.
+		#	vehicleData[vhId] -> list of speed, travel distance and fuel consumption at each time step
 		if vhId in vehicleData:
 			vehicleData[vhId].append([Vehicle.getTotalDistanceDriven(vhId), traci.vehicle.getSpeed(vhId), vehicleData[vhId][len(vehicleData[vhId])-1][2] + traci.vehicle.getFuelConsumption(vhId)])
 		else:
 			vehicleData[vhId] = [[Vehicle.getTotalDistanceDriven(vhId), traci.vehicle.getSpeed(vhId), traci.vehicle.getFuelConsumption(vhId)]]
 
 		#Process time
+		#	vehicleTime[vhId] -> pair of depart and finish time
 		if vhId in vehicleTime:
 			vehicleTime[vhId][1] = traci.simulation.getCurrentTime()
 		else:
@@ -68,19 +71,18 @@ ybar,
 	endText = """
 \\end{axis}
 \\end{tikzpicture}
-\\label{tik:%i:%s}
+\\label{tik:%s:%i:%s}
 \\caption{%i percent diving with GSC on route $%s$}
 \\end{figure}"""
 
+	#Ensure directory Test/percent exist
 	try:
 		os.makedirs("Test/"+str(percent))
 	except OSError as exception:
 		print "Test/"+str(percent) + "already exist"
 	
-	routeChart = open("Test/"+str(percent)+ "/routes.tex", "w")
+	routeChart = open("Test/"+str(percent)+ "/0routes.tex", "w")
 	avgChart = open("Test/"+str(percent)+ "/avg.tex", "w")
-	
-	avgChart.write("Routes\t")
 	
 	rId = 0
 	for r in routes:
@@ -95,45 +97,54 @@ ybar,
 		print >> fuelChart, initText % ("Time (s)", "Fuel (mL)",)
 		print >> timeChart, initTimeText % ("Vehicles", "Time (s)")
 		print >> timeChart, "\\addplot coordinates {"
-		v = 0
+
+		v = 0 #Number of vehicles
 		for vh, data in vehicleData.iteritems():
 			if vh in routes[r]:
 				print >> speedChart, "\\addplot[] coordinates {"
 				print >> distanceChart, "\\addplot[] coordinates {"
 				print >> fuelChart, "\\addplot[] coordinates {"
 				
-				t = 0
+				t = 0 #Time step
 				for i in data:
 					print >> speedChart, "(" + str(t) + ", " + str(i[1]) + ")"
 					print >> distanceChart, "(" + str(t) + ", " + str(i[0]) + ")"
 					print >> fuelChart, "(" + str(t) + ", " + str(i[2]) + ")"
 					t+=1
-				print >> speedChart, "};"# \\addlegendentry{"+ vh + "}"
-				print >> distanceChart, "};"# \\addlegendentry{"+ vh + "}"
-				print >> fuelChart, "};"# \\addlegendentry{"+ vh + "}"
+					
+				print >> speedChart, "};"
+				print >> distanceChart, "};"
+				print >> fuelChart, "};"
 
 				travelTime = (vehicleTime[vh][1]-vehicleTime[vh][0])/1000
-				print >> timeChart, "(" + str(v) + ", " + str(travelTime) + ")"
+				print >> timeChart, "(" + vh + ", " + str(travelTime) + ")"
 				v+=1
 				
 				if r in avgValues:
-					avgValues[r][0]+= 1
-					avgValues[r][1]+= travelTime
+					avgValues[rId][0]+= 1
+					avgValues[rId][1]+= travelTime
+					avgValues[rId][2]+= vehicleData[vh][len(vehicleData[vh])-1][2] #Avg. fuel
 				else:
-					avgValues[r]= [1,travelTime]
+					avgValues[rId]= [1,travelTime, vehicleData[vh][len(vehicleData[vh])-1][2]]
 
-		print >> timeChart, "};"# \\addlegendentry{"+ vh + "}"
-		print >> speedChart, endText % (percent, rId, percent, rId)
-		print >> distanceChart, endText % (percent, rId, percent, rId)
-		print >> fuelChart, endText % (percent, rId, percent, rId)
-		print >> timeChart, endText % (percent, rId, percent, rId)
+		print >> timeChart, "};"
+		print >> speedChart, endText % ("speed", percent, rId, percent, rId)
+		print >> distanceChart, endText % ("distance", percent, rId, percent, rId)
+		print >> fuelChart, endText % ("fuel", percent, rId, percent, rId)
+		print >> timeChart, endText % ("time", percent, rId, percent, rId)
 
-		avgChart.write(str(rId)+ "\t")
 		rId += 1
 
-	avgChart.write("\nTravel time\t")
-	for r in avgValues:
-		avgChart.write(str(avgValues[r][1]/avgValues[r][0]) + "\t")
-	avgChart.write("\n")
+	routeString = ""
+	timeString = ""
+	fuelString = ""
+	for rId in avgValues:
+		routeString += str(rId) + "\t"
+		timeString += str(avgValues[rId][1]/avgValues[rId][0]) + "\t"
+		fuelString += str(avgValues[rId][2]/avgValues[rId][0]) + "\t"
+
+	print >> avgChart, "Routes\t" + routeString
+	print >> avgChart, "\nTravel time\t" + timeString
+	print >> avgChart, "\nFuel\t" + fuelString
 
 

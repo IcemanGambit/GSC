@@ -5,8 +5,6 @@ if sys.argv[1] == "":
 	sys.exit()
 
 
-#places = [['Main1toJu1', 'Ju3toOst1'],['Main1toJu1', 'Ju3toOst1'],['Main1toJu1', 'Ju2toS2'],['Main1toJu1', 'Ju1toS1'],['Ost1toJu3', 'Ju1toMain1'],['Ost1toJu3', 'Ju1toMain1'],['Ost1toJu3', 'Ju1toS1'],['N1toJu1', 'Ju1toS1'],['N2toJu2', 'Ju2toS2'],['S1toJu1', 'Ju1toN1']]
-
 places = ['1_S','2_O','3_V','6_O','9_V','12_O','14_V','16_O','18_N','19_O','21_V',      '1_N','2_V','3_O','6_V','10_O','12_V','14_O','16_V','18_S','19_V','21_O']
 ODmatrix = [
 [0,0,0,0,0,0,0,0,0,0,0, 00,20,50,10,05,10,05,10,99,40,50],
