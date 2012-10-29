@@ -33,11 +33,14 @@ ODmatrix = [
 [0,0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0,0],
 [0,0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0,0]]
 
+#places = ['18_N', '1_N', '3_V', '1_N']
+#ODmatrix = [[0,10,0,0],[0,0,0,0],[0,0,0,10],[0,0,0,0]]
+
 noTrips = 0
 for o in ODmatrix:
 	for d in o:
 		noTrips += d
-departTimes = random.sample(xrange(0,noTrips*20), noTrips)
+departTimes = random.sample(xrange(0,noTrips*2), noTrips)
 
 vehicleTypes = ["car", "truck"]
 types = open(sys.argv[1]+"/Data.rou.xml", "w")
