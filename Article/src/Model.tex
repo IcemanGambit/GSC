@@ -26,7 +26,7 @@ Every edge have a number of lanes $e.l \subseteq \mathbb{N} $
 
 \subsection{Traffic Light Phases}
 SUMO limits the allowed light settings to red, $r$, yellow, $y$ and green, $g$.
-A phase of a traffic light, $p$ is defined as $\langle(f_1, t_1),(f_2, t_2),\dots, (f_n, t_n) \rangle$ where the light setting is $f_i\in \{r, y, g\}$ for $t_i$ seconds.
+A phase of a traffic light, $p$ is defined as $\langle(f_1, t_1),(f_2, t_2),\dots, (f_n, t_n) \rangle$ where the light setting is $f_i\in \{red, yellow, green\}$ for $t_i$ seconds.
 The phases of a traffic light defines the light settings when possible sensors are not triggered.
 
 \subsection{Connections}
@@ -43,11 +43,11 @@ The vehicle starts at $e_1$ and moves along the sequence until $e_n$ has been re
 \end{comment}
 
 \subsection{Routes}
-A route, $T$, is a sequence of edges on the map, $\langle e_1, e_2, \dots e_n \rangle$, where $e_i.v_2 = e_{i+1}.v_1$ for $0\leq i< n$.
+A route, $r$, is a sequence of edges on the map, $\langle e_1, e_2, \dots e_n \rangle$, where $e_i.v_2 = e_{i+1}.v_1$ for $0\leq i< n$.
 The vehicle starts at $e_1$ and moves along the sequence until $e_n$ has been reached.
 
 \subsection{Vehicles}
-A vehicle, $h$, is an entity that moves along a route.
+A vehicle, $vh$, is an entity that moves along a route.
 Each vehicle has an identifier, $h.id$ a maximum speed, $h.s$, a constant acceleration, $h.a$ and deceleration, $h.d$.
 For simplicity we do not consider different drivering behaviours.
 We operate with two types of vehicles: cars and trucks. See Table \ref{table.vehicleTypes} for their specifications.
