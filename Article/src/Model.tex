@@ -13,7 +13,7 @@ $\mathbb{N}_0$ & set of natual numbers including zero
 \subsection{Map}
 A map is a directed graph, $G = (V, E)$ where $V$ is a set of vertices representing road junctions and $E$ is a set of edges representing road segments.
 
-Every edge $e\in E$ has a starting point $e.v_1$, an end point $e.v_2$ and a maximum speed $e.s$. The lenght of an edge is the euclidean distance between $e.v_1$ and $e.v_2$ denoted as $e.d$.
+Every edge $\edge\in E$ has a starting point $e.v_1$, an end point $e.v_2$ and a maximum speed $e.s$. The lenght of an edge is the euclidean distance between $e.v_1$ and $e.v_2$ denoted as $e.d$.
 
 For simplicity we limit the map such that every vertice has at least one egde
 and there exist a set of connected edges s.t. every edge in the graf is connected.%TODO: This makes no sence
@@ -48,16 +48,16 @@ The vehicle starts at $e_1$ and moves along the sequence until $e_n$ has been re
 
 \subsection{Vehicles}
 A vehicle, $vh$, is an entity that moves along a route.
-Each vehicle has an identifier, $h.id$ a maximum speed, $h.s$, a constant acceleration, $h.\acc$ and deceleration, $h.d$.
+Each vehicle has an identifier, $\veh.id$ a maximum speed, $\veh.\vel$, a constant acceleration, $\veh.\acc$ and deceleration, $\veh.\dec$.
 For simplicity we do not consider different drivering behaviours.
 We operate with two types of vehicles: cars and trucks. See Table \ref{table.vehicleTypes} for their specifications.
 \begin{table}
 \centering
 \begin{tabular}{|l|l|l|}\hline
-				& Car	& Truck \\\hline
-Max speed 		& 		& \\\hline
-Acceleration 	&		& \\\hline
-Deceleration 	&		& \\\hline
+		& Car	& Truck \\\hline
+Max speed 	& 	& \\\hline
+Acceleration 	&	& \\\hline
+Deceleration 	&	& \\\hline
 \end{tabular}
 \caption{Types of vehicles}\label{table.vehicleTypes}
 \end{table}
@@ -66,7 +66,7 @@ Deceleration 	&		& \\\hline
 A sensor can detect whether a vehicle is located at the sensor or not. Sensors can be induction loops, video cameras or others.
 
 \subsection{Traffic Light}
-A traffic light, $l$ controls the flow of traffic at a junction (vertice), and is associated with that vertice, $l.v$ and a set of sensors, $l.s$.
+A traffic light, $\tl$ controls the flow of traffic at a junction (vertice), and is associated with that vertice, $\tl.\ver$ and a set of sensors, $\tl.\sen$.
 
 
 
