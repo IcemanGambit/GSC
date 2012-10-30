@@ -2,7 +2,7 @@ import os, subprocess, sys, random
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import traci 
 import GSC
-sumoBinary = "sumo-gui"
+sumoBinary = "sumo"
 PORT = 8813
 
 
@@ -22,7 +22,7 @@ GSCvehIds = ['253']
 
 #Finding the vehicles to test
 testPercent = True
-percent = 100
+percent = 0
 controlledVehicles = random.sample(xrange(noVehicles), noVehicles*percent/100)
 
 step = 0
