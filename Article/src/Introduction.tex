@@ -5,7 +5,7 @@ The physical laws of motion say that an accelerating car consumes more fuel than
 If one wants to safe fuel, one should therefore try to accelerate as little as possible. 
 However, several factors in todays traffic hinders drivers in driving at a constant velocity. 
 These are for example interlacing roads, blocking cars, traffic incidents and of cause traffic lights. 
-It is esimated at 1.8 bilion danish kroner is lost on fuel each year on waiting for at green light in traffic lights in Denmark \cite{Vejdir}.
+It is esimated at 1.8 bilion danish kroner is lost on fuel each year on vehicles stopping for red light in traffic lights in Denmark \cite{Vejdir}.
 
 %the problem of traffic lights
 Traffic lights hinders the flow of traffic as it stops cars arriving from one direction in order to allow other cars to drive through the intersection.
@@ -26,6 +26,12 @@ The system proposed in this article is designed on the basis that not every vehi
 Because of this, we cannot rely on communication between vehicles and therefore we do not know how many cars are going to be waiting in line for a green light. %TODO this depents on access to induction loop data
 Hence we cannot predict the precise distance to the position at a traffic light were the driver must stop before due to blocking cars.
 
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.5\textwidth]{images/introNetwork.png}
+\caption{Eksample network}
+\label{fig:Introduction:network}
+\end{figure}
 
 \begin{table}[h]
 \centering
@@ -34,11 +40,11 @@ Hence we cannot predict the precise distance to the position at a traffic light 
 from & to \\ \hline
 1 & 7 \\ \hline
 4 & 3 \\ \hline
+4 & 7 \\ \hline
 5 & 3 \\ \hline
 6 & 2 \\ \hline
-4 & 7 \\ \hline
 \end{tabular}
-\caption{Connection table of the network shown in Figure \ref{}}
+\caption{Connection table of the network shown in Figure \ref{fig:Introduction:network} }
 \label{tab:Introduction:connectionTable}
 \end{table}
 
