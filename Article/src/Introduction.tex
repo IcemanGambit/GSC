@@ -12,19 +12,19 @@ Traffic lights hinders the flow of traffic as it blocks vehicles arriving from o
 Each direction of the intersection is given a time period in which vehicles are allowed to pass through the intersection. 
 From a drivers perspective it is only posible to guess when the light is going to change based on what has been seen so far. 
 
-Looking at Figure \ref{fig:Introduction:network} vehicle $h_2$ is approacing the intersection.
+Looking at Figure \ref{fig:Introduction:network} vehicle $\veh_2$ is approacing the intersection.
 %If he have spottet a red light for some time, it is likly that the signals are going to change soon. He can either, take the chance and keep driving at the same speed, until the last momment where he need to brake. Or he can slow down and limp toward the intersection and then maybe avoid a full stop at the traffic light. 
-Now assume that vehicle $h_2$ knows the distance $d_2$ where he has to stop for traffic light $l_1$. 
-Then also assume that vehicle $h_2$ knows that in $4$ seconds the traffic ligth $l_1$ will change to green. 
-Now it is posible to calculate a speed for vehicle $h_2$ such that it will drive the distance $d_2$ in $4$ seconds. 
-Then by the time it reaches the intersection the signal will have changed and thereby avoiding a full stop.
+Now assume that vehicle $\veh_2$ knows the distance $\dist_2$ where he has to stop for traffic light $\tl_1$. 
+Then also assume that vehicle $\veh_2$ knows that in $4$ seconds the traffic ligth $\tl_1$ will change to green. 
+Then it is posible to calculate a speed for vehicle $\veh_2$ such that it will drive the distance $\dist_2$ in $4$ seconds. 
+Now by the time it reaches the intersection the signal will have changed and thereby avoiding a full stop.
 
 %problem of not knowing how many other cars are wating in line
 The system proposed in this article, \tech, is designed on the basis that not every vehicle will be using it. 
 Because of this, we cannot rely on communication between vehicles and therefore we do not know how many vehicles will be waiting in line for a green light. %TODO this depents on access to induction loop data
 Hence we cannot predict the precise distance to the position at a traffic light where the driver must stop due to blocking cars. 
-In Figure \ref{fig:Introduction:network} this can be observed where vehicle $h_1$ drives towards traffic light $l_2$. 
-He believes that the distance to were he has to stop is the distance $d_1$, however, the two blue cars already waiting in line blocks a part of the road.
+In Figure \ref{fig:Introduction:network} this can be observed where vehicle $\veh_1$ drives towards traffic light $\tl_2$. 
+He believes that the distance to were he has to stop is the distance $\dist_1$, however, the two blue cars already waiting in line blocks a part of the road.
 
 %TODO: Think we should skip this section
 Some traffic lights do not always show the same signal to vehicles going in diffrent directions where it be straight, left or right turn. 
