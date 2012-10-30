@@ -10,14 +10,16 @@ Traffic lights can also work togeather such that the flow of traffic can be maxi
 \textit{Interconnected controllers} cooporate with other nearby traffic lights to create for example green waves.
 \textit{Agent controllers} is a more simple type of controller, that does not cooporate with other controllers.
 
-One method for designing traffic lights has been proposed in \cite{SOTL} that generates green waves based on wireless communication between vehicles and traffic lights. Their results show a decrease in waiting time by 50 \% in their comparisons.
-The authors of \cite{ITLC} also propose a mehtod for adjusting the traffic lights to the traffic. They use reinforcement learning and a voting system amongst vehicles at or near a traffic light to calculate the total gain of different light settings. Their results showed a reduction in both congestion and waiting time.
-
 The authors of \cite{VANETsim} have proposed an idea similar to ours, in that they evaluate whether drivers should accelerate or decelerate when approaching a traffic light.
 Similarly they use the simulator SUMO to simulate their methods. 
 Contrary to our approach, they rely on communication between nearby vehicles to estimate the number of blocking vehicles such that they can calculate the exact distance.
 Their network is also very simple, and do not include any crossing traffic or road senors. 
 Their results are therefore based on a very simplified environment, where as ours is more realistic.
+
+One method for designing traffic lights has been proposed in \cite{SOTL} that generates green waves based on wireless communication between vehicles and traffic lights. Their results show a decrease in waiting time by 50 \% in their comparisons.
+The authors of \cite{ITLC} also propose a mehtod for adjusting the traffic lights to the traffic. They use reinforcement learning and a voting system amongst vehicles at or near a traffic light to calculate the total gain of different light settings. Their results showed a reduction in both congestion and waiting time.
+
+
 
 Another related issue is to re-route drivers in order to avoid congestion. This way, drivers, will be able to drive more smoothly an hence reduce their fuel consumption. 
 Three strategies for re-routing drivers to avoid congestion has been proposed in \cite{congestionAvoidance}. 
@@ -28,7 +30,7 @@ Simulations are a well used technique for testing hypothesis in the traffic worl
 Several types of simulation algorithms exist including macroscopic, mesoscopic, microscopic and hybrids which can be any combination of the aforementioned. 
 Macroscopic algorithms model the flow of traffic abstracting the individual vehicles away, whereas mesoscopic models the vehicles but still at an abstract level. 
 Microscopic algorithms models vehicles and their behaviour in detail which allows a much more detailed analysis \cite{meso-micro}. 
-SUMO is a microscopic simulator, which we will needin order to model for exampel turn lanes.
+SUMO is a microscopic simulator, which we will need in order to model for exampel turn lanes.
 
 Several methods for modeling the movement of vehicles also exist. Amongst these are Monte Carlo models \cite{} that use random data, car following models \cite{} where cars follow leading cars, automatas where vehicles follow deterministc rules \cite{} and much more.
 
