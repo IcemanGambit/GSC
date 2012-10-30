@@ -82,7 +82,7 @@ ybar,
 		print "Test/"+str(percent) + "already exist"
 	
 	routeChart = open("Test/"+str(percent)+ "/0routes.tex", "w")
-	avgChart = open("Test/"+str(percent)+ "/avg.tex", "w")
+	avgChart = open("Test/"+str(percent)+ "/avg.dat", "w")
 	
 	rId = 0
 	for r in routes:
@@ -138,13 +138,12 @@ ybar,
 	routeString = ""
 	timeString = ""
 	fuelString = ""
+	
+	print >> avgChart, "Route\t" + "Time\t" + "Fuel"
 	for rId in avgValues:
-		routeString += str(rId) + "\t"
-		timeString += str(avgValues[rId][1]/avgValues[rId][0]) + "\t"
-		fuelString += str(avgValues[rId][2]/avgValues[rId][0]) + "\t"
+		print >> avgChart, str(rId) + "\t" +str(avgValues[rId][1]/avgValues[rId][0]) + "\t" + str(avgValues[rId][2]/avgValues[rId][0])
 
-	print >> avgChart, "Routes\t" + routeString
-	print >> avgChart, "Travel time\t" + timeString
-	print >> avgChart, "Fuel\t" + fuelString
+
+
 
 
