@@ -144,7 +144,7 @@ ybar,
 		fuelString += str(avgValues[rId][2]/avgValues[rId][0]) + "\t"
 
 	print >> avgChart, "Routes\t" + routeString
-	print >> avgChart, "\nTravel time\t" + timeString
-	print >> avgChart, "\nFuel\t" + fuelString
+	print >> avgChart, "Travel time\t" + timeString
+	print >> avgChart, "Fuel\t" + fuelString
 
 

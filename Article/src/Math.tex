@@ -1,63 +1,78 @@
-\section{Calculate the Recommended Speed}
+\section{Calculating the Recommended Speed}
 
-We use the standard formula of velocity to calculate the recommended speed, $h$ for arriving at the next traffic light while it is green.
-We calculate two velocities: one for arriving at the traffic light just as it changes to green and one as it chances to red, and the recommended velocity is therefore somewhere in between.
-\[h_g = \frac{s}{t_g}\]
-\[h_r = \frac{s}{t_r}\]
-
-\[h_r \leq h \leq h_g\]
-
+We base the recommended speed, $h$ for arriving at the next traffic light while it is green, on the standard formula of velocity.
+We use two velocities: one for arriving at the traffic light just as it changes to green and one as it chances to red.
+We want to reach the crossing just as it changes to green, because this will alow more vehichles to pass the crossing afterwards.
+We do, however, not want to drive faster than the speed limit.
+The recommended speed is therefore somewhere in the speed limit, $h_{max}$ and the speed for reaching a red light, $h_r$:
+\begin{eqnarray}
+h &=& \frac{d}{t_g}\label{eq:Math:h}\\
+h_r &=& \frac{d}{t_r}\nonumber\\
+h_r < &h& \leq h_{max}\label{eq:Math:recSpeed}
+\end{eqnarray}
 where
-\begin{itemize}
-\item $s$ is the distanced between the vehicle and the traffic light
+\vspace{-5mm}
+\begin{itemize*}
+\item $d$ is the distance between the vehicle and the traffic light
 \item $t_g$ is the number of seconds before the traffic light changes to green
-\item $t_g$ is the number of seconds before the traffic light changes to red
-\item $h_g$ is the speed one needs to drive in order to arrive at the traffic light when it changes to green
-\item $h_g$ is the speed one need to drive in order to arrive at the traffic light when it changes to red
-\item $h$ is the recommened speed
-\end{itemize}
+\item $t_r$ is the number of seconds before the traffic light changes to red
+\end{itemize*}
 
-In practice we use Algorithm~\ref{alg.recommendedSpeed} to get the recommended speed.
+Algorithm~\ref{alg.recommendedSpeed} shows the procedure for finding the recommended speed $h$ of Equation~\ref{eq:Math:recSpeed}.
+We initialise the variables inn line~\ref{alg:recSpeed:initStart} through~\ref{alg:recSpeed:initEnd} and gets the time spans inwhich the next traffic light is green. 
+This function simply reads the phases of the traffic light and returns a list of start and end time points. 
+The algorithm is not given here.
+The driver should in some situations drive at the maximum speed. If the vehicle is crossing a jucntion, if there is no more traffic lights on the route or if the traffic light is too far ahead we just return the speed limit, $h_{max}$ in line~\ref{alg:recSpeed:maxSpeed}.
+Otherwise, we have to calculate the speed. 
+We loop through all spans in line~\ref{alg:recSpeed:loopSpans}, looking for the first span that we can reach.
+First, we calculate the number of seconds before the ligth turns green and red in line~\ref{alg:recSpeed:tg} and~\ref{alg:recSpeed:tg}, respectively, and then calculate the slowest speed at which we can drive in order to reach the first green light in line~\ref{alg:recSpeed:hr}.
+In line \ref{alg:recSpeed:continue} we check if this span is reachable and continue the for-loop to the next span if it is not. 
+The span is not reachable if the span ends before our current time or if the slowest speed is higher than the speed limit.
+Knowing that this span is reachable, we calculate the recommended speed $h$.
+If the light is green right know, i.e. $t_g \leq 0$, then we again return the maximum speed in line~\ref{alg:recSpeed:green}. Otherwise, we calculate $h$ as in \eqref{eq:Math:h} in line~\ref{alg:recSpeed:h}.
+In line~\ref{alg:recSpeed:h0} through \ref{alg:recSpeed:hmax} we ensure that the recommended speed is a positive number below the speed limit and returns $h$ in line~\ref{alg:recSpeed:returnh}.
+Should it not be possible to find a reachable span, we just return the maximum speed in line~\ref{alg:recSpeed:returnmax}.
 
 \begin{algorithm}
-\caption{GetRecommendedSpeed()}\label{alg.recommendedSpeed}
-\begin{algorithmic}
-\State $nextTL = $ next traffic light on route
-\State $d=$ distance to $nextTL$. $\infty$ if no traffic light ahead
-\State $spans = $ list of start and end time points in which $nextTL$ is green
+\caption{GetRecommendedSpeed($h:$ vehicle)}\label{alg.recommendedSpeed}
+\begin{algorithmic}[1]
+\State $nextTL= $ next traffic light on route \label{alg:recSpeed:initStart}
 \State $t=$ current time
 \State $h_{max} = $ speed limit
-\State $h_g = 0$
-\State $h_r = 0$
+\State $h = 0$
+\State $h_r = 0$ 
+\State $d=distance(h,nextTL)$. $d=\infty$ if no traffic light ahead\label{alg:recSpeed:initEnd}
+\State $spans = getSpans(nextTL)$ \Comment list of start and end time points in which $nextTL$ is green
 
 \If {vehicle in junction or $d = \infty$ or $nextTL$ too far ahead}
-\Return $h_{max}$
+\Return $h_{max}$ \label{alg:recSpeed:maxSpeed}
 \EndIf
 
-\ForAll {$(s_1, s_2)$ in $spans$}
-\State $t_s = s_1 - t$ \Comment Seconds until $nextTL$ is green
-\State $t_e = s_2 - t$ \Comment Seconds until $nextTL$ is red
-\State $h_r = \frac{d}{t_e}$
+\ForAll {$(s_1, s_2)$ in $spans$}\label{alg:recSpeed:loopSpans}
+\State $t_g = s_1 - t$ \Comment Seconds until $nextTL$ is green \label{alg:recSpeed:tg}
+\State $t_r = s_2 - t$ \Comment Seconds until $nextTL$ is red\label{alg:recSpeed:tr}
+\State $h_r = \frac{d}{t_r}$\label{alg:recSpeed:hr}
 
-\If{$t> s_2$ or $s_2 \leq 0$ or $h_r > h_{max}$}
+\If{$t\geq s_2$ or $h_r > h_{max}$}\label{alg:recSpeed:continue}
 \State continue
 \EndIf
 
-\If{$t_s \leq 0$}
-\State $h_g=h_{max}$
+\If{$t_g \leq 0$}\label{alg:recSpeed:green}
+\State $h=h_{max}$
 \Else
-\State $h_g = \frac{d}{t_s}$
+\State $h = \frac{d}{t_g}$\label{alg:recSpeed:h}
 \EndIf
 
-\If{$h_g < 0$}
-\State $h_g = 0$
-\ElsIf{$h_g > h_{max}$}
-\State $h_g=h_{max}$
-\EndIf
+\If{$h < 0$}\label{alg:recSpeed:h0} %TODO: Consider setting a higher lower limit
+\State $h = 0$
+\ElsIf{$h > h_{max}$}
+\State $h=h_{max}$
+\EndIf\label{alg:recSpeed:hmax}
 
-\State\Return $h_g$
+\State\Return $h$\label{alg:recSpeed:returnh}
 \EndFor
-\State\Return $h_{max}$
+
+\State\Return $h_{max}$\label{alg:recSpeed:returnmax}
 
 \end{algorithmic}
 \end{algorithm}
