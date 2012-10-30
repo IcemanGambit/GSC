@@ -11,22 +11,28 @@ $\mathbb{N}_0$ & set of natual numbers including zero
 \end{comment}
 
 \subsection{Map}
-A map is a directed graph, $G = (V, E)$ where $V$ is a set of vertices repricenting road junctions and $E$ is a set of edges representing roads.
+A map is a directed graph, $G = (V, E)$ where $V$ is a set of vertices representing road junctions and $E$ is a set of edges representing road segments.
 
 Every edge $e\in E$ has a starting point $e.v_1$, an end point $e.v_2$ and a maximum speed $e.s$. The lenght of an edge is the euclidean distance between $e.v_1$ and $e.v_2$ denoted as $e.d$.
 
-For simplicity we limit the map such that every vertice has at least one egde and there exist a set of connected edges s.t. every edge in the graf is connected.
+For simplicity we limit the map such that every vertice has at least one egde
+and there exist a set of connected edges s.t. every edge in the graf is connected.%TODO: This makes no sence
 
 \subsection{Lanes}
 Every edge have a number of lanes $e.l \subseteq \mathbb{N} $
 
 %If an egde has 5 lanes we use the identifiers e.l = {0,1,2,3,4}
+%TODO: Either add more, or include the sentence in Map
 
+\subsection{Traffic Light Phases}
+SUMO limits the allowed light settings to red, $r$, yellow, $y$ and green, $g$.
+A phase of a traffic light, $p$ is defined as $\langle(f_1, t_1),(f_2, t_2),\dots, (f_n, t_n) \rangle$ where the light setting is $f_i\in \{r, y, g\}$ for $t_i$ seconds.
+The phases of a traffic light defines the light settings when possible sensors are not triggered.
 
 \subsection{Connections}
 A road segment can have more than one lane, and we therefore need to define the connections between all lanes in the traffic lights.
 These connections represent the two lanes one can travel between in a junction and the traffic light phase for that connection.
-A connection, $c$ is directional between two egdes, $c.e_1$ and $c.e_2$ at their associated lane identifier, $c.l_1$ and $c.l_2$. A connection is also associated with the vertice, $c.v$ that connects the two egdes and the phase, $c.p$.
+A connection, $c$ is unidirectional from one egde, $c.e_1$ to another egde, $c.e_2$ at their associated lane identifier, $c.l_1$ and $c.l_2$. A connection is also associated with the vertice, $c.v$ that connects the two egdes and the phase, $c.p$.
 
 
 
@@ -36,15 +42,14 @@ A trajectory, $T$, is a sequence of connected edges on the map, $\langle e_1, e_
 The vehicle starts at $e_1$ and moves along the sequence until $e_n$ has been reached.
 \end{comment}
 
-\subsection{Route}
-A route, $T$, is a sequence of connected edges on the map, $\langle e_1, e_2, \dots e_n \rangle$, where $e_i.v_2 = e_{i+1}.v_1$ for $0\leq i< n$.
+\subsection{Routes}
+A route, $T$, is a sequence of edges on the map, $\langle e_1, e_2, \dots e_n \rangle$, where $e_i.v_2 = e_{i+1}.v_1$ for $0\leq i< n$.
 The vehicle starts at $e_1$ and moves along the sequence until $e_n$ has been reached.
 
-
-\subsection{Vehicle}
-A vehicle, $h$, is an entity that moves along a trajectory.
-Each vehicle has an id $h.id$, a maximum speed, $h.s$, a constant acceleration, $h.a$ and deceleration, $h.d$.
-For simplicity we do not consider different dirvers in the vehicles.
+\subsection{Vehicles}
+A vehicle, $h$, is an entity that moves along a route.
+Each vehicle has an identifier, $h.id$ a maximum speed, $h.s$, a constant acceleration, $h.a$ and deceleration, $h.d$.
+For simplicity we do not consider different drivering behaviours.
 We operate with two types of vehicles: cars and trucks. See Table \ref{table.vehicleTypes} for their specifications.
 \begin{table}
 \centering
@@ -56,16 +61,6 @@ Deceleration 	&		& \\\hline
 \end{tabular}
 \caption{Types of vehicles}\label{table.vehicleTypes}
 \end{table}
-
-
-
-
-
-\subsection{Traffic Light Phases}
-SUMO limits the allowed light settings to red, $r$, yellow, $y$ and green, $g$, where red indicates that the connection may not be passed, green indicates that the connection may be passed, and yellow indicates a transition between the other two. 
-The phases of a traffic light, $l.p$ is defined as $\langle(f_1, t_1),(f_2, t_2),\dots, (f_n, t_n) \rangle$ where the light setting is $f_i\in \{r, y, g\}$ for $t_i$ seconds.
-The phases of a traffic light defines the light settings when possible sensors are not triggered. 
-
 
 \subsection{Sensors}
 A sensor can detect whether a vehicle is located at the sensor or not. Sensors can be induction loops, video cameras or others.

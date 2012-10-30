@@ -1,14 +1,20 @@
 \section{Test Results}
 We test proposed techinque using the use cased explained in the previouse section.
 
+\subsection{Verification of Results}
+%TODO: when we have something to compare with
+
 \subsection{Fuel Consumption}
 The purpose of \tech is to reduce fuel consumption. 
-We use SUMO's build in function to calculate this, which is explained in \cite{SUMOFuel}.
-Figure~\ref{tik:fuel:0:51} shows this fuel consumption as a function of time for vehicles driving on route 51 controlled by SUMO only. Figure~\ref{tik:fuel:100:51} shows the same setup, but all vehicles are controlled by \tech.
-
+We use SUMO's build-in function to calculate the vehicles fuel consumption, which is explained in \cite{SUMOFuel}.
+Figure~\ref{tik:fuel:0:51} shows this fuel consumption as a function of time for vehicles driving on route 1 controlled by SUMO only. 
+Figure~\ref{tik:fuel:100:51} shows the same setup, but with all vehicles controlled by \tech.
+The results show that using \tech in this setup will reduce the fuel consumption significantly.
+The average fuel consumption without \tech is 175 $mL$, and 117 $mL$ with \tech on route 1. 
+We therefore see a significant reduction in fuel consumption on 33 \%.
+Acrose all routes, we see a reduction from an average of 135 $mL$ to an average of 96 $mL$, which is a reduction of 29 \%.
 %\input{TestResults/100/fuel_51.tex}
 %\input{TestResults/0/fuel_51.tex}
-
 
 
 \subsection{Distance}
@@ -33,5 +39,9 @@ We do, however, still see a large fluctuation.
 %\input{TestResults/100/speed_51.tex}
 %\input{TestResults/0/speed_51.tex}
 
-
 \subsection{Time}
+It is interesting to investigate wether driving after \tech results in longer travel time than without.
+It takes on average 114 seconds to drive a route in our test without \tech, and when all vehicles drive with \tech it takes 111 seconds. 
+We therefore do not see a significant increase in travel time, in fact we see a very small decrease.
+
+
