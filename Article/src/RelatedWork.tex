@@ -1,14 +1,7 @@
 \section{Related Work}
-%TODO: Rearange this section
+%TODO: Rearrange this section
 
 The main purpose of our work is to help drivers reduce their fuel consumption by adjusting driving speed to traffic lights.
-Road authorities try to design traffic light signals such that the flow of traffic is maximised in all directions.
-This can be very difficult, especially in junctions with changing traffic density through out the day.
-Two main techinques are used in traffic lights today: pretimed traffic controllers, where the signals loop between red, yellow and green in a predefined pattern; and traffic actuated controllers, where approacing vehicles are detected by road-side detectors such that the signals can be adjusted to the current traffic flow.
-The latter techinque has become more widespread in recent years. %TODO: Citation?
-Traffic lights can also work togeather such that the flow of traffic can be maximised even futher. 
-\textit{Interconnected controllers} cooporate with other nearby traffic lights to create for example green waves.
-\textit{Agent controllers} is a more simple type of controller, that does not cooporate with other controllers.
 
 The authors of \cite{VANETsim} have proposed an idea similar to ours, in that they evaluate whether drivers should accelerate or decelerate when approaching a traffic light.
 Similarly they use the simulator SUMO to simulate their methods. 
@@ -18,8 +11,6 @@ Their results are therefore based on a very simplified environment, where as our
 
 One method for designing traffic lights has been proposed in \cite{SOTL} that generates green waves based on wireless communication between vehicles and traffic lights. Their results show a decrease in waiting time by 50 \% in their comparisons.
 The authors of \cite{ITLC} also propose a mehtod for adjusting the traffic lights to the traffic. They use reinforcement learning and a voting system amongst vehicles at or near a traffic light to calculate the total gain of different light settings. Their results showed a reduction in both congestion and waiting time.
-
-
 
 Another related issue is to re-route drivers in order to avoid congestion. This way, drivers, will be able to drive more smoothly an hence reduce their fuel consumption. 
 Three strategies for re-routing drivers to avoid congestion has been proposed in \cite{congestionAvoidance}. 
