@@ -48,16 +48,16 @@ The vehicle starts at $e_1$ and moves along the sequence until $e_n$ has been re
 
 \subsection{Vehicles}
 A vehicle, $vh$, is an entity that moves along a route.
-Each vehicle has an identifier, $h.id$ a maximum speed, $h.s$, a constant acceleration, $h.a$ and deceleration, $h.d$.
+Each vehicle has an identifier, $\veh.id$ a maximum speed, $\veh.\vel$, a constant acceleration, $\veh.\acc$ and deceleration, $\veh.\dec$.
 For simplicity we do not consider different drivering behaviours.
 We operate with two types of vehicles: cars and trucks. See Table \ref{table.vehicleTypes} for their specifications.
 \begin{table}
 \centering
 \begin{tabular}{|l|l|l|}\hline
-				& Car	& Truck \\\hline
-Max speed 		& 		& \\\hline
-Acceleration 	&		& \\\hline
-Deceleration 	&		& \\\hline
+		& Car	& Truck \\\hline
+Max speed 	& 	& \\\hline
+Acceleration 	&	& \\\hline
+Deceleration 	&	& \\\hline
 \end{tabular}
 \caption{Types of vehicles}\label{table.vehicleTypes}
 \end{table}
