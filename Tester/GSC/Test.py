@@ -4,7 +4,12 @@ vehicleData = {}
 vehicleTime = {} # [[depart, end], ]
 routes = {}
 avgValues = {} # [[number_of_vehicles_on_route, total_travel_time, total_fuel_consumption]]
-TSSegments = []
+TSSegments = ["1_S","1_S.-60"]
+VhStops = {}
+SpeedStop = 2
+MinStopRange = 5
+
+			#{key vhid, value [43,54,644]}
 """
 	processDataCollection([string,])->
 	
@@ -38,12 +43,25 @@ def processDataCollection(vehicles = None):
 		else:
 			vehicleTime[vhId] = [traci.simulation.getCurrentTime(), 0]
 		
+
+
+		#proces Stopped Vh
+		if traci.vehicle.getRoadID(vhId) in TSSegments:
+			if not vhId in VhStops and Vehicle.getTotalDistanceDriven(vhId) > 30:
+				VhStops[vhId] = []
+			if vhId in VhStops:
+				if traci.vehicle.getSpeed(vhId) < SpeedStop:
+				 	if len(VhStops[vhId]) == 0 or VhStops[vhId][len(VhStops[vhId])-1] > max(0,Vehicle._getDistanceNextTrafficLight(vhId)) + MinStopRange:			
+						VhStops[vhId].append(max(0,Vehicle._getDistanceNextTrafficLight(vhId)))
+			
 """
 	flushDataCollection() ->
 	
 	print content of vehicleSpeeds to mulitiple files, one for each route type
 """
 def flushDataCollection(percent):
+	print VhStops
+		
 	print "Flusing test results"
 	
 	initText = """

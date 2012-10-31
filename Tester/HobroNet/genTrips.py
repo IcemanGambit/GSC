@@ -68,7 +68,7 @@ for i in details:
 	vehType = 0
 	if(random.randint(0,10)> 10):
 		vehType = 1
-	print >> trips, '	<trip id="%i" from="%s" to="%s" depart="%i" type="%s"/>' % (i[0],i[1], i[2], i[3], vehicleTypes[vehType])
+	print >> trips, '	<trip id="%i" departSpeed="max" from="%s" to="%s" depart="%i" type="%s"/>' % (i[0],i[1], i[2], i[3], vehicleTypes[vehType])
 print >> trips, '</trips>'
 trips.close()
 
