@@ -4,7 +4,7 @@ vehicleData = {}
 vehicleTime = {} # [[depart, end], ]
 routes = {}
 avgValues = {} # [[number_of_vehicles_on_route, total_travel_time, total_fuel_consumption]]
-
+TSSegments = []
 """
 	processDataCollection([string,])->
 	
