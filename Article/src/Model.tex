@@ -13,26 +13,26 @@ $\mathbb{N}_0$ & set of natual numbers including zero
 \subsection{Map}
 A map is a directed graph, $G = (V, E)$ where $V$ is a set of vertices representing road junctions and $E$ is a set of edges representing road segments.
 
-Every edge $\edge\in E$ has a starting point $e.v_1$, an end point $e.v_2$ and a maximum speed $e.s$. The lenght of an edge is the euclidean distance between $e.v_1$ and $e.v_2$ denoted as $e.d$.
+Every edge $\edge\in E$ has a starting point $\edge.\ver_1$, an end point $\edge.\ver_2$ and a maximum speed $\edge.\vel$. The lenght of an edge is the euclidean distance between $\edge.\ver_1$ and $\edge.\ver_2$ denoted as $\edge.\dist$.
 
 For simplicity we limit the map such that every vertice has at least one egde
 and there exist a set of connected edges s.t. every edge in the graf is connected.%TODO: This makes no sence
 
 \subsection{Lanes}
-Every edge have a number of lanes $e.l \subseteq \mathbb{N} $
+Every edge have a number of lanes $\edge.\l \subseteq \mathbb{N} $
 
 %If an egde has 5 lanes we use the identifiers e.l = {0,1,2,3,4}
 %TODO: Either add more, or include the sentence in Map
 
 \subsection{Traffic Light Phases}
-SUMO limits the allowed light settings to red, $r$, yellow, $y$ and green, $g$.
-A phase of a traffic light, $p$ is defined as $\langle(f_1, t_1),(f_2, t_2),\dots, (f_n, t_n) \rangle$ where the light setting is $f_i\in \{red, yellow, green\}$ for $t_i$ seconds.
+SUMO limits the allowed light settings to $red, yellow$ and $green$.
+A phase of a traffic light, $\phase$ is defined as $\langle(\light_1, \ti_1),(\light_2, \ti_2),\dots, (\light_n, \ti_n) \rangle$ where the light setting is $\light_i\in \{red, yellow, green\}$ for $\ti_i$ seconds.
 The phases of a traffic light defines the light settings when possible sensors are not triggered.
 
 \subsection{Connections}
 A road segment can have more than one lane, and we therefore need to define the connections between all lanes in the traffic lights.
 These connections represent the two lanes one can travel between in a junction and the traffic light phase for that connection.
-A connection, $c$ is unidirectional from one egde, $c.e_1$ to another egde, $c.e_2$ at their associated lane identifier, $c.l_1$ and $c.l_2$. A connection is also associated with the vertice, $c.v$ that connects the two egdes and the phase, $c.p$.
+A connection, $\con$ is unidirectional from one egde, $\con.\edge_1$ to another egde, $\con.\edge_2$ at their associated lane identifier, $\con.\l_1$ and $\con.\l_2$. A connection is also associated with the vertice, $\con.\ver$ that connects the two egdes and the phase, $\con.\phase$.
 
 
 
@@ -43,11 +43,11 @@ The vehicle starts at $e_1$ and moves along the sequence until $e_n$ has been re
 \end{comment}
 
 \subsection{Routes}
-A route, $r$, is a sequence of edges on the map, $\langle e_1, e_2, \dots e_n \rangle$, where $e_i.v_2 = e_{i+1}.v_1$ for $0\leq i< n$.
-The vehicle starts at $e_1$ and moves along the sequence until $e_n$ has been reached.
+A route, $\route$, is a sequence of edges on the map, $\langle \edge_1, \edge_2, \dots \edge_n \rangle$, where $\edge_i.\ver_2 = \edge_{i+1}.\ver_1$ for $0\leq i< n$.
+The vehicle starts at $\edge_1$ and moves along the sequence until $\edge_n$ has been reached.
 
 \subsection{Vehicles}
-A vehicle, $vh$, is an entity that moves along a route.
+A vehicle, $\veh$, is an entity that moves along a route.
 Each vehicle has an identifier, $\veh.id$ a maximum speed, $\veh.\vel$, a constant acceleration, $\veh.\acc$ and deceleration, $\veh.\dec$.
 For simplicity we do not consider different drivering behaviours.
 We operate with two types of vehicles: cars and trucks. See Table \ref{table.vehicleTypes} for their specifications.

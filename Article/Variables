@@ -1,0 +1,19 @@
+
+Current
+acc	acceleration		\acc
+c	connection		\con
+d	distance		\dist
+dec	deceleration 		\dec
+e	edge			\edge
+f	light setting		\light
+l	lane			\lane
+m	meter
+mL	milliliter
+p	phase			\phase
+r	route			\route
+s	sensor or seconds	\sen
+t	time			\ti
+tl	light			\tl
+v	speed			\vel
+vh	vehicle			\veh
+vx	vertex			\ver
