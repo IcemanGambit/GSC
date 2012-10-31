@@ -83,6 +83,7 @@ ybar,
 	
 	routeChart = open("Test/"+str(percent)+ "/0routes.tex", "w")
 	avgChart = open("Test/"+str(percent)+ "/avg.dat", "w")
+	stopChart = open("Test/"+str(percent)+ "/stop.tex", "w")
 	
 	rId = 0
 	for r in routes:
@@ -135,15 +136,26 @@ ybar,
 
 		rId += 1
 
-	routeString = ""
-	timeString = ""
-	fuelString = ""
-	
+	#Printing average values
 	print >> avgChart, "Route\t" + "Time\t" + "Fuel"
 	for rId in avgValues:
 		print >> avgChart, str(rId) + "\t" +str(avgValues[rId][1]/avgValues[rId][0]) + "\t" + str(avgValues[rId][2]/avgValues[rId][0])
 
 
-
+	#Printing stops at traffic lights
+	print >> stopChart, "\\begin{tikzpicture}\\begin{axis}"
+	vhStops = sorted(VhStops, key=lambda e: len(e))
+	length = 0
+	for vh in vhStops:
+		if length > 0:
+			print >> stopChar, "};"
+		if (len(vhStops[vh])> length):
+			print >> stopChart, "\\addplot+[ycomb] coordinates{"
+			length = len(vhStops[vh])
+			
+		for d in vhStops:
+			print >> stopChart, "(" + vh + ", " + d + ")"	
+	print >> stopChart, "}\\end{axis}\\end{tikzpicture}"
+	
 
 
