@@ -20,8 +20,8 @@ This is again a significant reduction in fuel consumption in 33 \%.
 %\input{TestResults/0/fuel_51.tex}
 
 \begin{figure}
-\begin{tikzpicture}
-\begin{axis}[xlabel=Route identifiers,ylabel=Fuel consumption,bar width=1pt]
+\begin{tikzpicture}[scale=1.3]
+\begin{axis}[xlabel=Route identifiers,ylabel=Fuel consumption,bar width=1pt,]
 \addplot[ybar, blue] table[x=Route,y=Fuel] {TestResults/0/avg.dat};
 \addplot[ybar, red] table[x=Route,y=Fuel] {TestResults/100/avg.dat};
 \draw[thick, red] (axis cs:0,94) -- (axis cs:109,94);
