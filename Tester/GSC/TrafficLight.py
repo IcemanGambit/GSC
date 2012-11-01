@@ -119,8 +119,7 @@ def getRadius(tlId):
 		f = open( sys.argv[1] + "Data.net.xml")
 	else:
 		f = open( sys.argv[1] + "/Data.net.xml")
-
-	print "PARSING"
+		
 	p.ParseFile(f)
 	return 0
 

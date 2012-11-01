@@ -4,7 +4,12 @@ vehicleData = {}
 vehicleTime = {} # [[depart, end], ]
 routes = {}
 avgValues = {} # [[number_of_vehicles_on_route, total_travel_time, total_fuel_consumption]]
-TSSegments = []
+TSSegments = ["1_S","1_S.-60"]
+VhStops = {}
+SpeedStop = 0.5
+MinStopRange = 10
+
+			#{key vhid, value [43,54,644]}
 """
 	processDataCollection([string,])->
 	
@@ -38,12 +43,25 @@ def processDataCollection(vehicles = None):
 		else:
 			vehicleTime[vhId] = [traci.simulation.getCurrentTime(), 0]
 		
+
+
+		#proces Stopped Vh
+		if traci.vehicle.getRoadID(vhId) in TSSegments:
+			if not vhId in VhStops and Vehicle.getTotalDistanceDriven(vhId) > 30:
+				VhStops[vhId] = []
+			if vhId in VhStops:
+				if traci.vehicle.getSpeed(vhId) < SpeedStop:
+				 	if len(VhStops[vhId]) == 0 or VhStops[vhId][len(VhStops[vhId])-1] > max(0,Vehicle._getDistanceNextTrafficLight(vhId)) + MinStopRange:			
+						VhStops[vhId].append(max(0,Vehicle._getDistanceNextTrafficLight(vhId)))
+			
 """
 	flushDataCollection() ->
 	
 	print content of vehicleSpeeds to mulitiple files, one for each route type
 """
 def flushDataCollection(percent):
+	print VhStops
+		
 	print "Flusing test results"
 	
 	initText = """
@@ -79,7 +97,7 @@ ybar,
 	try:
 		os.makedirs("Test/"+str(percent))
 	except OSError as exception:
-		print "Test/"+str(percent) + "already exist"
+		print "Test/"+str(percent) + " already exist"
 	
 	routeChart = open("Test/"+str(percent)+ "/0routes.tex", "w")
 	avgChart = open("Test/"+str(percent)+ "/avg.dat", "w")
@@ -133,6 +151,11 @@ ybar,
 		print >> distanceChart, endText % ("distance", percent, rId, percent, rId)
 		print >> fuelChart, endText % ("fuel", percent, rId, percent, rId)
 		print >> timeChart, endText % ("time", percent, rId, percent, rId)
+		
+		speedChart.close()
+		distanceChart.close()
+		fuelChart.close()
+		timeChart.close()
 
 		rId += 1
 
@@ -144,18 +167,25 @@ ybar,
 
 	#Printing stops at traffic lights
 	print >> stopChart, "\\begin{tikzpicture}\\begin{axis}"
-	vhStops = sorted(VhStops, key=lambda e: len(e))
+	vhIds = sorted(VhStops, key=lambda e: len(VhStops[e]))
 	length = 0
-	for vh in vhStops:
-		if length > 0:
-			print >> stopChar, "};"
-		if (len(vhStops[vh])> length):
+	first = True
+
+	for vh in vhIds:
+		if (len(VhStops[vh])> length):
+			if first:
+				print >> stopChart, "};"
+				first=False
 			print >> stopChart, "\\addplot+[ycomb] coordinates{"
-			length = len(vhStops[vh])
+			length = len(VhStops[vh])
 			
-		for d in vhStops:
-			print >> stopChart, "(" + vh + ", " + d + ")"	
-	print >> stopChart, "}\\end{axis}\\end{tikzpicture}"
+		for d in VhStops[vh]:
+			print >> stopChart, "(" + str(vh) + ", " + str(d) + ")"	
 	
-
-
+	if length > 0:
+		print >> stopChart, "};"
+	print >> stopChart, "\\end{axis}\\end{tikzpicture}"
+	
+	routeChart.close()
+	avgChart.close()
+	stopChart.close()

@@ -22,7 +22,7 @@ GSCvehIds = ['253']
 
 #Finding the vehicles to test
 testPercent = True
-percent = 0
+percent = 100
 controlledVehicles = random.sample(xrange(noVehicles), noVehicles*percent/100)
 
 step = 0

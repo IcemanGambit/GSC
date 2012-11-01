@@ -1,40 +1,44 @@
 \section{Model}
-In this section we describe the model that is used.
-
-\begin{comment}\\\\
-\noindent\begin{tabular}{ll}
-$\Sigma$ & alphabet\\
-$\mathbb{R}$ & set of real numbers\\
-$\mathbb{N}$ & set of natual numbers not including zero\\
-$\mathbb{N}_0$ & set of natual numbers including zero
-\end{tabular}
-\end{comment}
+In this section we describe the model that is used to find and test the recommended speed.
+See Figure~\ref{fig:Introduction:network} for references.
 
 \subsection{Map}
 A map is a directed graph, $G = (V, E)$ where $V$ is a set of vertices representing road junctions and $E$ is a set of edges representing road segments.
-
-Every edge $\edge\in E$ has a starting point $\edge.\ver_1$, an end point $\edge.\ver_2$ and a maximum speed $\edge.\vel$. The lenght of an edge is the euclidean distance between $\edge.\ver_1$ and $\edge.\ver_2$ denoted as $\edge.\dist$.
-
-For simplicity we limit the map such that every vertice has at least one egde
-and there exist a set of connected edges s.t. every edge in the graf is connected.%TODO: This makes no sence
+Every edge $\edge\in E$ has a starting point \estart, an end point \eend and a maximum speed \espeed. 
+The lenght of an edge is the euclidean distance between $\estart$ and \eend denoted as \elength.
+For simplicity we limit the map such that every vertice is connected to the network through by one or more edges.
+In figure~\ref{fig:Introduction:network} we have five egdes and one vertex, as the road coming from north is unidirectional.
 
 \subsection{Lanes}
-Every edge have a number of lanes $\edge.\l \subseteq \mathbb{N} $
-
-%If an egde has 5 lanes we use the identifiers e.l = {0,1,2,3,4}
-%TODO: Either add more, or include the sentence in Map
+Every edge have a number of lanes $\elane \subseteq \heltal$, and each lane has an unique identifier for that egde as shown in Figure \ref{fig:Introduction:network}. 
+A vehicle can at any time jump from one lane, $\elane_i$, to an adjacent lane, $\elane_j$ where $j=i\pm1, j\geq 0$
 
 \subsection{Traffic Light Phases}
-SUMO limits the allowed light settings to $red, yellow$ and $green$.
+SUMO limits the allowed light settings to $red$, $yellow$ and $green$.
 A phase of a traffic light, $\phase$ is defined as $\langle(\light_1, \ti_1),(\light_2, \ti_2),\dots, (\light_n, \ti_n) \rangle$ where the light setting is $\light_i\in \{red, yellow, green\}$ for $\ti_i$ seconds.
 The phases of a traffic light defines the light settings when possible sensors are not triggered.
 
 \subsection{Connections}
-A road segment can have more than one lane, and we therefore need to define the connections between all lanes in the traffic lights.
-These connections represent the two lanes one can travel between in a junction and the traffic light phase for that connection.
-A connection, $\con$ is unidirectional from one egde, $\con.\edge_1$ to another egde, $\con.\edge_2$ at their associated lane identifier, $\con.\l_1$ and $\con.\l_2$. A connection is also associated with the vertice, $\con.\ver$ that connects the two egdes and the phase, $\con.\phase$.
+Some traffic lights do not always show the same signal to vehicles going in diffrent directions.
+We model this by having \textit{connections} in the intersection. 
+Each possible legal pass through the intersection is a connection as shown in the \textit{connection table} in Table \ref{tab:Introduction:connectionTable}. 
+A connection, $\con$ is hence unidirectional from one egde, \cestart to another egde, \ceend at their associated lane identifier, \clstart and \clend. 
+A connection is also associated with the vertice, $\cver$ that connects the two egdes and the phase, $\cphase$.
 
-
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+from & to \\ \hline
+1 & 7 \\ \hline
+4 & 3 \\ \hline
+4 & 7 \\ \hline
+5 & 3 \\ \hline
+6 & 2 \\ \hline
+\end{tabular}
+\caption{Connection table of the network shown in Figure \ref{fig:Introduction:network} }
+\label{tab:Introduction:connectionTable}
+\end{table}
 
 \begin{comment}
 \subsection{Trajectory}
@@ -43,12 +47,12 @@ The vehicle starts at $e_1$ and moves along the sequence until $e_n$ has been re
 \end{comment}
 
 \subsection{Routes}
-A route, $\route$, is a sequence of edges on the map, $\langle \edge_1, \edge_2, \dots \edge_n \rangle$, where $\edge_i.\ver_2 = \edge_{i+1}.\ver_1$ for $0\leq i< n$.
+A route, $\route$, is a sequence of edges on the map, $\langle \edge_1, \edge_2, \dots \edge_n \rangle$, where $\eendi{i} = \estarti{i+1}$ for $0\leq i< n$.
 The vehicle starts at $\edge_1$ and moves along the sequence until $\edge_n$ has been reached.
 
 \subsection{Vehicles}
 A vehicle, $\veh$, is an entity that moves along a route.
-Each vehicle has an identifier, $\veh.id$ a maximum speed, $\veh.\vel$, a constant acceleration, $\veh.\acc$ and deceleration, $\veh.\dec$.
+Each vehicle has an identifier, $\vehid$ a maximum speed, $\vehvel$, a constant acceleration, $\vehacc$ and deceleration, $\vehdec$.
 For simplicity we do not consider different drivering behaviours.
 We operate with two types of vehicles: cars and trucks. See Table \ref{table.vehicleTypes} for their specifications.
 \begin{table}
@@ -66,8 +70,14 @@ Deceleration 	&	& \\\hline
 A sensor can detect whether a vehicle is located at the sensor or not. Sensors can be induction loops, video cameras or others.
 
 \subsection{Traffic Light}
-A traffic light, $\tl$ controls the flow of traffic at a junction (vertice), and is associated with that vertice, $\tl.\ver$ and a set of sensors, $\tl.\sen$.
+A traffic light, $\tl$ controls the flow of traffic at a junction (vertex), and is associated with the vertice, $\tlver$ and a set of sensors, $\tlsen$.
+Even though we represent a juction as a vertex it has a physical size and geometry, as illustrated in Figure~\ref{fig:Introduction:network}.
+To get the distance from a traffic light to a vehicle, we simply calculate the distance to the vertex at the center of the traffic and substract the average distance from the center to the outer egdes of the traffic light. %TODO: Its is too complex?
 
+Hence, we cannot predict the precise distance to the position at a traffic light where the driver must stop.
+However, there is already inaccuracies due to blocking cars.
+This can for example be observed in Figure \ref{fig:Introduction:network} where vehicle $\veh_1$ drives towards traffic light $\tl_2$. 
+He believes that the distance to were he has to stop is the distance $\dist_1$, however, the two blue cars already waiting in line blocks a part of the road.
 
 
 

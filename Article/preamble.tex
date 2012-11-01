@@ -68,7 +68,7 @@
 \usepackage{grffile}
 
 \usepackage{pgfplots}
-\pgfplotsset{width=8cm, height=5cm}
+\pgfplotsset{width=6cm, height=5cm}
 
 %For ensuring space after commands
 \usepackage{xspace}
@@ -120,23 +120,48 @@
 
 %%%%% CUSTOM MACROS %%%%%%%%%%%%%%%%%%%
 \newtheorem{definition}{Definition}
-\newcommand{\tech}{SFRAVTLS\xspace}
-\newcommand{\acc}{\ensuremath{acc}}
-\newcommand{\con}{\ensuremath{c}}
-\newcommand{\dist}{\ensuremath{d}}
-\newcommand{\dec}{\ensuremath{dec}}
-\newcommand{\edge}{\ensuremath{e}}
-\newcommand{\light}{\ensuremath{f}}
-\newcommand{\lane}{\ensuremath{l}}
-\newcommand{\phase}{\ensuremath{p}}
-\newcommand{\route}{\ensuremath{r}}
-\newcommand{\sen}{\ensuremath{s}}
-\newcommand{\ti}{\ensuremath{t}}
-\newcommand{\tl}{\ensuremath{tl}}
-\newcommand{\vel}{\ensuremath{v}}
-\newcommand{\veh}{\ensuremath{vh}}
-\newcommand{\ver}{\ensuremath{vx}}
 
+\newcommand{\heltal}{\ensuremath{\mathbb{N}}\xspace}
+
+\newcommand{\tech}{SFRAVTLS\xspace}
+\newcommand{\acc}{\ensuremath{acc}\xspace}
+\newcommand{\dist}{\ensuremath{d}\xspace}
+\newcommand{\dec}{\ensuremath{dec}\xspace}
+\newcommand{\light}{\ensuremath{f}\xspace}
+\newcommand{\lane}{\ensuremath{l}\xspace}
+\newcommand{\phase}{\ensuremath{p}\xspace}
+\newcommand{\route}{\ensuremath{r}\xspace}
+\newcommand{\sen}{\ensuremath{s}\xspace}
+\newcommand{\ti}{\ensuremath{t}\xspace}
+\newcommand{\vel}{\ensuremath{v}\xspace}
+\newcommand{\ver}{\ensuremath{vx}\xspace}
+
+\newcommand{\con}{\ensuremath{c}\xspace}
+\newcommand{\cestart}{\ensuremath{\con.\edge_1}\xspace}
+\newcommand{\ceend}{\ensuremath{\con.\edge_2}\xspace}
+\newcommand{\clstart}{\ensuremath{\con.\edge_1}\xspace}
+\newcommand{\clend}{\ensuremath{\con.\edge_2}\xspace}
+\newcommand{\cver}{\ensuremath{\con.\ver}\xspace}
+\newcommand{\cphase}{\ensuremath{\con.\phase}\xspace}
+
+\newcommand{\edge}{\ensuremath{e}\xspace}
+\newcommand{\estart}{\estarti{}}
+\newcommand{\estarti}[1]{\ensuremath{\edge_{#1}.\ver_1}\xspace}
+\newcommand{\eend}{\eendi{}}
+\newcommand{\eendi}[1]{\ensuremath{\edge_{#1}.\ver_2}\xspace}
+\newcommand{\espeed}{\ensuremath{\edge.\vel}\xspace}
+\newcommand{\elength}{\ensuremath{\edge.\dist}\xspace}
+\newcommand{\elane}{\ensuremath{\edge.\lane}\xspace}
+
+\newcommand{\veh}{\ensuremath{vh}\xspace}
+\newcommand{\vehid}{\ensuremath{\veh.id}\xspace}
+\newcommand{\vehvel}{\ensuremath{\veh.\vel}\xspace}
+\newcommand{\vehacc}{\ensuremath{\veh.\acc}\xspace}
+\newcommand{\vehdec}{\ensuremath{\veh.\dec}\xspace}
+
+\newcommand{\tl}{\ensuremath{tl}\xspace}
+\newcommand{\tlsen}{\ensuremath{\tl.\sen}\xspace}
+\newcommand{\tlver}{\ensuremath{\tl.\ver}\xspace}
 
 
 \begin{document}
