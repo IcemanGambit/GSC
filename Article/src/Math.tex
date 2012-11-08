@@ -34,9 +34,9 @@ In line~\ref{alg:recSpeed:h0} through \ref{alg:recSpeed:hmax} we ensure that the
 Should it not be possible to find a reachable span, we just return the maximum speed in line~\ref{alg:recSpeed:returnmax}.
 
 \begin{algorithm}
-\caption{GetRecommendedSpeed(\veh, \route, $\map = (V, E, C)$)}\label{alg.recommendedSpeed}
+\caption{recommendSpeed(\veh, \route, $\map = (V, E, C)$)}\label{alg.recommendedSpeed}
 \begin{algorithmic}[1]
-\State $nextTL= $ next traffic light on route\Comment $nextTL=none$ if no next light \label{alg:recSpeed:initStart}
+\State $\tlnext= $ next \tl in \route\Comment $\tl=none$ if no junction \label{alg:recSpeed:initStart}
 \State $\ti=$ current time
 \State $\velrec = 0$ \Comment Recommended speed
 \State $\velslow = 0$ \Comment Slowest speed for reaching a green light
