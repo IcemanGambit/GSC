@@ -17,17 +17,12 @@ Deceleration 	&		& \\\hline
 \end{tabular}
 \caption{Types of vehicles}\label{table.vehicleTypes}
 \end{table}
-\begin{figure}[htb]
-\centering
-\includegraphics[width=0.5\textwidth]{images/ConnectionNetwork.png}
-\caption{Eksample network}
-\label{fig:Introduction:network}
-\end{figure}
+
 \subsection{Connections}
 An intersection is made up of several \textit{connections} that connect road segments one can drive to and from.
 For example each possible legal pass through the intersection in Figure~\ref{fig:Introduction:network} is a connection as shown in the connection table in Table~\ref{tab:Introduction:connectionTable}. 
 A connection, $\con$ is hence unidirectional from one vertex, \cestart to another vertex, \ceend, and a connection is made for each lane of the edges.
-A connection is also associated with the traffic light phase, $\cphase$ for that connection.
+A connection is also associated a traffic light phase, $\cphase$. A full connection network for Figure \ref{fig:Introduction:network} can be seen in Figure \ref{fig:Model:Connection}.
 \begin{table}[h]
 \centering
 \begin{tabular}{|l|c|c|}
@@ -42,7 +37,12 @@ $\con_5$ & 6 & 2 \\ \hline
 \caption{Connection table of the network shown in Figure \ref{fig:Introduction:network} }
 \label{tab:Introduction:connectionTable}
 \end{table}
-
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{images/ConnectionNetwork.png}
+\caption{Connection network of Figure \ref{fig:Introduction:network}}
+\label{fig:Model:Connection}
+\end{figure}
 \subsection{Traffic Light Phases}
 We have a traffic light phase for each connection in a traffic light, and each phase details the light setting for just this one connection.
 SUMO limits the allowed light settings to $red$, $yellow$ and $green$.
@@ -51,7 +51,7 @@ The phases of a traffic light defines the light settings when possible sensors a
 
 
 \subsection{Map}
-A map is a directed graph, $G = (V, E, C)$ where $V$ is a set of vertices making up a road junction, $E$ is a set of edges representing road segments and $C$ is a set of connections between vertices at junctions.
+A map is a directed graph, $G = (V, E, C)$ where $V$ is a set of vertices, $E$ is a set of edges representing road segments and $C$ is a set of connections.
 Every edge $\edge\in E$ has a starting point \estart, an end point \eend and a maximum speed \espeed. 
 The lenght of an edge is the euclidean distance between $\estart$ and \eend denoted as \elength.
 In figure~\ref{fig:Introduction:network} we have five egdes, as the road coming from north is unidirectional and six connections assuming one cannot make U-turn.
@@ -59,6 +59,12 @@ In figure~\ref{fig:Introduction:network} we have five egdes, as the road coming 
 \subsection{Sensors}
 A sensor can detect whether a vehicle is located at the sensor or not. Sensors can be induction loops, video cameras or others.
 
+
+\subsection{Junction}
+We define a junction \ju to be a set of connection $\jucons \subseteq C$
+
+
+\begin{comment}
 \subsection{Traffic Light}
 A traffic light, $\tl$ controls the flow of traffic at a junction, and is associated with a set of connections, $\tlcons$. % and a set of sensors, $\tlsen$.
 
@@ -70,6 +76,7 @@ Hence, we cannot predict the precise distance to the position at a traffic light
 However, there is already inaccuracies due to blocking cars.
 This can for example be observed in Figure \ref{fig:Introduction:network} where vehicle $\veh_1$ drives towards traffic light $\tl_2$. %TODO: fix reference
 He believes that the distance to were he has to stop is the distance $\dist_1$, however, the two blue cars already waiting in line blocks a part of the road.
+\end{comment}
 
 \begin{comment}
 \subsection{Trajectory}
