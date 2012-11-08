@@ -34,14 +34,18 @@ In line~\ref{alg:recSpeed:h0} through \ref{alg:recSpeed:hmax} we ensure that the
 Should it not be possible to find a reachable span, we just return the maximum speed in line~\ref{alg:recSpeed:returnmax}.
 
 \begin{algorithm}
-\caption{GetRecommendedSpeed($\veh:$ vehicle)}\label{alg.recommendedSpeed}
+\caption{GetRecommendedSpeed(\veh, \route, $\map = (V, E, C)$)}\label{alg.recommendedSpeed}
 \begin{algorithmic}[1]
-\State $nextTL= $ next traffic light on route \label{alg:recSpeed:initStart}
+\State $nextTL= $ next traffic light on route\Comment $nextTL=none$ if no next light \label{alg:recSpeed:initStart}
 \State $\ti=$ current time
-\State $\vel_{max} = $ speed limit
-\State $\vel = 0$
-\State $\vel_r = 0$ 
-\State $\dist=distance(\veh,nextTL)$. $d=\infty$ if no traffic light ahead\label{alg:recSpeed:initEnd}
+\State $\velrec = 0$ \Comment Recommended speed
+\State $\velslow = 0$ \Comment Slowest speed for reaching a green light
+\If {$\vehpos \in C$}
+\State \velmax = \espeed s.t. \eend=\vehposstart
+\Else
+\State \velmax = \vehposspeed
+\EndIf
+\State $\dist=distance(\veh,nextTL)$. \Comment $d=\infty$ if $nextTL=none$\label{alg:recSpeed:initEnd}
 \State $spans = getSpans(nextTL)$ \Comment list of start and end time points in which $nextTL$ is green
 
 \If {\veh in junction or $\dist = \infty$ or $nextTL$ too far ahead}
