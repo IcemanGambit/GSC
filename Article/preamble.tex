@@ -133,12 +133,17 @@
 \newcommand{\route}{\ensuremath{r}\xspace}
 \newcommand{\sen}{\ensuremath{s}\xspace}
 \newcommand{\ti}{\ensuremath{t}\xspace}
-\newcommand{\vel}{\ensuremath{v}\xspace}
 \newcommand{\ver}{\ensuremath{vx}\xspace}
 
+\newcommand{\vel}{\ensuremath{v}\xspace}
+\newcommand{\velmax}{\ensuremath{v_{max}}\xspace}
+\newcommand{\velrec}{\ensuremath{v}\xspace}
+\newcommand{\velslow}{\ensuremath{v_{r}}\xspace}
+
+
 \newcommand{\con}{\ensuremath{c}\xspace}
-\newcommand{\cestart}{\ensuremath{\con.\edge_1}\xspace}
-\newcommand{\ceend}{\ensuremath{\con.\edge_2}\xspace}
+\newcommand{\cestart}{\ensuremath{\con.\ver_1}\xspace}
+\newcommand{\ceend}{\ensuremath{\con.\ver_2}\xspace}
 \newcommand{\clstart}{\ensuremath{\con.\edge_1}\xspace}
 \newcommand{\clend}{\ensuremath{\con.\edge_2}\xspace}
 \newcommand{\cver}{\ensuremath{\con.\ver}\xspace}
@@ -158,15 +163,21 @@
 \newcommand{\vehvel}{\ensuremath{\veh.\vel}\xspace}
 \newcommand{\vehacc}{\ensuremath{\veh.\acc}\xspace}
 \newcommand{\vehdec}{\ensuremath{\veh.\dec}\xspace}
+\newcommand{\vehpos}{\ensuremath{\veh.pos}\xspace}
+\newcommand{\vehposspeed}{\ensuremath{\veh.pos.\vel}\xspace}
+\newcommand{\vehposstart}{\ensuremath{\veh.pos.\ver_1}\xspace}
 
 \newcommand{\tl}{\ensuremath{tl}\xspace}
 \newcommand{\tlsen}{\ensuremath{\tl.\sen}\xspace}
 \newcommand{\tlver}{\ensuremath{\tl.\ver}\xspace}
+\newcommand{\tlcons}{\ensuremath{\tl.c}\xspace}
 
+\newcommand{\map}{\ensuremath{map}\xspace}
 
 \begin{document}
 
 \title{Simulating Fuel Reduction by Adjusting Velocity to Traffic Lights Signals}
+\pagenumbering{arabic}
 
 \numberofauthors{2}
 \author{
