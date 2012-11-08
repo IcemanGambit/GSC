@@ -125,20 +125,28 @@
 
 \newcommand{\tech}{SFRAVTLS\xspace}
 \newcommand{\acc}{\ensuremath{acc}\xspace}
-\newcommand{\dist}{\ensuremath{d}\xspace}
 \newcommand{\dec}{\ensuremath{dec}\xspace}
 \newcommand{\light}{\ensuremath{f}\xspace}
 \newcommand{\lane}{\ensuremath{l}\xspace}
 \newcommand{\phase}{\ensuremath{p}\xspace}
 \newcommand{\route}{\ensuremath{r}\xspace}
 \newcommand{\sen}{\ensuremath{s}\xspace}
-\newcommand{\ti}{\ensuremath{t}\xspace}
 \newcommand{\ver}{\ensuremath{vx}\xspace}
+
+\newcommand{\dist}{\ensuremath{d}\xspace}
+\newcommand{\distmax}{\ensuremath{d_{max}}\xspace}
+
+\newcommand{\ti}{\ensuremath{t}\xspace}
+\newcommand{\tstart}{\ensuremath{\ti_s}\xspace}
+\newcommand{\tend}{\ensuremath{\ti_e}\xspace}
+\newcommand{\tslow}{\ensuremath{\ti_{r}}\xspace}
+\newcommand{\tgreen}{\ensuremath{\ti_{g}}\xspace}
+
 
 \newcommand{\vel}{\ensuremath{v}\xspace}
 \newcommand{\velmax}{\ensuremath{v_{max}}\xspace}
 \newcommand{\velrec}{\ensuremath{v}\xspace}
-\newcommand{\velslow}{\ensuremath{v_{r}}\xspace}
+\newcommand{\velslow}{\ensuremath{v_{slow}}\xspace}
 
 
 \newcommand{\con}{\ensuremath{c}\xspace}
@@ -148,6 +156,8 @@
 \newcommand{\clend}{\ensuremath{\con.\edge_2}\xspace}
 \newcommand{\cver}{\ensuremath{\con.\ver}\xspace}
 \newcommand{\cphase}{\ensuremath{\con.\phase}\xspace}
+\newcommand{\cnext}{\ensuremath{\con_{next}}\xspace}
+\newcommand{\cnextphase}{\ensuremath{\con_{next}.\phase}\xspace}
 
 \newcommand{\edge}{\ensuremath{e}\xspace}
 \newcommand{\estart}{\estarti{}}
@@ -167,13 +177,14 @@
 \newcommand{\vehposspeed}{\ensuremath{\veh.pos.\vel}\xspace}
 \newcommand{\vehposstart}{\ensuremath{\veh.pos.\ver_1}\xspace}
 
-\newcommand{\tl}{\ensuremath{ju}\xspace}
+\newcommand{\ju}{\ensuremath{ju}\xspace}
 \newcommand{\tlsen}{\ensuremath{\tl.\sen}\xspace}
 \newcommand{\tlver}{\ensuremath{\tl.\ver}\xspace}
-\newcommand{\tlcons}{\ensuremath{\tl.c}\xspace}
-\newcommand{\tlnext}{\ensuremath{\tl_{next}}\xspace}
+\newcommand{\jucons}{\ensuremath{\ju.C}\xspace}
 
 \newcommand{\map}{\ensuremath{map}\xspace}
+
+\newcommand{\getSpan}[2]{\ensuremath{getSpan(#1, #2)}\xspace}
 
 \begin{document}
 
