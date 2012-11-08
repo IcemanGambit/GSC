@@ -1,19 +1,18 @@
 \section{Model}
-In this section we describe the model that is used to find and test the recommended speed.
+In this section we describe the model that is used to find the recommended speed.
 See Figure~\ref{fig:Introduction:network} for references.
 
 \subsection{Vehicles}
 A vehicle, $\veh$, is an entity that moves along a route.
-Each vehicle has an identifier, $\vehid$ a maximum speed, $\vehvel$, a constant acceleration, $\vehacc$ and deceleration, $\vehdec$ and a current position, \vehpos. The position is either an edge or a connection (See below) and is updated as vehicle moves.
-For simplicity we do not consider different drivering behaviours.
-We operate with two types of vehicles: cars and trucks. See Table \ref{table.vehicleTypes} for their specifications.
+Each vehicle has an identifier, $\vehid$ a maximum speed, $\vehvel$, a constant acceleration, $\vehacc$ and deceleration, $\vehdec$ and a current position, \vehpos. The position is either an edge or a connection (See below) and is updated as the vehicle moves.
+For simplicity we do not consider different drivering behaviours, but operate with two types of vehicles: cars and trucks. See Table \ref{table.vehicleTypes} for their specifications.
 \begin{table}
 \centering
 \begin{tabular}{|l|l|l|}\hline
-				& Car 	& Truck \\\hline
-Max speed 		& 		& \\\hline
-Acceleration 	&		& \\\hline
-Deceleration 	&		& \\\hline
+		& Car 	& Truck \\\hline
+Max speed 	& 	& \\\hline
+Acceleration 	&	& \\\hline
+Deceleration 	&	& \\\hline
 \end{tabular}
 \caption{Types of vehicles}\label{table.vehicleTypes}
 \end{table}
@@ -22,7 +21,8 @@ Deceleration 	&		& \\\hline
 An intersection is made up of several \textit{connections} that connect road segments one can drive to and from.
 For example each possible legal pass through the intersection in Figure~\ref{fig:Introduction:network} is a connection as shown in the connection table in Table~\ref{tab:Introduction:connectionTable}. 
 A connection, $\con$ is hence unidirectional from one vertex, \cestart to another vertex, \ceend, and a connection is made for each lane of the edges.
-A connection is also associated a traffic light phase, $\cphase$. A full connection network for Figure \ref{fig:Introduction:network} can be seen in Figure \ref{fig:Model:Connection}.
+A connection is also associated a traffic light phase, $\cphase$. 
+A full connection network for Figure \ref{fig:Introduction:network} can be seen in Figure \ref{fig:Model:Connection}.
 \begin{table}[h]
 \centering
 \begin{tabular}{|l|c|c|}
@@ -39,7 +39,7 @@ $\con_5$ & 6 & 2 \\ \hline
 \end{table}
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.5\textwidth]{images/ConnectionNetwork.png}
+\includegraphics[width=0.4\textwidth]{images/ConnectionNetwork.png}
 \caption{Connection network of Figure \ref{fig:Introduction:network}}
 \label{fig:Model:Connection}
 \end{figure}
@@ -47,7 +47,8 @@ $\con_5$ & 6 & 2 \\ \hline
 We have a traffic light phase for each connection in a traffic light, and each phase details the light setting for just this one connection.
 SUMO limits the allowed light settings to $red$, $yellow$ and $green$.
 A phase of a traffic light, $\phase$ is defined as $\langle(\light_0, \ti_0),(\light_1, \ti_1),\dots, (\light_n, \ti_n) \rangle$ where the light setting is $\light_i\in \{red, yellow, green\}$ in $\ti_i$ seconds for $0 \leq i \leq n$.
-The phases of a traffic light defines the light settings when possible sensors are not triggered.
+A connection with no traffic light signal will simply have the phase $\langle(green, \infty)\rangle$
+The phases of a traffic light defines the light settings when possible sensors are not triggered. %TODO hm sensors what is that ?
 
 
 \subsection{Map}
