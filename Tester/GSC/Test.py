@@ -142,18 +142,18 @@ ybar,
 
 			travelTime = (vehicleTime[vh][1]-vehicleTime[vh][0])/1000
 			print >> timeChart, "(" + vh + ", " + str(travelTime) + ")"
-			v+=1
 		
 			if r in avgValues:
-				avgValues[rId][0]+= 1
-				avgValues[rId][1]+= travelTime
+				avgValues[rId][0]+= 1 #Number of records
+				avgValues[rId][1]+= travelTime # Avg. travel time
 				avgValues[rId][2]+= vehicleData[vh][len(vehicleData[vh])-1][2] #Avg. fuel
 			else:
 				avgValues[rId]= [1,travelTime, vehicleData[vh][len(vehicleData[vh])-1][2]]
+				
+			v+=1 #Next vehicle
 
 		print >> timeChart, "};"
-		if v < 10:
-			print >> speedChart, endText % ("speed", percent, rId, percent, rId)
+		print >> speedChart, endText % ("speed", percent, rId, percent, rId)
 		print >> distanceChart, endText % ("distance", percent, rId, percent, rId)
 		print >> fuelChart, endText % ("fuel", percent, rId, percent, rId)
 		print >> timeChart, endText % ("time", percent, rId, percent, rId)
@@ -163,7 +163,7 @@ ybar,
 		fuelChart.close()
 		timeChart.close()
 
-		rId += 1
+		rId += 1 #Next route
 
 	#Printing average values
 	print >> avgChart, "Route\t" + "Time\t" + "Fuel"
