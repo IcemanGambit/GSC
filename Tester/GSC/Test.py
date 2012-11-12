@@ -1,4 +1,4 @@
-import traci, Vehicle, os
+import traci, Vehicle, os, random
 
 vehicleData = {}
 vehicleTime = {} # [[depart, end], ]
@@ -116,38 +116,44 @@ ybar,
 		print >> fuelChart, initText % ("Time (s)", "Fuel (mL)",)
 		print >> timeChart, initTimeText % ("Vehicles", "Time (s)")
 		print >> timeChart, "\\addplot coordinates {"
+		
+		vehicles = routes[r]
+		random.shuffle(vehicles)
 
 		v = 0 #Number of vehicles
-		for vh, data in vehicleData.iteritems():
-			if vh in routes[r]:
+		for vh in vehicles:
+			if v < 10:
 				print >> speedChart, "\\addplot[] coordinates {"
-				print >> distanceChart, "\\addplot[] coordinates {"
-				print >> fuelChart, "\\addplot[] coordinates {"
-				
-				t = 0 #Time step
-				for i in data:
+			print >> distanceChart, "\\addplot[] coordinates {"
+			print >> fuelChart, "\\addplot[] coordinates {"
+		
+			t = 0 #Time step
+			for i in vehicleData[vh]:
+				if v < 10:
 					print >> speedChart, "(" + str(t) + ", " + str(i[1]) + ")"
-					print >> distanceChart, "(" + str(t) + ", " + str(i[0]) + ")"
-					print >> fuelChart, "(" + str(t) + ", " + str(i[2]) + ")"
-					t+=1
-					
+				print >> distanceChart, "(" + str(t) + ", " + str(i[0]) + ")"
+				print >> fuelChart, "(" + str(t) + ", " + str(i[2]) + ")"
+				t+=1
+			
+			if v < 10:
 				print >> speedChart, "};"
-				print >> distanceChart, "};"
-				print >> fuelChart, "};"
+			print >> distanceChart, "};"
+			print >> fuelChart, "};"
 
-				travelTime = (vehicleTime[vh][1]-vehicleTime[vh][0])/1000
-				print >> timeChart, "(" + vh + ", " + str(travelTime) + ")"
-				v+=1
-				
-				if r in avgValues:
-					avgValues[rId][0]+= 1
-					avgValues[rId][1]+= travelTime
-					avgValues[rId][2]+= vehicleData[vh][len(vehicleData[vh])-1][2] #Avg. fuel
-				else:
-					avgValues[rId]= [1,travelTime, vehicleData[vh][len(vehicleData[vh])-1][2]]
+			travelTime = (vehicleTime[vh][1]-vehicleTime[vh][0])/1000
+			print >> timeChart, "(" + vh + ", " + str(travelTime) + ")"
+			v+=1
+		
+			if r in avgValues:
+				avgValues[rId][0]+= 1
+				avgValues[rId][1]+= travelTime
+				avgValues[rId][2]+= vehicleData[vh][len(vehicleData[vh])-1][2] #Avg. fuel
+			else:
+				avgValues[rId]= [1,travelTime, vehicleData[vh][len(vehicleData[vh])-1][2]]
 
 		print >> timeChart, "};"
-		print >> speedChart, endText % ("speed", percent, rId, percent, rId)
+		if v < 10:
+			print >> speedChart, endText % ("speed", percent, rId, percent, rId)
 		print >> distanceChart, endText % ("distance", percent, rId, percent, rId)
 		print >> fuelChart, endText % ("fuel", percent, rId, percent, rId)
 		print >> timeChart, endText % ("time", percent, rId, percent, rId)
