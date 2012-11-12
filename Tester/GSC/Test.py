@@ -60,7 +60,7 @@ def processDataCollection(vehicles = None):
 	print content of vehicleSpeeds to mulitiple files, one for each route type
 """
 def flushDataCollection(percent):
-	print VhStops
+	
 		
 	print "Flusing test results"
 	
