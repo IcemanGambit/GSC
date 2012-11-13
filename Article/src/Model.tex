@@ -47,7 +47,7 @@ $\con_5$ & 6 & 2 \\ \hline
 We have a traffic light phase for each connection in a traffic light, and each phase details the light setting for just this one connection.
 SUMO limits the allowed light settings to $red$, $yellow$ and $green$.
 A phase of a traffic light, $\phase$ is defined as $\langle(\light_0, \ti_0),(\light_1, \ti_1),\dots, (\light_n, \ti_n) \rangle$ where the light setting is $\light_i\in \{red, yellow, green\}$ in $\ti_i$ seconds for $0 \leq i \leq n$.
-A connection with no traffic light signal will simply have the phase $\langle(green, \infty)\rangle$
+A connection in an unregulated junction will simply have the phase $\langle(green, \infty)\rangle$
 The phases of a traffic light defines the light settings when possible sensors are not triggered. %TODO hm sensors what is that ?
 
 
@@ -62,7 +62,7 @@ A sensor can detect whether a vehicle is located at the sensor or not. Sensors c
 
 
 \subsection{Junction}
-We define a junction \ju to be a set of connection $\jucons \subseteq C$
+We define a junction \ju to be a set of connection $\jucons \subseteq C$. A junction can be either regulated or unregulated. In an unregulated traffic light normal traffic rules apply. In a regulated traffic light vehicles will have to check the phases $\cphase$ of the connection \vehpos. A junction is said to be unregulated iff $\forall c \in \jucons | \cphase = \langle(green, \infty)\rangle$
 
 
 \begin{comment}
@@ -87,4 +87,3 @@ A trajectory is the GPS records of the time and location of a vehicle
 \subsection{Routes}
 A route, $\route$, is a sequence of edges on the map, $\langle \edge_1, \edge_2, \dots \edge_n \rangle$, where $\exists \con$ s.t. $\eendi{i} = \cestart$ and $\estarti{i+1} = \ceend$ for $0\leq i< n$.
 The vehicle starts at $\edge_1$ and moves along the sequence until $\edge_n$ has been reached.
-

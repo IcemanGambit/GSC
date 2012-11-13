@@ -44,8 +44,8 @@ vehicleTypes = ["car", "truck"]
 types = open(sys.argv[1]+"/Data.rou.xml", "w")
 print >> types, """
 	<routes>
-	    <vType id="car" accel="2.5" decel="6" sigma="0.5" length="5" minGap="2" maxSpeed="41"/>
-	    <vType id="truck" accel="0.3" decel="3" sigma="0.5" length="10" minGap="6" maxSpeed="25"/>
+	    <vType id="car" accel="0.8" decel="6" sigma="0.5" length="4" minGap="2" maxSpeed="41"/>
+	    <vType id="truck" accel="0.3" decel="3" sigma="0.5" length="10" minGap="2" maxSpeed="25"/>
     </routes>"""
 
 types.close()
@@ -66,7 +66,7 @@ trips = open(sys.argv[1]+"/trips.xml", "w")
 print >> trips, "<trips>"
 for i in details:
 	vehType = 0
-	if(random.randint(0,10)> 10):
+	if(random.randint(0,10)> 9):
 		vehType = 1
 	print >> trips, '	<trip id="%i" from="%s" to="%s" depart="%i" type="%s" departSpeed="max"/>' % (i[0],i[1], i[2], i[3], vehicleTypes[vehType])
 print >> trips, '</trips>'
