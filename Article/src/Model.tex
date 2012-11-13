@@ -1,5 +1,5 @@
 \section{Model}
-In this section we describe the model that is used to find the recommended speed.
+In this section we describe the model that is used to find the speed that will let a vehicle arraive at the next traffic light as it turns green.
 See Figure~\ref{fig:Introduction:network} for references.
 
 \subsection{Vehicles}
@@ -17,12 +17,18 @@ Deceleration 	&	& \\\hline
 \caption{Types of vehicles}\label{table.vehicleTypes}
 \end{table}
 
-\subsection{Connections}
-An intersection is made up of several \textit{connections} that connect road segments one can drive to and from.
-For example each possible legal pass through the intersection in Figure~\ref{fig:Introduction:network} is a connection as shown in the connection table in Table~\ref{tab:Introduction:connectionTable}. 
+\subsection{Map}
+A map is a directed graph, $G = (V, E, C)$ where $V$ is a set of vertices, $E$ is a set of edges representing road segments and $C$ is a set of connections.
+Every edge $\edge\in E$ has a starting point \estart, an end point \eend and a maximum speed \espeed. 
+The lenght of an edge is the euclidean distance between $\estart$ and \eend denoted as \elength.
+In Figure~\ref{fig:Introduction:network} we have five egdes, as the road coming from north is unidirectional.
+
+An intersection is made up of several connections that connect road segments one can drive to and from.
+For example each possible legal pass through the intersection in Figure~\ref{fig:Introduction:network} is a connection as shown in Figure~\ref{fig:Model:Connection} as red arrows. 
 A connection, $\con$ is hence unidirectional from one vertex, \cestart to another vertex, \ceend, and a connection is made for each lane of the edges.
 A connection is also associated a traffic light phase, $\cphase$. 
-A full connection network for Figure \ref{fig:Introduction:network} can be seen in Figure \ref{fig:Model:Connection}.
+The example in Figure~\ref{fig:Introduction:network} hence have six connections assuming one cannot make U-turns.
+\begin{comment}
 \begin{table}[h]
 \centering
 \begin{tabular}{|l|c|c|}
@@ -37,32 +43,32 @@ $\con_5$ & 6 & 2 \\ \hline
 \caption{Connection table of the network shown in Figure \ref{fig:Introduction:network} }
 \label{tab:Introduction:connectionTable}
 \end{table}
+\end{comment}
+
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.4\textwidth]{images/ConnectionNetwork.png}
 \caption{Connection network of Figure \ref{fig:Introduction:network}}
 \label{fig:Model:Connection}
 \end{figure}
+
+\subsection{Sensors}
+A sensor can detect whether a vehicle is located at the sensor or not. Sensors can be induction loops, video cameras or others. %TODO: More stuff
+
 \subsection{Traffic Light Phases}
 We have a traffic light phase for each connection in a traffic light, and each phase details the light setting for just this one connection.
 SUMO limits the allowed light settings to $red$, $yellow$ and $green$.
 A phase of a traffic light, $\phase$ is defined as $\langle(\light_0, \ti_0),(\light_1, \ti_1),\dots, (\light_n, \ti_n) \rangle$ where the light setting is $\light_i\in \{red, yellow, green\}$ in $\ti_i$ seconds for $0 \leq i \leq n$.
-A connection in an unregulated junction will simply have the phase $\langle(green, \infty)\rangle$
-The phases of a traffic light defines the light settings when possible sensors are not triggered. %TODO hm sensors what is that ?
-
-
-\subsection{Map}
-A map is a directed graph, $G = (V, E, C)$ where $V$ is a set of vertices, $E$ is a set of edges representing road segments and $C$ is a set of connections.
-Every edge $\edge\in E$ has a starting point \estart, an end point \eend and a maximum speed \espeed. 
-The lenght of an edge is the euclidean distance between $\estart$ and \eend denoted as \elength.
-In figure~\ref{fig:Introduction:network} we have five egdes, as the road coming from north is unidirectional and six connections assuming one cannot make U-turn.
-
-\subsection{Sensors}
-A sensor can detect whether a vehicle is located at the sensor or not. Sensors can be induction loops, video cameras or others.
+A connection in an unregulated junction will simply have the phase $\langle(green, \infty)\rangle$.
+The phases of a traffic light defines the light settings when possible sensors are not triggered. 
 
 
 \subsection{Junction}
-We define a junction \ju to be a set of connection $\jucons \subseteq C$. A junction can be either regulated or unregulated. In an unregulated traffic light normal traffic rules apply. In a regulated traffic light vehicles will have to check the phases $\cphase$ of the connection \vehpos. A junction is said to be unregulated iff $\forall c \in \jucons | \cphase = \langle(green, \infty)\rangle$
+We define a junction \ju to be a set of connection, $\jucons \subseteq C$. 
+A junction can be either regulated or unregulated. 
+In an unregulated traffic light normal traffic rules apply. 
+In a regulated traffic light vehicles will have to check the phase $\cphase$ of the connection \vehpos. 
+A junction is said to be unregulated iff $\forall c \in \jucons | \cphase = \langle(green, \infty)\rangle$
 
 
 \begin{comment}

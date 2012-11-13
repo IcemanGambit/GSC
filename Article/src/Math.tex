@@ -19,7 +19,8 @@ where
 \end{itemize*}
 
 Algorithm~\ref{alg.recommendedSpeed} shows the procedure for finding the recommended speed $\velrec$ of Equation~\ref{eq:Math:recSpeed}.
-The input of the algorithm is the vehicle, \vel, the route that vehicle is traversing, \route, the map, $\map = (V, E, C)$ and the maximum distance we want to look into the future. \distmax=2.000 meters as default. %TODO: Check max dist
+The input of the algorithm is the vehicle, \veh, the route that vehicle is traversing, \route, the map, $\map = (V, E, C)$ and the maximum distance we want to look into the future, \distmax. 
+\distmax=2.000 meters as default. %TODO: Check max dist
 In line~\ref{alg:recSpeed:cnext}, \cnext is the next connection on the route, \route. If there are no more connections, i.e. junctions, on the route then $\cnext=none$.
 The distance function on line~\ref{alg:recSpeed:distance} calculates the eucledian distance from the vehicle to the connection.
 In SUMO, one cannot get a distance to the connection, but only to the center point of the associated junction.
@@ -28,7 +29,7 @@ The condition in line~\ref{alg:recSpeed:injunction} checks if the vehicle curren
 If so, we should just recommend the maximum allowed speed. 
 As a connection does not have a speed limit, we recommend the speed limit of the previous edge.
 Otherwise, the maximum speed is the speed limit of the current edge.
-The function \getSpan{\cnext, \ti} in line~\ref{alg:recSpeed:getSpan} read the phase of the connection and the current time and returns a sequence of timestamps where the phase of that connection is green. The format is $\langle(\tstart_1, \tend_1), (\tstart_2, \tend_2), \dots\rangle$.
+The function \getSpan{\cnext, \ti} in line~\ref{alg:recSpeed:getSpan} read the phase of the connection and the current time and returns a sequence of timestamps where the phase of that connection is green. The format is $\langle(\tstart, \tend), (\tstart, \tend), \dots\rangle$.
 The algorithm is not given here.
 We initialise the recommended speed and the slowest speed in line~\ref{alg:recSpeed:velrec} and \ref{alg:recSpeed:velslow}, respectively.
 
