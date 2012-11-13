@@ -45,7 +45,7 @@ types = open(sys.argv[1]+"/Data.rou.xml", "w")
 print >> types, """
 	<routes>
 	    <vType id="car" accel="2.5" decel="6" sigma="0.5" length="5" minGap="2" maxSpeed="41"/>
-	    <vType id="truck" accel="0.3" decel="0.3" sigma="0.5" length="10" minGap="6" maxSpeed="25"/>
+	    <vType id="truck" accel="0.3" decel="3" sigma="0.5" length="10" minGap="6" maxSpeed="25"/>
     </routes>"""
 
 types.close()
