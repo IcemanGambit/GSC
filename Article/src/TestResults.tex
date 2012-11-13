@@ -28,8 +28,8 @@ This is again a significant reduction in fuel consumption in 33 \%.
 \begin{axis}[xlabel=Routes,xticklabel=\empty,ylabel=Fuel consumption,bar width=1pt,]
 \addplot[ybar, blue] table[x=Route,y=Fuel] {TestResults/0/avg.dat};
 \addplot[ybar, red] table[x=Route,y=Fuel] {TestResults/100/avg.dat};
-\draw[thick, red] (axis cs:0,94) -- (axis cs:109,94);
-\draw[thick, blue] (axis cs:0,131) -- (axis cs:109,131);
+\draw[thick, red] (axis cs:0,138) -- (axis cs:109,138);
+\draw[thick, blue] (axis cs:0,162) -- (axis cs:109,162);
 \end{axis}
 \end{tikzpicture}
 \caption{Average fuel consumption with (red) and without \tech (blue)}\label{tik:fuel:avg}
@@ -37,7 +37,7 @@ This is again a significant reduction in fuel consumption in 33 \%.
 
 
 \subsection{Distance}
-Figure~\ref{tik:distance:0:53} shows the distance ?? vehicles drive on route 53 as a function of time when their driving behaviour is solely controled by SUMO. 
+Figure~\ref{tik:distance:0:54} shows the distance ?? vehicles drive on route 54 as a function of time when their driving behaviour is solely controled by SUMO. 
 The vehicle is stationary whenever the curve flatens.
 From the figure we clearly see that the vehicles on this route has to stop four times, at 250 meter, at 550 meters, at 750 meters and again at 1100 metets.
 
@@ -47,15 +47,15 @@ Some vehicles have to stop due to blocking vehicles or cross traffic, which we d
 
 We can therefore see that using \tech results in less full stops.
 
-\input{TestResults/100/distance_55.tex}
+\input{TestResults/100/distance_54.tex}
 
 \subsection{Speed}
-Figure~\ref{tik:speed:0:51} shows the speed at which SUMO controlled vehicles on route 51 drive as a function over time.
+Figure~\ref{tik:speed:0:54} shows the speed at which SUMO controlled vehicles on route 54 drive as a function over time.
 The graph clearly shows that the vehicles quicly accelerates up to the maximal speed, then quickly decelerates to a full stop and then quickly accelerates again.
-By using \tech we see a very different outline (See Figure~\ref{tik:speed:100:51}).
+By using \tech we see a very different outline (See Figure~\ref{tik:speed:100:54}).
 Few vehicles decelerates to $0 m/s$, and many stay above $5 m/s$ ($18 km/h$ or $11$ miles per hour ($mph$)).
 We do, however, still see a large fluctuation.
-\input{TestResults/100/speed_55.tex}
+\input{TestResults/100/speed_54.tex}
 
 
 \subsection{Time}
