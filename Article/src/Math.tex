@@ -25,18 +25,18 @@ In line~\ref{alg:recSpeed:cnext}, \cnext is the next connection on the route, \r
 The distance function on line~\ref{alg:recSpeed:distance} calculates the eucledian distance from the vehicle to the connection.
 In SUMO, one cannot get a distance to the connection, but only to the center point of the associated junction.
 We therefore calculate the distance to the center of the junction and substract the average distance from the center to the outer egdes of the junctions geometric object. 
-The condition in line~\ref{alg:recSpeed:injunction} checks if the vehicle currently is on a connection, i.e. in a junction, or if distance to the connection is more than the maximum distance. 
+The condition in line~\ref{alg:recSpeed:injunction} checks if the vehicle currently is on a connection, i.e. in a junction, or if the distance to the connection is more than the maximum distance. 
 If so, we should just recommend the maximum allowed speed. 
 As a connection does not have a speed limit, we recommend the speed limit of the previous edge.
 Otherwise, the maximum speed is the speed limit of the current edge.
-The function \getSpan{\cnext, \ti} in line~\ref{alg:recSpeed:getSpan} read the phase of the connection and the current time and returns a sequence of timestamps where the phase of that connection is green. The format is $\langle(\tstart, \tend), (\tstart, \tend), \dots\rangle$.
+The function $getSpan(\cnext, \ti)$ in line~\ref{alg:recSpeed:getSpan} read the phase of the connection and the current time and returns a sequence of timestamps where the phase of that connection is green. The format is $\langle(\tstart, \tend), (\tstart, \tend), \dots\rangle$.
 The algorithm is not given here.
 We initialise the recommended speed and the slowest speed in line~\ref{alg:recSpeed:velrec} and \ref{alg:recSpeed:velslow}, respectively.
 
 The for-loop in line~\ref{alg:recSpeed:loopSpans} to line~\ref{alg:recSpeed:loopSpansEnd} loops through the spans and finds the first span that the vehicle can reach.
-First, we calculate the number of seconds before the ligth turns green and red in line~\ref{alg:recSpeed:tg} and~\ref{alg:recSpeed:tg}, respectively, and then calculate the slowest speed at which we can drive in order to reach the first green light in line~\ref{alg:recSpeed:hr}.
+First, we calculate the number of seconds before the ligth turns green and red in line~\ref{alg:recSpeed:tg} and~\ref{alg:recSpeed:tr}, respectively, and then calculate the slowest speed at which we can drive in order to reach the first green light in line~\ref{alg:recSpeed:hr}.
 In line \ref{alg:recSpeed:continue} we check if this span is reachable and continue the for-loop to the next span if it is not. 
-The span is not reachable if the span ends before the current time or if the slowest speed is higher than the maximal speed.
+The span is not reachable if it ends before the current time or if the slowest speed is higher than the maximal speed.
 Knowing that this span is reachable, we calculate the recommended speed $\velrec$.
 If the light is green right know, i.e. $\tgreen \leq 0$, then we again return the maximum speed in line~\ref{alg:recSpeed:green}. 
 Otherwise, we calculate $\velrec$ as in \eqref{eq:Math:h} in line~\ref{alg:recSpeed:h}.
