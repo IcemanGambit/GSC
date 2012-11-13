@@ -1,12 +1,11 @@
 \section{Introduction}
 
 %motivation
-It is well known that a vehicle driving at a constant velocity use less fuel than an accelerating vehicle due to the physical laws of motion.
+It is well known that a vehicle driving at a constant velocity use less fuel than an accelerating vehicle due to the physical laws of motion.\cite{Vejdir}
 %The physical laws of motion say that an accelerating vehicle consumes more fuel than a vehicle driving at a constant velocity.\cite{Vejdir}
-In order to save fuel, one should therefore try to drive with a constant speed. 
-However, several factors hinders drivers in driving at a constant velocity. 
+In order to save fuel, one should therefore try to drive with a constant speed, but several factors prevents drivers in doing this. 
 These factors are for example merging roads, blocking vehicles, traffic incidents and traffic lights. 
-It is esimated that 1.8 bilion danish kroner is lost on fuel each year on vehicles stopping for traffic light signals in Denmark \cite{Vejdir}.
+It is esimated that 1.8 bilion danish kroner is lost on fuel each year on vehicles stopping for traffic light in Denmark \cite{Vejdir}.
 
 %the problem of traffic lights
 Traffic lights hinders the flow of traffic as it blocks vehicles arriving from one direction in order to allow other vehicles to drive through the intersection.
@@ -26,20 +25,20 @@ Now by the time the vehicle reaches the intersection the signal will have change
 \label{fig:Introduction:network}
 \end{figure}
 
-Road authorities try to design traffic light signals such that the flow of traffic is maximised in all directions.
+Road authorities try to design traffic lights such that the flow of traffic is maximised in all directions.
 This can be very difficult, especially in junctions with changing traffic density through out the day.
-Two main techinques are used in traffic lights: pretimed traffic controllers, where the signals loop between red, yellow and green in a predefined pattern; and traffic actuated controllers, where approacing vehicles are detected by road-side detectors such that the signals can be adjusted to the current traffic flow. 
+Two main techniques are used for traffic lights: pretimed traffic controllers, where the signals loop between red, yellow and green in a predefined pattern; and traffic actuated controllers, where approacing vehicles are detected by road-side detectors such that the signals can be adjusted to the current traffic flow. 
 The cost of upgrading a traffic light with detectors is 200.000-300.000 danish kroner, not counting extra maintenance costs to repair broken detectors\cite{Vejdir}.
 
-The focus of this article is to investigate whether it is possible to reduce fuel consumption at traffic ligths by matching the speed to the traffic lights. 
+The focus of this article is to investigate whether it is possible to reduce fuel consumption at traffic ligths by matching driving speed to traffic lights. 
 We investigate this through simulations with real world map data, traffic data and traffic light programs, both with crossing traffic and road-side senors. %TODO check we do this
 We use the traffic simulator SUMO (Simulation of Urban Mobility)\cite{sumo} interfaced via TraCI (Traffic Control Interface)\cite{traci} which is a full scall microscopic traffic simulator.
 The system that we propose, is designed with the assumption that very few vehicle will be using it initialy. 
 Because of this, we cannot rely on communication between vehicles.
-We also assume that traffic lights and vehicles can communicate such that the phases of the traffic lights are avaiable.
+We do, however, assume that traffic lights and vehicles can communicate such that the phases of the traffic lights are avaiable.
 We assume the vehicles use a GPS system that handels the communication and that provides a route to travers.
 We do not require any further equipment that this.
-Additionally, we assume that all drivers follow the rules of traffic, e.g. dives below the speed limit, do not drive into other vehicles, wait for crossing traffic.
+Additionally, we assume that all drivers follow the rules of traffic, e.g. drives below the speed limit, do not drive into other vehicles and wait for crossing traffic.
 
 %TODO: outline of the article
 //Outline of the article

@@ -21,13 +21,13 @@ def processDataCollection(vehicles = None):
 	
 	for vhId in vehicles:
 		#Process routes. 
-		#	routes[r] -> all vehicles on route r
+		#	routes[r] -> route id and all vehicles on route r
 		r =', '.join(traci.vehicle.getRoute(vhId))
 		if r in routes:
 			if vhId not in routes[r]:
-				routes[r].append(vhId)
+				routes[r][1].append(vhId)
 		else:
-			routes[r] = [vhId]
+			routes[r] = [traci.vehicle.getRouteID(vhId),[vhId]]
 			
 		#Process speed, distance and fuel data.
 		#	vehicleData[vhId] -> list of speed, travel distance and fuel consumption at each time step
@@ -89,8 +89,8 @@ ybar,
 	endText = """
 \\end{axis}
 \\end{tikzpicture}
-\\label{tik:%s:%i:%s}
 \\caption{%i percent diving with GSC on route $%s$}
+\\label{tik:%s:%i:%s}
 \\end{figure}"""
 
 	#Ensure directory Test/percent exist
@@ -100,11 +100,12 @@ ybar,
 		print "Test/"+str(percent) + " already exist"
 	
 	routeChart = open("Test/"+str(percent)+ "/0routes.tex", "w")
-	avgChart = open("Test/"+str(percent)+ "/avg.dat", "w")
+	routeAvgFuelTimeChart = open("Test/"+str(percent)+ "/RouteAvgFuelTime", "w")
 	stopChart = open("Test/"+str(percent)+ "/stop.tex", "w")
+	avgChart = open("Test/"+str(percent)+"/avgValues", "w")
 	
-	rId = 0
 	for r in routes:
+		rId = routes[r][0]
 		speedChart = open("Test/"+str(percent)+ "/speed_" + str(rId) + ".tex", "w")
 		distanceChart = open("Test/"+str(percent)+ "/distance_" + str(rId) + ".tex", "w")
 		fuelChart = open("Test/"+str(percent)+ "/fuel_" + str(rId) + ".tex", "w")
@@ -113,11 +114,11 @@ ybar,
 		print >> routeChart, str(rId) + ": " + r
 		print >> speedChart, initText % ("Time (s)", "Speed (m/s)",)
 		print >> distanceChart, initText % ("Time (s)", "Distance (m)",)
-		print >> fuelChart, initText % ("Time (s)", "Fuel (mL)",)
+		print >> fuelChart, "VehicleId\tFuel"
 		print >> timeChart, initTimeText % ("Vehicles", "Time (s)")
 		print >> timeChart, "\\addplot coordinates {"
 		
-		vehicles = routes[r]
+		vehicles = routes[r][1]
 		random.shuffle(vehicles)
 
 		v = 0 #Number of vehicles
@@ -125,20 +126,19 @@ ybar,
 			if v < 10:
 				print >> speedChart, "\\addplot[] coordinates {"
 			print >> distanceChart, "\\addplot[] coordinates {"
-			print >> fuelChart, "\\addplot[] coordinates {"
 		
 			t = 0 #Time step
 			for i in vehicleData[vh]:
 				if v < 10:
 					print >> speedChart, "(" + str(t) + ", " + str(i[1]) + ")"
 				print >> distanceChart, "(" + str(t) + ", " + str(i[0]) + ")"
-				print >> fuelChart, "(" + str(t) + ", " + str(i[2]) + ")"
 				t+=1
+			
+			print >> fuelChart, vh + " " + str(vehicleData[vh][len(vehicleData[vh])-1][2])
 			
 			if v < 10:
 				print >> speedChart, "};"
 			print >> distanceChart, "};"
-			print >> fuelChart, "};"
 
 			travelTime = (vehicleTime[vh][1]-vehicleTime[vh][0])/1000
 			print >> timeChart, "(" + vh + ", " + str(travelTime) + ")"
@@ -153,45 +153,47 @@ ybar,
 			v+=1 #Next vehicle
 
 		print >> timeChart, "};"
-		print >> speedChart, endText % ("speed", percent, rId, percent, rId)
-		print >> distanceChart, endText % ("distance", percent, rId, percent, rId)
-		print >> fuelChart, endText % ("fuel", percent, rId, percent, rId)
-		print >> timeChart, endText % ("time", percent, rId, percent, rId)
+		print >> speedChart, endText % (percent, rId, "speed", percent, rId)
+		print >> distanceChart, endText % (percent, rId, "distance", percent, rId)
+		print >> timeChart, endText % (percent, rId, "time", percent, rId)
 		
 		speedChart.close()
 		distanceChart.close()
 		fuelChart.close()
 		timeChart.close()
 
-		rId += 1 #Next route
 
 	#Printing average values
-	print >> avgChart, "Route\t" + "Time\t" + "Fuel"
+	print >> routeAvgFuelTimeChart, "Route\t" + "Time\t" + "Fuel"
+	avgFuel = 0
 	for rId in avgValues:
-		print >> avgChart, str(rId) + "\t" +str(avgValues[rId][1]/avgValues[rId][0]) + "\t" + str(avgValues[rId][2]/avgValues[rId][0])
+		print >> routeAvgFuelTimeChart, str(rId) + "\t" +str(avgValues[rId][1]/avgValues[rId][0]) + "\t" + str(avgValues[rId][2]/avgValues[rId][0])
+		avgFuel +=avgValues[rId][2]/avgValues[rId][0]
+	print >> avgChart, "Fuel\t"+str(avgFuel/len(avgValues))
 
 
 	#Printing stops at traffic lights
-	print >> stopChart, "\\begin{tikzpicture}\\begin{axis}"
-	vhIds = sorted(VhStops, key=lambda e: len(VhStops[e]))
-	length = 0
-	first = True
+	if len(VhStops) > 0:
+		print >> stopChart, "\\begin{figure}\\begin{tikzpicture}\\begin{axis}[width=9.5cm]"
+		vhIds = sorted(VhStops, key=lambda e: len(VhStops[e]))
+		length = 0
+		first = True
 
-	for vh in vhIds:
-		if (len(VhStops[vh])> length):
-			if first:
-				print >> stopChart, "};"
+		for vh in vhIds:
+			if (len(VhStops[vh])> length):
+				if first==False:
+					print >> stopChart, "};"
 				first=False
-			print >> stopChart, "\\addplot+[ycomb] coordinates{"
-			length = len(VhStops[vh])
+				print >> stopChart, "\\addplot+[ycomb] coordinates{"
+				length = len(VhStops[vh])
 			
-		for d in VhStops[vh]:
-			print >> stopChart, "(" + str(vh) + ", " + str(d) + ")"	
-	
-	if length > 0:
-		print >> stopChart, "};"
-	print >> stopChart, "\\end{axis}\\end{tikzpicture}"
+			for d in VhStops[vh]:
+				print >> stopChart, "(" + str(vh) + ", " + str(d) + ")"	
+			
+			#print >> stopChart, "};"
+		print >> stopChart, "};\\end{axis}\\end{tikzpicture}\\caption{Stops}\\label{tik:stops}\\end{figure}"
 	
 	routeChart.close()
-	avgChart.close()
+	routeAvgFuelTimeChart.close()
 	stopChart.close()
+	avgChart.close()
