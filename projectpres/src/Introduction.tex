@@ -7,9 +7,9 @@
 
 \section{Introduction}
 \begin{frame}{Problem}
-Fuel a major cost
+Fuel is a major expenditure
 
-Want to use as little as possible
+Want to use as little fuel as possible
 
 Drive at constant speed use less fuel than accelerating
 \end{frame}
@@ -22,8 +22,35 @@ Not allways designed for free flow in all directions
 Difficult to adjust speed to traffic light when the phases are unknown
 \end{frame}
 
+\begin{frame}{Problem Statement}
+\begin{center}
+Is it possible to reduce fuel consumption by adjusting vehicles velocity to traffic lights in a real life setting?
+\end{center}
+\end{frame}
+
 \begin{frame}{Solution}
-Assume the phases of the traffic ligths can be accesed
+Assume the phases of the traffic ligths can be accessed
 
 Calculate speed to reach the next traffic ligth as it turns green
+\end{frame}
+
+\begin{frame}{Assumptions}
+The used simulator simulates the real world correctly
+
+Phases of the traffic lights can be accessed by vehicles
+
+Vehicles have a predefined route that is followed and not changed
+
+No communication between vehicles
+
+Drivers follow the rules of traffic, e.g. 
+\begin{itemize}
+\item drives below the speed limit
+\item do not drive into other vehicles
+\item wait at a red light
+\item wait for crossing crossing traffic
+\end{itemize}
+
+Vehicles have a constant acceleration and deceleration
+
 \end{frame}
