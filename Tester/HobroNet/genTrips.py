@@ -4,6 +4,9 @@ if sys.argv[1] == "":
 	print "Please enter the name of your files"
 	sys.exit()
 
+if sys.argv[2] == "":
+	print "missing percent Trucks"
+	sys.exit()
 
 places = ['1_S','2_O','3_V','6_O','9_V','12_O','14_V','16_O','18_N','19_O','21_V',      '1_N','2_V','3_O','6_V','10_O','12_V','14_O','16_V','18_S','19_V','21_O']
 ODmatrix = [
@@ -66,7 +69,7 @@ trips = open(sys.argv[1]+"/trips.xml", "w")
 print >> trips, "<trips>"
 for i in details:
 	vehType = 0
-	if(random.randint(0,10)> 9):
+	if(random.randint(0,100)< int(sys.argv[2])):
 		vehType = 1
 	print >> trips, '	<trip id="%i" from="%s" to="%s" depart="%i" type="%s" departSpeed="max"/>' % (i[0],i[1], i[2], i[3], vehicleTypes[vehType])
 print >> trips, '</trips>'
