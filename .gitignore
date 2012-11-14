@@ -1,4 +1,6 @@
-Report/bin/
+Article/bin/
+Tester/Test/
+projectpres/bin/
 *.net.xml
 *.rou.alt.xml
 *.rou.xml
@@ -6,3 +8,4 @@ Report/bin/
 *trips.xml
 *.pyc
 */traci
+
