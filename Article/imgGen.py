@@ -24,7 +24,7 @@ if(len(sys.argv) > 2):
 		datafile1 = "\"TestResults/" + dataset + "/0/" + route+ "/totalFuel.dat\""
 		datafile2 = "\"TestResults/" + dataset + "/100/" + route+ "/totalFuel.dat\""
 		
-		print "plot "+ datafile1 + " using ($1+0.25):2 with boxes fill solid lc 1, "+ datafile2 + " using ($1-0.25):2 with boxes fill solid lc 2, `head -1 "+ datafile1 + " | awk '{print $2}'` lt 1 lw 5 lc 1, `head -1 "+ datafile2 + " | awk '{print $2}'` lt 1 lw 5 lc 2"
+		print "plot "+ datafile1 + " using ($1+0.25):2 with boxes fill solid lc rgb \"green\", "+ datafile2 + " using ($1-0.25):2 with boxes fill solid lc rgb \"blue\", `head -1 "+ datafile1 + " | awk '{print $2}'` lt 1 lw 5 lc rgb \"green\", `head -1 "+ datafile2 + " | awk '{print $2}'` lt 1 lw 5 lc rgb \"blue\""
 	elif sys.argv[1].find("distance") == 0:
 		print "set xrange [0:300]"
 		print "set yrange [0:1400]"
@@ -64,7 +64,7 @@ if(len(sys.argv) > 2):
 		print "plot" + plots
 	elif sys.argv[1].find("stops") == 0:
 		datasetPercentage = sys.argv[1][sys.argv[1].find("_")+1:]
-		print "set yrange [0:]"
+		print "set yrange [-0.5:]"
 		print "set ylabel 'Distance (m)'"
 		print "set xlabel 'Vehicles'"
 		plotstring = "plot "
