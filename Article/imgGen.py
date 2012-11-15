@@ -17,14 +17,18 @@ if(len(sys.argv) > 2):
 	print "unset key"
 
 	if sys.argv[1] == "fuel":
+		print "set ylabel 'Fuel Consumption (ml)'"
+		print "set xlabel 'Vehicles'"
 		print "set xrange [0:]"
 		print "set boxwidth 0.5 absolute"
-		print "plot \"TestResults/" + dataset + "/0/" + route+ "/totalFuel.dat\" using ($1+0.25):2 with boxes fill solid lc rgb \"red\", \"TestResults/" + dataset + "/100/" + route+ "/totalFuel.dat\" using ($1-0.25):2 with boxes fill solid lc rgb \"blue\", `head -1 \"TestResults/" + dataset + "/0/" + route+ "/avg.dat\" | awk '{print $2}'` lt 1 lw 5 lc rgb \"red\", `head -1 \"TestResults/" + dataset + "/100/" + route+ "/avg.dat\" | awk '{print $2}'` lt 1 lw 5 lc rgb \"blue\""
-	elif sys.argv[1] == "speed":
-		for i in range(0,100):
-			print "plot \"4.dat\" using 1:3 with lines, \"4.dat\" using 1:3 with lines"
+		datafile1 = "\"TestResults/" + dataset + "/0/" + route+ "/totalFuel.dat\""
+		datafile2 = "\"TestResults/" + dataset + "/100/" + route+ "/totalFuel.dat\""
+		
+		print "plot "+ datafile1 + " using ($1+0.25):2 with boxes fill solid lc 1, "+ datafile2 + " using ($1-0.25):2 with boxes fill solid lc 2, `head -1 "+ datafile1 + " | awk '{print $2}'` lt 1 lw 5 lc 1, `head -1 "+ datafile2 + " | awk '{print $2}'` lt 1 lw 5 lc 2"
 	elif sys.argv[1].find("distance") == 0:
 		datasetPercentage = sys.argv[1][sys.argv[1].find("_")+1:]
+		print "set ylabel 'Distance (m)'"
+		print "set xlabel 'Time (s)'"
 		plots = ""
 		for i in range(0,1000):
 			datafile = "TestResults/" + dataset+ "/" +datasetPercentage+ "/"+ route+ "/"+ str(i) + ".dat"
@@ -40,6 +44,8 @@ if(len(sys.argv) > 2):
 		print "plot" + plots
 	elif sys.argv[1].find("speed") == 0:
 		datasetPercentage = sys.argv[1][sys.argv[1].find("_")+1:]
+		print "set ylabel 'Speed (km/h)'"
+		print "set xlabel 'Time (s)'"
 		plots = ""
 		for i in range(0,10):
 			datafile = "TestResults/" + dataset+ "/" +datasetPercentage+ "/"+ route+ "/"+ str(i) + ".dat"
@@ -55,6 +61,8 @@ if(len(sys.argv) > 2):
 	elif sys.argv[1].find("stops") == 0:
 		datasetPercentage = sys.argv[1][sys.argv[1].find("_")+1:]
 		print "set yrange [0:]"
+		print "set ylabel 'Distance (m)'"
+		print "set xlabel 'Vehicles'"
 		plotstring = "plot "
 		for i in range(0,10):
 			datafile = "TestResults/" + dataset+ "/" +datasetPercentage + "/stops" + str(i) + ".dat"
