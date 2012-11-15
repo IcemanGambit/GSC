@@ -76,6 +76,7 @@ def flushDataCollection(percent, path = "default"):
 	total_no_vehicles = 0
 	
 	routeChart = open(outputPath + "/routeList.dat", "w")
+	allFuelChart = open(outputPath + "/totalFuel.dat", "w")
 	for r in routes:
 		routeId = str(routes[r][0])
 		os.makedirs(outputPath + "/" + str(routeId))
@@ -83,6 +84,8 @@ def flushDataCollection(percent, path = "default"):
 		
 		travelTime = 0;
 		fuel = 0;
+		
+		vhCounter = 0;
 		
 		#Print vehicle data		
 		for vh in routes[r][1]:
@@ -96,7 +99,8 @@ def flushDataCollection(percent, path = "default"):
 			
 			#total fuel
 			totalFuel = vehicleData[vh][len(vehicleData[vh])-1][2]
-			print >> totalFuelChart, str(vh) + "\t" + str(totalFuel)
+			print >> totalFuelChart, str(vhCounter) + "\t" + str(totalFuel)
+			print >> allFuelChart, str(vh) + "\t" + str(totalFuel)
 			
 			#Record average travel time and fuel for route
 			travelTime += (vehicleTime[vh][1]-vehicleTime[vh][0])/1000
@@ -104,6 +108,8 @@ def flushDataCollection(percent, path = "default"):
 			totalTravelTime += travelTime
 			totalFuel += fuel
 			total_no_vehicles += 1
+			
+			vhCounter += 1
 			
 		totalFuelChart.close()
 		
@@ -115,6 +121,8 @@ def flushDataCollection(percent, path = "default"):
 									
 		#Print route list
 		print >> routeChart, routeId + ": " + r
+		
+	allFuelChart.close()
 		
 	#Print average travel time and fuel
 	avgChart = open(outputPath + "/avg.dat", "w")
