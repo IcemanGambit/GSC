@@ -12,7 +12,7 @@ if(len(sys.argv) > 2):
 		line = fileIN.readline()
 
 	
-	print "set terminal svg"
+	print "set terminal png"
 	print "set output \"images/"+ sys.argv[2]+ "\""
 	print "unset key"
 

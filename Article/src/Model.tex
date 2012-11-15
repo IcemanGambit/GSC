@@ -4,7 +4,9 @@ See Figure~\ref{fig:Introduction:network} for references.
 
 \subsection{Vehicles}
 A vehicle, $\veh$, is an entity that moves along a route.
-Each vehicle has an identifier, $\vehid$ a maximum speed, $\vehvel$, a constant acceleration, $\vehacc$ and deceleration, $\vehdec$ and a current position, \vehpos. The position is either an edge or a connection (See below) and is updated as the vehicle moves.
+Each vehicle has an identifier, $\vehid$ a maximum speed, $\vehvel$, a constant acceleration, $\vehacc$ and deceleration, $\vehdec$ and a current position, \vehpos. 
+The position is either an edge or a connection (See below).
+The position is updated as the vehicle moves.
 For simplicity we do not consider different drivering behaviours, but operate with two types of vehicles: cars and trucks. See Table \ref{table.vehicleTypes} for their specifications.
 \begin{table}
 \centering
@@ -19,9 +21,9 @@ Deceleration 	&	& \\\hline
 
 \subsection{Map}
 A map is a directed graph, $G = (V, E, C)$ where $V$ is a set of vertices, $E$ is a set of edges representing road segments and $C$ is a set of connections.
-Every edge $\edge\in E$ has a starting point \estart, an end point \eend and a maximum speed \espeed. 
+Every edge $\edge\in E$ has a starting point \estart\in V, an end point \eend\in V and a maximum speed \espeed. 
 The lenght of an edge is the euclidean distance between $\estart$ and \eend denoted as \elength.
-In Figure~\ref{fig:Introduction:network} we have five egdes, as the road coming from north is unidirectional.
+In Figure~\ref{fig:Introduction:network} we have five egdes:  as the road coming from north is unidirectional.
 
 An intersection is made up of several connections that connect road segments one can drive to and from.
 For example each possible legal pass through the intersection in Figure~\ref{fig:Introduction:network} is a connection as shown in Figure~\ref{fig:Model:Connection} as red arrows. 
