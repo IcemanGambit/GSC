@@ -12,7 +12,7 @@ if(len(sys.argv) > 2):
 		line = fileIN.readline()
 
 	
-	print "set terminal png"
+	print "set terminal png size 700,400"
 	print "set output \"images/"+ sys.argv[2]+ "\""
 	print "unset key"
 
@@ -58,7 +58,7 @@ if(len(sys.argv) > 2):
 		print "plot" + plots
 	elif sys.argv[1].find("speed") == 0:
 		print "set xrange [0:300]"
-		print "set yrange [0:20]"
+		print "set yrange [0:65]"
 		datasetPercentage = sys.argv[1][sys.argv[1].find("_")+1:]
 		print "set ylabel 'Speed (km/h)'"
 		print "set xlabel 'Time (s)'"

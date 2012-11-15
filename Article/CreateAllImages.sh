@@ -1,6 +1,7 @@
 
 #!/bin/sh
-python imgGen.py fuel fuelgraph.png | gnuplot
+python imgGen.py fuelRoute fuelRoute.png | gnuplot
+#python imgGen.py fuelTotal fuelTotal.png | gnuplot
 
 python imgGen.py stops_0 stops0.png | gnuplot
 python imgGen.py stops_10 stops10.png | gnuplot
