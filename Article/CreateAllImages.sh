@@ -1,7 +1,6 @@
 
 #!/bin/sh
-python img.py fuel fulegraf | gnuplot
-python img.py fuel fulegraf2 | gnuplot
+python img.py fuel fuelgraph | gnuplot
 
 python imgGen.py distance_0 distance_0 | gnuplot
 python imgGen.py distance_10 distance_10 | gnuplot
