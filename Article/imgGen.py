@@ -1,6 +1,6 @@
 import os, subprocess, sys, random
 
-dataset = "tp0"
+dataset = "default"
 if(len(sys.argv) > 2):
 
 	fileIN = open("TestResults/" + dataset+ "/0/routeList.dat", "r")
@@ -12,7 +12,7 @@ if(len(sys.argv) > 2):
 		line = fileIN.readline()
 
 	
-	print "set terminal postscript eps color enhanced"
+	print "set terminal svg"
 	print "set output \"images/"+ sys.argv[2]+ "\""
 	print "unset key"
 
@@ -20,8 +20,7 @@ if(len(sys.argv) > 2):
 		print "set ylabel 'Fuel Consumption (ml)'"
 		print "set xlabel 'Vehicles'"
 		print "set boxwidth 0.5 absolute"
-		#print "unset xtics"
-		print "set autoscale x"
+		print "unset xtics"
 		datafile1 = "\"TestResults/" + dataset + "/0/" + route+ "/totalFuel.dat\""
 		datafile2 = "\"TestResults/" + dataset + "/100/" + route+ "/totalFuel.dat\""
 		print "plot "+ datafile1 + " using ($1+0.25):2 with boxes fill solid lc rgb \"green\", "+ datafile2 + " using ($1-0.25):2 with boxes fill solid lc rgb \"blue\", `head -1 "+ datafile1 + " | awk '{print $2}'` lt 1 lw 5 lc rgb \"green\", `head -1 "+ datafile2 + " | awk '{print $2}'` lt 1 lw 5 lc rgb \"blue\""
@@ -31,6 +30,7 @@ if(len(sys.argv) > 2):
 		print "set xlabel 'Vehicles'"
 		print "set xrange [0:]"
 		print "set boxwidth 0.5 absolute"
+		print "unset xtics"
 		datafile1 = "\"TestResults/" + dataset + "/0/totalFuel.dat\""
 		datafile2 = "\"TestResults/" + dataset + "/100/totalFuel.dat\""
 		print "plot "+ datafile1 + " using ($1+0.25):2 with boxes fill solid lc rgb \"green\", "+ datafile2 + " using ($1-0.25):2 with boxes fill solid lc rgb \"blue\", `head -1 "+ datafile1 + " | awk '{print $2}'` lt 1 lw 5 lc rgb \"green\", `head -1 "+ datafile2 + " | awk '{print $2}'` lt 1 lw 5 lc rgb \"blue\""
