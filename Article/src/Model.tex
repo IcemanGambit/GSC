@@ -26,13 +26,16 @@ Every edge $\edge\in E$ has a starting point $\estart\in V$, an end point $\eend
 The lenght of an edge is the euclidean distance between $\estart$ and \eend denoted as \elength.
 In Figure~\ref{fig:Introduction:network} we have five egdes: two to the west of traffic light, two the the east and one to the north. %TODO: Good enough?
 
-Edges are connected through connections.
-This way, it is possible to model exactly the possible paths through a juction. 
+By connecting edges through connections, it is possible to model exactly the possible paths through a juction. 
+For example disallow a right turn.
 A juction is therefore made up of several connections that connect the road segments that one can drive to and from.
 For example each possible legal pass through the intersection in Figure~\ref{fig:Introduction:network} is a connection as shown in Figure~\ref{fig:Model:Connection} as red arrows. 
 A connection, $\con$ is hence unidirectional from one vertex, $\cestart\in V$ to another vertex, $\ceend \in V$, and a connection is made for each lane of the edges.
 A connection is also associated a traffic light phase, $\cphase$. 
 The example in Figure~\ref{fig:Introduction:network} hence have six connections assuming one cannot make U-turns.
+
+Connections can be seen as a type of edge associated with a phase.
+With this abstraction, it is possible to use standard route computing algorithms.
 
 \begin{figure}[h]
 \centering
