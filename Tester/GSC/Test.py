@@ -1,4 +1,4 @@
-import traci, Vehicle, os, random
+import traci, Vehicle, os, random, shutil
 
 vehicleData = {}
 vehicleTime = {} # [[depart, end], ]
@@ -24,7 +24,7 @@ def processDataCollection(vehicles = None):
 		#	routes[r] -> route id and all vehicles on route r
 		r =', '.join(traci.vehicle.getRoute(vhId))
 		if r in routes:
-			if vhId not in routes[r]:
+			if vhId not in routes[r][1]:
 				routes[r][1].append(vhId)
 		else:
 			routes[r] = [traci.vehicle.getRouteID(vhId),[vhId]]
@@ -54,92 +54,97 @@ def processDataCollection(vehicles = None):
 				 	if len(VhStops[vhId]) == 0 or VhStops[vhId][len(VhStops[vhId])-1] > max(0,Vehicle._getDistanceNextTrafficLight(vhId)) + MinStopRange:			
 						VhStops[vhId].append(max(0,Vehicle._getDistanceNextTrafficLight(vhId)))
 			
+			
 """
 	flushDataCollection() ->
 	
 	print content of vehicleSpeeds to mulitiple files, one for each route type
 """
-def flushDataCollection(percent):
-	
-		
+def flushDataCollection(percent, path = "default"):		
 	print "Flusing test results"
 	
-	initText = """
-\\begin{figure}
-\\begin{tikzpicture}
-\\begin{axis}[
-legend style={anchor=west},
-axis x line=bottom,
-axis y line=left,
-ymin=-1,
-xlabel=%s,
-ylabel=%s,
-]"""
-
-	initTimeText = """
-\\begin{figure}
-\\begin{tikzpicture}
-\\begin{axis}[
-legend style={anchor=west},
-xlabel=%s,
-ylabel=%s,
-ymin=0,
-ybar,
-]"""
-	endText = """
-\\end{axis}
-\\end{tikzpicture}
-\\caption{%i percent diving with GSC on route $%s$}
-\\label{tik:%s:%i:%s}
-\\end{figure}"""
-
-	#Ensure directory Test/percent exist
-	try:
-		os.makedirs("Test/"+str(percent))
-	except OSError as exception:
-		print "Test/"+str(percent) + " already exist"
+	shutil.rmtree('Test')
+	outputPath = "Test/" + str(path) + "/"+str(percent)
+	os.makedirs(outputPath)
 	
-	routeChart = open("Test/"+str(percent)+ "/0routes.tex", "w")
-	routeAvgFuelTimeChart = open("Test/"+str(percent)+ "/RouteAvgFuelTime", "w")
-	stopChart = open("Test/"+str(percent)+ "/stop.tex", "w")
+	totalTravelTime = 0;
+	totalFuel = 0;
+	
+	routeChart = open(outputPath + "/routeList.dat", "w")
+	for r in routes:
+		routeId = str(routes[r][0])
+		os.makedirs(outputPath + "/" + str(routeId))
+		totalFuelChart = open(outputPath + "/" + str(routeId)+ "/totalFuel.dat", "w")
+		
+		travelTime = 0;
+		fuel = 0;
+		
+		#Print vehicle data		
+		for vh in routes[r][1]:
+			#travel distance, speed and fuel
+			vehicleChart = open(outputPath + "/" + str(routeId)+ "/" + vh + ".dat", "w")
+			t = 0
+			for i in vehicleData[vh]:
+				print >> vehicleChart, str(t) + "\t" + str(i[0])+ "\t" + str(i[1])+ "\t" + str(i[2])
+				t+=1
+			vehicleChart.close()
+			
+			#total fuel
+			totalFuel = vehicleData[vh][len(vehicleData[vh])-1][2]
+			print >> totalFuelChart, str(vh) + "\t" + str(totalFuel)
+			
+			#Record average travel time and fuel for route
+			travelTime += (vehicleTime[vh][1]-vehicleTime[vh][0])/1000
+			fuel += totalFuel
+			totalTravelTime += travelTime
+			totalfuel += fuel
+			
+		totalFuelChart.close()
+		
+		#Print average travel time and fuel for route
+		no_vehicles = len(routes[r][1])
+		avgChart = open(outputPath + "/" + str(routeId)+ "/avg.dat", "w")
+		print >> avgChart, "Time\tFuel"
+		print >> avgChart, str(travelTime/no_vehicles) + "\t" + str(fuel/no_vehicles)
+		avgChart.close()
+									
+		#Print route list
+		print >> routeChart, routeId + ": " + r
+		
+	#Printing stops at traffic lights
+	if len(VhStops) > 0:
+		stopChart = None
+		vhIds = sorted(VhStops, key=lambda e: len(VhStops[e]))
+		length = 0
+		first = True
+
+		for vh in vhIds:
+			if (len(VhStops[vh])> length):
+				length = len(VhStops[vh])
+				if(stopChart):
+					stopChart.close()
+				stopChart = open(outputPath + "/stops" + str(length) + ".dat", "w")
+			
+			for d in VhStops[vh]:
+				print >> stopChart, str(vh) + "\t" + str(d)
+		if(stopChart):
+			stopChart.close()
+	
+	##################
+	"""routeAvgFuelTimeChart = open("Test/"+str(percent)+ "/RouteAvgFuelTime", "w")
 	avgChart = open("Test/"+str(percent)+"/avgValues", "w")
 	
 	for r in routes:
 		rId = routes[r][0]
-		speedChart = open("Test/"+str(percent)+ "/speed_" + str(rId) + ".tex", "w")
-		distanceChart = open("Test/"+str(percent)+ "/distance_" + str(rId) + ".tex", "w")
-		fuelChart = open("Test/"+str(percent)+ "/fuel_" + str(rId) + ".tex", "w")
 		timeChart = open("Test/"+str(percent)+ "/time_" + str(rId) + ".tex", "w")
 		
-		print >> routeChart, str(rId) + ": " + r
-		print >> speedChart, initText % ("Time (s)", "Speed (m/s)",)
-		print >> distanceChart, initText % ("Time (s)", "Distance (m)",)
-		print >> fuelChart, "VehicleId\tFuel"
 		print >> timeChart, initTimeText % ("Vehicles", "Time (s)")
 		print >> timeChart, "\\addplot coordinates {"
 		
-		vehicles = routes[r][1]
-		random.shuffle(vehicles)
+
 
 		v = 0 #Number of vehicles
 		for vh in vehicles:
-			if v < 10:
-				print >> speedChart, "\\addplot[] coordinates {"
-			print >> distanceChart, "\\addplot[] coordinates {"
-		
-			t = 0 #Time step
-			for i in vehicleData[vh]:
-				if v < 10:
-					print >> speedChart, "(" + str(t) + ", " + str(i[1]) + ")"
-				print >> distanceChart, "(" + str(t) + ", " + str(i[0]) + ")"
-				t+=1
-			
-			print >> fuelChart, vh + " " + str(vehicleData[vh][len(vehicleData[vh])-1][2])
-			
-			if v < 10:
-				print >> speedChart, "};"
-			print >> distanceChart, "};"
-
 			travelTime = (vehicleTime[vh][1]-vehicleTime[vh][0])/1000
 			print >> timeChart, "(" + vh + ", " + str(travelTime) + ")"
 		
@@ -153,13 +158,8 @@ ybar,
 			v+=1 #Next vehicle
 
 		print >> timeChart, "};"
-		print >> speedChart, endText % (percent, rId, "speed", percent, rId)
-		print >> distanceChart, endText % (percent, rId, "distance", percent, rId)
 		print >> timeChart, endText % (percent, rId, "time", percent, rId)
 		
-		speedChart.close()
-		distanceChart.close()
-		fuelChart.close()
 		timeChart.close()
 
 
@@ -170,30 +170,6 @@ ybar,
 		print >> routeAvgFuelTimeChart, str(rId) + "\t" +str(avgValues[rId][1]/avgValues[rId][0]) + "\t" + str(avgValues[rId][2]/avgValues[rId][0])
 		avgFuel +=avgValues[rId][2]/avgValues[rId][0]
 	print >> avgChart, "Fuel\t"+str(avgFuel/len(avgValues))
-
-
-	#Printing stops at traffic lights
-	if len(VhStops) > 0:
-		print >> stopChart, "\\begin{figure}\\begin{tikzpicture}\\begin{axis}[width=9.5cm]"
-		vhIds = sorted(VhStops, key=lambda e: len(VhStops[e]))
-		length = 0
-		first = True
-
-		for vh in vhIds:
-			if (len(VhStops[vh])> length):
-				if first==False:
-					print >> stopChart, "};"
-				first=False
-				print >> stopChart, "\\addplot+[ycomb] coordinates{"
-				length = len(VhStops[vh])
-			
-			for d in VhStops[vh]:
-				print >> stopChart, "(" + str(vh) + ", " + str(d) + ")"	
-			
-			#print >> stopChart, "};"
-		print >> stopChart, "};\\end{axis}\\end{tikzpicture}\\caption{Stops}\\label{tik:stops}\\end{figure}"
 	
-	routeChart.close()
 	routeAvgFuelTimeChart.close()
-	stopChart.close()
-	avgChart.close()
+	avgChart.close()"""
