@@ -63,8 +63,12 @@ def processDataCollection(vehicles = None):
 def flushDataCollection(percent, path = "default"):		
 	print "Flusing test results"
 	
-	shutil.rmtree('Test')
 	outputPath = "Test/" + str(path) + "/"+str(percent)
+	try:
+		shutil.rmtree(outputPath)
+	except:
+		print "Creating new folder"
+		
 	os.makedirs(outputPath)
 	
 	totalTravelTime = 0;
@@ -86,7 +90,7 @@ def flushDataCollection(percent, path = "default"):
 			vehicleChart = open(outputPath + "/" + str(routeId)+ "/" + vh + ".dat", "w")
 			t = 0
 			for i in vehicleData[vh]:
-				print >> vehicleChart, str(t) + "\t" + str(i[0])+ "\t" + str(i[1])+ "\t" + str(i[2])
+				print >> vehicleChart, str(t) + "\t" + str(i[0])+ "\t" + str(i[1]*3.6)+ "\t" + str(i[2])
 				t+=1
 			vehicleChart.close()
 			
@@ -106,7 +110,6 @@ def flushDataCollection(percent, path = "default"):
 		#Print average travel time and fuel for route
 		no_vehicles = len(routes[r][1])
 		avgChart = open(outputPath + "/" + str(routeId)+ "/avg.dat", "w")
-		print >> avgChart, "Time\tFuel"
 		print >> avgChart, str(travelTime/no_vehicles) + "\t" + str(fuel/no_vehicles)
 		avgChart.close()
 									
@@ -115,7 +118,6 @@ def flushDataCollection(percent, path = "default"):
 		
 	#Print average travel time and fuel
 	avgChart = open(outputPath + "/avg.dat", "w")
-	print >> avgChart, "Time\tFuel"
 	print >> avgChart, str(travelTime/no_vehicles) + "\t" + str(fuel/no_vehicles)
 	avgChart.close()
 		
