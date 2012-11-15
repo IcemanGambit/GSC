@@ -13,7 +13,7 @@ if(len(sys.argv) > 2):
 
 	
 	print "set terminal postscript eps color enhanced"
-	print "set output \""+ sys.argv[2]+ "\""
+	print "set output \"images/"+ sys.argv[2]+ "\""
 	print "unset key"
 
 	if sys.argv[1] == "fuel":
@@ -24,6 +24,8 @@ if(len(sys.argv) > 2):
 		for i in range(0,100):
 			print "plot \"4.dat\" using 1:3 with lines, \"4.dat\" using 1:3 with lines"
 	elif sys.argv[1].find("distance") == 0:
+		print "set xrange [0:300]"
+		print "set yrange [0:1400]"
 		datasetPercentage = sys.argv[1][sys.argv[1].find("_")+1:]
 		plots = ""
 		for i in range(0,1000):
@@ -39,6 +41,8 @@ if(len(sys.argv) > 2):
 			sys.exit(1)
 		print "plot" + plots
 	elif sys.argv[1].find("speed") == 0:
+		print "set xrange [0:300]"
+		print "set yrange [0:20]"
 		datasetPercentage = sys.argv[1][sys.argv[1].find("_")+1:]
 		plots = ""
 		for i in range(0,10):
