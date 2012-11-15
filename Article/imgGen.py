@@ -15,11 +15,11 @@ if(len(sys.argv) > 2):
 	print "set terminal postscript eps color enhanced"
 	print "set output \""+ sys.argv[2]+ "\""
 	print "unset key"
-	print "set xrange [0:]"
+
 	if sys.argv[1] == "fuel":
+		print "set xrange [0:]"
 		print "set boxwidth 0.5 absolute"
 		print "plot \"TestResults/" + dataset + "/0/" + route+ "/totalFuel.dat\" using ($1+0.25):2 with boxes fill solid lc rgb \"red\", \"TestResults/" + dataset + "/100/" + route+ "/totalFuel.dat\" using ($1-0.25):2 with boxes fill solid lc rgb \"blue\", `head -1 \"TestResults/" + dataset + "/0/" + route+ "/avg.dat\" | awk '{print $2}'` lt 1 lw 5 lc rgb \"red\", `head -1 \"TestResults/" + dataset + "/100/" + route+ "/avg.dat\" | awk '{print $2}'` lt 1 lw 5 lc rgb \"blue\""
-		print "unset boxwidth"
 	elif sys.argv[1] == "speed":
 		for i in range(0,100):
 			print "plot \"4.dat\" using 1:3 with lines, \"4.dat\" using 1:3 with lines"
@@ -52,6 +52,15 @@ if(len(sys.argv) > 2):
 			print "ERROR dataset "+datasetPercentage+" do not exist"
 			sys.exit(1)
 		print "plot" + plots
+	elif sys.argv[1].find("stops") == 0:
+		datasetPercentage = sys.argv[1][sys.argv[1].find("_")+1:]
+		print "set yrange [0:]"
+		plotstring = "plot "
+		for i in range(0,10):
+			datafile = "TestResults/" + dataset+ "/" +datasetPercentage + "/stops" + str(i) + ".dat"
+			if(os.path.exists(datafile)):
+				plotstring += "\"" + datafile + "\" with impulses lt 1 lw 3 lc " + str(i+1) + ", \"" + datafile + "\" with points pt " + str(i+1) + " lc " + str(i+1) + ","
+		print plotstring[:len(plotstring)-1]
 else:
 	print "to few arg"
 
