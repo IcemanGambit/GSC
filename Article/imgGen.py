@@ -1,8 +1,8 @@
 import os, subprocess, sys, random
 
-dataset = "tp0"
-if(len(sys.argv) > 2):
 
+if(len(sys.argv) > 3):
+	dataset = sys.argv[3]
 	fileIN = open("TestResults/" + dataset+ "/0/routeList.dat", "r")
 	line = fileIN.readline()
 	route = ""
@@ -13,7 +13,7 @@ if(len(sys.argv) > 2):
 
 	
 	print "set terminal png size 700,400"
-	print "set output \"images/"+ sys.argv[2]+ "\""
+	print "set output \"images/"+sys.argv[3]+"/"+ sys.argv[2]+ "\""
 	print "unset key"
 
 	if sys.argv[1] == "fuelRoute":
