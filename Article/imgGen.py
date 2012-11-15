@@ -1,6 +1,6 @@
 import os, subprocess, sys, random
 
-dataset = "default"
+dataset = "tp0"
 if(len(sys.argv) > 2):
 
 	fileIN = open("TestResults/" + dataset+ "/0/routeList.dat", "r")
@@ -19,8 +19,9 @@ if(len(sys.argv) > 2):
 	if sys.argv[1] == "fuel":
 		print "set ylabel 'Fuel Consumption (ml)'"
 		print "set xlabel 'Vehicles'"
-		print "set xrange [0:]"
 		print "set boxwidth 0.5 absolute"
+		#print "unset xtics"
+		print "set autoscale x"
 		datafile1 = "\"TestResults/" + dataset + "/0/" + route+ "/totalFuel.dat\""
 		datafile2 = "\"TestResults/" + dataset + "/100/" + route+ "/totalFuel.dat\""
 		
@@ -32,14 +33,16 @@ if(len(sys.argv) > 2):
 		print "set ylabel 'Distance (m)'"
 		print "set xlabel 'Time (s)'"
 		plots = ""
-		for i in range(0,1000):
+		counttotal = 0
+		for i in range(0,2000):
 			datafile = "TestResults/" + dataset+ "/" +datasetPercentage+ "/"+ route+ "/"+ str(i) + ".dat"
 			if(not os.path.exists(datafile)):
-				break
-			if i != 0:
+				continue
+			counttotal+= 1
+			if counttotal != 1:
 				plots += ","
 			
-			plots += "\"" + datafile + "\" using 1:2 with lines lt 1 lc "+ str(i+1)+" "
+			plots += "\"" + datafile + "\" using 1:2 with lines lt 1 lc "+ str(counttotal+1)+" "
 		if(plots == ""):
 			print "ERROR dataset "+datasetPercentage+" do not exist"
 			sys.exit(1)
@@ -51,13 +54,17 @@ if(len(sys.argv) > 2):
 		print "set ylabel 'Speed (km/h)'"
 		print "set xlabel 'Time (s)'"
 		plots = ""
-		for i in range(0,10):
+		counttotal = 0
+		for i in range(0,2000):
 			datafile = "TestResults/" + dataset+ "/" +datasetPercentage+ "/"+ route+ "/"+ str(i) + ".dat"
 			if(not os.path.exists(datafile)):
+				continue
+			counttotal+= 1
+			if(counttotal > 11):
 				break
-			if i != 0:
+			if counttotal != 1:
 				plots += ","
-			plots += "\"" + datafile + "\" using 1:3 with lines lt 1 lc "+ str(i+1)+" "
+			plots += "\"" + datafile + "\" using 1:3 with lines lt 1 lc "+ str(counttotal+1)+" "
 		if(plots == ""):
 			print "ERROR dataset "+datasetPercentage+" do not exist"
 			sys.exit(1)
