@@ -36,6 +36,7 @@ GSCvehIds = ['253']
 testPercent = True
 percent = int(sys.argv[3])
 print "Save to Test/"+sys.argv[4]+"/"+str(percent)+""
+
 controlledVehicles = random.sample(xrange(noVehicles), noVehicles*percent/100)
 
 step = 0
