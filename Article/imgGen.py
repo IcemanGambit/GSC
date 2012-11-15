@@ -13,7 +13,7 @@ if(len(sys.argv) > 2):
 
 	
 	print "set terminal postscript eps color enhanced"
-	print "set output \""+ sys.argv[2]+ "\""
+	print "set output \"images/"+ sys.argv[2]+ "\""
 	print "unset key"
 
 	if sys.argv[1] == "fuel":
@@ -26,6 +26,8 @@ if(len(sys.argv) > 2):
 		
 		print "plot "+ datafile1 + " using ($1+0.25):2 with boxes fill solid lc 1, "+ datafile2 + " using ($1-0.25):2 with boxes fill solid lc 2, `head -1 "+ datafile1 + " | awk '{print $2}'` lt 1 lw 5 lc 1, `head -1 "+ datafile2 + " | awk '{print $2}'` lt 1 lw 5 lc 2"
 	elif sys.argv[1].find("distance") == 0:
+		print "set xrange [0:300]"
+		print "set yrange [0:1400]"
 		datasetPercentage = sys.argv[1][sys.argv[1].find("_")+1:]
 		print "set ylabel 'Distance (m)'"
 		print "set xlabel 'Time (s)'"
@@ -37,12 +39,14 @@ if(len(sys.argv) > 2):
 			if i != 0:
 				plots += ","
 			
-			plots += "\"" + datafile + "\" using 1:2 with lines"
+			plots += "\"" + datafile + "\" using 1:2 with lines lt 1 lc "+ str(i+1)+" "
 		if(plots == ""):
 			print "ERROR dataset "+datasetPercentage+" do not exist"
 			sys.exit(1)
 		print "plot" + plots
 	elif sys.argv[1].find("speed") == 0:
+		print "set xrange [0:300]"
+		print "set yrange [0:20]"
 		datasetPercentage = sys.argv[1][sys.argv[1].find("_")+1:]
 		print "set ylabel 'Speed (km/h)'"
 		print "set xlabel 'Time (s)'"
