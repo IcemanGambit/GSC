@@ -69,6 +69,7 @@ def flushDataCollection(percent, path = "default"):
 	
 	totalTravelTime = 0;
 	totalFuel = 0;
+	total_no_vehicles = 0
 	
 	routeChart = open(outputPath + "/routeList.dat", "w")
 	for r in routes:
@@ -97,7 +98,8 @@ def flushDataCollection(percent, path = "default"):
 			travelTime += (vehicleTime[vh][1]-vehicleTime[vh][0])/1000
 			fuel += totalFuel
 			totalTravelTime += travelTime
-			totalfuel += fuel
+			totalFuel += fuel
+			total_no_vehicles += 1
 			
 		totalFuelChart.close()
 		
@@ -110,6 +112,12 @@ def flushDataCollection(percent, path = "default"):
 									
 		#Print route list
 		print >> routeChart, routeId + ": " + r
+		
+	#Print average travel time and fuel
+	avgChart = open(outputPath + "/avg.dat", "w")
+	print >> avgChart, "Time\tFuel"
+	print >> avgChart, str(travelTime/no_vehicles) + "\t" + str(fuel/no_vehicles)
+	avgChart.close()
 		
 	#Printing stops at traffic lights
 	if len(VhStops) > 0:
@@ -129,47 +137,3 @@ def flushDataCollection(percent, path = "default"):
 				print >> stopChart, str(vh) + "\t" + str(d)
 		if(stopChart):
 			stopChart.close()
-	
-	##################
-	"""routeAvgFuelTimeChart = open("Test/"+str(percent)+ "/RouteAvgFuelTime", "w")
-	avgChart = open("Test/"+str(percent)+"/avgValues", "w")
-	
-	for r in routes:
-		rId = routes[r][0]
-		timeChart = open("Test/"+str(percent)+ "/time_" + str(rId) + ".tex", "w")
-		
-		print >> timeChart, initTimeText % ("Vehicles", "Time (s)")
-		print >> timeChart, "\\addplot coordinates {"
-		
-
-
-		v = 0 #Number of vehicles
-		for vh in vehicles:
-			travelTime = (vehicleTime[vh][1]-vehicleTime[vh][0])/1000
-			print >> timeChart, "(" + vh + ", " + str(travelTime) + ")"
-		
-			if r in avgValues:
-				avgValues[rId][0]+= 1 #Number of records
-				avgValues[rId][1]+= travelTime # Avg. travel time
-				avgValues[rId][2]+= vehicleData[vh][len(vehicleData[vh])-1][2] #Avg. fuel
-			else:
-				avgValues[rId]= [1,travelTime, vehicleData[vh][len(vehicleData[vh])-1][2]]
-				
-			v+=1 #Next vehicle
-
-		print >> timeChart, "};"
-		print >> timeChart, endText % (percent, rId, "time", percent, rId)
-		
-		timeChart.close()
-
-
-	#Printing average values
-	print >> routeAvgFuelTimeChart, "Route\t" + "Time\t" + "Fuel"
-	avgFuel = 0
-	for rId in avgValues:
-		print >> routeAvgFuelTimeChart, str(rId) + "\t" +str(avgValues[rId][1]/avgValues[rId][0]) + "\t" + str(avgValues[rId][2]/avgValues[rId][0])
-		avgFuel +=avgValues[rId][2]/avgValues[rId][0]
-	print >> avgChart, "Fuel\t"+str(avgFuel/len(avgValues))
-	
-	routeAvgFuelTimeChart.close()
-	avgChart.close()"""
