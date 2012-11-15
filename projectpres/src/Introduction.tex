@@ -24,24 +24,32 @@ Difficult to adjust speed to traffic light when the phases are unknown
 
 \begin{frame}{Problem Statement}
 \begin{center}
-Is it possible to reduce fuel consumption by adjusting vehicles velocity to traffic lights in a real life setting?
+Is it possible to reduce fuel consumption by adjusting the velocity of vehicles to traffic lights in a real life setting?
 \end{center}
 \end{frame}
 
 \begin{frame}{Solution}
-Assume the phases of the traffic ligths can be accessed
+Simulate real world traffic flow on a real world section of road
 
-Calculate speed to reach the next traffic ligth as it turns green
+Calculate a speed to reach the next traffic ligth as it turns green
 \end{frame}
 
 \begin{frame}{Assumptions}
 The used simulator simulates the real world correctly
 
-Phases of the traffic lights can be accessed by vehicles
+Information about the traffic lights can be accessed by vehicles
+\begin{itemize}
+\item The GPS locations 
+\item The phases, i.e. light setting time frames 
+\end{itemize}
 
-Vehicles have a predefined route that is followed and not changed
-
-No communication between vehicles
+Vehicles 
+\begin{itemize}
+\item have a predefined route that is followed and not changed
+\item know its GPS location
+\item cannot communicate with other vehicles
+\item have a constant acceleration and deceleration
+\end{itemize}
 
 Drivers follow the rules of traffic, e.g. 
 \begin{itemize}
@@ -50,7 +58,5 @@ Drivers follow the rules of traffic, e.g.
 \item wait at a red light
 \item wait for crossing crossing traffic
 \end{itemize}
-
-Vehicles have a constant acceleration and deceleration
 
 \end{frame}
