@@ -1,6 +1,6 @@
 import os, subprocess, sys, random
 
-dataset = "default"
+dataset = "tp0"
 if(len(sys.argv) > 2):
 
 	fileIN = open("TestResults/" + dataset+ "/0/routeList.dat", "r")
