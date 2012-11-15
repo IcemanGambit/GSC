@@ -33,7 +33,7 @@ if(len(sys.argv) > 2):
 			if i != 0:
 				plots += ","
 			
-			plots += "\"" + datafile + "\" using 1:2 with lines"
+			plots += "\"" + datafile + "\" using 1:2 with lines lt 1 lc "+ str(i+1)+" "
 		if(plots == ""):
 			print "ERROR dataset "+datasetPercentage+" do not exist"
 			sys.exit(1)
