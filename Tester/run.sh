@@ -1,29 +1,52 @@
 set -e
 
-if [ ${2-""} == "-n" ]
-then
-	echo "Regenerating network file"
-	if [ -f $1"/"Data.con.xml ]
+output=default
+newnetwork=0 
+newtrips=-1
+systemusers=0
+workingdir=$1
+gui="ngui"
+while [ "$1" != "" ]; do
+    case $1 in
+        -n)						newnetwork=1
+                                ;;
+        -tp)    				shift
+								newtrips=$1
+                                ;;
+		-u)    					shift
+								systemusers=$1
+                                ;;
+        -o)          			shift
+								output=$1
+                                ;;
+		-g)						gui="gui"
+								;;
+    esac
+    shift
+done
+
+echo "Regenerating network file"
+if [ "$newnetwork" = "1" ]; then
+	if [ -f $workingdir"/"Data.con.xml ]
 	then
-		netconvert --node-files=$1"/"Data.nod.xml --edge-files=$1"/"Data.edg.xml --connection-files=$1"/"Data.con.xml --output-file=$1"/"Data.net.xml --proj.utm
+		netconvert --node-files=$workingdir"/"Data.nod.xml --edge-files=$workingdir"/"Data.edg.xml --connection-files=$workingdir"/"Data.con.xml --output-file=$workingdir"/"Data.net.xml --proj.utm
 		echo "Adding connection"
-		netconvert --sumo-net-file=$1"/"Data.net.xml --connection-files=$1"/"Data.con.xml --output-file=$1"/"Data.net.xml
+		netconvert --sumo-net-file=$workingdir"/"Data.net.xml --connection-files=$workingdir"/"Data.con.xml --output-file=$workingdir"/"Data.net.xml
 		echo "Adding traffic lights"
-		netconvert --sumo-net-file=$1"/"Data.net.xml --tllogic-files $1"/"Data.tll.xml --output-file=$1"/"Data.net.xml
+		netconvert --sumo-net-file=$workingdir"/"Data.net.xml --tllogic-files $workingdir"/"Data.tll.xml --output-file=$workingdir"/"Data.net.xml
 	else
-		netconvert --node-files=$1"/"Data.nod.xml --edge-files=$1"/"Data.edg.xml --output-file=$1"/"Data.net.xml --proj.utm
+		netconvert --node-files=$workingdir"/"Data.nod.xml --edge-files=$workingdir"/"Data.edg.xml --output-file=$workingdir"/"Data.net.xml --proj.utm
 	fi
-else
-	echo "Reusing network file"
 fi
 
-if [ -f $1"/"trips.xml ]
-then
-	echo "Reusing routes"
+if [ "$newtrips" != "-1" ]; then
+
+	echo "Generate new routes with "$newtrips"% trucks"
+	python $workingdir"/"genTrips.py $workingdir $newtrips
+	duarouter --net-file $workingdir"/"Data.net.xml --trip-files $workingdir"/"trips.xml --route-files $workingdir"/"Data.rou.xml --output-file $workingdir"/Data".rou.xml
+
 else
-	echo "Generate new routes"
-	python $1"/"genTrips.py $1
-	duarouter --net-file $1"/"Data.net.xml --trip-files $1"/"trips.xml --route-files $1"/"Data.rou.xml --output-file $1"/Data".rou.xml
+	echo "Reusing routes"
 fi
 
 echo "<?xml version='1.0' encoding='iso-8859-1'?>
@@ -41,7 +64,6 @@ echo "<?xml version='1.0' encoding='iso-8859-1'?>
     <traci_server>
         <remote-port value='8813'/>
     </traci_server>
-</configuration>" > $1"/Data.sumocfg"
+</configuration>" > $workingdir"/Data.sumocfg"
 
-echo "run SUMO"
-python $1"/"simulate.py $1
+python $workingdir"/"simulate.py $workingdir $gui $systemusers $output
