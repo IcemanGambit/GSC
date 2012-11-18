@@ -9,8 +9,6 @@
 \section{Evaluation}
 \begin{frame}{Test Setup}
 
-
-
 \begin{columns}
 	\begin{column}{0.7\textwidth}
 		\begin{itemize}
@@ -30,36 +28,50 @@
 \begin{frame}{SUMO presentation}
 \end{frame}
 
+
 \begin{frame}{Fuelsaving}
-	\begin{figure}
-	\begin{tikzpicture}[scale=0.6]
-	\begin{axis}[xlabel=Routes,xticklabel=\empty,ylabel=Fuel consumption,bar width=1pt,]
-	\addplot[ybar, blue] table[x=Route,y=Fuel] {TestResults/0/avg.dat};
-	\addplot[ybar, red] table[x=Route,y=Fuel] {TestResults/100/avg.dat};
-	\draw[thick, red] (axis cs:0,138) -- (axis cs:109,138);
-	\draw[thick, blue] (axis cs:0,162) -- (axis cs:109,162);
-	\end{axis}
-	\end{tikzpicture}
-	\caption{Average fuel consumption with (red) and without \tech (blue)}\label{tik:fuel:avg}
-	\end{figure}
+
+	\includegraphics[width=1\textwidth]{images/tp0/fuelRoute.png}\\
+	Blue: With system. Green: Without system
+
+\end{frame}
+
+\begin{frame}{Distance driven over time}
+	\includegraphics[width=1\textwidth]{images/tp0/distance0.png}\\
+	Without system
+\end{frame}
+
+	
+\begin{frame}{Distance driven over time with the system}
+\begin{columns}
+	\begin{column}{0.5\textwidth}
+	\includegraphics[width=1\textwidth]{images/tp0/distance0.png}\\
+	Without system
+	\end{column}
+	\begin{column}{0.5\textwidth}
+	\includegraphics[width=1\textwidth]{images/tp0/distance100.png}\\
+	100\% With system
+	\end{column}
+\end{columns}
 \end{frame}
 
 
-\begin{frame}{Distance}
+\begin{frame}{Distance driven over time bootstrap problem}
+
+\includegraphics[width=1\textwidth]{images/tp0/distance10.png}\\
+10\% With system
+\end{frame}
 
 
-
+\begin{frame}{velocity driven over time}
 \begin{columns}
-	\begin{figure}[htb]
-	\includegraphics[width=0.5\textwidth]{images/tp0/distance100.png}
-	\caption{Speed graph}
-	\label{fig:TestResults:distance100}
-	\end{figure}
-
-	\begin{figure}[htb]
-	\includegraphics[width=0.5\textwidth]{images/tp0/distance0.png}
-	\caption{Speed graph}
-	\label{fig:TestResults:distance0}
-	\end{figure}
+	\begin{column}{0.5\textwidth}
+	\includegraphics[width=1\textwidth]{images/tp0/speed0.png}\\
+	Without system
+	\end{column}
+	\begin{column}{0.5\textwidth}
+	\includegraphics[width=1\textwidth]{images/tp0/speed100.png}\\
+	100\% With system
+	\end{column}
 \end{columns}
 \end{frame}
