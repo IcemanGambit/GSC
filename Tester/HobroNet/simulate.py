@@ -42,11 +42,15 @@ controlledVehicles = random.sample(xrange(noVehicles), noVehicles*percent/100)
 step = 0
 while step==0 or traci.simulation.getMinExpectedNumber() > 0:
 	traci.simulationStep()
-	for v in traci.vehicle.getIDList():
+	vehicles = traci.vehicle.getIDList()
+	GSC.Test.recordVehiclesOnRoute(vehicles)
+	for v in vehicles:
 		if (testPercent and int(v) in controlledVehicles) or v in GSCvehIds:
 			speed = GSC.Vehicle.getRecommentedSpeed(v, 2000, 400000)
 			traci.vehicle.setSpeed(v, speed)
-	GSC.Test.processDataCollection()
+			GSC.Test.processDataCollection(v, True)
+		else:
+			GSC.Test.processDataCollection(v, False)
 	step+=1
 
 GSC.Test.flushDataCollection(percent,sys.argv[4])
