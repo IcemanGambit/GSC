@@ -24,7 +24,9 @@ noTrips = 0
 for o in ODmatrix:
 	for d in o:
 		noTrips += d
+
 departTimes = random.sample(xrange(0,noTrips), noTrips)
+
 
 vehicleTypes = ["car", "truck"]
 types = open(sys.argv[1]+"/Data.rou.xml", "w")
