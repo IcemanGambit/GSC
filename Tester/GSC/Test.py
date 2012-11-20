@@ -176,7 +176,7 @@ def flushDataCollection(percent, path = "default"):
 		controlled_no_vehicles = len(temp)
 		if controlled_no_vehicles > 0:
 			controlledAvgChart = open(outputPath + "/" + str(routeId)+ "/controlled/avg.dat", "w")
-			print >> controlledAvgChart, str(controlledTravelTime/controlled_no_vehicles) + "\t" + str(controlledFuel/controlled_no_vehicles) + 'hej'
+			print >> controlledAvgChart, str(controlledTravelTime/controlled_no_vehicles) + "\t" + str(controlledFuel/controlled_no_vehicles)
 			controlledAvgChart.close()
 
 		uncontrolled_no_vehicles = no_vehicles - controlled_no_vehicles

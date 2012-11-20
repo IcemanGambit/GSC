@@ -33,24 +33,46 @@ The traffic light for this figure is the first junctions driving from Vesterbro.
 The purpose of \tech is to reduce the fuel consumption at least for the vehicles using the system. 
 We use SUMO's build-in function to calculate the vehicles fuel consumption, which is explained in \cite{SUMOFuel}.
 
-%
-
-\begin{comment}
-Figure~\ref{fig:TestResults:fuelRoute} plots the total fuel consumption for all vehicles driving on the selected route. 
-The results clearly show that using \tech in this setup will reduce the fuel consumption significantly.
-Acrose all routes, we see a reduction from an average of 130 $mL$ to an average of 96 $mL$, which is a reduction of 29 \%.
-If we only look at route 1, we observe an average fuel consumption without \tech at 175 $mL$, and 117 $mL$ with \tech.
-This is again a significant reduction in fuel consumption in 33 \%. %TODO fix number
-\end{comment}
-
-\begin{figure}[htb]
-\includegraphics[width=0.5\textwidth]{images/tp0/fuelRouteControlled100.png}
-\caption{Fuel graph}
+The total fuel consumption for all vehicles in the network is plotted in Figure~\ref{fig:TestResults:fuelTotal}.
+Figure~\ref{fig:TestResults:fuelTotal} plots the fuel consumption for all vehicles in the network for two different simulations: one where all vehicles use \tech (blue) and one where no vehicles are using \tech (green).
+The average fuel consumption when all vehicles use \tech is about $77 ml$, and about $108 ml$ when noone use \tech.
+We therefore see a significant overall reduction in fuel consumption in this setting if \tech is used by everybody.
+Looking at just the selected route through the network, we see the same tendency (see Figure~\ref{fig:TestResults:fuelRoute}). 
+The average fuel consumption with \tech is about $114 ml$ and about $166 ml$ without. 
+\begin{figure}[h]
+\includegraphics[width=0.5\textwidth]{images/tp0/fuelTotal.png}
+\caption{Fuel consumption for all vehicles in the network. Blue: 100\% use \tech, green: 0\% use \tech}
+\label{fig:TestResults:fuelTotal}
+\end{figure}
+\begin{figure}[h]
+\includegraphics[width=0.5\textwidth]{images/tp0/fuelRoute.png}
+\caption{Fuel consumption for all vehicles on the selected route}
 \label{fig:TestResults:fuelRoute}
 \end{figure}
 
+It is, however, also interesting to investigate the influence \tech has when only a few drivers use it.
+Figure~\ref{fig:TestResults:fuelControlled10} and~\ref{fig:TestResults:fuelUncontrolled10} plot the fuel consumption for 10\% of the vehicles are using \tech.
+Figure~\ref{fig:TestResults:fuelControlled10} shows the 10 \% using \tech, and Figure~\ref{fig:TestResults:fuelUncontrolled10} show the 90 \% not using \tech.
+We see that the average fuel consumption is about $119 ml$ for the 10 \% using \tech, and about $168$ for the 90 \% not using it.
+The fuel consumption is less for those who use \tech, and the fuel consumption is only increased by $1 ml$ for those who do not use \tech compared to the situation where no vehicles used \tech.
+We see the same results when 50 \% of the vehicles use \tech.
+
+We can therefore conclude that in the tested use case, we see a significate reduction in fuel consumption even when it is only implemented in a small subset of the vehicles. 
+Moreover, vehicles using \tech does not have a negative influence the other fuel consumption of the vehicles.
+
+\begin{figure}[h]
+\includegraphics[width=0.5\textwidth]{images/tp0/fuelRouteControlled10.png}
+\caption{Fuel consumption for the 10 \% of the vehicles driving with \tech on the selected route}
+\label{fig:TestResults:fuelControlled10}
+\end{figure}
+\begin{figure}[h]
+\includegraphics[width=0.5\textwidth]{images/tp0/fuelRouteUncontrolled10.png}
+\caption{Fuel consumption for the 90 \% of the vehicles driving without \tech on the selected route}
+\label{fig:TestResults:fuelUncontrolled10}
+\end{figure}
+
 \subsection{Distance}
-Figure~\ref{fig:TestResults:distance100} shows the distance ?? vehicles drive on route 54 as a function of time when their driving behaviour is solely controled by SUMO. 
+Figure~\ref{fig:TestResults:distance100} shows the distance vehicles drive on the selected route as a function of time when their driving behaviour is solely controlled by SUMO. 
 The vehicle is stationary whenever the curve flatens.
 From the figure we clearly see that the vehicles on this route has to stop four times, at 250 meter, at 550 meters, at 750 meters and again at 1100 metets.
 
@@ -60,30 +82,52 @@ Some vehicles have to stop due to blocking vehicles or cross traffic, which we d
 
 We can therefore see that using \tech results in less full stops.
 
+The results of introducing the system to 10\% of the vehicles can be seen in Figure~\ref{fig:TestResults:distanceUnC10}. 
+The remaning 90\% is for the most part unaffected by the system. 
+There is a few instances where uncontrolled vehicles are forced to slow down and stay behind a slower moving vehicle using the system.
 
-\begin{figure}[htb]
+\begin{figure}[H]
+\includegraphics[width=0.5\textwidth]{images/tp0/distanceUncontrolled10.png}
+\caption{Travel distance for the 90 \% of the vehicles driving without \tech on the selected route}
+\label{fig:TestResults:distanceUnC10}
+\end{figure}
+
+\begin{figure}[H]
 \includegraphics[width=0.5\textwidth]{images/tp0/distanceControlled100.png}
-\caption{Distance graph}
+\caption{Travel distance of vehicles when all drive with \tech on the selected route}
 \label{fig:TestResults:distance100}
 \end{figure}
 
 \subsection{Speed}
-Figure~\ref{fig:TestResults:speed0} shows the speed at which SUMO controlled vehicles on route 54 drive as a function over time.
+Figure~\ref{fig:TestResults:speed0} shows the speed at which SUMO controlled vehicles on the selected route drive as a function over time.
 The graph clearly shows that the vehicles quicly accelerates up to the maximal speed, then quickly decelerates to a full stop and then quickly accelerates again.
 By using \tech we see a very different outline (See Figure~\ref{fig:TestResults:speed100}).
-Few vehicles decelerates to $0 m/s$, and many stay above $5 m/s$ ($18 km/h$ or $11$ miles per hour ($mph$)).
-We do, however, still see a large fluctuation.
-\begin{figure}[htb]
+Few vehicles decelerates to $0\ km/h$, and most stay above $14\ km/h$.
+
+Again, the result of introducing the system to 10\% of the vehicles can be seen in Figure \ref{fig:TestResults:speedUnC10}. 
+The remaning 90\% is almoste unaffected by the system.
+
+\begin{figure}[H]
+\includegraphics[width=0.5\textwidth]{images/tp0/speedUncontrolled10.png}
+\caption{Velocity for the 90 \% of the vehicles driving without \tech on the selected route}
+\label{fig:TestResults:speedUnC10}
+\end{figure}
+
+\begin{figure}[H]
 \includegraphics[width=0.5\textwidth]{images/tp0/speedControlled100.png}
-\caption{Speed graph}
+\caption{Velocity of vehicles when all drive with \tech on the selected route}
 \label{fig:TestResults:speed100}
 \end{figure}
 
 
-
 \subsection{Time}
-It is interesting to investigate wether driving after \tech results in longer travel time than without.
-It takes on average 114 seconds to drive a route in our test without \tech, and when all vehicles drive with \tech it takes 111 seconds. 
-We therefore do not see any significant differens in thees results.
+%TODO: Find error in these results. They are all 100.
+\begin{comment}
+It is interesting to investigate whether driving with \tech results in a longer travel time than without.
 
+
+It takes on average 100 seconds to drive through the network on any route in our test without \tech, and when all vehicles drive with \tech it takes 77 seconds. 
+
+We therefore do not see any significant differens in thees results.
+\end{comment}
 
