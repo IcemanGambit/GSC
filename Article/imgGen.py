@@ -28,14 +28,18 @@ if(len(sys.argv) > 3):
 	
 	elif sys.argv[1].find("fuel_") > 0:
 		conType = sys.argv[1][:sys.argv[1].find("_")]
+		if conType == "controlled":
+			color = "\"blue\""
+		else:
+			color = "\"green\""
 		percent = sys.argv[1][sys.argv[1].rfind("_")+1:]
 		print "set ylabel 'Fuel Consumption (ml)'"
 		print "set xlabel 'Vehicles'"
 		print "set boxwidth 0.5 absolute"
 		print "set yrange[0:250]"
 		print "unset xtics"
-		datafile = "\"TestResults/" + dataset + "/"+percent+"/" + route+ "/"+conType+"/totalFuel.dat\""
-		print "plot "+ datafile + " with boxes fill solid lc rgb \"red\", `head -1 "+ datafile + " | awk '{print $2}'` lt 1 lw 5 lc rgb \"red\""
+		datafile = "\"TestResults/" + dataset + "/"+percent+"/" + route+ "/"+conType
+		print "plot "+ datafile+"/totalFuel.dat\"" + " with boxes fill solid lc rgb " + color + ", `head -1 "+ datafile+"/avg.dat\"" + " | awk '{print $2}'` lt 1 lw 5 lc rgb " + color
 		
 	elif sys.argv[1] == "fuelTotal":
 		print "set ylabel 'Fuel Consumption (ml)'"
@@ -49,6 +53,10 @@ if(len(sys.argv) > 3):
 	
 	elif sys.argv[1].find("_fuelTotal") > 0:
 		conType = sys.argv[1][:sys.argv[1].find("_")]
+		if conType == "controlled":
+			color = "\"blue\""
+		else:
+			color = "\"green\""
 		percent = sys.argv[1][sys.argv[1].rfind("_")+1:]
 		print "set ylabel 'Fuel Consumption (ml)'"
 		print "set xlabel 'Vehicles'"
@@ -56,8 +64,8 @@ if(len(sys.argv) > 3):
 		print "set yrange [0:250]"
 		print "set boxwidth 0.5 absolute"
 		print "unset xtics"
-		datafile = "\"TestResults/" + dataset + "/"+percent + "/" + conType +"/totalFuel.dat\""
-		print "plot "+ datafile + " using ($1+0.25):2 with boxes fill solid lc rgb \"green\", `head -1 "+ datafile + " | awk '{print $2}'` lt 1 lw 5 lc rgb \"green\""
+		datafile = "\"TestResults/" + dataset + "/"+percent + "/" + conType
+		print "plot "+ datafile +"/totalFuel.dat\""+ " using ($1+0.25):2 with boxes fill solid lc rgb " + color + ", `head -1 "+ datafile +"/avg.dat\"" + " | awk '{print $2}'` lt 1 lw 5 lc rgb " + color
 		
 	elif sys.argv[1].find("distance") > 0:
 		datasetPercentage = sys.argv[1][sys.argv[1].rfind("_")+1:]
