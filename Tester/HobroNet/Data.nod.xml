@@ -13,7 +13,7 @@
 
 	<join nodes="Ju_Vesterbro_Ostre_KongCh_hobro_NV Ju_Vesterbro_Ostre_KongCh_hobro_NO Ju_Vesterbro_Ostre_KongCh_hobro_SV Ju_Vesterbro_Ostre_KongCh_hobro_SO"/>
 	
-	<node id="sonderSkov_V" x="9.9092832" y="57.0387107" />
+	<node id="sonderSkov_V" x="9.9081322" y="57.0389142" />
 	<node id="Ju_Hobrovej_sonderSkov_V" x="9.9100219" y="57.0386311" type="traffic_light" />
 	<node id="Ju_Hobrovej_sonderSkov_O" x="9.9101330" y="57.0386217" type="traffic_light" />
 	<node id="Ju_Hobrovej_sonderSkov_OS" x="9.9100210" y="57.0386068" type="traffic_light" />
