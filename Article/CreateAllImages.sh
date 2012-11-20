@@ -2,7 +2,7 @@
 #!/bin/sh
 
 #array=(tp0 tp5 tp10 tp20)
-array=(default)
+array=(tp0 tp5)
 for i in "${array[@]}"
 do
 mkdir -p images/$i
