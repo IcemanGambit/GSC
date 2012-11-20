@@ -22,9 +22,9 @@ if(len(sys.argv) > 3):
 		print "set yrange[0:250]"
 		print "set boxwidth 0.5 absolute"
 		print "unset xtics"
-		datafile1 = "\"TestResults/" + dataset + "/0/" + route+ "/totalFuel.dat\""
-		datafile2 = "\"TestResults/" + dataset + "/100/" + route+ "/totalFuel.dat\""
-		print "plot "+ datafile1 + " using ($1+0.25):2 with boxes fill solid lc rgb \"green\", "+ datafile2 + " using ($1-0.25):2 with boxes fill solid lc rgb \"blue\", `head -1 "+ datafile1 + " | awk '{print $2}'` lt 1 lw 5 lc rgb \"green\", `head -1 "+ datafile2 + " | awk '{print $2}'` lt 1 lw 5 lc rgb \"blue\""
+		datafile1 = "\"TestResults/" + dataset + "/0/" + route
+		datafile2 = "\"TestResults/" + dataset + "/100/" + route
+		print "plot "+ datafile1 + "/totalFuel.dat\"" + " using ($1+0.25):2 with boxes fill solid lc rgb \"green\", " + datafile2 + "/totalFuel.dat\" using ($1-0.25):2 with boxes fill solid lc rgb \"blue\", `head -1 " + datafile1 + "/avg.dat\" | awk '{print $2}'` lt 1 lw 5 lc rgb \"green\", `head -1 "+ datafile2 + "/avg.dat\" | awk '{print $2}'` lt 1 lw 5 lc rgb \"blue\""
 	
 	elif sys.argv[1].find("fuel_") > 0:
 		conType = sys.argv[1][:sys.argv[1].find("_")]
@@ -44,9 +44,8 @@ if(len(sys.argv) > 3):
 		print "set yrange [0:250]"
 		print "set boxwidth 0.5 absolute"
 		print "unset xtics"
-		datafile1 = "\"TestResults/" + dataset + "/0/totalFuel.dat\""
-		datafile2 = "\"TestResults/" + dataset + "/100/totalFuel.dat\""
-		print "plot "+ datafile1 + " using ($1+0.25):2 with boxes fill solid lc rgb \"green\", "+ datafile2 + " using ($1-0.25):2 with boxes fill solid lc rgb \"blue\", `head -1 "+ datafile1 + " | awk '{print $2}'` lt 1 lw 5 lc rgb \"green\", `head -1 "+ datafile2 + " | awk '{print $2}'` lt 1 lw 5 lc rgb \"blue\""
+		datafile = "\"TestResults/" + dataset
+		print "plot "+ datafile + "/0/totalFuel.dat\"" + " using ($1+0.25):2 with boxes fill solid lc rgb \"green\", " + datafile + "/100/totalFuel.dat\" using ($1-0.25):2 with boxes fill solid lc rgb \"blue\", `head -1 " + datafile + "/0/avg.dat\" | awk '{print $2}'` lt 1 lw 5 lc rgb \"green\", `head -1 "+ datafile + "/100/avg.dat\" | awk '{print $2}'` lt 1 lw 5 lc rgb \"blue\""
 	
 	elif sys.argv[1].find("_fuelTotal") > 0:
 		conType = sys.argv[1][:sys.argv[1].find("_")]
