@@ -8,18 +8,10 @@ The proposed techinque, \tech is tested in the simulator SUMO on a part of Hobro
 \label{fig:Introduction:hobro}
 \end{figure}
 
-Hobrovej has seven junctions, two large regulated with $12-16$ connections, two small regulated with $4-6$ connections, and three small unregulated junctions.
-The network is an exact replica of Hobrovej, with the same distance between sections, the same number of lanes and connections and the same traffic light signals and phases.
+Hobrovej has seven junctions: two large regulated junctions with $12-16$ connections, two small regulated junctions with $4-6$ connections, and three small unregulated junctions.
+The network is an exact replica of Hobrovej, with the same distance between sections and the same number of lanes and connections. 
+We have estimated the phases of traffic lights based on ....%TODO: Fix this
 The routes and the number of vehicles in the network is based on an OD matrix provided by the ???.
 We only model vehicles of the types detailed in Tabel~\ref{tabel:vehicleTypes}, and do not model neither pedestrians nor cyclists.
 
-In the following, we will focus our tests on the routes detailed in Table~\ref{tb:useCase:routes}.
-\begin{table} %TODO: Should routes be all segments?
-\centering
-\begin{tabular}{|l|l|}\hline
-\textbf{ID} & \textbf{Route}\\\hline
-1 & <Hobrovej, Vesterbro>\\\hline
-2 & <Vesterbro, Hobrovej>\\\hline
-\end{tabular}
-\caption{Routes}\label{tb:useCase:routes}
-\end{table}
+In the following, we will focus our tests on the route going from the south end of Hobrovej to the north end of Hobrovej. 
