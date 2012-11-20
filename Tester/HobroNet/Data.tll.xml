@@ -35,21 +35,6 @@
 		<phase duration="31" state="rrrrGGGgGGGgrrrr"/> <!-- 4 -->
 		<phase duration="4"  state="rrrrGyyyGyyyrrrr"/>
 		<phase duration="2"  state="rrryGrrrGrrrrrry"/>
-		
-		<!--
-		<phase duration="31" state="gggrrrrrrrrrgggr"/> 
-		<phase duration="4" state="yyyrrrrrrrrryyyr"/>
-		<phase duration="2" state="rrryyrrryrrrrrry"/>
-		<phase duration="10" state="rrrggrrrgrrrrrrg"/> 
-		<phase duration="4" state="rrrygrrrgrrrrrry"/>
-		<phase duration="2" state="rrrrgyyygyyrrrrr"/>
-		<phase duration="31" state="rrrrgggggggrrrrr"/> 
-		<phase duration="4" state="rrrryyyygggrrrrr"/>
-		<phase duration="2" state="rrrrrrrrgggyyrrr"/>
-		<phase duration="10" state="rrrrrrrrgggGGrrr"/>
-		<phase duration="4" state="rrrrrrrryyyygrrr"/>
-		<phase duration="2" state="yyyrrrrrrrrrgyyr"/>
-		-->
 	</tlLogic>
 
 	<!-- from vesterbro -->

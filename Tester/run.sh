@@ -25,8 +25,9 @@ while [ "$1" != "" ]; do
     shift
 done
 
-echo "Regenerating network file"
+
 if [ "$newnetwork" = "1" ]; then
+	echo "Regenerating network file"
 	if [ -f $workingdir"/"Data.con.xml ]
 	then
 		netconvert --node-files=$workingdir"/"Data.nod.xml --edge-files=$workingdir"/"Data.edg.xml --connection-files=$workingdir"/"Data.con.xml --output-file=$workingdir"/"Data.net.xml --proj.utm
@@ -37,6 +38,8 @@ if [ "$newnetwork" = "1" ]; then
 	else
 		netconvert --node-files=$workingdir"/"Data.nod.xml --edge-files=$workingdir"/"Data.edg.xml --output-file=$workingdir"/"Data.net.xml --proj.utm
 	fi
+else
+	echo "Reusing network file"
 fi
 
 if [ "$newtrips" != "-1" ]; then
