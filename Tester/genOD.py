@@ -46,6 +46,9 @@ line = ODfile.readline()
 while line:
 	
 	temp = line.split(";")
+	if temp[0] == temp[1]:
+		line = ODfile.readline()
+		continue
 	e= l.index(frommap[temp[0]])
 	r = l.index(tomap[temp[1]])
 	OD[e][r] = int(temp[3])
