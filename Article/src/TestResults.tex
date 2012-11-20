@@ -2,6 +2,9 @@
 In this section, we test the proposed techinque on the use case explained in the previouse section.
 
 \subsection{Verification of Results}
+It is imporant to verify that the results obtained from the simulator actually matches real world observations.
+Figure~\ref{} and~\ref{} show data from ???.
+
 From Figure~\ref{fig:TestResults:distance0} we see that the simulation compared to the real-world results from Figure \ref{} is a close match. 
 We see the same stop and go behavior as a results from traffic lights, and the arrival times are also a close match. 
 If we compare the driving speed of the simulation show in Figure \ref{fig:TestResults:speed0} with the real-world data from Figure \ref{} we see that in most cases the vehicles are either driving at the maximum speed, or they are at a full stop. 
@@ -12,13 +15,13 @@ The traffic light for this figure is the first junctions driving from Vesterbro.
 %TODO: when we have something to compare with
 
 \begin{figure}[htb]
-\includegraphics[width=0.5\textwidth]{images/tp0/speed0.png}
+\includegraphics[width=0.5\textwidth]{images/tp0/speedUncontrolled0.png}
 \caption{Speed graph}
 \label{fig:TestResults:speed0}
 \end{figure}
 
 \begin{figure}[htb]
-\includegraphics[width=0.5\textwidth]{images/tp0/distance0.png}
+\includegraphics[width=0.5\textwidth]{images/tp0/distanceUncontrolled0.png}
 \caption{Distance graph}
 \label{fig:TestResults:distance0}
 \end{figure}
@@ -27,19 +30,17 @@ The traffic light for this figure is the first junctions driving from Vesterbro.
 %\input{TestResults/0/distance_53.tex}
 %\input{TestResults/0/stop.tex}
 \subsection{Fuel Consumption}
-The purpose of \tech is to reduce fuel consumption. 
+The purpose of \tech is to reduce the fuel consumption at least for the vehicles using the system. 
 We use SUMO's build-in function to calculate the vehicles fuel consumption, which is explained in \cite{SUMOFuel}.
 
-%Figure~\ref{tik:fuel:0:51} shows this fuel consumption as a function of time for vehicles driving on route 51 controlled by SUMO only. 
-%Figure~\ref{tik:fuel:100:51} shows the same setup, but with all vehicles controlled by \tech.
-Figure~\ref{fig:TestResults:fuelRoute} plots the average fuel consumption for vehicles driving on all routes. 
+Figure~\ref{fig:TestResults:fuelRoute} plots the total fuel consumption for all vehicles driving on the selected route. 
 The results clearly show that using \tech in this setup will reduce the fuel consumption significantly.
 Acrose all routes, we see a reduction from an average of 130 $mL$ to an average of 96 $mL$, which is a reduction of 29 \%.
 If we only look at route 1, we observe an average fuel consumption without \tech at 175 $mL$, and 117 $mL$ with \tech.
 This is again a significant reduction in fuel consumption in 33 \%. %TODO fix number
 
 \begin{figure}[htb]
-\includegraphics[width=0.5\textwidth]{images/tp0/fuelRoute.png}
+\includegraphics[width=0.5\textwidth]{images/tp0/fuelRouteControlled100.png}
 \caption{Fuel graph}
 \label{fig:TestResults:fuelRoute}
 \end{figure}
@@ -76,7 +77,7 @@ We can therefore see that using \tech results in less full stops.
 
 
 \begin{figure}[htb]
-\includegraphics[width=0.5\textwidth]{images/tp0/distance100.png}
+\includegraphics[width=0.5\textwidth]{images/tp0/distanceControlled100.png}
 \caption{Distance graph}
 \label{fig:TestResults:distance100}
 \end{figure}
@@ -88,7 +89,7 @@ By using \tech we see a very different outline (See Figure~\ref{fig:TestResults:
 Few vehicles decelerates to $0 m/s$, and many stay above $5 m/s$ ($18 km/h$ or $11$ miles per hour ($mph$)).
 We do, however, still see a large fluctuation.
 \begin{figure}[htb]
-\includegraphics[width=0.5\textwidth]{images/tp0/speed100.png}
+\includegraphics[width=0.5\textwidth]{images/tp0/speedControlled100.png}
 \caption{Speed graph}
 \label{fig:TestResults:speed100}
 \end{figure}
