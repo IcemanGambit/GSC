@@ -24,14 +24,14 @@ if(len(sys.argv) > 3):
 		print "unset xtics"
 		datafile1 = "\"TestResults/" + dataset + "/0/" + route
 		datafile2 = "\"TestResults/" + dataset + "/100/" + route
-		print "plot "+ datafile1 + "/totalFuel.dat\"" + " using ($1+0.25):2 with boxes fill solid lc rgb \"green\", " + datafile2 + "/totalFuel.dat\" using ($1-0.25):2 with boxes fill solid lc rgb \"blue\", `head -1 " + datafile1 + "/avg.dat\" | awk '{print $2}'` lt 1 lw 5 lc rgb \"green\", `head -1 "+ datafile2 + "/avg.dat\" | awk '{print $2}'` lt 1 lw 5 lc rgb \"blue\""
+		print "plot "+ datafile1 + "/totalFuel.dat\"" + " using ($1+0.25):2 with boxes fill solid lc rgb \"blue\", " + datafile2 + "/totalFuel.dat\" using ($1-0.25):2 with boxes fill solid lc rgb \"green\", `head -1 " + datafile1 + "/avg.dat\" | awk '{print $2}'` lt 1 lw 5 lc rgb \"blue\", `head -1 "+ datafile2 + "/avg.dat\" | awk '{print $2}'` lt 1 lw 5 lc rgb \"green\""
 	
 	elif sys.argv[1].find("fuel_") > 0:
 		conType = sys.argv[1][:sys.argv[1].find("_")]
 		if conType == "controlled":
-			color = "\"blue\""
-		else:
 			color = "\"green\""
+		else:
+			color = "\"blue\""
 		percent = sys.argv[1][sys.argv[1].rfind("_")+1:]
 		print "set ylabel 'Fuel Consumption (ml)'"
 		print "set xlabel 'Vehicles'"
@@ -49,14 +49,14 @@ if(len(sys.argv) > 3):
 		print "set boxwidth 0.5 absolute"
 		print "unset xtics"
 		datafile = "\"TestResults/" + dataset
-		print "plot "+ datafile + "/0/totalFuel.dat\"" + " using ($1+0.25):2 with boxes fill solid lc rgb \"green\", " + datafile + "/100/totalFuel.dat\" using ($1-0.25):2 with boxes fill solid lc rgb \"blue\", `head -1 " + datafile + "/0/avg.dat\" | awk '{print $2}'` lt 1 lw 5 lc rgb \"green\", `head -1 "+ datafile + "/100/avg.dat\" | awk '{print $2}'` lt 1 lw 5 lc rgb \"blue\""
+		print "plot "+ datafile + "/0/totalFuel.dat\"" + " using ($1+0.25):2 with boxes fill solid lc rgb \"blue\", " + datafile + "/100/totalFuel.dat\" using ($1-0.25):2 with boxes fill solid lc rgb \"green\", `head -1 " + datafile + "/0/avg.dat\" | awk '{print $2}'` lt 1 lw 5 lc rgb \"blue\", `head -1 "+ datafile + "/100/avg.dat\" | awk '{print $2}'` lt 1 lw 5 lc rgb \"green\""
 	
 	elif sys.argv[1].find("_fuelTotal") > 0:
 		conType = sys.argv[1][:sys.argv[1].find("_")]
 		if conType == "controlled":
-			color = "\"blue\""
-		else:
 			color = "\"green\""
+		else:
+			color = "\"blue\""
 		percent = sys.argv[1][sys.argv[1].rfind("_")+1:]
 		print "set ylabel 'Fuel Consumption (ml)'"
 		print "set xlabel 'Vehicles'"
