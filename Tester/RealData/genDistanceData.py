@@ -42,12 +42,11 @@ while (line ):
 		line = tjfile.readline()
 		continue
 	line = tjfile.readline()
-print data['1920055667'][3]
 
 i = -1
 for v in data.values():
 	i+=1
-	out = open( str(i) + ".dat", "w")
+	out = open("data/" + str(i) + ".dat", "w")
 	for j in v[3]:
 		out.write(str(j[0]) + "\t" + str(j[1]) + "\n")
 	out.flush()
