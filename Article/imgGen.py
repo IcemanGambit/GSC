@@ -89,7 +89,27 @@ if(len(sys.argv) > 3):
 			print "ERROR dataset "+datasetPercentage+" do not exist"
 			sys.exit(1)
 		print "plot" + plots
-		
+	elif sys.argv[1].find("Reald") >= 0:
+		print "set xrange [0:300]"
+		print "set yrange [0:1400]"
+		print "set ylabel 'Distance (m)'"
+		print "set xlabel 'Time (s)'"
+		plots = ""
+		counttotal = 0
+		for i in range(0,2000):
+			datafile = "TestResults/" + dataset + "/0/"+ route + "/" + str(i) + ".dat"
+			if(not os.path.exists(datafile)):
+				continue
+			counttotal+= 1
+			if counttotal != 1:
+				plots += ","
+			
+			plots += "\"" + datafile + "\" using 1:2 with lines lt 1 lc "+ str(counttotal+1)+" "
+		if(plots == ""):
+			print "ERROR dataset do not exist"
+			sys.exit(1)
+		print "plot" + plots
+				
 	elif sys.argv[1].find("speed")> 0:
 		datasetPercentage = sys.argv[1][sys.argv[1].rfind("_")+1:]
 		conType = sys.argv[1][:sys.argv[1].find("_")]

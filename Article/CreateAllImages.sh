@@ -2,6 +2,10 @@
 #!/bin/sh
 
 #array=(tp0 tp5 tp10 tp20)
+mkdir -p images/Real
+python imgGen.py Reald RealDistance.png Real | gnuplot
+
+
 array=(tp0 tp5)
 for i in "${array[@]}"
 do
