@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.5)  22 NOV 2012 11:33
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.5)  22 NOV 2012 13:38
 entering extended mode
  file:line:error style messages enabled.
  %&-line parsing enabled.
@@ -1202,7 +1202,7 @@ LaTeX Font Info:    Try loading font information for U+stmry on input line 18.
 
 ]) (./src/Demonstration.tex (./bin//index.toc) [8
 
-] <images/Hobrovej.png, id=267, 352.31625pt x 657.45625pt>
+] <images/Hobrovej.png, id=261, 352.31625pt x 657.45625pt>
 File: images/Hobrovej.png Graphic file (type png)
 <use images/Hobrovej.png> [9
 
@@ -1210,42 +1210,42 @@ File: images/Hobrovej.png Graphic file (type png)
 
 ]) (./src/Resultater.tex (./bin//index.toc) [11
 
-] <images/RealDistance.png, id=350, 702.625pt x 401.5pt>
+] <images/RealDistance.png, id=343, 702.625pt x 401.5pt>
 File: images/RealDistance.png Graphic file (type png)
 <use images/RealDistance.png> [12
 
  <./images/RealDistance.png (PNG copy)>] <images/distanceUncontrolled0.png, id=
-379, 702.625pt x 401.5pt>
+370, 702.625pt x 401.5pt>
 File: images/distanceUncontrolled0.png Graphic file (type png)
 <use images/distanceUncontrolled0.png> [13
 
  <./images/distanceUncontrolled0.png (PNG copy)>] <images/distanceUncontrolled1
-0.png, id=407, 702.625pt x 401.5pt>
+0.png, id=398, 702.625pt x 401.5pt>
 File: images/distanceUncontrolled10.png Graphic file (type png)
 <use images/distanceUncontrolled10.png> [14
 
  <./images/distanceUncontrolled10.png (PNG copy)>] <images/distanceControlled10
-.png, id=433, 702.625pt x 401.5pt>
+.png, id=425, 702.625pt x 401.5pt>
 File: images/distanceControlled10.png Graphic file (type png)
 <use images/distanceControlled10.png> [15
 
  <./images/distanceControlled10.png (PNG copy)>] <images/fuelRouteUncontrolled0
-.png, id=459, 702.625pt x 401.5pt>
+.png, id=452, 702.625pt x 401.5pt>
 File: images/fuelRouteUncontrolled0.png Graphic file (type png)
 <use images/fuelRouteUncontrolled0.png> [16
 
  <./images/fuelRouteUncontrolled0.png>] <images/fuelRouteUncontrolled10.png, id
-=487, 702.625pt x 401.5pt>
+=479, 702.625pt x 401.5pt>
 File: images/fuelRouteUncontrolled10.png Graphic file (type png)
 <use images/fuelRouteUncontrolled10.png> [17
 
  <./images/fuelRouteUncontrolled10.png>] <images/fuelRouteControlled100.png, id
-=514, 702.625pt x 401.5pt>
+=506, 702.625pt x 401.5pt>
 File: images/fuelRouteControlled100.png Graphic file (type png)
 <use images/fuelRouteControlled100.png> [18
 
  <./images/fuelRouteControlled100.png>] <images/fuelRouteControlled10.png, id=5
-40, 702.625pt x 401.5pt>
+32, 702.625pt x 401.5pt>
 File: images/fuelRouteControlled10.png Graphic file (type png)
 <use images/fuelRouteControlled10.png> [19
 
@@ -1254,13 +1254,11 @@ File: images/fuelRouteControlled10.png Graphic file (type png)
 
 ] [21
 
-] [22
+] (./bin//index.toc) [22
 
-] (./bin//index.toc) [23
-
-] <images/product.png, id=679, 286.671pt x 151.767pt>
+] <images/product.png, id=642, 286.671pt x 151.767pt>
 File: images/product.png Graphic file (type png)
-<use images/product.png> [24
+<use images/product.png> [23
 
  <./images/product.png>]))
 \tf@nav=\write7
@@ -1279,10 +1277,10 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 24675 strings out of 495042
- 498040 string characters out of 1181749
+ 24644 strings out of 495042
+ 497222 string characters out of 1181749
  601265 words of memory out of 3000000
- 27116 multiletter control sequences out of 15000+50000
+ 27089 multiletter control sequences out of 15000+50000
  12788 words of font info for 51 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  50i,14n,61p,465b,736s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1291,9 +1289,9 @@ re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-te
 xlive/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-texlive/fonts/
 type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-texlive/fonts/type1/pub
 lic/amsfonts/symbols/msam10.pfb>
-Output written on ./bin//index.pdf (24 pages, 317693 bytes).
+Output written on ./bin//index.pdf (23 pages, 310785 bytes).
 PDF statistics:
- 737 PDF objects out of 1000 (max. 8388607)
- 56 named destinations out of 1000 (max. 500000)
+ 699 PDF objects out of 1000 (max. 8388607)
+ 52 named destinations out of 1000 (max. 500000)
  131 words of extra memory for PDF output out of 10000 (max. 10000000)
 
