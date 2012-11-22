@@ -1,7 +1,0 @@
-\beamer@endinputifotherversion {3.10pt}
-\select@language {english}
-\beamer@sectionintoc {1}{Id\IeC {\'e}}{3}{0}{1}
-\beamer@sectionintoc {2}{Demonstration}{8}{0}{2}
-\beamer@sectionintoc {3}{Resultater}{11}{0}{3}
-\beamer@sectionintoc {4}{Konklusion}{20}{0}{4}
-\beamer@sectionintoc {5}{Fremtid}{22}{0}{5}
