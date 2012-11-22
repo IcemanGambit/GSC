@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.5)  22 NOV 2012 11:26
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.5)  22 NOV 2012 11:29
 entering extended mode
  file:line:error style messages enabled.
  %&-line parsing enabled.
@@ -1210,11 +1210,11 @@ File: images/Hobrovej.png Graphic file (type png)
 
 ]) (./src/Resultater.tex (./bin//index.toc) [11
 
-] <images/distanceReal.png, id=350, 702.625pt x 401.5pt>
-File: images/distanceReal.png Graphic file (type png)
-<use images/distanceReal.png> [12
+] <images/RealDistance.png, id=350, 702.625pt x 401.5pt>
+File: images/RealDistance.png Graphic file (type png)
+<use images/RealDistance.png> [12
 
- <./images/distanceReal.png (PNG copy)>] <images/distanceUncontrolled0.png, id=
+ <./images/RealDistance.png (PNG copy)>] <images/distanceUncontrolled0.png, id=
 379, 702.625pt x 401.5pt>
 File: images/distanceUncontrolled0.png Graphic file (type png)
 <use images/distanceUncontrolled0.png> [13
@@ -1291,7 +1291,7 @@ re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-te
 xlive/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-texlive/fonts/
 type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-texlive/fonts/type1/pub
 lic/amsfonts/symbols/msam10.pfb>
-Output written on ./bin//index.pdf (24 pages, 310933 bytes).
+Output written on ./bin//index.pdf (24 pages, 318016 bytes).
 PDF statistics:
  737 PDF objects out of 1000 (max. 8388607)
  56 named destinations out of 1000 (max. 500000)
