@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.5)  22 NOV 2012 11:29
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.5)  22 NOV 2012 11:33
 entering extended mode
  file:line:error style messages enabled.
  %&-line parsing enabled.
@@ -1291,7 +1291,7 @@ re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-te
 xlive/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-texlive/fonts/
 type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-texlive/fonts/type1/pub
 lic/amsfonts/symbols/msam10.pfb>
-Output written on ./bin//index.pdf (24 pages, 318016 bytes).
+Output written on ./bin//index.pdf (24 pages, 317693 bytes).
 PDF statistics:
  737 PDF objects out of 1000 (max. 8388607)
  56 named destinations out of 1000 (max. 500000)
