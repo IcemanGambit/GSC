@@ -65,7 +65,21 @@ if(len(sys.argv) > 3):
 		print "set boxwidth 0.5 absolute"
 		print "unset xtics"
 		datafile = "\"TestResults/" + dataset + "/"+percent + "/" + conType
-		print "plot "+ datafile +"/totalFuel.dat\""+ " using ($1+0.25):2 with boxes fill solid lc rgb " + color + ", `head -1 "+ datafile +"/avg.dat\"" + " | awk '{print $2}'` lt 1 lw 5 lc rgb " + color
+		print "plot "+ datafile +"/totalFuel.dat\""+ " using (1+0.25):2 with boxes fill solid lc rgb " + color + ", `head -1 "+ datafile +"/avg.dat\"" + " | awk '{print $2}'` lt 1 lw 5 lc rgb " + color
+		
+	elif sys.argv[1].find("combinedFuel") == 0:
+		print "set boxwidth 0.9"
+		print "set xtics (\"0\" 0, \"10\" 1, \"50\" 2, \"10\" 3, \"50\" 4, \"100\" 5)"
+		print "set yrange [0:]"
+		print "set key default"
+		output = "plot "
+		output += "\"TestResults/" + dataset + "/0/" + route + "/uncontrolled/avg.dat\" using (0):2 with boxes fill solid lc rgb 'blue' title 'Vehicles without system',"
+		output += "\"TestResults/" + dataset + "/10/" + route + "/uncontrolled/avg.dat\" using (1):2 with boxes fill solid lc rgb 'blue' notitle,"
+		output += "\"TestResults/" + dataset + "/50/" + route + "/uncontrolled/avg.dat\" using (2):2 with boxes fill solid lc rgb 'blue' notitle,"
+		output += "\"TestResults/" + dataset + "/10/" + route + "/controlled/avg.dat\" using (3):2 with boxes fill solid lc rgb 'green' title 'Vehicles with system',"
+		output += "\"TestResults/" + dataset + "/50/" + route + "/controlled/avg.dat\" using (4):2 with boxes fill solid lc rgb 'green' notitle,"
+		output += "\"TestResults/" + dataset + "/100/" + route + "/controlled/avg.dat\" using (5):2 with boxes fill solid lc rgb 'green' notitle"
+		print output
 		
 	elif sys.argv[1].find("distance") > 0:
 		datasetPercentage = sys.argv[1][sys.argv[1].rfind("_")+1:]
