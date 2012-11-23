@@ -30,6 +30,9 @@ python imgGen.py uncontrolled_fuelTotal_0 fuelTotalUncontrolled0.png $i | gnuplo
 python imgGen.py uncontrolled_fuelTotal_10 fuelTotalUncontrolled10.png $i | gnuplot
 python imgGen.py uncontrolled_fuelTotal_50 fuelTotalUncontrolled50.png $i | gnuplot
 
+python imgGen.py combinedFuel combinedFuel.png $i | gnuplot
+
+
 python imgGen.py stops_0 stops0.png $i | gnuplot
 python imgGen.py stops_10 stops10.png $i | gnuplot
 python imgGen.py stops_50 stops50.png $i | gnuplot
