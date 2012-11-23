@@ -65,7 +65,7 @@ if(len(sys.argv) > 3):
 		print "set boxwidth 0.5 absolute"
 		print "unset xtics"
 		datafile = "\"TestResults/" + dataset + "/"+percent + "/" + conType
-		print "plot "+ datafile +"/totalFuel.dat\""+ " using (1+0.25):2 with boxes fill solid lc rgb " + color + ", `head -1 "+ datafile +"/avg.dat\"" + " | awk '{print $2}'` lt 1 lw 5 lc rgb " + color
+		print "plot "+ datafile +"/totalFuel.dat\""+ " using ($1+0.25):2 with boxes fill solid lc rgb " + color + ", `head -1 "+ datafile +"/avg.dat\"" + " | awk '{print $2}'` lt 1 lw 5 lc rgb " + color
 		
 	elif sys.argv[1].find("combinedFuel") == 0:
 		print "set boxwidth 0.9"
