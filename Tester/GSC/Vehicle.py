@@ -72,6 +72,8 @@ def getRecommentedSpeed(vhId,minDistance, maxtime):
 			smax = 0
 		
 		#We can reace the timespan before it goes red
+		if smax < 4.1: #add minimumspeed of 15km/h
+			return 4.1
 		return smax
 
 	#No traffic light ahead

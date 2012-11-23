@@ -23,8 +23,11 @@ noTrips = 0
 for o in ODmatrix:
 	for d in o:
 		noTrips += d
+departTimes = []
 
-departTimes = random.sample(xrange(0,noTrips*2), noTrips)
+for i in range(0,noTrips):
+	departTimes.append(random.randrange(0,int(noTrips*1.3)))
+#departTimes = random.sample(xrange(0,int()), noTrips)
 
 
 vehicleTypes = ["car", "truck"]
