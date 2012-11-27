@@ -26,13 +26,13 @@
 		<phase duration="6"  state="rrrGGrrrGrrrrrrG"/> <!-- 1 -->
 		<phase duration="4"  state="rrrGyrrryrrrrrrG"/>
 		<phase duration="2"  state="yyygrrrrrrrryyyg"/>
-		<phase duration="31" state="GGGgrrrrrrrrGGGg"/> <!-- 2 -->
+		<phase duration="32" state="GGGgrrrrrrrrGGGg"/> <!-- 2 -->
 		<phase duration="4"  state="yyyyrrrrrrrryyyy"/>
 		<phase duration="2"  state="rrrrrrrryyyyyrrr"/>
 		<phase duration="6"  state="rrrrrrrrgggGGrrr"/> <!-- 3 -->
 		<phase duration="4"  state="rrrrrrrrggggyrrr"/>
 		<phase duration="2"  state="rrrryyyyggggrrrr"/>
-		<phase duration="31" state="rrrrGGGgGGGgrrrr"/> <!-- 4 -->
+		<phase duration="32" state="rrrrGGGgGGGgrrrr"/> <!-- 4 -->
 		<phase duration="4"  state="rrrrGyyyGyyyrrrr"/>
 		<phase duration="2"  state="rrryGrrrGrrrrrry"/>
 	</tlLogic>
@@ -64,15 +64,17 @@
 	
 	<!-- Hobrovej Sønderskov vej -->
 	<tlLogic id="cluster_Ju_Hobrovej_sonderSkov_O_Ju_Hobrovej_sonderSkov_OS_Ju_Hobrovej_sonderSkov_V_Ju_Hobrovej_sonderSkov_VS" type="static" programID="0" offset="0">
-		<phase duration="31" state="gggrrggg"/> <!-- 1 -->
-		<phase duration="4"  state="yyyrrggg"/>
-		<phase duration="2"  state="rrryrggg"/>
-		<phase duration="31" state="rrrgrggg"/> <!-- 2 -->
+		<phase duration="50" state="gggrrggg"/> <!-- 1 -->
+		<phase duration="4"  state="yyyrryyy"/>
+		<phase duration="2"  state="rrryyrrr"/>
+		 <!--
+		<phase duration="31" state="rrrgrggg"/> 
 		<phase duration="4"  state="rrrgryyy"/>
 		<phase duration="2"  state="yrrgyrrr"/>
-		<phase duration="21" state="grrggrrr"/> <!-- 2 -->
-		<phase duration="4"  state="grryyrrr"/>
-		<phase duration="2"  state="gyyrryyy"/>	
+		-->
+		<phase duration="38" state="rrrggrrr"/> <!-- 3 -->
+		<phase duration="4"  state="rrryyrrr"/>
+		<phase duration="2"  state="yyyrryyy"/>	
 	</tlLogic>
 
     <connection from="5_S.-30" to="6_V" fromLane="0" toLane="0" tl="cluster_Ju_Hobrovej_sonderSkov_O_Ju_Hobrovej_sonderSkov_OS_Ju_Hobrovej_sonderSkov_V_Ju_Hobrovej_sonderSkov_VS" linkIndex="0"/>
@@ -89,13 +91,15 @@
 	
 	
 	<!-- Hobrovej_MollerPark -->
-	<tlLogic id="cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" type="static" programID="0" offset="0">
-		<phase duration="31" state="gggrrggg"/> <!-- 1 -->
-		<phase duration="4" state="yyyrryyy"/>
-		<phase duration="2" state="rrryyrrr"/>
-		<phase duration="21" state="rrrggrrr"/> <!-- 2 -->
-		<phase duration="4" state="rrryyrrr"/>
-		<phase duration="2" state="yyyrryyy"/>
+	<tlLogic id="cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" type="static" programID="0" offset="15">
+		<phase duration="44" state="gggrrggg"/> <!-- 1 -->
+		<phase duration="4"  state="yyyrrggg"/>
+		<phase duration="10" state="rrrrrggg"/> <!-- 2 -->
+		<phase duration="4"  state="rrrrryyy"/>
+		<phase duration="2"  state="rrryyrrr"/>
+		<phase duration="30" state="rrrggrrr"/> <!-- 2 -->
+		<phase duration="4"  state="rrryyrrr"/>
+		<phase duration="2"  state="yyyrryyy"/>
 	</tlLogic>
 	
 	<connection from="11_S.-50" to="12_V"  fromLane="0" toLane="0" tl="cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" linkIndex="0"/>
@@ -113,12 +117,12 @@
 	<tlLogic id="Ju_hobrovej_VestreAlle_NyKervej" type="static" programID="0" offset="0">
 		<phase duration="6"  state="rrrGrrrGrrrrrr"/> <!-- 1 -->
 		<phase duration="2"  state="yyygyyygrrrrrr"/>
-		<phase duration="31" state="ggggggggrrrrrr"/> <!-- 2 -->
+		<phase duration="32" state="ggggggggrrrrrr"/> <!-- 2 -->
 		<phase duration="4"  state="yyyyyyyyrrrrrr"/>
 		<phase duration="2"  state="rrrrrrrrrryrry"/>
 		<phase duration="6"  state="rrrrrrrrrrGrrG"/> <!-- 3 -->
 		<phase duration="2"  state="rrrrrrrryygyyg"/>
-		<phase duration="31" state="rrrrrrrrgggggg"/> <!-- 4 -->
+		<phase duration="32" state="rrrrrrrrgggggg"/> <!-- 4 -->
 		<phase duration="4"  state="rrrrrrrryyyyyy"/>
 		<phase duration="2"  state="rrryrrryrrrrrr"/>
 	</tlLogic>

@@ -6,7 +6,7 @@ mkdir -p images/Real
 python imgGen.py Reald RealDistance.png Real | gnuplot
 
 
-array=(tp0 tp5)
+array=(tp0)
 for i in "${array[@]}"
 do
 mkdir -p images/$i
