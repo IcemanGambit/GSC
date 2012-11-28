@@ -27,7 +27,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -80,8 +80,8 @@
   <text
      xml:space="preserve"
      style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-     x="193.3372"
-     y="555.99127"
+     x="209.98975"
+     y="565.70526"
      id="text2987"
      sodipodi:linespacing="125%"
      inkscape:export-filename="/home/sabrine/speciale/AAKPresentation/images/Hobrovej.png"
@@ -89,14 +89,13 @@
      inkscape:export-ydpi="375"><tspan
        sodipodi:role="line"
        id="tspan2989"
-       x="193.3372"
-       y="555.99127"
-       style="font-size:35px">Ny Kærvej</tspan></text>
+       x="209.98975"
+       y="565.70526">Ny Kærvej</tspan></text>
   <text
      xml:space="preserve"
      style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-     x="-48.505138"
-     y="528.38849"
+     x="-104.01361"
+     y="511.73596"
      id="text2991"
      sodipodi:linespacing="125%"
      inkscape:export-filename="/home/sabrine/speciale/AAKPresentation/images/Hobrovej.png"
@@ -104,14 +103,13 @@
      inkscape:export-ydpi="375"><tspan
        sodipodi:role="line"
        id="tspan2993"
-       x="-48.505138"
-       y="528.38849"
-       style="font-size:35px">Vestre Allé</tspan></text>
+       x="-104.01361"
+       y="511.73596">Vester Allé</tspan></text>
   <text
      xml:space="preserve"
      style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-     x="24.235649"
-     y="277.48169"
+     x="-4.9062996"
+     y="289.9711"
      id="text2995"
      sodipodi:linespacing="125%"
      inkscape:export-filename="/home/sabrine/speciale/AAKPresentation/images/Hobrovej.png"
@@ -119,13 +117,12 @@
      inkscape:export-ydpi="375"><tspan
        sodipodi:role="line"
        id="tspan2997"
-       x="24.235649"
-       y="277.48169"
-       style="font-size:35px">Hobrovej</tspan></text>
+       x="-4.9062996"
+       y="289.9711">Hobrovej</tspan></text>
   <text
      xml:space="preserve"
      style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-     x="233.97531"
+     x="249.24014"
      y="129.04439"
      id="text2999"
      sodipodi:linespacing="125%"
@@ -134,14 +131,13 @@
      inkscape:export-ydpi="375"><tspan
        sodipodi:role="line"
        id="tspan3001"
-       x="233.97531"
-       y="129.04439"
-       style="font-size:35px">Øster Allé</tspan></text>
+       x="249.24014"
+       y="129.04439">Øster Allé</tspan></text>
   <text
      xml:space="preserve"
      style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-     x="-46.739857"
-     y="91.55925"
+     x="-121.6763"
+     y="72.131287"
      id="text3003"
      sodipodi:linespacing="125%"
      inkscape:export-filename="/home/sabrine/speciale/AAKPresentation/images/Hobrovej.png"
@@ -149,14 +145,13 @@
      inkscape:export-ydpi="375"><tspan
        sodipodi:role="line"
        id="tspan3005"
-       x="-46.739857"
-       y="91.55925"
-       style="font-size:35px">Kong Chr. Allé</tspan></text>
+       x="-121.6763"
+       y="72.131287">Kong Chr. Allé</tspan></text>
   <text
      xml:space="preserve"
      style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
      x="145.22653"
-     y="-13.813191"
+     y="-15.200903"
      id="text3007"
      sodipodi:linespacing="125%"
      inkscape:export-filename="/home/sabrine/speciale/AAKPresentation/images/Hobrovej.png"
@@ -165,103 +160,5 @@
        sodipodi:role="line"
        id="tspan3009"
        x="145.22653"
-       y="-13.813191"
-       style="font-size:35px">Vesterbro</tspan></text>
-  <text
-     xml:space="preserve"
-     style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-     x="305.172"
-     y="31.899595"
-     id="text2994"
-     sodipodi:linespacing="125%"
-     inkscape:export-filename="/home/sabrine/speciale/AAKPresentation/images/Hobrovej.png"
-     inkscape:export-xdpi="375"
-     inkscape:export-ydpi="375"><tspan
-       sodipodi:role="line"
-       id="tspan2996"
-       x="305.172"
-       y="31.899595">L<tspan
-   style="font-size:65.00091553%;baseline-shift:sub"
-   id="tspan2998">4</tspan></tspan></text>
-  <text
-     xml:space="preserve"
-     style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-     x="276.71545"
-     y="206.56396"
-     id="text3000"
-     sodipodi:linespacing="125%"
-     inkscape:export-filename="/home/sabrine/speciale/AAKPresentation/images/Hobrovej.png"
-     inkscape:export-xdpi="375"
-     inkscape:export-ydpi="375"><tspan
-       sodipodi:role="line"
-       id="tspan3002"
-       x="276.71545"
-       y="206.56396">L<tspan
-   style="font-size:65.00091553%;baseline-shift:sub"
-   id="tspan3004">3</tspan></tspan></text>
-  <text
-     xml:space="preserve"
-     style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-     x="247.27763"
-     y="363.56561"
-     id="text3006"
-     sodipodi:linespacing="125%"
-     inkscape:export-filename="/home/sabrine/speciale/AAKPresentation/images/Hobrovej.png"
-     inkscape:export-xdpi="375"
-     inkscape:export-ydpi="375"><tspan
-       sodipodi:role="line"
-       id="tspan3008"
-       x="247.27763"
-       y="363.56561">L<tspan
-   style="font-size:65.00091553%;baseline-shift:sub"
-   id="tspan3010">2</tspan></tspan></text>
-  <text
-     xml:space="preserve"
-     style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-     x="248.2589"
-     y="464.63547"
-     id="text3012"
-     sodipodi:linespacing="125%"
-     inkscape:export-filename="/home/sabrine/speciale/AAKPresentation/images/Hobrovej.png"
-     inkscape:export-xdpi="375"
-     inkscape:export-ydpi="375"><tspan
-       sodipodi:role="line"
-       id="tspan3014"
-       x="248.2589"
-       y="464.63547">L<tspan
-   style="font-size:65.00091553%;baseline-shift:sub"
-   id="tspan3016">1</tspan></tspan></text>
-  <path
-     style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
-     d="M 297.32192,23.068253 233.53999,53.487328"
-     id="path3786"
-     inkscape:connector-curvature="0"
-     inkscape:export-filename="/home/sabrine/speciale/AAKPresentation/images/Hobrovej.png"
-     inkscape:export-xdpi="375"
-     inkscape:export-ydpi="375" />
-  <path
-     style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
-     d="m 269.84663,195.7701 -57.89437,10.79386"
-     id="path4232"
-     inkscape:connector-curvature="0"
-     inkscape:export-filename="/home/sabrine/speciale/AAKPresentation/images/Hobrovej.png"
-     inkscape:export-xdpi="375"
-     inkscape:export-ydpi="375" />
-  <path
-     style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
-     d="m 244.33386,350.80925 -53.96933,9.81261"
-     id="path4416"
-     inkscape:connector-curvature="0"
-     inkscape:export-filename="/home/sabrine/speciale/AAKPresentation/images/Hobrovej.png"
-     inkscape:export-xdpi="375"
-     inkscape:export-ydpi="375" />
-  <path
-     style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
-     d="M 246.29638,450.89782 173.6831,494.07328"
-     id="path4782"
-     inkscape:connector-curvature="0"
-     sodipodi:nodetypes="cc"
-     inkscape:export-filename="/home/sabrine/speciale/AAKPresentation/images/Hobrovej.png"
-     inkscape:export-xdpi="375"
-     inkscape:export-ydpi="375" />
+       y="-15.200903">Vesterbro</tspan></text>
 </svg>

@@ -69,6 +69,8 @@ if(len(sys.argv) > 3):
 		
 	elif sys.argv[1].find("combinedFuel") == 0:
 		print "set boxwidth 0.9"
+		print "set ylabel 'Fuel Consumption (ml)'"
+		print "set xlabel 'Vehicles'"
 		print "set xtics (\"0\" 0, \"10\" 1, \"50\" 2, \"10\" 3, \"50\" 4, \"100\" 5)"
 		print "set yrange [0:]"
 		print "set key default"
