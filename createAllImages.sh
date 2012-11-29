@@ -31,6 +31,7 @@ python imgGen.py uncontrolled_fuelTotal_10 fuelTotalUncontrolled10.png $i | gnup
 python imgGen.py uncontrolled_fuelTotal_50 fuelTotalUncontrolled50.png $i | gnuplot
 
 python imgGen.py combinedFuel combinedFuel.png $i | gnuplot
+python imgGen.py combinedTime combinedTime.png $i | gnuplot
 
 
 python imgGen.py stops_0 stops0.png $i | gnuplot

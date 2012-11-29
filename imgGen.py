@@ -70,7 +70,7 @@ if(len(sys.argv) > 3):
 	elif sys.argv[1].find("combinedFuel") == 0:
 		print "set boxwidth 0.9"
 		print "set ylabel 'Fuel Consumption (ml)'"
-		print "set xlabel 'Vehicles'"
+		print "set xlabel 'Percentage using the system'"
 		print "set xtics (\"0\" 0, \"10\" 1, \"50\" 2, \"10\" 3, \"50\" 4, \"100\" 5)"
 		print "set yrange [0:]"
 		print "set key default"
@@ -81,6 +81,19 @@ if(len(sys.argv) > 3):
 		output += "\"TestResults/" + dataset + "/10/" + route + "/controlled/avg.dat\" using (3):2 with boxes fill solid lc rgb 'green' title 'Vehicles with system',"
 		output += "\"TestResults/" + dataset + "/50/" + route + "/controlled/avg.dat\" using (4):2 with boxes fill solid lc rgb 'green' notitle,"
 		output += "\"TestResults/" + dataset + "/100/" + route + "/controlled/avg.dat\" using (5):2 with boxes fill solid lc rgb 'green' notitle"
+		print output
+		
+	elif sys.argv[1].find("combinedTime") == 0:
+		print "set boxwidth 0.9"
+		print "set ylabel 'Average travel time (s)'"
+		print "set xlabel 'Percentage using the system'"
+		print "set xtics (\"0\" 0, \"10\" 1, \"50\" 2, \"100\" 3)"
+		print "set yrange [0:]"
+		output = "plot "
+		output += "\"TestResults/" + dataset + "/0/avg.dat\" using (0):1 with boxes fill solid lc rgb 'blue',"
+		output += "\"TestResults/" + dataset + "/10/avg.dat\" using (1):1 with boxes fill solid lc rgb 'green',"
+		output += "\"TestResults/" + dataset + "/50/avg.dat\" using (2):1 with boxes fill solid lc rgb 'green',"
+		output += "\"TestResults/" + dataset + "/100/avg.dat\" using (3):1 with boxes fill solid lc rgb 'green'"
 		print output
 		
 	elif sys.argv[1].find("distance") > 0:
