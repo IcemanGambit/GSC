@@ -96,6 +96,12 @@ if(len(sys.argv) > 3):
 		output += "\"TestResults/" + dataset + "/100/avg.dat\" using (3):1 with boxes fill solid lc rgb 'green'"
 		print output
 		
+	elif sys.argv[1].find("acceleration") == 0:
+		print "set ylabel 'Acceleration (m/s^2)'"
+		print "set boxwidth 0.5 absolute"
+		i=0
+		print "plot\"TestResults/" + dataset+ "/0/"+ route + "/" + str(i) + ".dat" + "\" with boxes fill solid"
+		
 	elif sys.argv[1].find("distance") > 0:
 		datasetPercentage = sys.argv[1][sys.argv[1].rfind("_")+1:]
 		conType = sys.argv[1][:sys.argv[1].find("_")]
@@ -118,6 +124,7 @@ if(len(sys.argv) > 3):
 			print "ERROR dataset "+datasetPercentage+" do not exist"
 			sys.exit(1)
 		print "plot" + plots
+		
 	elif sys.argv[1].find("Reald") >= 0:
 		print "set xrange [0:300]"
 		print "set yrange [0:2800]"
@@ -157,6 +164,8 @@ if(len(sys.argv) > 3):
 				plots += ","
 			
 			plots += "\"" + datafile + "\" using 1:3 with lines lt 1 lc "+ str(counttotal+1)+" "
+			if counttotal > 15:
+				break
 		if(plots == ""):
 			print "ERROR dataset "+datasetPercentage+" do not exist"
 			sys.exit(1)
