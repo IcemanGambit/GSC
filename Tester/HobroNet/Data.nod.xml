@@ -3,7 +3,7 @@
 	<node id="Vesterbro_N_S" x="9.910835" y="57.0421022" />
 	<node id="Vesterbro_N" x="9.9121235" y="57.0446003" />
 	<node id="KongCh_V" x="9.9030948" y="57.0439702" />
-	<node id="Ostre_O" x="9.9175231" y="57.0394834" />
+	<node id="Ostre_O" x="9.9150352" y="57.0399218" />
 	<node id="Hobrovej_S_1" x="9.9103388" y="57.0396172" />
 	<node id="Hobrovej_N_1" x="9.9104626" y="57.0396214" />
 
@@ -49,7 +49,7 @@
 
 	<node id="Ju_Hobrovej_ParkVej_V" x="9.9088865" y="57.0345763"  />
 	
-	<node id="hobrovej_S" x="9.9069141" y="57.0279177" />
+	<node id="hobrovej_S" x="9.9078174" y="57.0305571" />
 	<node id="VestreAlle_NV" x="9.9039989" y="57.0349459" />
 	<node id="NyKervej_O_1" x="9.9092455" y="57.0333361" />
 	<node id="NyKervej_O_2" x="9.9172094" y="57.0330082" />

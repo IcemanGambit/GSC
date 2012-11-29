@@ -1,6 +1,6 @@
 import math
 from datetime import datetime, date, time
-tjfile = open("ture2.sql", "r")
+tjfile = open("ture3.sql", "r")
 line = tjfile.readline()
 
 data = {}
@@ -13,7 +13,7 @@ def distance(x1,y1,x2,y2):
 linec = 0
 while (line ):
 	linec+=1
-	if line.find("COPY ture2 (st_makepoint, rtime, carid, trajid, xcoord, ycoord, dir, segmentkey, unixtime) FROM stdin;") >= 0:
+	if line.find("COPY ture3 (st_makepoint, rtime, carid, trajid, xcoord, ycoord, dir, segmentkey, unixtime) FROM stdin;") >= 0:
 		parsing = "Data"
 		line = tjfile.readline()
 		continue;
