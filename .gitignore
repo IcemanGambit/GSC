@@ -10,4 +10,5 @@ projectpres/bin/
 *trips.xml
 *.pyc
 */traci
-
+ElevatorTale/ElevatorTale.log
+ElevatorTale/ElevatorTale.aux
