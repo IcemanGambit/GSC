@@ -39,12 +39,24 @@ while (line ):
 			mydate = datetime.combine(d, t)
 			
 			if( not mydate.weekday == 5 and not mydate.weekday == 6 ) and mydate.hour >= 10 and mydate.hour <= 14:
-				data[temp[2]] = [int(temp[7]),[int(temp[3]),int(temp[4])],0,[]]  #[lasttime, [lastX,lastY], lastdist ,[] 
+				data[temp[2]] = [int(temp[7]),[int(temp[3]),int(temp[4])],[],0,[]]  #[firsttime, [lastX,lastY] ,[] , lastdiffdist , []
 	
 		if temp[2] in data:
+			
 			diffdistance = distance(data[temp[2]][1][0],data[temp[2]][1][1], int(temp[3]),int(temp[4]))
 
-			data[temp[2]][3].append([int(temp[7])-data[temp[2]][0], data[temp[2]][2] + diffdistance ])
+			data[temp[2]][1] = [int(temp[3]),int(temp[4])]
+
+			newTotalDist= 0
+			if(len(data[temp[2]][2]) > 0):
+				newTotalDist = data[temp[2]][2][len(data[temp[2]][2])- 1][1] + diffdistance
+
+			data[temp[2]][2].append([int(temp[7])-data[temp[2]][0], newTotalDist])
+
+			acc = (diffdistance - data[temp[2]][3])/2
+
+			data[temp[2]][3] = diffdistance
+			data[temp[2]][4].append([int(temp[7])-data[temp[2]][0], acc ])
 
 
 
@@ -55,8 +67,12 @@ while (line ):
 i = -1
 for v in data.values():
 	i+=1
-	out = open("data/" + str(i) + ".dat", "w")
-	for j in v[3]:
+	out = open("distance/" + str(i) + ".dat", "w")
+	for j in v[2]:
 		out.write(str(j[0]) + "\t" + str(j[1]) + "\n")
 	out.flush()
 
+	out = open("acc/" + str(i) + ".dat", "w")
+	for j in v[4]:
+		out.write(str(j[0]) + "\t" + str(j[1]) + "\n")
+	out.flush()
