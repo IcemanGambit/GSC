@@ -1,6 +1,6 @@
 import math
 from datetime import datetime, date, time
-tjfile = open("trajectories_nykarvej_ostrealle.sql", "r")
+tjfile = open("ture2.sql", "r")
 line = tjfile.readline()
 
 data = {}
@@ -13,7 +13,7 @@ def distance(x1,y1,x2,y2):
 linec = 0
 while (line ):
 	linec+=1
-	if line.find("COPY trajectories_nykarvej_ostrealle (rtime, carid, trajid, xcoord, ycoord, dir, segmentkey, unixtime) FROM stdin;") >= 0:
+	if line.find("COPY ture2 (st_makepoint, rtime, carid, trajid, xcoord, ycoord, dir, segmentkey, unixtime) FROM stdin;") >= 0:
 		parsing = "Data"
 		line = tjfile.readline()
 		continue;
@@ -27,9 +27,8 @@ while (line ):
 			parsing = "Footer"
 
 	if parsing == "Data":
-		temp = line.split("\t")	
-		
-
+		temp3 = line.split("\t")	
+		temp = temp3[1:len(temp3)]
 		
 		if not temp[2] in data:
 			temp2 = temp[0].split(" ")
