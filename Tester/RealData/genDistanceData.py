@@ -39,7 +39,7 @@ while (line ):
 			mydate = datetime.combine(d, t)
 			
 			if( not mydate.weekday == 5 and not mydate.weekday == 6 ) and mydate.hour >= 10 and mydate.hour <= 14:
-				data[temp[2]] = [int(temp[7]),[int(temp[3]),int(temp[4])],0,[]]  #[lasttime, [lastX,lastY], lastdist ,[] 
+				data[temp[2]] = [int(temp[7]),[int(temp[3]),int(temp[4])],0,[]]  #[lasttime, [lastX,lastY], lastdist ,[]] 
 	
 		if temp[2] in data:
 			diffdistance = distance(data[temp[2]][1][0],data[temp[2]][1][1], int(temp[3]),int(temp[4]))
