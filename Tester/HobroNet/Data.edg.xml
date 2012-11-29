@@ -1,11 +1,19 @@
 <edges>
 	<!-- begin Junction Vesterbro osterbro hobro kongch -->
-	<!-- vesterbro id 1-->    
-	<edge from="Vesterbro_N_S" id="1_S" to="Ju_Vesterbro_Ostre_KongCh_hobro_NV" speed="16.6" numLanes="1" spreadType="center" >
+	<!-- vesterbro id 1-->
+
+    <edge from="Vesterbro_N_N" id="1_N" to="Vesterbro_N" speed="16.6" numLanes="2" >
+		<split pos="0" lanes="0 1"/>	
+	</edge>
+     <edge from="Vesterbro_N" id="1_S" to="Vesterbro_N_S" speed="16.6" numLanes="2" >
+		<split pos="0" lanes="0 1"/>	
+	</edge>
+   
+	<edge from="Vesterbro_N_S" id="1_S_1" to="Ju_Vesterbro_Ostre_KongCh_hobro_NV" speed="16.6" numLanes="1" spreadType="center" >
 		<split pos="0" lanes="1 2"/>	
 		<split pos="-60" lanes="0 1 2 3"/>
 	</edge>
-    <edge from="Ju_Vesterbro_Ostre_KongCh_hobro_NO" id="1_N" to="Vesterbro_N_N" speed="16.6" numLanes="2" spreadType="center" >
+    <edge from="Ju_Vesterbro_Ostre_KongCh_hobro_NO" id="1_N_1" to="Vesterbro_N_N" speed="16.6" numLanes="2" spreadType="center" >
 		<split pos="0" lanes="0 1"/>	
 	</edge>
 

@@ -100,7 +100,7 @@ if(len(sys.argv) > 3):
 		datasetPercentage = sys.argv[1][sys.argv[1].rfind("_")+1:]
 		conType = sys.argv[1][:sys.argv[1].find("_")]
 		print "set xrange [0:300]"
-		print "set yrange [0:1400]"
+		print "set yrange [0:2800]"
 		print "set ylabel 'Distance (m)'"
 		print "set xlabel 'Time (s)'"
 		plots = ""
@@ -120,7 +120,7 @@ if(len(sys.argv) > 3):
 		print "plot" + plots
 	elif sys.argv[1].find("Reald") >= 0:
 		print "set xrange [0:300]"
-		print "set yrange [0:1400]"
+		print "set yrange [0:2800]"
 		print "set ylabel 'Distance (m)'"
 		print "set xlabel 'Time (s)'"
 		plots = ""
