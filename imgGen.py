@@ -97,10 +97,17 @@ if(len(sys.argv) > 3):
 		print output
 		
 	elif sys.argv[1].find("acceleration") == 0:
+		print "set y2label 'distance (m)'"
 		print "set ylabel 'Acceleration (m/s^2)'"
-		print "set boxwidth 0.5 absolute"
-		i=0
-		print "plot\"TestResults/" + dataset+ "/0/"+ route + "/" + str(i) + ".dat" + "\" with boxes fill solid"
+		print "set boxwidth 1 absolute"
+		print "set y2range [0:2000]"
+
+		print "set yrange [-5:5]"
+		print "set ytics nomirror"
+		print "set y2tics nomirror"
+		i=8
+		datafile = "TestResults/" + dataset+ "/0/"+ route+ "/distance/" + str(i) + ".dat"
+		print "plot\"TestResults/" + dataset+ "/0/"+ route + "/acc/" + str(i) + ".dat" + "\" with boxes fill solid lt 1,  \"" + datafile + "\" using 1:2 with lines lt 2 axes x1y2" 
 		
 	elif sys.argv[1].find("distance") > 0:
 		datasetPercentage = sys.argv[1][sys.argv[1].rfind("_")+1:]
@@ -133,7 +140,7 @@ if(len(sys.argv) > 3):
 		plots = ""
 		counttotal = 0
 		for i in range(0,2000):
-			datafile = "TestResults/" + dataset + "/0/"+ route + "/" + str(i) + ".dat"
+			datafile = "TestResults/" + dataset + "/0/"+ route + "/distance/" + str(i) + ".dat"
 			if(not os.path.exists(datafile)):
 				continue
 			counttotal+= 1

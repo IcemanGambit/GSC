@@ -39,7 +39,7 @@ while (line ):
 			mydate = datetime.combine(d, t)
 			
 			if( not mydate.weekday == 5 and not mydate.weekday == 6 ) and mydate.hour >= 10 and mydate.hour <= 14:
-				data[temp[2]] = [int(temp[7]),[int(temp[3]),int(temp[4])],[],0,[]]  #[firsttime, [lastX,lastY] ,[] , lastdiffdist , []
+				data[temp[2]] = [int(temp[7]),[int(temp[3]),int(temp[4])],[],[],[]]  #[firsttime, [lastX,lastY] ,[] , [lastdif] , []
 
 	
 		if temp[2] in data:
@@ -53,11 +53,24 @@ while (line ):
 				newTotalDist = data[temp[2]][2][len(data[temp[2]][2])- 1][1] + diffdistance
 
 			data[temp[2]][2].append([int(temp[7])-data[temp[2]][0], newTotalDist])
+		
+			data[temp[2]][3].append(diffdistance)
+			sum1 = 0
+			if len(data[temp[2]][3][-6:])> 0:
+				for i in data[temp[2]][3][-6:]:
+					sum1+=i
+				sum1 = sum1/len(data[temp[2]][3][-6:])
 
-			acc = (diffdistance - data[temp[2]][3])/2
+			sum2 = 0
+			if len(data[temp[2]][3][-7:-1])> 0:
+				for i in data[temp[2]][3][-7:-1]:
+					sum2+=i
+				sum2 = sum2/len(data[temp[2]][3][-7:-1])
 
-			data[temp[2]][3] = diffdistance
-			data[temp[2]][4].append([int(temp[7])-data[temp[2]][0], acc ])
+			acc = (sum1 - sum2)
+
+			
+			data[temp[2]][4].append([int(temp[7])-data[temp[2]][0]- 3, acc ])
 
 
 
