@@ -1,0 +1,60 @@
+<nodes>
+    <node id="Vesterbro_N_N" x="9.9109985" y="57.0421594" />
+	<node id="Vesterbro_N_S" x="9.910835" y="57.0421022" />
+	<node id="Vesterbro_N" x="9.9121235" y="57.0446003" />
+	<node id="KongCh_V" x="9.9030948" y="57.0439702" />
+	<node id="Ostre_O" x="9.9150352" y="57.0399218" />
+	<node id="Hobrovej_S_1" x="9.9103388" y="57.0396172" />
+	<node id="Hobrovej_N_1" x="9.9104626" y="57.0396214" />
+
+    <node id="Ju_Vesterbro_Ostre_KongCh_hobro_NV" x="9.9105973" y="57.0411302" type="traffic_light" />
+    <node id="Ju_Vesterbro_Ostre_KongCh_hobro_NO" x="9.9107880" y="57.0410838" type="traffic_light" />
+    <node id="Ju_Vesterbro_Ostre_KongCh_hobro_SV" x="9.9105520" y="57.0410172" type="traffic_light" />
+    <node id="Ju_Vesterbro_Ostre_KongCh_hobro_SO" x="9.9107555" y="57.0409532" type="traffic_light" />
+
+	<join nodes="Ju_Vesterbro_Ostre_KongCh_hobro_NV Ju_Vesterbro_Ostre_KongCh_hobro_NO Ju_Vesterbro_Ostre_KongCh_hobro_SV Ju_Vesterbro_Ostre_KongCh_hobro_SO"/>
+	
+	<node id="sonderSkov_V" x="9.9081322" y="57.0389142" />
+	<node id="Ju_Hobrovej_sonderSkov_V" x="9.9100219" y="57.0386311" type="traffic_light" />
+	<node id="Ju_Hobrovej_sonderSkov_O" x="9.9101330" y="57.0386217" type="traffic_light" />
+	<node id="Ju_Hobrovej_sonderSkov_OS" x="9.9100210" y="57.0386068" type="traffic_light" />
+	<node id="Ju_Hobrovej_sonderSkov_VS" x="9.9100735" y="57.0386057" type="traffic_light" />
+	<join nodes="Ju_Hobrovej_sonderSkov_V Ju_Hobrovej_sonderSkov_O Ju_Hobrovej_sonderSkov_OS Ju_Hobrovej_sonderSkov_VS"/>
+
+	<node id="RornersVej_O_N" x="9.9124300" y="57.0377774" />
+	<node id="RornersVej_O_S" x="9.9123757" y="57.0375941" />
+
+	<node id="Ju_Hobrovej_RornersVej_NO" x="9.9098856" y="57.0380334" />
+
+	<node id="Ju_Hobrovej_RornersVej_SO" x="9.9098428" y="57.0378299" />
+	<node id="Ju_Hobrovej_RornersVej_SV" x="9.9098919" y="57.0378247" />
+	<node id="Ju_Hobrovej_RornersVej_SSO" x="9.9098928" y="57.0378299" />
+	<node id="Ju_Hobrovej_RornersVej_SSV" x="9.9098459" y="57.0378247" />
+	<join nodes="Ju_Hobrovej_RornersVej_SO Ju_Hobrovej_RornersVej_SV Ju_Hobrovej_RornersVej_SSV Ju_Hobrovej_RornersVej_SSO"/>
+		
+	<node id="MollerPark_V" x="9.9068435" y="57.0362399" />
+	<node id="Ju_Hobrovej_MollerPark" x="9.9093107" y="57.0359856"  type="traffic_light" />
+	<node id="Ju_Hobrovej_MollerPark_NO" x="9.9093607" y="57.0359856"  type="traffic_light" />
+
+	<join nodes="Ju_Hobrovej_MollerPark Ju_Hobrovej_MollerPark_NO"/>
+
+	<node id="LilleHobro_V" x="9.9073217" y="57.0355894" />
+	<node id="Ju_Hobrovej_LilleHobro" x="9.9091042" y="57.0354238"  />
+
+		
+	<node id="ParkVej_V" x="9.9066370" y="57.0347614" />
+	<node id="Ju_Hobrovej_ParkVej" x="9.9088534" y="57.0345814"  />
+	<node id="Ju_Hobrovej_ParkVej_S" x="9.9088917" y="57.0345241"  />
+	<join nodes="Ju_Hobrovej_ParkVej Ju_Hobrovej_ParkVej_S"/>
+
+	<node id="Ju_Hobrovej_ParkVej_V" x="9.9088865" y="57.0345763"  />
+	
+	<node id="hobrovej_S" x="9.9078174" y="57.0305571" />
+	<node id="VestreAlle_NV" x="9.9039989" y="57.0349459" />
+	<node id="NyKervej_O_1" x="9.9092455" y="57.0333361" />
+	<node id="NyKervej_O_2" x="9.9172094" y="57.0330082" />
+	<node id="Ju_hobrovej_VestreAlle_NyKervej" x="9.9085716" y="57.0334899" type="traffic_light" />
+
+	<join nodes="Ju_hobrovej_VestreAlle_NyKervej Ju_hobrovej_VestreAlle_NyKervej_S"/>
+
+</nodes>

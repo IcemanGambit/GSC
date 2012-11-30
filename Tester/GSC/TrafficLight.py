@@ -7,6 +7,13 @@ import os
 lights = {}  
 lightSize = {}
 
+timer = 0
+vh_counter = 0
+
+# 'string' -> [timer, vh_counter, [allow phases], target phase, timeout, yellowTimer]
+inductionLoopCounters = { 'cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO': [0,0,[0, 2],4, 60, 0]}
+#'cluster_Ju_Hobrovej_sonderSkov_O_Ju_Hobrovej_sonderSkov_OS_Ju_Hobrovej_sonderSkov_V_Ju_Hobrovej_sonderSkov_VS': [0,0,[0],3, 80, 0],
+
 """
 	_getNextGreen(string, string, string, int) -> [[int, int],]
 
@@ -87,9 +94,28 @@ def getNextGreen(tlId, inEgdeId, outEgdeId, maxtime):
 	return getNextGreen(tlId, inEgdeId, outEgdeId, maxtime)
 	
 
+def processTrafficLights():
+	for n,i  in inductionLoopCounters.items():
+		i[0] +=1 
+		no = traci.inductionloop.getLastStepVehicleNumber("il_" + n)
+		if no > 0:
+			i[1]+= 1
 
+		print traci.trafficlights.getPhase(n)
+	
+		if i[0] > i[4] and i[1] > 0 and traci.trafficlights.getPhase(n) in i[2]:
+			p = traci.trafficlights.getRedYellowGreenState(n)
+			newP = p.replace("g", "y")
+			if i[5]<=4:
+				#traci.trafficlights.setRedYellowGreenState(n, newP)
+				i[5]+=1
+			else:
+				traci.trafficlights.setPhase(n, i[3])
+				i[5]=0
 
-
+		if traci.trafficlights.getPhase(n) == i[3]:
+			i[0] = 0
+			i[1] = 0
 
 def getRadius(tlId):	
 	assert type(tlId) is StringType, "tlId is not a string: %r" % id

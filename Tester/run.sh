@@ -57,6 +57,7 @@ echo "<?xml version='1.0' encoding='iso-8859-1'?>
     <input>
         <net-file value='Data.net.xml'/>
         <route-files value='Data.rou.alt.xml'/>
+        <additional-files value='Data.det.xml Data2.det.xml'/>
     </input>
     <time>
        <begin value='0'/>
