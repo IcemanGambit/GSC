@@ -90,10 +90,10 @@ if(len(sys.argv) > 3):
 		print "set xtics (\"0\" 0, \"10\" 1, \"50\" 2, \"100\" 3)"
 		print "set yrange [0:]"
 		output = "plot "
-		output += "\"TestResults/" + dataset + "/0/avg.dat\" using (0):1 with boxes fill solid lc rgb 'blue',"
-		output += "\"TestResults/" + dataset + "/10/avg.dat\" using (1):1 with boxes fill solid lc rgb 'green',"
-		output += "\"TestResults/" + dataset + "/50/avg.dat\" using (2):1 with boxes fill solid lc rgb 'green',"
-		output += "\"TestResults/" + dataset + "/100/avg.dat\" using (3):1 with boxes fill solid lc rgb 'green'"
+		output += "\"TestResults/" + dataset + "/0/avg.dat\" using (0):1 with boxes fill solid lc rgb '#778899',"
+		output += "\"TestResults/" + dataset + "/10/avg.dat\" using (1):1 with boxes fill solid lc rgb '#778899',"
+		output += "\"TestResults/" + dataset + "/50/avg.dat\" using (2):1 with boxes fill solid lc rgb '#778899',"
+		output += "\"TestResults/" + dataset + "/100/avg.dat\" using (3):1 with boxes fill solid lc rgb '#778899'"
 		print output
 		
 	elif sys.argv[1].find("acceleration") == 0:
