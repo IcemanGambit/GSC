@@ -6,6 +6,7 @@ from types import *
 import os
 lights = {}  
 lightSize = {}
+inductionLoopsOnRoute = {} # vhId -> [position, boolean] - True if induction loop lead
 
 timer = 0
 vh_counter = 0
@@ -101,7 +102,7 @@ def processTrafficLights():
 		if no > 0:
 			i[1]+= 1
 
-		print traci.trafficlights.getPhase(n)
+		#print traci.trafficlights.getPhase(n)
 	
 		if i[0] > i[4] and i[1] > 0 and traci.trafficlights.getPhase(n) in i[2]:
 			p = traci.trafficlights.getRedYellowGreenState(n)
@@ -148,4 +149,39 @@ def getRadius(tlId):
 		
 	p.ParseFile(f)
 	return 0
+
+def inductionLoopAhead(vhId):
+	if vhId not in inductionLoopsOnRoute:
+		route = traci.vehicle.getRoute(vhId)
+		ilIds = traci.inductionloop.getIDList()
+		inductionLoopEdges = {}
+		
+		for l in ilIds:
+			lane = traci.inductionloop.getLaneID(l)
+			inductionLoopEdges[lane[:lane.rfind('_')]] = [lane, traci.inductionloop.getPosition(l)]
+
+		for e in route:
+			if e in inductionLoopEdges:
+				if vhId not in inductionLoopsOnRoute:
+					inductionLoopsOnRoute[vhId] = [[inductionLoopEdges[e][0], inductionLoopEdges[e][1]]]
+				else:
+					inductionLoopsOnRoute[vhId].insert(0, [inductionLoopEdges[e][0], inductionLoopEdges[e][1]])
+
+	
+	
+	if vhId in inductionLoopsOnRoute:
+		vhLane = traci.vehicle.getLaneID(vhId)
+		
+		if vhLane == inductionLoopsOnRoute[vhId][0][0]:
+			vhPosition = traci.vehicle.getLanePosition(vhId)
+
+			if vhPosition < inductionLoopsOnRoute[vhId][0][1]:
+				return True
+			else:
+				inductionLoopsOnRoute[vhId].pop(0)
+				if len(inductionLoopsOnRoute[vhId]) == 0:
+					inductionLoopsOnRoute.pop(vhId)
+	return False
+
+
 

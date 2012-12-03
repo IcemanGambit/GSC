@@ -6,7 +6,7 @@ vehicleTime = {} # [[depart, end], ]
 routes = {}
 controlledVehicles = Set() # set of vehicles controlled by system
 
-TSSegments = ["1_S","1_S.-60"]
+TSSegments = ["1_S_1","1_S_1.-60"]
 VhStops = {}
 SpeedStop = 0.5
 MinStopRange = 10

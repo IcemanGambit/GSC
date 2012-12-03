@@ -1,7 +1,7 @@
 import sys, os, math
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import traci
-import TrafficLight, Route 
+import TrafficLight, Route
 
 """
 	getGreenSpans(string, int) -> [[int,int],[int,int],...]
@@ -27,7 +27,7 @@ def getRecommentedSpeed(vhId,minDistance, maxtime):
 	t = traci.simulation.getCurrentTime()
 	maxSpeed = traci.lane.getMaxSpeed(traci.vehicle.getLaneID(vhId))
 	
-	if traci.vehicle.getRoadID(vhId).find("Ju_") >= 0:
+	if traci.vehicle.getRoadID(vhId).find("Ju_") >= 0 or TrafficLight.inductionLoopAhead(vhId):
 		return maxSpeed
 
 

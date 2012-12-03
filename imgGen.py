@@ -1,5 +1,8 @@
 import os, subprocess, sys, random
 
+fuelRouteYMax = "200"
+fuelTotalYMax = "250"
+distanceYMax = "1600"
 
 if(len(sys.argv) > 3):
 	dataset = sys.argv[3]
@@ -19,7 +22,7 @@ if(len(sys.argv) > 3):
 	if sys.argv[1] == "fuelRoute":
 		print "set ylabel 'Fuel Consumption (ml)'"
 		print "set xlabel 'Vehicles'"
-		print "set yrange[0:250]"
+		print "set yrange[0:" + fuelRouteYMax + "]"
 		print "set boxwidth 0.5 absolute"
 		print "unset xtics"
 		datafile1 = "\"TestResults/" + dataset + "/0/" + route
@@ -36,7 +39,7 @@ if(len(sys.argv) > 3):
 		print "set ylabel 'Fuel Consumption (ml)'"
 		print "set xlabel 'Vehicles'"
 		print "set boxwidth 0.5 absolute"
-		print "set yrange[0:250]"
+		print "set yrange[0:" + fuelRouteYMax + "]"
 		print "unset xtics"
 		datafile = "\"TestResults/" + dataset + "/"+percent+"/" + route+ "/"+conType
 		print "plot "+ datafile+"/totalFuel.dat\"" + " with boxes fill solid lc rgb " + color + ", `head -1 "+ datafile+"/avg.dat\"" + " | awk '{print $2}'` lt 1 lw 5 lc rgb " + color
@@ -45,7 +48,7 @@ if(len(sys.argv) > 3):
 		print "set ylabel 'Fuel Consumption (ml)'"
 		print "set xlabel 'Vehicles'"
 		print "set xrange [0:]"
-		print "set yrange [0:250]"
+		print "set yrange [0:" + fuelTotalYMax + "]"
 		print "set boxwidth 0.5 absolute"
 		print "unset xtics"
 		datafile = "\"TestResults/" + dataset
@@ -61,18 +64,18 @@ if(len(sys.argv) > 3):
 		print "set ylabel 'Fuel Consumption (ml)'"
 		print "set xlabel 'Vehicles'"
 		print "set xrange [0:]"
-		print "set yrange [0:250]"
+		print "set yrange [0:" + fuelTotalYMax + "]"
 		print "set boxwidth 0.5 absolute"
 		print "unset xtics"
 		datafile = "\"TestResults/" + dataset + "/"+percent + "/" + conType
-		print "plot "+ datafile +"/totalFuel.dat\""+ " using ($1+0.25):2 with boxes fill solid lc rgb " + color + ", `head -1 "+ datafile +"/avg.dat\"" + " | awk '{print $2}'` lt 1 lw 5 lc rgb " + color
+		print "plot "+ datafile +"/totalFuel.dat\""+ " using 1:2 with boxes fill solid lc rgb " + color + ", `head -1 "+ datafile +"/avg.dat\"" + " | awk '{print $2}'` lt 1 lw 5 lc rgb " + color
 		
 	elif sys.argv[1].find("combinedFuel") == 0:
 		print "set boxwidth 0.9"
 		print "set ylabel 'Fuel Consumption (ml)'"
 		print "set xlabel 'Percentage using the system'"
 		print "set xtics (\"0\" 0, \"10\" 1, \"50\" 2, \"10\" 3, \"50\" 4, \"100\" 5)"
-		print "set yrange [0:]"
+		print "set yrange [0:" + fuelRouteYMax + "]"
 		print "set key default"
 		output = "plot "
 		output += "\"TestResults/" + dataset + "/0/" + route + "/uncontrolled/avg.dat\" using (0):2 with boxes fill solid lc rgb 'blue' title 'Vehicles without system',"
@@ -88,12 +91,26 @@ if(len(sys.argv) > 3):
 		print "set ylabel 'Average travel time (s)'"
 		print "set xlabel 'Percentage using the system'"
 		print "set xtics (\"0\" 0, \"10\" 1, \"50\" 2, \"100\" 3)"
-		print "set yrange [0:]"
+		print "set yrange [0:170]"
 		output = "plot "
 		output += "\"TestResults/" + dataset + "/0/avg.dat\" using (0):1 with boxes fill solid lc rgb '#778899',"
 		output += "\"TestResults/" + dataset + "/10/avg.dat\" using (1):1 with boxes fill solid lc rgb '#778899',"
 		output += "\"TestResults/" + dataset + "/50/avg.dat\" using (2):1 with boxes fill solid lc rgb '#778899',"
 		output += "\"TestResults/" + dataset + "/100/avg.dat\" using (3):1 with boxes fill solid lc rgb '#778899'"
+		print output
+	elif sys.argv[1].find("_combinedRouteTime") > 0:
+		route = sys.argv[1][:sys.argv[1].find("_")]
+		print route
+		print "set boxwidth 0.9"
+		print "set ylabel 'Average travel time (s)'"
+		print "set xlabel 'Percentage using the system'"
+		print "set xtics (\"0\" 0, \"10\" 1, \"50\" 2, \"100\" 3)"
+		print "set yrange [0:]"
+		output = "plot "
+		output += "\"TestResults/" + dataset + "/0/"+ route+ "/avg.dat\" using (0):1 with boxes fill solid lc rgb '#778899',"
+		output += "\"TestResults/" + dataset + "/10/"+ route+ "/avg.dat\" using (1):1 with boxes fill solid lc rgb '#778899',"
+		output += "\"TestResults/" + dataset + "/50/"+ route+ "/avg.dat\" using (2):1 with boxes fill solid lc rgb '#778899',"
+		output += "\"TestResults/" + dataset + "/100/"+ route+ "/avg.dat\" using (3):1 with boxes fill solid lc rgb '#778899'"
 		print output
 		
 	elif sys.argv[1].find("acceleration") == 0:
@@ -112,8 +129,8 @@ if(len(sys.argv) > 3):
 	elif sys.argv[1].find("distance") > 0:
 		datasetPercentage = sys.argv[1][sys.argv[1].rfind("_")+1:]
 		conType = sys.argv[1][:sys.argv[1].find("_")]
-		print "set xrange [0:300]"
-		print "set yrange [0:2800]"
+		print "set xrange [0:400]"
+		print "set yrange [0:" + distanceYMax + "]"
 		print "set ylabel 'Distance (m)'"
 		print "set xlabel 'Time (s)'"
 		plots = ""
@@ -133,8 +150,8 @@ if(len(sys.argv) > 3):
 		print "plot" + plots
 		
 	elif sys.argv[1].find("Reald") >= 0:
-		print "set xrange [0:300]"
-		print "set yrange [0:2800]"
+		print "set xrange [0:400]"
+		print "set yrange [0:" + distanceYMax + "]"
 		print "set ylabel 'Distance (m)'"
 		print "set xlabel 'Time (s)'"
 		plots = ""
@@ -156,7 +173,7 @@ if(len(sys.argv) > 3):
 	elif sys.argv[1].find("speed")> 0:
 		datasetPercentage = sys.argv[1][sys.argv[1].rfind("_")+1:]
 		conType = sys.argv[1][:sys.argv[1].find("_")]
-		print "set xrange [0:300]"
+		print "set xrange [0:400]"
 		print "set yrange [0:70]"
 		print "set ylabel 'Speed (km/h)'"
 		print "set xlabel 'Time (s)'"
@@ -184,7 +201,7 @@ if(len(sys.argv) > 3):
 		print "set ylabel 'Distance (m)'"
 		print "set xlabel 'Vehicles'"
 		plotstring = ""
-		for i in range(0,10):
+		for i in range(0,20):
 			datafile = "TestResults/" + dataset+ "/" +datasetPercentage + "/stops" + str(i) + ".dat"
 			if(os.path.exists(datafile)):
 				plotstring += "\"" + datafile + "\" with impulses lt 1 lw 3 lc " + str(i+1) + ", \"" + datafile + "\" with points pt " + str(i+1) + " lc " + str(i+1) + ","
