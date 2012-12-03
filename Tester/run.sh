@@ -6,6 +6,7 @@ newtrips=-1
 systemusers=0
 workingdir=$1
 gui="ngui"
+sensors=false
 while [ "$1" != "" ]; do
     case $1 in
         -n)						newnetwork=1
@@ -20,6 +21,8 @@ while [ "$1" != "" ]; do
 								output=$1
                                 ;;
 		-g)						gui="gui"
+								;;
+		-s)						sensors=true
 								;;
     esac
     shift
@@ -56,9 +59,11 @@ echo "<?xml version='1.0' encoding='iso-8859-1'?>
 <configuration xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='http://sumo.sf.net/xsd/sumoConfiguration.xsd'>
     <input>
         <net-file value='Data.net.xml'/>
-        <route-files value='Data.rou.alt.xml'/>
-        <additional-files value='Data.det.xml Data2.det.xml'/>
-    </input>
+        <route-files value='Data.rou.alt.xml'/>" > $workingdir"/Data.sumocfg"
+if ($sensors) then
+	echo "		<additional-files value='Data.det.xml Data2.det.xml'/>" >> $workingdir"/Data.sumocfg"
+fi
+echo "</input>
     <time>
        <begin value='0'/>
     </time>
@@ -68,6 +73,6 @@ echo "<?xml version='1.0' encoding='iso-8859-1'?>
     <traci_server>
         <remote-port value='8813'/>
     </traci_server>
-</configuration>" > $workingdir"/Data.sumocfg"
+</configuration>" >> $workingdir"/Data.sumocfg"
 
 python $workingdir"/"simulate.py $workingdir $gui $systemusers $output
