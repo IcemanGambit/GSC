@@ -1,0 +1,34 @@
+	<tlLogic id="cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" type="static" programID="2">
+		<phase duration="22" state="gggrrggg"/> <!-- 1 -->
+		<phase duration="4"  state="yyyrryyy"/>
+		<phase duration="2"  state="rrryyrrr"/>
+		<phase duration="30" state="rrrggrrr"/> <!-- 3 -->
+		<phase duration="4"  state="rrryyrrr"/>
+		<phase duration="2"  state="yyyrryyy"/>
+	</tlLogic>
+
+	<tlLogic id="cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" type="static" programID="1">
+		<phase duration="22" state="gggrrggg"/> <!-- 1 -->
+		<phase duration="22" state="gggrrggg"/> <!-- 1 -->
+		<phase duration="4"  state="yyyrrggg"/>
+		<phase duration="10" state="rrrrrggg"/> <!-- 2 -->
+		<phase duration="4"  state="rrrrrggg"/>
+		<phase duration="2"  state="yyyrrggg"/>
+	</tlLogic>
+	
+
+	<tlLogic id="cluster_Ju_Hobrovej_sonderSkov_O_Ju_Hobrovej_sonderSkov_OS_Ju_Hobrovej_sonderSkov_V_Ju_Hobrovej_sonderSkov_VS" type="static" programID="2" offset="0">
+		<phase duration="200" state="gggrrggg"/> <!-- 1 -->
+		<phase duration="4"  state="yyyrryyy"/>
+		<phase duration="2"  state="rrryyrrr"/>
+		<phase duration="15" state="rrrggrrr"/> <!-- 2 -->
+		<phase duration="4"  state="rrryyrrr"/>
+		<phase duration="2"  state="yyyrryyy"/>	
+	</tlLogic>
+
+	<tlLogic id="cluster_Ju_Hobrovej_sonderSkov_O_Ju_Hobrovej_sonderSkov_OS_Ju_Hobrovej_sonderSkov_V_Ju_Hobrovej_sonderSkov_VS" type="static" programID="1" offset="0">
+		<phase duration="20" state="gggrrggg"/> <!-- 1 -->
+		<phase duration="5000" state="gggrrggg"/> <!-- 1 -->
+	</tlLogic>
+
+

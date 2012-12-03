@@ -38,6 +38,8 @@ if [ "$newnetwork" = "1" ]; then
 		netconvert --sumo-net-file=$workingdir"/"Data.net.xml --connection-files=$workingdir"/"Data.con.xml --output-file=$workingdir"/"Data.net.xml
 		echo "Adding traffic lights"
 		netconvert --sumo-net-file=$workingdir"/"Data.net.xml --tllogic-files $workingdir"/"Data.tll.xml --output-file=$workingdir"/"Data.net.xml
+		echo "Adding More traffic lights"
+		python addTrafficLight.py $workingdir
 	else
 		netconvert --node-files=$workingdir"/"Data.nod.xml --edge-files=$workingdir"/"Data.edg.xml --output-file=$workingdir"/"Data.net.xml --proj.utm
 	fi
