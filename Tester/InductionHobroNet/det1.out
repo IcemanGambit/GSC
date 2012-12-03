@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 
-<!-- generated on man 03 dec 2012 09:46:20 CET by SUMO gui Version 0.15.0
+<!-- generated on man 03 dec 2012 15:26:06 CET by SUMO gui Version 0.15.0
 <?xml version="1.0" encoding="UTF-8"?>
 
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.sf.net/xsd/sumo-gui.exeConfiguration.xsd">
 
     <input>
-        <net-file value="InductionHobroNet//Data.net.xml"/>
-        <route-files value="InductionHobroNet//Data.rou.alt.xml"/>
-        <additional-files value="InductionHobroNet//Data.det.xml,InductionHobroNet//Data2.det.xml"/>
+        <net-file value="InductionHobroNet/Data.net.xml"/>
+        <route-files value="InductionHobroNet/Data.rou.alt.xml"/>
+        <additional-files value="InductionHobroNet/Data.det.xml,InductionHobroNet/Data2.det.xml"/>
     </input>
 
     <time>
@@ -31,4 +31,8 @@
 -->
 
 <detector>
+   <interval begin="0.00" end="30.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="3.25" speed="4.10" length="4.00" nVehEntered="1"/>
+   <interval begin="30.00" end="60.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="3" flow="360.00" occupancy="9.76" speed="4.10" length="4.00" nVehEntered="3"/>
+   <interval begin="60.00" end="90.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="2" flow="240.00" occupancy="6.50" speed="4.10" length="4.00" nVehEntered="2"/>
+   <interval begin="90.00" end="95.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="4.88" speed="-1.00" length="-1.00" nVehEntered="0"/>
 </detector>

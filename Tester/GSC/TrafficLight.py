@@ -10,10 +10,11 @@ lightSize = {}
 timer = 0
 vh_counter = 0
 
-# 'string' -> [timer, vh_counter, [allow phases], target phase, timeout, yellowTimer]
-inductionLoopCounters = { 'cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO': [0,0,[0, 2],4, 60, 0]}
-#'cluster_Ju_Hobrovej_sonderSkov_O_Ju_Hobrovej_sonderSkov_OS_Ju_Hobrovej_sonderSkov_V_Ju_Hobrovej_sonderSkov_VS': [0,0,[0],3, 80, 0],
+# 'string' -> [timer, vh_counter, [allow phases], timeout]
+inductionLoopCounters = {'cluster_Ju_Hobrovej_sonderSkov_O_Ju_Hobrovej_sonderSkov_OS_Ju_Hobrovej_sonderSkov_V_Ju_Hobrovej_sonderSkov_VS' :[0,0,[[0,0,True],[1,1,False]], 5,False,[2]] ,'cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO': [0,0,[[0,0,True],[1,1,False]], 5,False,[2]]  }
 
+#
+#'
 """
 	_getNextGreen(string, string, string, int) -> [[int, int],]
 
@@ -100,22 +101,33 @@ def processTrafficLights():
 		no = traci.inductionloop.getLastStepVehicleNumber("il_" + n)
 		if no > 0:
 			i[1]+= 1
+		#print traci.trafficlights.getProgram(n)
 
-		print traci.trafficlights.getPhase(n)
-	
-		if i[0] > i[4] and i[1] > 0 and traci.trafficlights.getPhase(n) in i[2]:
-			p = traci.trafficlights.getRedYellowGreenState(n)
-			newP = p.replace("g", "y")
-			if i[5]<=4:
-				#traci.trafficlights.setRedYellowGreenState(n, newP)
-				i[5]+=1
-			else:
-				traci.trafficlights.setPhase(n, i[3])
-				i[5]=0
+		if i[1] > 0 and traci.trafficlights.getProgram(n)== "1":
+			phase = traci.trafficlights.getPhase(n)
+			remaningdur = (traci.trafficlights.getNextSwitch(n)- traci.simulation.getCurrentTime()) /1000
 
-		if traci.trafficlights.getPhase(n) == i[3]:
-			i[0] = 0
+			for jumps in i[2]:
+				if phase == jumps[0]:
+					traci.trafficlights.setProgram(n, "2")
+					i[4] = False
+					traci.trafficlights.setPhase(n,  jumps[1])
+
+				if jumps[2]:
+					traci.trafficlights.setPhaseDuration(n,remaningdur)
+
+
+		if traci.trafficlights.getPhase(n) in i[5] and traci.trafficlights.getProgram(n) == "2":
 			i[1] = 0
+			i[0] = 0
+				
+		if traci.trafficlights.getPhase(n) == i[3] and traci.trafficlights.getProgram(n) == "2":
+			i[4] = True
+			
+		if  i[4] and  traci.trafficlights.getPhase(n) == 0 and traci.trafficlights.getProgram(n) == "2":
+			traci.trafficlights.setProgram(n,"1")
+			traci.trafficlights.setPhase(n, 0)
+
 
 def getRadius(tlId):	
 	assert type(tlId) is StringType, "tlId is not a string: %r" % id
