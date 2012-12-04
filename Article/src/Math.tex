@@ -1,4 +1,4 @@
-\section{Calculating the Recommended Speed}\label{sec:Math}
+\section{The Recommended Speed}\label{sec:Math}
 
 We base the recommended speed, $\vel$ for arriving at the next traffic light while it is green, on the definition of velocity.
 We use two velocities: one for arriving at the traffic light just as it changes to green and one as it chances to red.
@@ -13,7 +13,7 @@ The recommended speed is therefore somewhere between the speed limit, $\velmax$ 
 where
 \vspace{-5mm}
 \begin{itemize*}
-\item $\dist$ is the distance between the vehicle and the traffic light
+\item $\dist$ is the distance between the vehicle and the junction
 \item $\tgreen$ is the number of seconds before the traffic light changes to green
 \item $\tslow$ is the number of seconds before the traffic light changes to red
 \end{itemize*}
@@ -21,12 +21,17 @@ where
 Algorithm~\ref{alg.recommendedSpeed} shows the procedure for finding the recommended speed $\velrec$ of Equation~\ref{eq:Math:recSpeed}.
 The input of the algorithm is the vehicle, \veh, the route that vehicle is traversing, \route, the map, $\map = (V, E, C)$ and the maximum distance we want to look into the future, \distmax. 
 \distmax=2.000 meters as default. %TODO: Check max dist
-In line~\ref{alg:recSpeed:cnext}, \cnext is the next connection on the route, \route. If there are no more connections, i.e. junctions, on the route then $\cnext=none$.
+In line~\ref{alg:recSpeed:cnext}, \cnext is the next connection on the route, \route. 
+If there are no more connections, i.e. junctions, on the route then $\cnext=none$, and we set the distance to $\cnext$ to infinity.
 The distance function on line~\ref{alg:recSpeed:distance} calculates the eucledian distance from the vehicle to the connection.
 In SUMO, one cannot get a distance to the connection, but only to the center point of the associated junction.
 We therefore calculate the distance to the center of the junction and substract the average distance from the center to the outer egdes of the junctions geometric object. 
+In stead of setting the travel distance, $\dist$ to the result of this distance function, we also substract an offset and effectively "move" the juction \distOffset meters closer.
+This is to account for the possible, blocking vehicles in front. 
+Through tests, we found that \distOffset = 20 meters gives a good result at different levels of congestion.
+
 The condition in line~\ref{alg:recSpeed:injunction} checks if the vehicle currently is on a connection, i.e. in a junction, or if the distance to the connection is more than the maximum distance. 
-If so, we should just recommend the maximum allowed speed. 
+If so, we recommend the maximum allowed speed. 
 As a connection does not have a speed limit, we recommend the speed limit of the previous edge.
 Otherwise, the maximum speed is the speed limit of the current edge.
 The function $getSpan(\cnext, \ti)$ in line~\ref{alg:recSpeed:getSpan} read the phase of the connection and the current time and returns a sequence of timestamps where the phase of that connection is green. The format is $\langle(\tstart, \tend), (\tstart, \tend), \dots\rangle$.
@@ -36,7 +41,7 @@ We initialise the recommended speed and the slowest speed in line~\ref{alg:recSp
 The for-loop in line~\ref{alg:recSpeed:loopSpans} to line~\ref{alg:recSpeed:loopSpansEnd} loops through the spans and finds the first span that the vehicle can reach.
 First, we calculate the number of seconds before the ligth turns green and red in line~\ref{alg:recSpeed:tg} and~\ref{alg:recSpeed:tr}, respectively, and then calculate the slowest speed at which we can drive in order to reach the first green light in line~\ref{alg:recSpeed:hr}.
 In line \ref{alg:recSpeed:continue} we check if this span is reachable and continue the for-loop to the next span if it is not. 
-The span is not reachable if it ends before the current time or if the slowest speed is higher than the maximal speed.
+The span is not reachable if the slowest speed is higher than the maximal speed, meaning we whould have to driver faster than the speed limit, in order to reach it.
 Knowing that this span is reachable, we calculate the recommended speed $\velrec$.
 If the light is green right know, i.e. $\tgreen \leq 0$, then we again return the maximum speed in line~\ref{alg:recSpeed:green}. 
 Otherwise, we calculate $\velrec$ as in \eqref{eq:Math:h} in line~\ref{alg:recSpeed:h}.
@@ -47,8 +52,12 @@ Should it not be possible to find a reachable span, we just return the maximum s
 \begin{algorithm}
 \caption{recommendSpeed(\veh, \route, $(V, E, C)$, \distmax)}\label{alg.recommendedSpeed}
 \begin{algorithmic}[1]
-\State $\cnext= $ next \c in \route\Comment $\cnext=none$ if no junction ahead \label{alg:recSpeed:cnext}
-\State $\dist=distance(\veh,\cnext)$. \Comment $d=\infty$ if $\cnext=none$\label{alg:recSpeed:distance}
+\State $\cnext= $ next \con in \route\Comment $\cnext=none$ if no junction ahead \label{alg:recSpeed:cnext}
+\If {$\cnext=none$} 
+\State $\dist = \infty$
+\Else
+\State $\dist=distance(\veh,\cnext)-\distOffset$ \label{alg:recSpeed:distance}
+\EndIf
 
 \If {$\vehpos \in C$ or $d>\distmax$}\State \Comment \veh in a junction or \cnext too far ahead\label{alg:recSpeed:injunction}
 \State\Return \espeed s.t. \eend=\vehposstart
@@ -67,7 +76,7 @@ Should it not be possible to find a reachable span, we just return the maximum s
 \State $\tslow = \tend - \ti$ \Comment Seconds until \cnextphase is red\label{alg:recSpeed:tr}
 \State $\velslow = \frac{\dist}{\tslow}$\label{alg:recSpeed:hr}
 
-\If{$\tend\leq \ti$ or $\velslow > \velmax$}\Comment Cannot reach green\label{alg:recSpeed:continue}
+\If{$\velslow > \velmax$}\Comment Cannot reach the green light\label{alg:recSpeed:continue}
 \State continue
 \EndIf
 

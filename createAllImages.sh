@@ -5,6 +5,7 @@
 mkdir -p images/Real
 python imgGen.py Reald RealDistance.png Real | gnuplot
 python imgGen.py acceleration acceleration.png Real |gnuplot
+python imgGen.py RealSpeed RealSpeed.png Real | gnuplot
 
 
 array=(tp0)

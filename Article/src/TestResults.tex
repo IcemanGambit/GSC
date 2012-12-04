@@ -3,42 +3,69 @@ In this section, we test the proposed techinque on the use case explained in the
 
 \subsection{Verification of Results}
 It is imporant to verify that the results obtained from the simulator actually matches real-world observations.
-Figure~\ref{} and~\ref{} show data from ???.
-
-From Figure~\ref{fig:TestResults:distance0} we see that the simulation compared to the real-world results from Figure \ref{} is a close match. 
-We see the same stop and go behavior as a results from traffic lights, and the arrival times are also a close match. 
-If we compare the driving speed of the simulation show in Figure \ref{fig:TestResults:speed0} with the real-world data from Figure \ref{} we see that in most cases the vehicles are either driving at the maximum speed, or they are at a full stop. 
-This behavior on the two graphs are almost identical and consistent with the stop and go behavior caused by traffic lights. 
-Figure \ref{} shows the distance to a traffic light where each vehicles makes a stop. 
-All the blue dots are vehicles that only have a single stop, red squares have two stops and yellow triangles have 3 stops.
-The traffic light for this figure is the first junctions driving from Vesterbro. See Figure \ref{fig:Introduction:hobro}. The Figure \ref{} show the real-world data from the same traffic light. 
-%TODO: when we have something to compare with
+Figure~\ref{fig:TestResults:realDistance} shows travel distance as a function of time from a project called Spar på Farten\cite{} for main route of Hobrovej.
+We see that some vehicles stop that about 300 m, 600 m, 900 m and 1200 m.
+This corresponds well with the dimentions of Hobrovej and match the four regulated traffic lights. 
 
 \begin{figure}[htb]
-\includegraphics[width=0.5\textwidth]{../images/tp0/speedUncontrolled0.png}
-\caption{Speed graph}
-\label{fig:TestResults:speed0}
+\includegraphics[width=0.5\textwidth]{../images/Real/RealDistance.png}
+\caption{Travel distance for real GPS data}
+\label{fig:TestResults:realDistance}
 \end{figure}
+
+Figure~\ref{fig:TestResults:distance0} also plots the travel distance as a function over time, only for the simulated vehicles.
+We see that the simulation resembles the real-world results quite well, however, the simulated vehicles tend to hold longer at the traffic lights. 
+This is because the traffic light phases of the simulation are too different compared to real traffic lights. 
+Besides that, the acceleration profiles look similar.
 
 \begin{figure}[htb]
 \includegraphics[width=0.5\textwidth]{../images/tp0/distanceUncontrolled0.png}
-\caption{Distance graph}
+\caption{Travel distance for simulated data without \tech}
 \label{fig:TestResults:distance0}
 \end{figure}
+
+%TODO: Redo this, as it is not correct any more
+If we compare the driving speed of the simulation shown in Figure \ref{fig:TestResults:speed0} with the real-world data from Figure \ref{fig:TestResults:RealSpeed} we see that in most cases the vehicles are either driving at the maximum speed, or they are at a full stop. 
+The behavior are almost identical on the two graphs and consistent with the stop-and-go behavior caused by traffic lights. 
+
+\begin{figure}[htb]
+\includegraphics[width=0.5\textwidth]{../images/Real/RealSpeed.png}
+\caption{Speed for real GPS data}
+\label{fig:TestResults:RealSpeed}
+\end{figure}
+\begin{figure}[htb]
+\includegraphics[width=0.5\textwidth]{../images/tp0/speedUncontrolled0.png}
+\caption{Speed for simulated data without \tech}
+\label{fig:TestResults:speed0}
+\end{figure}
+
+%TODO: finish this
+Figure \ref{} shows the distance to a traffic light where each vehicles makes a stop. 
+All the blue dots are vehicles that only have a single stop, red squares have two stops and yellow triangles have three stops.
+The traffic light for this figure is the top junction at Vesterbro (see Figure \ref{fig:Introduction:hobro}). 
+Figure \ref{} show the real-world data from the same traffic light. 
+\begin{figure}[htb]
+%\includegraphics[width=0.5\textwidth]{../images/tp0/stop0.png}
+\caption{Number of stops for simulated data without \tech}
+\label{fig:TestResults:stop0}
+\end{figure}
+
 
 \subsection{Fuel Consumption}
 The purpose of \tech is to reduce the fuel consumption at least for the vehicles using the system. 
 We use SUMO's build-in function to calculate the vehicles fuel consumption, which is explained in \cite{SUMOFuel}.
 
-The total fuel consumption for all vehicles in the network is plotted in Figure~\ref{fig:TestResults:fuelTotal}.
 Figure~\ref{fig:TestResults:fuelTotal} plots the fuel consumption for all vehicles in the network for two different simulations: one where all vehicles use \tech (blue) and one where no vehicles are using \tech (green).
+The amount of vehicles are the same in both simulations, and the drive the same routes with the same departure times. 
+The only difference is whether they use \tech or not.
+
 The average fuel consumption when all vehicles use \tech is about $77 ml$, and about $108 ml$ when no one use \tech.
-We therefore see a significant overall reduction in fuel consumption in this setting if \tech is used by everybody.
+We therefore see a significant overall reduction in fuel consumption on 28.7 \% in this setting if \tech is used by everybody.
 Looking at just the selected route through the network, we see the same tendency (see Figure~\ref{fig:TestResults:fuelRoute}). 
-The average fuel consumption with \tech is about $114 ml$ and about $166 ml$ without. 
+The average fuel consumption with \tech is about $114 ml$ and about $166 ml$ without, resulting in a reduction at 31.3 \%.
 \begin{figure}[h]
 \includegraphics[width=0.5\textwidth]{../images/tp0/fuelTotal.png}
-\caption{Fuel consumption for all vehicles in the network. Blue: 100\% use \tech, green: 0\% use \tech}
+\caption{Fuel consumption for all vehicles in the network. Blue: 100\% using \tech, green: 0\% using \tech}
 \label{fig:TestResults:fuelTotal}
 \end{figure}
 \begin{figure}[h]
@@ -48,15 +75,10 @@ The average fuel consumption with \tech is about $114 ml$ and about $166 ml$ wit
 \end{figure}
 
 It is, however, also interesting to investigate the influence \tech has when only a few drivers use it.
-Figure~\ref{fig:TestResults:fuelControlled10} and~\ref{fig:TestResults:fuelUncontrolled10} plot the fuel consumption for 10\% of the vehicles are using \tech.
-Figure~\ref{fig:TestResults:fuelControlled10} shows the 10 \% using \tech, and Figure~\ref{fig:TestResults:fuelUncontrolled10} show the 90 \% not using \tech.
+Figure~\ref{fig:TestResults:fuelControlled10} and~\ref{fig:TestResults:fuelUncontrolled10} plot the fuel consumption for 10\% of the vehicles are using \tech - Figure~\ref{fig:TestResults:fuelControlled10} shows the 10 \% using \tech, and Figure~\ref{fig:TestResults:fuelUncontrolled10} show the 90 \% not using \tech.
 We see that the average fuel consumption is about $119 ml$ for the 10 \% using \tech, and about $168$ for the 90 \% not using it.
-The fuel consumption is less for those who use \tech, and the fuel consumption is only increased by $1 ml$ for those who do not use \tech compared to the situation where no vehicles used \tech.
+The fuel consumption is signifinatly less for those who use \tech, and the fuel consumption is only increased by $1 ml$ for those who do not use \tech compared to the situation where no vehicles used \tech.
 We see the same results when 50 \% of the vehicles use \tech.
-
-We can therefore conclude that in the tested use case, we see a significate reduction in fuel consumption even when it is only implemented in a small subset of the vehicles. 
-Moreover, vehicles using \tech does not have a negative influence the other fuel consumption of the vehicles.
-
 \begin{figure}[h]
 \includegraphics[width=0.5\textwidth]{../images/tp0/fuelRouteControlled10.png}
 \caption{Fuel consumption for the 10 \% of the vehicles driving with \tech on the selected route}
@@ -68,15 +90,25 @@ Moreover, vehicles using \tech does not have a negative influence the other fuel
 \label{fig:TestResults:fuelUncontrolled10}
 \end{figure}
 
+We can therefore conclude that in the tested use case, we see a significate reduction in fuel consumption even when it is only implemented in a small subset of the vehicles. 
+Moreover, vehicles using \tech does not have a negative influence the other fuel consumption of the vehicles.
+
 \subsection{Travel time}
+Reducing the fuel consumption is important, but it cannot be at the expense of traffic flow or the vehicles travel time.
+Figure~\ref{fig:TestResults:combinedTime} show the average travel time for all vehicles on all routes in the network at different levels of penetration.
+With 0 \% using \tech we see an average travel time of $150$ seconds. 
+Introducing the systemt to 10 \% of the vehicles does not change this significantly. 
+However, as the penetration rate increase, we see a small reduction in travel time. 
+This is mostly due to the fact that vehicles do not make a full stop at traffic lights, and therefore are able to start faster.
+
 \begin{figure}[h]
 \includegraphics[width=0.5\textwidth]{../images/tp0/combinedTime.png}
-\caption{}
+\caption{Travel time for all routes at different level of vehicles using \tech}
 \label{fig:TestResults:combinedTime}
 \end{figure}
 
 \subsection{Distance}
-Figure~\ref{fig:TestResults:distance100} shows the distance vehicles drive on the selected route as a function of time when their driving behaviour is solely controlled by SUMO. 
+Figure~\ref{fig:TestResults:distance100} shows the travel distance on the selected route as a function of time when their driving behaviour is solely controlled by SUMO. 
 The vehicle is stationary whenever the curve flatens.
 From the figure we clearly see that the vehicles on this route has to stop four times, at 250 meter, at 550 meters, at 750 meters and again at 1100 metets.
 

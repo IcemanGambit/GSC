@@ -2,19 +2,19 @@
 In this section we describe the model that is used to find the speed that will let a vehicle arraive at the next traffic light as it turns green.
 See Figure~\ref{fig:Introduction:network} for references.
 
+%TODO: Maybe some ordering in this section
 \subsection{Vehicles}
 A vehicle, $\veh$, is an entity that moves along a route.
-Each vehicle has an identifier, $\vehid$ a maximum speed, $\vehvel$, a constant acceleration, $\vehacc$ and deceleration, $\vehdec$ and a current position, \vehpos. 
+Each vehicle has an identifier, $\vehid$, a constant acceleration, $\vehacc$ and deceleration, $\vehdec$ and a current position, \vehpos. 
 The position is either an edge or a connection (See below).
 The position is updated as the vehicle moves.
 For simplicity we do not consider different drivering behaviours, but operate with two types of vehicles: cars and trucks. See Table \ref{table.vehicleTypes} for their specifications.
 \begin{table}
 \centering
 \begin{tabular}{|l|l|l|}\hline
-		& Car 	& Truck \\\hline
-Max speed 	& 	& \\\hline
-Acceleration 	&	& \\\hline
-Deceleration 	&	& \\\hline
+					& Car 	& Truck \\\hline
+Acceleration ($m/s^2$)	& 1.9	& 0.3	\\\hline
+Deceleration ($m/s^2$)	& 3		& 3 	\\\hline
 \end{tabular}
 \caption{Types of vehicles}\label{table.vehicleTypes}
 \end{table}
@@ -22,18 +22,16 @@ Deceleration 	&	& \\\hline
 \subsection{Map}
 A map is a directed graph, $G = (V, E, C)$ where $V$ is a set of vertices, $E$ is a set of edges representing road segments and $C$ is a set of connections between edges.
 An egde represents one direction of a road segment.
-Every edge $\edge\in E$ has a starting point $\estart\in V$, an end point $\eend\in V$ and a maximum speed \espeed. 
+Every edge $\edge\in E$ has a starting point $\estart\in V$, an end point $\eend\in V$ and a maximum speed $\espeed\in\mathbb{R}$. 
 The lenght of an edge is the euclidean distance between $\estart$ and \eend denoted as \elength.
-In Figure~\ref{fig:Introduction:network} we have five egdes: two to the west of traffic light, two the the east and one to the north. %TODO: Good enough?
+In Figure~\ref{fig:Introduction:network} we have five egdes: two to the west of traffic light, two to the east and one to the north. %TODO: Good enough?
 
-By connecting edges through connections, it is possible to model exactly the possible paths through a juction. 
-For example disallow a right turn.
+By connecting edges through connections, it is possible to model exactly the possible paths through a junction - for example disallowing a right turn.
+A connection is also associated a traffic light phase, $\cphase$ detailing when this connection has a red, green or yellow signal (see below).
 A juction is therefore made up of several connections that connect the road segments that one can drive to and from.
 For example each possible legal pass through the intersection in Figure~\ref{fig:Introduction:network} is a connection as shown in Figure~\ref{fig:Model:Connection} as red arrows. 
 A connection, $\con$ is hence unidirectional from one vertex, $\cestart\in V$ to another vertex, $\ceend \in V$, and a connection is made for each lane of the edges.
-A connection is also associated a traffic light phase, $\cphase$. 
 The example in Figure~\ref{fig:Introduction:network} hence have six connections assuming one cannot make U-turns.
-
 Connections can be seen as a type of edge associated with a phase.
 With this abstraction, it is possible to use standard route computing algorithms.
 
@@ -44,9 +42,11 @@ With this abstraction, it is possible to use standard route computing algorithms
 \label{fig:Model:Connection}
 \end{figure}
 
-\subsection{Sensors}
+\subsection{Sensors}%TODO: Remove, if we do not use it
 A sensor can detect whether a vehicle is located at the sensor or not. 
-Sensors can for example be induction loops or video cameras. %TODO: More stuff
+Sensors can for example be induction loops or video cameras.
+We only use induction loops, that register when a vehicle is directly on top of it. 
+An induction loop, $\indLoop\in\indLoopSet$, has a position, \indLoopPos which is the distance to the associated traffic light, a location, \indLoopLoc which is the lane it is located at and a vehicle count, $\indLoopVeh\in \mathbb{N}_0$ being the number of vehicles currently at the induction loop.
 
 \subsection{Traffic Light Phases}
 We have a traffic light phase for each connection in a traffic light, and each phase details the light setting for just this one connection.
@@ -55,9 +55,8 @@ A phase of a traffic light, $\phase$ is defined as $\langle(\light_0, \ti_0),(\l
 A connection in an unregulated junction will simply have the phase $\langle(green, \infty)\rangle$.
 The phases of a traffic light defines the light settings when sensors are not triggered. 
 
-
 \subsection{Junction}
-We define a junction \ju to be a set of connection, $\jucons \subseteq C$. 
+We define a junction \ju to be a set of connections, $\jucons \subseteq C$. 
 A junction can be either regulated or unregulated. 
 In an unregulated traffic light normal traffic rules apply. 
 In a regulated traffic light vehicles will have to check the phase $\cphase$ of the connection \vehpos. 
