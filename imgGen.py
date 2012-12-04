@@ -98,9 +98,10 @@ if(len(sys.argv) > 3):
 		output += "\"TestResults/" + dataset + "/50/avg.dat\" using (2):1 with boxes fill solid lc rgb '#778899',"
 		output += "\"TestResults/" + dataset + "/100/avg.dat\" using (3):1 with boxes fill solid lc rgb '#778899'"
 		print output
-	elif sys.argv[1].find("_combinedRouteTime") > 0:
-		route = sys.argv[1][:sys.argv[1].find("_")]
-		print route
+	elif sys.argv[1].find("_combinedRouteTime") >= 0:
+		temp = sys.argv[1][:sys.argv[1].find("_")]
+		if temp != "":
+			route = temp
 		print "set boxwidth 0.9"
 		print "set ylabel 'Average travel time (s)'"
 		print "set xlabel 'Percentage using the system'"
