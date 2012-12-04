@@ -29,9 +29,6 @@ with open(sys.argv[1] + "/trips.xml") as f:
 noVehicles = i -1
 f.close()
 
-#Insert string integers of vehicles to test specically. Set tesPercet to False.
-GSCvehIds = ['253']
-
 #Finding the vehicles to test
 testPercent = True
 percent = int(sys.argv[3])
@@ -45,7 +42,7 @@ while step==0 or traci.simulation.getMinExpectedNumber() > 0:
 	vehicles = traci.vehicle.getIDList()
 	GSC.Test.recordVehiclesOnRoute(vehicles)
 	for v in vehicles:
-		if (testPercent and int(v) in controlledVehicles) or v in GSCvehIds:
+		if (testPercent and int(v) in controlledVehicles):
 			speed = GSC.Vehicle.getRecommentedSpeed(v, 2000, 400000)
 			traci.vehicle.setSpeed(v, speed)
 			GSC.Test.processDataCollection(v, True)

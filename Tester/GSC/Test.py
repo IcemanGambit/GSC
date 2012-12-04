@@ -198,6 +198,10 @@ def flushDataCollection(percent, path = "default"):
 	avgChart.close()
 	
 	controlled_total_no_vehicles = len(controlledVehicles)
+	print "time controlled"
+	print controlled_total_no_vehicles
+	print totalControlledTravelTime
+	
 	if controlled_total_no_vehicles > 0:
 		avgChart = open(outputPath + "/controlled/avg.dat", "w")
 		print >> avgChart, str(totalControlledTravelTime/controlled_total_no_vehicles) + "\t" + str(totalControlledFuel/controlled_total_no_vehicles)
