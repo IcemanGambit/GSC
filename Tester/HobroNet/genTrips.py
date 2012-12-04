@@ -26,7 +26,7 @@ for o in ODmatrix:
 departTimes = []
 
 for i in range(0,noTrips):
-	departTimes.append(random.randrange(0,int(noTrips*1.4)))
+	departTimes.append(random.randrange(0,int(noTrips*2)))
 #departTimes = random.sample(xrange(0,int()), noTrips)
 
 
