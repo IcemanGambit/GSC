@@ -223,11 +223,12 @@ if(len(sys.argv) > 3):
 		print "set yrange [-0.5:]"
 		print "set ylabel 'Distance (m)'"
 		print "set xlabel 'Vehicles'"
+		print "set key default"
 		plotstring = ""
 		for i in range(0,20):
 			datafile = "TestResults/" + dataset+ "/" +datasetPercentage + "/stops" + str(i) + ".dat"
 			if(os.path.exists(datafile)):
-				plotstring += "\"" + datafile + "\" with impulses lt 1 lw 3 lc " + str(i+1) + ", \"" + datafile + "\" with points pt " + str(i+1) + " lc " + str(i+1) + ","
+				plotstring += "\"" + datafile + "\" with impulses lt 1 lw 3 lc " + str(i+1) + "title '" + str(i) + " stops', \"" + datafile + "\" with points pt " + str(i+1) + " lc " + str(i+1) + "notitle ,"
 		if(plotstring != ""):
 			print "plot " + plotstring[:len(plotstring)-1]
 else:
