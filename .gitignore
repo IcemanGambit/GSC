@@ -1,6 +1,9 @@
 Article/bin/
 AAKPresentation/bin/
 Tester/Test/
+Tester/RealData/acc/
+Tester/RealData/distance/
+Tester/RealData/speed/
 Maps/
 projectpres/bin/
 *.net.xml

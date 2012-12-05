@@ -40,7 +40,7 @@ def getNextGreen(tlId, inEgdeId, outEgdeId, maxtime):
 		i=0
 		while True:
 			for t in lights[tlId, inEgdeId, outEgdeId][1]:
-				if t[1]+((omloeb+i)*m) >= cur:
+				if t[1]+((omloeb+i)*m) > cur:
 					greenSpan.append([t[0]+((omloeb+i)*m), t[1]+((omloeb+i)*m)])
 	
 			if len(greenSpan) > 0 and greenSpan[len(greenSpan)-1][1]>=cur+maxtime:

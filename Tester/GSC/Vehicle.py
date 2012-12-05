@@ -47,8 +47,8 @@ def getRecommentedSpeed(vhId,minDistance, maxtime):
 		
 		#If first span has passed
 		# -> look at next span
-		if t >= span[1]:# or deltaTend <= 0:
-			continue
+		#if t >= span[1]:# or deltaTend <= 0:
+		#	continue
 		
 		#If slowest speed is larger than max speed
 		# -> look at next span

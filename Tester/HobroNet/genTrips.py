@@ -30,7 +30,11 @@ for o in ODmatrix:
 departTimes = []
 
 for i in range(0,noTrips):
+<<<<<<< HEAD
 	departTimes.append(random.randrange(0,int(noTrips/(float(sys.argv[3])))))
+=======
+	departTimes.append(random.randrange(0,int(noTrips*1)))
+>>>>>>> 4021b2cb1e2c6b9ef7548909cad92ee4bad2c661
 #departTimes = random.sample(xrange(0,int()), noTrips)
 
 

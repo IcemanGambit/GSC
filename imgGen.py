@@ -3,6 +3,7 @@ import os, subprocess, sys, random
 fuelRouteYMax = "200"
 fuelTotalYMax = "250"
 distanceYMax = "1600"
+speedMaxY = "80"
 
 if(len(sys.argv) > 3):
 	dataset = sys.argv[3]
@@ -98,9 +99,10 @@ if(len(sys.argv) > 3):
 		output += "\"TestResults/" + dataset + "/50/avg.dat\" using (2):1 with boxes fill solid lc rgb '#778899',"
 		output += "\"TestResults/" + dataset + "/100/avg.dat\" using (3):1 with boxes fill solid lc rgb '#778899'"
 		print output
-	elif sys.argv[1].find("_combinedRouteTime") > 0:
-		route = sys.argv[1][:sys.argv[1].find("_")]
-		print route
+	elif sys.argv[1].find("_combinedRouteTime") >= 0:
+		temp = sys.argv[1][:sys.argv[1].find("_")]
+		if temp != "":
+			route = temp
 		print "set boxwidth 0.9"
 		print "set ylabel 'Average travel time (s)'"
 		print "set xlabel 'Percentage using the system'"
@@ -169,12 +171,33 @@ if(len(sys.argv) > 3):
 			print "ERROR dataset do not exist"
 			sys.exit(1)
 		print "plot" + plots
+	
+	elif sys.argv[1].find("RealSpeed") >= 0:
+		print "set xrange [0:400]"
+		print "set yrange [0:" + speedMaxY + "]"
+		print "set ylabel 'Speed (m)'"
+		print "set xlabel 'Time (s)'"
+		plots = ""
+		counttotal = 0
+		for i in range(0,2000):
+			datafile = "TestResults/" + dataset + "/0/"+ route + "/speed/" + str(i) + ".dat"
+			if(not os.path.exists(datafile)):
+				continue
+			counttotal+= 1
+			if counttotal != 1:
+				plots += ","
+			
+			plots += "\"" + datafile + "\" using 1:2 with lines lt 1 lc "+ str(counttotal+1)+" "
+		if(plots == ""):
+			print "ERROR dataset do not exist"
+			sys.exit(1)
+		print "plot" + plots
 				
 	elif sys.argv[1].find("speed")> 0:
 		datasetPercentage = sys.argv[1][sys.argv[1].rfind("_")+1:]
 		conType = sys.argv[1][:sys.argv[1].find("_")]
 		print "set xrange [0:400]"
-		print "set yrange [0:70]"
+		print "set yrange [0:" + speedMaxY + "]"
 		print "set ylabel 'Speed (km/h)'"
 		print "set xlabel 'Time (s)'"
 		plots = ""
@@ -200,11 +223,12 @@ if(len(sys.argv) > 3):
 		print "set yrange [-0.5:]"
 		print "set ylabel 'Distance (m)'"
 		print "set xlabel 'Vehicles'"
+		print "set key default"
 		plotstring = ""
 		for i in range(0,20):
 			datafile = "TestResults/" + dataset+ "/" +datasetPercentage + "/stops" + str(i) + ".dat"
 			if(os.path.exists(datafile)):
-				plotstring += "\"" + datafile + "\" with impulses lt 1 lw 3 lc " + str(i+1) + ", \"" + datafile + "\" with points pt " + str(i+1) + " lc " + str(i+1) + ","
+				plotstring += "\"" + datafile + "\" with impulses lt 1 lw 3 lc " + str(i+1) + "title '" + str(i) + " stops', \"" + datafile + "\" with points pt " + str(i+1) + " lc " + str(i+1) + "notitle ,"
 		if(plotstring != ""):
 			print "plot " + plotstring[:len(plotstring)-1]
 
