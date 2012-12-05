@@ -207,6 +207,42 @@ if(len(sys.argv) > 3):
 				plotstring += "\"" + datafile + "\" with impulses lt 1 lw 3 lc " + str(i+1) + ", \"" + datafile + "\" with points pt " + str(i+1) + " lc " + str(i+1) + ","
 		if(plotstring != ""):
 			print "plot " + plotstring[:len(plotstring)-1]
+
+
+
+elif sys.argv[1].find("fuelCongestion") == 0:
+	
+	print "set terminal png size 700,400"
+	print "set output \"images/" + sys.argv[2]+ "\""
+	
+	print "set ylabel 'Fuel (ml)'"
+	print "set xlabel 'Congestion (vehicls per second)'"
+	plots = ""
+	temp = [0,10,50,100]
+	for i in temp:
+		datafile = "TestResults/avg" + str(i) + ".dat"
+		plots += "\"" + datafile + "\" using 1:3 with lines title '"+ str(i) + "%' "
+		if not i == temp[len(temp)-1]:
+			plots+=","
+	print "plot "+plots
+
+elif sys.argv[1].find("timeCongestion") == 0:
+	
+	print "set terminal png size 700,400"
+	print "set output \"images/" + sys.argv[2]+ "\""
+	
+	print "set ylabel 'Time (s)'"
+	print "set xlabel 'Congestion (vehicls per second)'"
+	plots = ""
+	temp = [0,10,50,100]
+	for i in temp:
+		datafile = "TestResults/avg" + str(i) + ".dat"
+		plots += "\"" + datafile + "\" using 1:2 with lines title '"+ str(i) + "%' "
+		if not i == temp[len(temp)-1]:
+			plots+=","
+	print "plot "+plots
+
+
 else:
 	print "to few arg"
 

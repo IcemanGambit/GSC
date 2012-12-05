@@ -109,7 +109,7 @@ def _getDistanceNextTrafficLight(vhId):
 	Vh_cord = traci.vehicle.getPosition(vhId)
 	#print TL[0]
 	#print TrafficLight.getRadius(TL[0])
-	return math.sqrt(((TL_cord[0]-Vh_cord[0])**2) + ((TL_cord[1]-Vh_cord[1])**2)) - TrafficLight.getRadius(TL[0])
+	return math.sqrt(((TL_cord[0]-Vh_cord[0])**2) + ((TL_cord[1]-Vh_cord[1])**2)) - TrafficLight.getRadius(TL[0]) -20
 
 """
 	getTotalDistanceDriven(string) -> int

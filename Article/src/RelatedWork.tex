@@ -1,4 +1,4 @@
-\section{Related Work}
+\section{Related Work}\label{sec:RelatedWork}
 %TODO: Rearrange this section
 
 The main purpose of our work is to help drivers reduce their fuel consumption by adjusting driving speed to traffic lights.
@@ -8,10 +8,11 @@ They also use the simulator SUMO to simulate their methods.
 Contrary to our approach, they rely on communication between nearby vehicles to estimate the number of blocking vehicles such that they can calculate the exact distance.
 Their road network is very simple, and do not include any crossing traffic or road senors, and their results are therefore based on a very simplified environment. 
 The network that we use is a replica of an often used road in Aalborg, Denmark. 
-This one kilometer section of Aalborg includes both traffic lights, crossing traffic, road sensors, and we model it using real observed dimensions, traffic light phases and congestion levels.
+This one and a half kilometer section of Aalborg includes both traffic lights, crossing traffic, road sensors, and we model it using real observed dimensions, traffic light phases and congestion levels.
 
-One method for designing traffic lights has been proposed in \cite{SOTL} that ensures green waves based on wireless communication between vehicles and traffic lights. Their results show a decrease in waiting time by 50 \% in their comparisons. 
-Waiting time is the difference between actual travel time and the minimal travel time (deviding the allowed speed with the travel distance)
+One method for designing traffic lights has been proposed in \cite{SOTL} that ensures green waves based on wireless communication between vehicles and traffic lights. 
+Their results show a decrease in waiting time by 50 \% in their comparisons. 
+Waiting time is the difference between the actual travel time and the minimal travel time (deviding the allowed speed with the travel distance).
 The authors of \cite{ITLC} also propose a mehtod for adjusting the traffic lights to the traffic. 
 They use reinforcement learning and a voting system amongst vehicles at or near a traffic light to calculate the total gain of different light settings. 
 Their results show a reduction in congestion and in some cases they reduce the waiting time by more that 25 \%.
@@ -28,19 +29,13 @@ Several types of simulation algorithms exist including macroscopic, mesoscopic, 
 Macroscopic algorithms model the flow of traffic abstracting the individual vehicles away, whereas mesoscopic models the vehicles but still at an abstract level. 
 Microscopic algorithms models vehicles and their behaviour in detail which allows a much more detailed analysis \cite{meso-micro}. 
 Hybrid algorithms can be any combination of the aforementioned.
-SUMO is a microscopic simulator, which we will need in order to model for exampel turn lanes.
+Two major microscopic traffic simulators of today are SUMO (Simulation of Urban Mobility)\cite{sumo} and VISSIM (VISSIM: A microscopic Simulation Tool to Evaluate Actuated Signal Control including Bus Priority)\cite{vissim}.
+Both are microscopic simulators, which we will need in order to model for exampel turn lanes.
+VISSIM is a comercial tool whereas SUMO is an open source project.
+We will be using SUMO when evaluating \tech.
 
-%Other simulators
-%Green Light District, VISSIM
-
-Several methods for modeling the movement of vehicles also exist.  %TODO: Need cites
-Amongst these are Monte Carlo models \cite{} that use random data, car following models \cite{} where cars follow leading cars, automatas where vehicles follow deterministc rules \cite{} and much more.
-
-Two major microscopic traffic simulators of today are SUMO (Simulation of Urban Mobility)\cite{sumo} and VISSIM (VISSIM: A microscopic Simulation Tool to Evaluate Actuated Signal Control including Bus Priority)
-
-%Models: macro, meso, micro, hybrid
-%Models: monte carlo, celular automata, Discrete event and continuous-time simulation, Car-following models
-%Tools: SUMO, VISSIM
+%Several methods for modeling the movement of vehicles also exist.  %TODO: Need cites
+%Amongst these are Monte Carlo models \cite{} that use random data, car following models \cite{} where cars follow leading cars, automatas where vehicles follow deterministc rules \cite{} and much more.
 
 
 

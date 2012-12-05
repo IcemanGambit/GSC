@@ -3,6 +3,7 @@ set -e
 output=default
 newnetwork=0 
 newtrips=-1
+congestion=1.4
 systemusers=0
 workingdir=$1
 gui="ngui"
@@ -13,6 +14,9 @@ while [ "$1" != "" ]; do
                                 ;;
         -tp)    				shift
 								newtrips=$1
+                                ;;
+        -c)    					shift
+								congestion=$1
                                 ;;
 		-u)    					shift
 								systemusers=$1
@@ -50,7 +54,7 @@ fi
 if [ "$newtrips" != "-1" ]; then
 
 	echo "Generate new routes with "$newtrips"% trucks"
-	python $workingdir"/"genTrips.py $workingdir $newtrips
+	python $workingdir"/"genTrips.py $workingdir $newtrips $congestion
 	duarouter --net-file $workingdir"/"Data.net.xml --trip-files $workingdir"/"trips.xml --route-files $workingdir"/"Data.rou.xml --output-file $workingdir"/Data".rou.xml
 
 else

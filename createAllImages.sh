@@ -6,8 +6,10 @@ mkdir -p images/Real
 python imgGen.py Reald RealDistance.png Real | gnuplot
 python imgGen.py acceleration acceleration.png Real |gnuplot
 
+python imgGen.py fuelCongestion fuelCongestion.png | gnuplot
+python imgGen.py timeCongestion timeCongestion.png | gnuplot
 
-array=(tp0)
+array=(tp0c0_6 tp0c1_0 tp0c1_4 tp0c1_8)
 for i in "${array[@]}"
 do
 mkdir -p images/$i
@@ -34,11 +36,11 @@ python imgGen.py uncontrolled_fuelTotal_50 fuelTotalUncontrolled50.png $i | gnup
 python imgGen.py combinedFuel combinedFuel.png $i | gnuplot
 python imgGen.py combinedTime combinedTime.png $i | gnuplot
 
-DIRS=`ls -l "TestResults/tp0/10" | egrep '^d' | awk '{print $9}'`
-for r in $DIRS
-do
-	python imgGen.py $r'_combinedRouteTime' $r'_combinedRouteTime.png' tp0 | gnuplot
-done
+#DIRS=`ls -l "TestResults/tp0/10" | egrep '^d' | awk '{print $9}'`
+#for r in $DIRS
+#do
+#	python imgGen.py $r'_combinedRouteTime' $r'_combinedRouteTime.png' tp0 | gnuplot
+#done
 
 python imgGen.py stops_0 stops0.png $i | gnuplot
 python imgGen.py stops_10 stops10.png $i | gnuplot
