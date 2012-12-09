@@ -137,11 +137,7 @@ We see the same results when 50 \% of the vehicles use \tech.
 \end{comment}
 
 We see this fuel reduction is because the vehicles accelerate less rapidly. 
-<<<<<<< HEAD
-Figure~\ref{fig:TestResults:distance100} shows the travel distance as a function over time when all vehicles use \tech. 
-=======
 Figure~\ref{fig:TestResults:distance100} shows the travel distance as a function over time when all vehicles use \tech, and Figure~\ref{fig:TestResults:speed100} plots the driving speed as a function over time.
->>>>>>> 3a1be5a782b4c37222fa86b8603094667a4d36ca
 We see that these curves are much more smooth, because they avoid stopping, and hence has to accelerate less.
 Some vehicles still have to stop, partly because it is impossible to drive the distance between the traffic lights in the amount of time left before it turns green, and partly because there are other vehicles blocking their path.
 \begin{figure}[htb]
@@ -149,14 +145,11 @@ Some vehicles still have to stop, partly because it is impossible to drive the d
 \caption{Travel distance for simulated data when 100\% use \tech}
 \label{fig:TestResults:distance100}
 \end{figure}
-<<<<<<< HEAD
-=======
 \begin{figure}[htb]
 \includegraphics[width=0.5\textwidth]{../images/tp0c1_0/speedControlled100.png}
 \caption{Driving speed for simulated data when 100\% use \tech}
 \label{fig:TestResults:speed100}
 \end{figure}
->>>>>>> 3a1be5a782b4c37222fa86b8603094667a4d36ca
 
 We can therefore conclude that in the tested use case, we see a significate reduction in fuel consumption even when it is only implemented in a small subset of the vehicles. 
 Moreover, vehicles using \tech does not have a negative influence the other fuel consumption of the vehicles.
@@ -176,16 +169,6 @@ This is mostly due to the fact that vehicles do not make a full stop at traffic 
 \end{figure}
 
 \subsection{Congestion levels}
-<<<<<<< HEAD
-
-Normal traffic usualy have some peak periods where the traffic is higher than normal \cite{Vejdir}. In order to test the effect of the system with different congestion levels we repeated the simmulation while changing the rate withs vehicles are spwaning. The effect of the fuel saved can be seen in Figure \ref{}. It is clear that the system loses some effect when the congestion level starts to rise. Traffic move slower through the network and lines of blocked vehicles build op at the traffic lights. This reduce the effect of the systems as it can no longer predict an accurate distance to the trafficlight.
-
-In Figure \ref{} we see the average time of all vehicles driving in the simulation compaired to the diffrent congestion levels. With low congestion there is almoste no diffrence in the time and the percentance of vehicles using the system. In the high congestion levels the systems shows an positive effect with 50\% or more users. In a congested network large queues of vehicles build up. A large portion of the time a trafficligh is green is wasted on the time it takes to get the queue moving. A queue of vehicles accelerrating spend less time gaining speed if they are already moving slowly. This is likly the reasion that the average time of all vehicles improve if enoth are using the system.
-
-
-
-
-=======
 Normal traffic usualy have peak periods where the traffic is higher than normal \cite{Vejdir}. 
 In order to test the effect of the system with different congestion levels we repeated the simulation while changing the rate with which vehicles are spwaning. 
 The fuel consumption at different penetration rates and congestion levels can be seen in Figure \ref{fig:TestResults:congestionFuel}. 
@@ -213,4 +196,3 @@ This is likly the reasion that the average time of all vehicles improve if enoug
 
 
 
->>>>>>> 3a1be5a782b4c37222fa86b8603094667a4d36ca

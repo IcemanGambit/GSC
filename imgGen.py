@@ -1,6 +1,6 @@
 import os, subprocess, sys, random
 
-fuelRouteYMax = "200"
+fuelRouteYMax = "250"
 fuelTotalYMax = "250"
 distanceYMax = "1600"
 speedMaxY = "80"
