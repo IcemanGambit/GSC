@@ -40,10 +40,9 @@ def getRecommentedSpeed(vhId,minDistance, maxtime):
 	#Calculate optimal speed
 	smax = 0 #Reaching just as light changes to green
 	smin = 0 #Reaching just before light changes to red
-
 	for span in spans:
-		deltaTbegin = (span[0] - t) + 1
-		deltaTend =  (span[1] - t) - 1
+		deltaTbegin = (span[0] - t) # + 1
+		deltaTend =  (span[1] - t) #- 1
 		
 		#If first span has passed
 		# -> look at next span
@@ -109,7 +108,7 @@ def _getDistanceNextTrafficLight(vhId):
 	Vh_cord = traci.vehicle.getPosition(vhId)
 	#print TL[0]
 	#print TrafficLight.getRadius(TL[0])
-	return math.sqrt(((TL_cord[0]-Vh_cord[0])**2) + ((TL_cord[1]-Vh_cord[1])**2)) - TrafficLight.getRadius(TL[0]) -20
+	return math.sqrt(((TL_cord[0]-Vh_cord[0])**2) + ((TL_cord[1]-Vh_cord[1])**2)) - TrafficLight.getRadius(TL[0])  #-20
 
 """
 	getTotalDistanceDriven(string) -> int

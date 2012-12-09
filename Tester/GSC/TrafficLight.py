@@ -7,6 +7,11 @@ import os
 lights = {}  
 lightSize = {}
 inductionLoopsOnRoute = {} # vhId -> [position, boolean] - True if induction loop lead
+runningdir = ""
+
+def SetRunningDir(setdir):
+	global runningdir
+	runningdir = setdir
 
 timer = 0
 vh_counter = 0
@@ -25,6 +30,8 @@ inductionLoopCounters = {'cluster_Ju_Hobrovej_sonderSkov_O_Ju_Hobrovej_sonderSko
 """
 
 def getNextGreen(tlId, inEgdeId, outEgdeId, maxtime):
+	global runningdir
+	
 	cur = traci.simulation.getCurrentTime()
 	#If phase already recorded then
 	#return calculate next green time span
@@ -37,7 +44,7 @@ def getNextGreen(tlId, inEgdeId, outEgdeId, maxtime):
 			print "m is zerro"
 
 		greenSpan = []
-		i=0
+		i=-1
 		while True:
 			for t in lights[tlId, inEgdeId, outEgdeId][1]:
 				if t[1]+((omloeb+i)*m) > cur:
@@ -59,15 +66,28 @@ def getNextGreen(tlId, inEgdeId, outEgdeId, maxtime):
 	
 	PhaseDefinition = traci.trafficlights.getCompleteRedYellowGreenDefinition(tlId)	
 	f = StringIO.StringIO(PhaseDefinition)
-	
 	step = 0
 	parsingGreen = False
 	startGreen = step
 	lights[tlId, inEgdeId, outEgdeId] = [0, []]
 	
+	#print runningdir
+	offsetRead = open(runningdir+"/Data.tll.xml")
+	offset = 0
+	line = offsetRead.readline()
+	while line:
+		line = offsetRead.readline()
+		if line.find(tlId) >= 0 and line.find("tlLogic") >= 0:
+			line2 = line[line.find("offset=\""):]
+			line2 = line2.split("\"")
+			offset = int(line2[1])
+			break
+	offset *= 1000
+	offsetRead.close()
 	#Record green phases
 	while True:
 		line = f.readline()
+		
 		if not line:
 			break
 		if line == "Phase:\n":
@@ -77,10 +97,11 @@ def getNextGreen(tlId, inEgdeId, outEgdeId, maxtime):
 			f.readline()
 			f.readline()
 			line = f.readline()
+			
 			redGreen = line.split(": ")[1]
 			#Record interval
 			if parsingGreen and not redGreen[p].lower() == "g":#Light turns yellow or red
-				lights[tlId, inEgdeId, outEgdeId][1].append([startGreen, step])
+				lights[tlId, inEgdeId, outEgdeId][1].append([startGreen+offset, step+offset])
 				parsingGreen = False
 			if not parsingGreen and redGreen[p].lower() == "g":#Light turns green
 				startGreen = step
@@ -89,7 +110,7 @@ def getNextGreen(tlId, inEgdeId, outEgdeId, maxtime):
 			step += duration
 	f.close()
 	if(parsingGreen == True):
-		lights[tlId, inEgdeId, outEgdeId][1].append([startGreen, step])
+		lights[tlId, inEgdeId, outEgdeId][1].append([startGreen+offset, step+offset])
 	
 	#Record and call function again
 	lights[tlId, inEgdeId, outEgdeId][0] = step

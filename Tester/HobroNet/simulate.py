@@ -29,6 +29,8 @@ with open(sys.argv[1] + "/trips.xml") as f:
 noVehicles = i -1
 f.close()
 
+GSC.TrafficLight.SetRunningDir(sys.argv[1]) #TODO this is more ugly
+
 #Finding the vehicles to test
 testPercent = True
 percent = int(sys.argv[3])

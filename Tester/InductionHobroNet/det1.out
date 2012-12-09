@@ -1,18 +1,14 @@
 <?xml version="1.0"?>
 
-<<<<<<< HEAD
-<!-- generated on man 03 dec 2012 15:45:27 CET by SUMO gui Version 0.15.0
-=======
-<!-- generated on man 03 dec 2012 15:26:06 CET by SUMO gui Version 0.15.0
->>>>>>> 9b48a7230fbdbd4b1a8248c64c6dff1bce628210
+<!-- generated on Wed Dec  5 12:59:00 2012 by SUMO sumo Version 0.15.0
 <?xml version="1.0" encoding="UTF-8"?>
 
-<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.sf.net/xsd/sumo-gui.exeConfiguration.xsd">
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.sf.net/xsd/sumoConfiguration.xsd">
 
     <input>
-        <net-file value="InductionHobroNet/Data.net.xml"/>
-        <route-files value="InductionHobroNet/Data.rou.alt.xml"/>
-        <additional-files value="InductionHobroNet/Data.det.xml,InductionHobroNet/Data2.det.xml"/>
+        <net-file value="InductionHobroNet//Data.net.xml"/>
+        <route-files value="InductionHobroNet//Data.rou.alt.xml"/>
+        <additional-files value="InductionHobroNet//Data.det.xml,InductionHobroNet//Data2.det.xml"/>
     </input>
 
     <time>
@@ -35,13 +31,208 @@
 -->
 
 <detector>
-<<<<<<< HEAD
-   <interval begin="0.00" end="30.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
-   <interval begin="30.00" end="57.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="133.33" occupancy="0.89" speed="16.60" length="4.00" nVehEntered="1"/>
-=======
-   <interval begin="0.00" end="30.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="3.25" speed="4.10" length="4.00" nVehEntered="1"/>
-   <interval begin="30.00" end="60.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="3" flow="360.00" occupancy="9.76" speed="4.10" length="4.00" nVehEntered="3"/>
-   <interval begin="60.00" end="90.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="2" flow="240.00" occupancy="6.50" speed="4.10" length="4.00" nVehEntered="2"/>
-   <interval begin="90.00" end="95.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="4.88" speed="-1.00" length="-1.00" nVehEntered="0"/>
->>>>>>> 9b48a7230fbdbd4b1a8248c64c6dff1bce628210
-</detector>
+   <interval begin="0.00" end="30.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="0.83" speed="16.11" length="4.00" nVehEntered="1"/>
+   <interval begin="30.00" end="60.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="4" flow="480.00" occupancy="3.51" speed="15.35" length="4.00" nVehEntered="4"/>
+   <interval begin="60.00" end="90.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="0.87" speed="15.33" length="4.00" nVehEntered="1"/>
+   <interval begin="90.00" end="120.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="0.84" speed="15.83" length="4.00" nVehEntered="1"/>
+   <interval begin="120.00" end="150.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="3" flow="360.00" occupancy="2.51" speed="15.92" length="4.00" nVehEntered="3"/>
+   <interval begin="150.00" end="180.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="5" flow="600.00" occupancy="5.50" speed="12.66" length="4.00" nVehEntered="5"/>
+   <interval begin="180.00" end="210.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="4" flow="480.00" occupancy="4.32" speed="12.66" length="4.00" nVehEntered="4"/>
+   <interval begin="210.00" end="240.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="2" flow="240.00" occupancy="2.53" speed="10.88" length="4.00" nVehEntered="2"/>
+   <interval begin="240.00" end="270.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="3" flow="360.00" occupancy="6.43" speed="6.59" length="4.00" nVehEntered="3"/>
+   <interval begin="270.00" end="300.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="2" flow="240.00" occupancy="33.48" speed="1.72" length="4.00" nVehEntered="2"/>
+   <interval begin="300.00" end="330.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="4" flow="480.00" occupancy="16.88" speed="5.14" length="4.00" nVehEntered="4"/>
+   <interval begin="330.00" end="360.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="360.00" end="390.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="82.27" speed="0.07" length="4.00" nVehEntered="1"/>
+   <interval begin="390.00" end="420.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="4" flow="480.00" occupancy="12.57" speed="4.47" length="4.00" nVehEntered="4"/>
+   <interval begin="420.00" end="450.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="99.40" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="450.00" end="480.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="480.00" end="510.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="5" flow="600.00" occupancy="20.73" speed="3.76" length="4.00" nVehEntered="5"/>
+   <interval begin="510.00" end="540.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="51.54" speed="3.62" length="4.00" nVehEntered="1"/>
+   <interval begin="540.00" end="570.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="570.00" end="600.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="3" flow="360.00" occupancy="51.77" speed="3.04" length="4.00" nVehEntered="3"/>
+   <interval begin="600.00" end="630.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="3" flow="360.00" occupancy="27.34" speed="4.80" length="4.00" nVehEntered="3"/>
+   <interval begin="630.00" end="660.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="660.00" end="690.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="76.75" speed="0.07" length="4.00" nVehEntered="1"/>
+   <interval begin="690.00" end="720.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="5" flow="600.00" occupancy="13.25" speed="5.05" length="4.00" nVehEntered="5"/>
+   <interval begin="720.00" end="750.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="90.06" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="750.00" end="780.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="780.00" end="810.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="5" flow="600.00" occupancy="15.51" speed="4.10" length="4.00" nVehEntered="5"/>
+   <interval begin="810.00" end="840.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="67.65" speed="3.13" length="4.00" nVehEntered="1"/>
+   <interval begin="840.00" end="870.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="870.00" end="900.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="3" flow="360.00" occupancy="41.55" speed="3.05" length="4.00" nVehEntered="3"/>
+   <interval begin="900.00" end="930.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="2" flow="240.00" occupancy="55.34" speed="4.54" length="4.00" nVehEntered="2"/>
+   <interval begin="930.00" end="960.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="960.00" end="990.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="2" flow="240.00" occupancy="60.99" speed="1.47" length="4.00" nVehEntered="2"/>
+   <interval begin="990.00" end="1020.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="4" flow="480.00" occupancy="14.91" speed="4.79" length="4.00" nVehEntered="4"/>
+   <interval begin="1020.00" end="1050.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="1050.00" end="1080.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="94.44" speed="0.07" length="4.00" nVehEntered="1"/>
+   <interval begin="1080.00" end="1110.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="4" flow="480.00" occupancy="10.30" speed="5.43" length="4.00" nVehEntered="4"/>
+   <interval begin="1110.00" end="1140.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="74.64" speed="3.18" length="4.00" nVehEntered="1"/>
+   <interval begin="1140.00" end="1170.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="1170.00" end="1200.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="4" flow="480.00" occupancy="34.44" speed="3.50" length="4.00" nVehEntered="4"/>
+   <interval begin="1200.00" end="1230.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="43.55" speed="3.96" length="4.00" nVehEntered="1"/>
+   <interval begin="1230.00" end="1260.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="1260.00" end="1290.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="2" flow="240.00" occupancy="56.45" speed="2.05" length="4.00" nVehEntered="2"/>
+   <interval begin="1290.00" end="1320.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="3" flow="360.00" occupancy="37.98" speed="3.95" length="4.00" nVehEntered="3"/>
+   <interval begin="1320.00" end="1350.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="1350.00" end="1380.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="82.08" speed="0.06" length="4.00" nVehEntered="1"/>
+   <interval begin="1380.00" end="1410.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="4" flow="480.00" occupancy="14.21" speed="4.00" length="4.00" nVehEntered="4"/>
+   <interval begin="1410.00" end="1440.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="94.83" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="1440.00" end="1470.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="1470.00" end="1500.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="4" flow="480.00" occupancy="25.37" speed="3.51" length="4.00" nVehEntered="4"/>
+   <interval begin="1500.00" end="1530.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="74.17" speed="3.53" length="4.00" nVehEntered="1"/>
+   <interval begin="1530.00" end="1560.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="1560.00" end="1590.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="3" flow="360.00" occupancy="52.75" speed="3.39" length="4.00" nVehEntered="3"/>
+   <interval begin="1590.00" end="1620.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="2" flow="240.00" occupancy="36.13" speed="3.89" length="4.00" nVehEntered="2"/>
+   <interval begin="1620.00" end="1650.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="1650.00" end="1680.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="76.34" speed="0.07" length="4.00" nVehEntered="1"/>
+   <interval begin="1680.00" end="1710.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="5" flow="600.00" occupancy="14.05" speed="4.83" length="4.00" nVehEntered="5"/>
+   <interval begin="1710.00" end="1740.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="88.13" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="1740.00" end="1770.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="1770.00" end="1800.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="5" flow="600.00" occupancy="18.15" speed="3.96" length="4.00" nVehEntered="5"/>
+   <interval begin="1800.00" end="1830.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="50.51" speed="3.27" length="4.00" nVehEntered="1"/>
+   <interval begin="1830.00" end="1860.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="1860.00" end="1890.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="3" flow="360.00" occupancy="42.94" speed="3.23" length="4.00" nVehEntered="3"/>
+   <interval begin="1890.00" end="1920.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="3" flow="360.00" occupancy="35.55" speed="4.70" length="4.00" nVehEntered="3"/>
+   <interval begin="1920.00" end="1950.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="1950.00" end="1980.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="2" flow="240.00" occupancy="68.17" speed="2.03" length="4.00" nVehEntered="2"/>
+   <interval begin="1980.00" end="2010.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="4" flow="480.00" occupancy="10.80" speed="5.25" length="4.00" nVehEntered="4"/>
+   <interval begin="2010.00" end="2040.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="89.49" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="2040.00" end="2070.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="93.28" speed="0.07" length="4.00" nVehEntered="1"/>
+   <interval begin="2070.00" end="2100.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="4" flow="480.00" occupancy="13.14" speed="5.01" length="4.00" nVehEntered="4"/>
+   <interval begin="2100.00" end="2130.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="65.87" speed="3.45" length="4.00" nVehEntered="1"/>
+   <interval begin="2130.00" end="2160.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="2160.00" end="2190.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="4" flow="480.00" occupancy="34.85" speed="3.15" length="4.00" nVehEntered="4"/>
+   <interval begin="2190.00" end="2220.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="58.68" speed="3.53" length="4.00" nVehEntered="1"/>
+   <interval begin="2220.00" end="2250.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="2250.00" end="2280.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="2" flow="240.00" occupancy="58.39" speed="1.88" length="4.00" nVehEntered="2"/>
+   <interval begin="2280.00" end="2310.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="4" flow="480.00" occupancy="11.59" speed="4.89" length="4.00" nVehEntered="4"/>
+   <interval begin="2310.00" end="2340.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="94.77" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="2340.00" end="2370.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="86.78" speed="0.07" length="4.00" nVehEntered="1"/>
+   <interval begin="2370.00" end="2400.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="4" flow="480.00" occupancy="20.15" speed="4.81" length="4.00" nVehEntered="4"/>
+   <interval begin="2400.00" end="2430.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="2430.00" end="2460.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="2460.00" end="2490.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="5" flow="600.00" occupancy="15.90" speed="4.36" length="4.00" nVehEntered="5"/>
+   <interval begin="2490.00" end="2520.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="56.51" speed="3.12" length="4.00" nVehEntered="1"/>
+   <interval begin="2520.00" end="2550.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="2550.00" end="2580.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="3" flow="360.00" occupancy="53.17" speed="3.31" length="4.00" nVehEntered="3"/>
+   <interval begin="2580.00" end="2610.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="3" flow="360.00" occupancy="28.53" speed="5.12" length="4.00" nVehEntered="3"/>
+   <interval begin="2610.00" end="2640.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="2640.00" end="2670.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="2" flow="240.00" occupancy="75.75" speed="2.19" length="4.00" nVehEntered="2"/>
+   <interval begin="2670.00" end="2700.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="4" flow="480.00" occupancy="11.14" speed="5.04" length="4.00" nVehEntered="4"/>
+   <interval begin="2700.00" end="2730.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="87.08" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="2730.00" end="2760.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="2760.00" end="2790.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="5" flow="600.00" occupancy="20.26" speed="3.73" length="4.00" nVehEntered="5"/>
+   <interval begin="2790.00" end="2820.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="75.08" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="2820.00" end="2850.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="2850.00" end="2880.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="3" flow="360.00" occupancy="39.62" speed="2.63" length="4.00" nVehEntered="3"/>
+   <interval begin="2880.00" end="2910.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="2" flow="240.00" occupancy="40.95" speed="4.37" length="4.00" nVehEntered="2"/>
+   <interval begin="2910.00" end="2940.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="2940.00" end="2970.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="2" flow="240.00" occupancy="69.02" speed="1.94" length="4.00" nVehEntered="2"/>
+   <interval begin="2970.00" end="3000.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="4" flow="480.00" occupancy="13.13" speed="4.89" length="4.00" nVehEntered="4"/>
+   <interval begin="3000.00" end="3030.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="3030.00" end="3060.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="96.00" speed="0.07" length="4.00" nVehEntered="1"/>
+   <interval begin="3060.00" end="3090.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="4" flow="480.00" occupancy="10.39" speed="5.46" length="4.00" nVehEntered="4"/>
+   <interval begin="3090.00" end="3120.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="54.60" speed="3.25" length="4.00" nVehEntered="1"/>
+   <interval begin="3120.00" end="3150.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="3150.00" end="3180.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="4" flow="480.00" occupancy="32.08" speed="4.10" length="4.00" nVehEntered="4"/>
+   <interval begin="3180.00" end="3210.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="2" flow="240.00" occupancy="48.84" speed="4.20" length="4.00" nVehEntered="2"/>
+   <interval begin="3210.00" end="3240.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="3240.00" end="3270.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="2" flow="240.00" occupancy="58.05" speed="1.69" length="4.00" nVehEntered="2"/>
+   <interval begin="3270.00" end="3300.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="4" flow="480.00" occupancy="21.89" speed="5.42" length="4.00" nVehEntered="4"/>
+   <interval begin="3300.00" end="3330.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="3330.00" end="3360.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="85.90" speed="0.07" length="4.00" nVehEntered="1"/>
+   <interval begin="3360.00" end="3390.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="4" flow="480.00" occupancy="15.44" speed="4.89" length="4.00" nVehEntered="4"/>
+   <interval begin="3390.00" end="3420.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="3420.00" end="3450.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="3450.00" end="3480.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="5" flow="600.00" occupancy="22.74" speed="3.81" length="4.00" nVehEntered="5"/>
+   <interval begin="3480.00" end="3510.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="53.99" speed="3.68" length="4.00" nVehEntered="1"/>
+   <interval begin="3510.00" end="3540.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="3540.00" end="3570.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="3" flow="360.00" occupancy="47.76" speed="3.31" length="4.00" nVehEntered="3"/>
+   <interval begin="3570.00" end="3600.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="3" flow="360.00" occupancy="36.07" speed="5.12" length="4.00" nVehEntered="3"/>
+   <interval begin="3600.00" end="3630.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="3630.00" end="3660.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="77.81" speed="0.07" length="4.00" nVehEntered="1"/>
+   <interval begin="3660.00" end="3690.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="4" flow="480.00" occupancy="26.43" speed="4.82" length="4.00" nVehEntered="4"/>
+   <interval begin="3690.00" end="3720.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="3720.00" end="3750.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="96.90" speed="0.06" length="4.00" nVehEntered="1"/>
+   <interval begin="3750.00" end="3780.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="4" flow="480.00" occupancy="10.50" speed="5.19" length="4.00" nVehEntered="4"/>
+   <interval begin="3780.00" end="3810.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="72.14" speed="3.46" length="4.00" nVehEntered="1"/>
+   <interval begin="3810.00" end="3840.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="3840.00" end="3870.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="3" flow="360.00" occupancy="42.00" speed="2.98" length="4.00" nVehEntered="3"/>
+   <interval begin="3870.00" end="3900.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="2" flow="240.00" occupancy="61.01" speed="5.26" length="4.00" nVehEntered="2"/>
+   <interval begin="3900.00" end="3930.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="3930.00" end="3960.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="2" flow="240.00" occupancy="61.44" speed="1.62" length="4.00" nVehEntered="2"/>
+   <interval begin="3960.00" end="3990.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="4" flow="480.00" occupancy="13.07" speed="4.89" length="4.00" nVehEntered="4"/>
+   <interval begin="3990.00" end="4020.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="4020.00" end="4050.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="93.10" speed="0.07" length="4.00" nVehEntered="1"/>
+   <interval begin="4050.00" end="4080.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="5" flow="600.00" occupancy="14.57" speed="4.78" length="4.00" nVehEntered="5"/>
+   <interval begin="4080.00" end="4110.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="78.44" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="4110.00" end="4140.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="4140.00" end="4170.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="4" flow="480.00" occupancy="31.41" speed="3.92" length="4.00" nVehEntered="4"/>
+   <interval begin="4170.00" end="4200.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="2" flow="240.00" occupancy="51.56" speed="4.45" length="4.00" nVehEntered="2"/>
+   <interval begin="4200.00" end="4230.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="4230.00" end="4260.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="2" flow="240.00" occupancy="60.70" speed="2.17" length="4.00" nVehEntered="2"/>
+   <interval begin="4260.00" end="4290.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="3" flow="360.00" occupancy="36.40" speed="4.69" length="4.00" nVehEntered="3"/>
+   <interval begin="4290.00" end="4320.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="4320.00" end="4350.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="86.62" speed="0.06" length="4.00" nVehEntered="1"/>
+   <interval begin="4350.00" end="4380.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="5" flow="600.00" occupancy="14.61" speed="4.74" length="4.00" nVehEntered="5"/>
+   <interval begin="4380.00" end="4410.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="81.90" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="4410.00" end="4440.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="4440.00" end="4470.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="4" flow="480.00" occupancy="24.22" speed="3.62" length="4.00" nVehEntered="4"/>
+   <interval begin="4470.00" end="4500.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="2" flow="240.00" occupancy="55.84" speed="4.14" length="4.00" nVehEntered="2"/>
+   <interval begin="4500.00" end="4530.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="4530.00" end="4560.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="3" flow="360.00" occupancy="52.87" speed="3.19" length="4.00" nVehEntered="3"/>
+   <interval begin="4560.00" end="4590.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="3" flow="360.00" occupancy="31.26" speed="5.02" length="4.00" nVehEntered="3"/>
+   <interval begin="4590.00" end="4620.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="4620.00" end="4650.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="74.67" speed="0.07" length="4.00" nVehEntered="1"/>
+   <interval begin="4650.00" end="4680.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="4" flow="480.00" occupancy="17.93" speed="4.19" length="4.00" nVehEntered="4"/>
+   <interval begin="4680.00" end="4710.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="4710.00" end="4740.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="4740.00" end="4770.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="5" flow="600.00" occupancy="16.11" speed="4.13" length="4.00" nVehEntered="5"/>
+   <interval begin="4770.00" end="4800.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="65.20" speed="3.72" length="4.00" nVehEntered="1"/>
+   <interval begin="4800.00" end="4830.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="4830.00" end="4860.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="3" flow="360.00" occupancy="43.39" speed="3.00" length="4.00" nVehEntered="3"/>
+   <interval begin="4860.00" end="4890.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="2" flow="240.00" occupancy="49.13" speed="4.29" length="4.00" nVehEntered="2"/>
+   <interval begin="4890.00" end="4920.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="4920.00" end="4950.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="2" flow="240.00" occupancy="68.52" speed="2.06" length="4.00" nVehEntered="2"/>
+   <interval begin="4950.00" end="4980.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="3" flow="360.00" occupancy="36.70" speed="4.96" length="4.00" nVehEntered="3"/>
+   <interval begin="4980.00" end="5010.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="100.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5010.00" end="5040.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="86.89" speed="0.06" length="4.00" nVehEntered="1"/>
+   <interval begin="5040.00" end="5070.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="1" flow="120.00" occupancy="3.19" speed="4.18" length="4.00" nVehEntered="1"/>
+   <interval begin="5070.00" end="5100.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5100.00" end="5130.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5130.00" end="5160.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5160.00" end="5190.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5190.00" end="5220.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5220.00" end="5250.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5250.00" end="5280.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5280.00" end="5310.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5310.00" end="5340.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5340.00" end="5370.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5370.00" end="5400.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5400.00" end="5430.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5430.00" end="5460.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5460.00" end="5490.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5490.00" end="5520.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5520.00" end="5550.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5550.00" end="5580.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5580.00" end="5610.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5610.00" end="5640.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5640.00" end="5670.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5670.00" end="5700.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5700.00" end="5730.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5730.00" end="5760.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5760.00" end="5790.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5790.00" end="5820.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5820.00" end="5850.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5850.00" end="5880.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5880.00" end="5910.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5910.00" end="5940.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5940.00" end="5970.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5970.00" end="6000.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="6000.00" end="6030.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="6030.00" end="6060.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="6060.00" end="6090.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="6090.00" end="6120.00" id="il_cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="6120.00

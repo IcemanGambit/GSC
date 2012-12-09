@@ -22,18 +22,18 @@
 -->
 
 <tlLogics version="0.13" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.sf.net/xsd/tllogic_file.xsd">
-	<tlLogic id="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" type="static" programID="0" offset="0">
-		<phase duration="32" state="ggggrrrrrrrrgggg"/> <!-- 2 -->
+	<tlLogic id="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" type="static" programID="0" offset="70">
+		<phase duration="32" state="GGGgrrrrrrrrGGGg"/> <!-- 2 -->
 		<phase duration="4"  state="yyygrrrrrrrryyyg"/>
 		<phase duration="6"  state="rrrGrrrrrrrrrrrG"/>
 		<phase duration="4"  state="rrryrrrrrrrrrrry"/>
 		<phase duration="2"  state="rrrryyyyyyyyrrrr"/>
-		<phase duration="32" state="rrrrggggggggrrrr"/> <!-- 3 -->
+		<phase duration="32" state="rrrrGGGgGGGgrrrr"/> <!-- 3 -->
 		<phase duration="4"  state="rrrryyygyyygrrrr"/>
-		<phase duration="2"  state="yrrrrrrgrrrgyrrr"/>
-		<phase duration="8" state="GrrrrrrGrrrGGrrr"/>
+		<phase duration="2"  state="yrrrrrrGrrrGyrrr"/>
+		<phase duration="8"  state="GrrrrrrGrrrGGrrr"/>
 		<phase duration="4"  state="GrrrrrryrrryGrrr"/>
-		<phase duration="2"  state="gyyyrrrrrrrrgyyy"/>
+		<phase duration="2"  state="GyyyrrrrrrrrGyyy"/>
 
 	</tlLogic>
 
@@ -100,13 +100,12 @@
 	
 	<!-- Begin Junction hobrovej_VestreAlle_NyKervej -->
 	<tlLogic id="Ju_hobrovej_VestreAlle_NyKervej" type="static" programID="0" offset="0">
-
-		<phase duration="44" state="ggggggggrrrrrr"/> <!-- 2 -->
+		<phase duration="44" state="GGGgGGGgrrrrrr"/> <!-- 2 -->
 		<phase duration="4"  state="yyygyyygrrrrrr"/>
 		<phase duration="6"  state="rrrGrrrGrrrrrr"/> <!-- 3 -->
 		<phase duration="4"  state="rrryrrryrrrrrr"/>
 		<phase duration="2"  state="rrrrrrrryyyyyy"/>
-		<phase duration="34" state="rrrrrrrrgggggg"/> <!-- 4 -->
+		<phase duration="34" state="rrrrrrrrGGgGGg"/> <!-- 4 -->
 		<phase duration="4"  state="rrrrrrrryyyyyy"/>
 		<phase duration="2"  state="yyyyyyyyrrrrrr"/>
 	</tlLogic>

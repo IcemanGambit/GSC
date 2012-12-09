@@ -10,7 +10,7 @@ python imgGen.py RealSpeed RealSpeed.png Real | gnuplot
 python imgGen.py fuelCongestion fuelCongestion.png | gnuplot
 python imgGen.py timeCongestion timeCongestion.png | gnuplot
 
-array=(tp0c0_6 tp0c0_8 tp0c1_0 tp0c1_2 tp0c1_4 tp0c1_6 tp0c1_8)
+array=(tp0c0_4 tp0c0_6 tp0c0_8 tp0c1_0 tp0c1_2 tp0c1_4 tp0c1_6 tp0c1_8)
 for i in "${array[@]}"
 do
 mkdir -p images/$i
@@ -44,7 +44,6 @@ python imgGen.py combinedTime combinedTime.png $i | gnuplot
 #done
 
 python imgGen.py _combinedRouteTime combinedRouteTime.png $i | gnuplot
-
 
 python imgGen.py stops_0 stops0.png $i | gnuplot
 python imgGen.py stops_10 stops10.png $i | gnuplot
