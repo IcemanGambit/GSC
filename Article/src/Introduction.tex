@@ -1,4 +1,6 @@
 \section{Introduction}
+
+%TODO: Traffic flow?
 It is a well known fact that a vehicle driving at a constant velocity use less fuel than an accelerating vehicle due to the physical laws of motion\cite{Vejdir}.
 In order to save fuel, one should therefore try to drive with a constant speed, but several factors prevents drivers in doing this. 
 These factors are for example merging roads, blocking vehicles, traffic incidents and traffic lights. 
@@ -27,31 +29,28 @@ The cost of upgrading a traffic light with detectors is 200.000-300.000 danish k
 We focus on investigating whether it is possible to reduce the fuel consumption at traffic ligths by matching driving speed to traffic lights. 
 We investigate this through simulations with real world map data, traffic data and traffic light programs. %TODO check we do this
 We use the traffic simulator SUMO (Simulation of Urban Mobility)\cite{sumo} interfaced via TraCI (Traffic Control Interface)\cite{traci} which is a full scall microscopic traffic simulator.
-
-The system that we propose, is designed with the assumption that very few vehicle will be using it initialy. 
-Because of this, we cannot rely on communication between vehicles.
-We do, however, assume that traffic lights and vehicles can communicate such that the phases of the traffic lights are avaiable.
-We assume the vehicles use a GPS system that handels the communication and that provides a route to travers.
-We do not require any further equipment that this.
-Additionally, we assume that all drivers follow the rules of traffic, e.g. drives below the speed limit, do not drive into other vehicles and wait for crossing traffic.
-
-%TODO: Challenges
+This poses a number of challenges, that will need to be accounted for:
 \begin{enumerate} %TODO: More challenges?
 \item \textbf{Limitations of SUMO.}
-Simulators do not simulate the the real world perfectly, and some simplefications are made in order for it to function. 
-These include, limits on the size of the road network, lack of pedestians, wether factors and more, simplified acceleration and deceleration profiles and the ability to break the traffic rules.
+Simulators do not simulate the the real world perfectly, and some simplefications are made. 
+These include, limits on the size of the road network, lack of pedestians, wether factors and more, simplified acceleration and deceleration profiles and the inability to break the traffic rules, e.g.speed limits.
 \item \textbf{Configuring SUMO.}
 The simulations should be as realistic as possible, and therefore based on real data. 
 The road network should have the same dimensions, the traffic signals should behave similar and the congestion levels should be similar to what is observed in the real world.
 \item \textbf{No communication between vehicles.} 
 The system should work even though very few vehicles are using it initially, and hence we cannot rely on communication between vehicles. 
 The number of blocking vehicles in the road network, will therefore be an unknown factor in the system.
+\item \textbf{Knowning when the next traffic light is green.}
+This is essential for the system to work.
+Several approaches exist, but we will focus on one at requires access to the actual traffic light programs.
+In this paper, we will assume this is avaible, and used in the simulation. 
+In order to know the next traffic light, will require the driver to provide a route and to follow that route. 
 \end{enumerate}
 
 %TODO: Contributions
 
-The structure of the remaining paper is as follows: 
-We describe the related work in Section~\ref{sec:RelatedWork} and our model in Section~\ref{sec:Model}. 
+The paper is organised as follows: 
+We describe the related work in Section~\ref{sec:RelatedWork} and the model in Section~\ref{sec:Model}. 
 In Section~\ref{sec:Math}, we detail the proposed techinique by going through the algorithm.
 Section~\ref{sec:UseCase} is about the use case that we test the proposed technique on, and the results of these tests are evaluated in Section~\ref{sec:Test}. 
 We conclude the findings in Section~\ref{sec:Conclusion}.
