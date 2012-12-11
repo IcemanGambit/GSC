@@ -8,19 +8,20 @@ In this section, we test the proposed techinque on the use case explained in the
 % Time
 % Congestion
 
+
 \begin{table}
 \centering
 \begin{tabular}{|l|l|cc|cc|}\hline
-Percent using 			& With or without				& \multicolumn{2}{c|}{Fuel} 	& \multicolumn{2}{c|}{Time}\\
+Percent using 			& With/w.o. 	& \multicolumn{2}{c|}{Fuel} 	& \multicolumn{2}{c|}{Time}\\
 \tech					&\tech					& $ml$	& Diff.		&	$s$	& Diff.\\\hline
-\multirow{1}{*}{0\%}	& w.o. \tech	&	150 &	0\%	&	108 & 0\%		\\\hline
-\multirow{2}{*}{10\%}	& w. \tech		&	100 &	20\%	&	108 & 0\%		\\
-						& w.o. \tech	&	151 &	-1\%	&	108 & 0\%		\\\hline
-\multirow{2}{*}{50\%}	& w. \tech		&	100	&	\%		&	108 & 0\%\\
-						& w.o. \tech	&	150	&	\%		&	108 & 0\%\\\hline
-\multirow{1}{*}{100\%}	& w. \tech		&	100	&	\%		&	108 & 0\%\\\hline
+\multirow{1}{*}{0\%}	& Without	&	150 &	0\%	&	108 & 0\%		\\\hline
+\multirow{2}{*}{10\%}	& With 	&	100 &	20\%	&	108 & 0\%		\\
+						& Without 	&	151 &	-1\%	&	108 & 0\%		\\\hline
+\multirow{2}{*}{50\%}	& With	&	100	&	\%		&	108 & 0\%\\
+						& Without	&	150	&	\%		&	108 & 0\%\\\hline
+\multirow{1}{*}{100\%}	& With	&	100	&	\%		&	108 & 0\%\\\hline
 \end{tabular}
-\caption{Average values with out sensors. Diff is the difference compared to 0 \% using \tech}
+\caption{Average values with out sensors. Diff. is the difference compared to 0 \% using \tech}
 \label{tb:TestResults:total}
 \end{table}
 
@@ -35,7 +36,7 @@ Travel distance as a function over time is plotted in Figure~\ref{fig:TestResult
 We see that the curves flatens at about 300 m, 600 m, 900 m and 1200 m, indicating that the vehicles are stationary.
 This corresponds well with the dimentions of Hobrovej and match the four regulated traffic lights.
 \begin{figure}[htb]
-\includegraphics[width=0.5\textwidth]{../images/Real/RealDistance.png}
+\includegraphics[width=0.45\textwidth]{../images/Real/RealDistance.png}
 \caption{Travel distance for real GPS trajectories}
 \label{fig:TestResults:realDistance}
 \end{figure}
@@ -46,7 +47,7 @@ This is because the traffic light phases of the simulation are too different com
 Besides that, the acceleration profiles look similar, and the map has the correct dimensions.
 
 \begin{figure}[htb]
-\includegraphics[width=0.5\textwidth]{../images/tp0c1_0/distanceUncontrolled0.png}
+\includegraphics[width=0.45\textwidth]{../images/tp0c1_0/distanceUncontrolled0.png}
 \caption{Travel distance for simulated data without \tech}
 \label{fig:TestResults:distance0}
 \end{figure}
@@ -58,7 +59,7 @@ Some also drive much faster than that.
 Besides that, we see that many drop to around 0 km/h and that some are able to avoid a full stop.
 
 \begin{figure}[htb]
-\includegraphics[width=0.5\textwidth]{../images/Real/RealSpeed.png}
+\includegraphics[width=0.45\textwidth]{../images/Real/RealSpeed.png}
 \caption{Speed for real GPS trajectories}
 \label{fig:TestResults:RealSpeed}
 \end{figure}
@@ -73,7 +74,7 @@ This will also mean that the use more fuel than a real driver would use.
 
 %TODO: Can we get 20 random plots in stead of the first 20?
 \begin{figure}[htb]
-\includegraphics[width=0.5\textwidth]{../images/tp0c1_0/speedUncontrolled0.png}
+\includegraphics[width=0.45\textwidth]{../images/tp0c1_0/speedUncontrolled0.png}
 \caption{Speed for simulated data without \tech}
 \label{fig:TestResults:speed0}
 \end{figure}
@@ -91,13 +92,14 @@ We therefore see a significant overall reduction in fuel consumption on about 20
 Looking at just the selected route through the network, we see the same tendency (see Figure~\ref{fig:TestResults:fuelRoute}). 
 The average fuel consumption with \tech is about $114 ml$ and about $166 ml$ without, resulting in a reduction at 31.3 \%.
 %TODO: Consider using 10% in stead of 100% in the two figures below.
-\begin{figure}[h]
-\includegraphics[width=0.5\textwidth]{../images/tp0c1_0/fuelTotal.png}
+\begin{figure}[htb]
+\includegraphics[width=0.45\textwidth]{../images/tp0c1_0/fuelTotal.png}
 \caption{Fuel consumption for all vehicles in the network. Blue: 100\% using \tech, green: 0\% using \tech}
 \label{fig:TestResults:fuelTotal}
 \end{figure}
-\begin{figure}[h]
-\includegraphics[width=0.5\textwidth]{../images/tp0c1_0/fuelRoute.png}
+
+\begin{figure}[htb]
+\includegraphics[width=0.45\textwidth]{../images/tp0c1_0/fuelRoute.png}
 \caption{Fuel consumption for all vehicles on the selected route}
 \label{fig:TestResults:fuelRoute}
 \end{figure}
@@ -112,8 +114,8 @@ When the penetration rate increases to 50 \%, we see that the fuel consumption d
 This is most likely because vehicles start platooning (driving in groups), where vehicles using \tech force other vehicles to drive slower and as the recommended speed may match the traffic lights less when the vehicles huddle together.
 The average fuel consumption when all vehicles use \tech, is about 130 $ml$, which 10 \% more than the average of the 10 \% using \tech, but still 20 \% lower than no one using \tech.
 
-\begin{figure}[h]
-\includegraphics[width=0.5\textwidth]{../images/tp0c1_0/combinedFuel.png}
+\begin{figure}[htb]
+\includegraphics[width=0.45\textwidth]{../images/tp0c1_0/combinedFuel.png}
 \caption{Fuel consumption for different penetration rates on the main route}
 \label{fig:TestResults:combinedFuel}
 \end{figure}
@@ -141,12 +143,13 @@ Figure~\ref{fig:TestResults:distance100} shows the travel distance as a function
 We see that these curves are much more smooth, because they avoid stopping, and hence has to accelerate less.
 Some vehicles still have to stop, partly because it is impossible to drive the distance between the traffic lights in the amount of time left before it turns green, and partly because there are other vehicles blocking their path.
 \begin{figure}[htb]
-\includegraphics[width=0.5\textwidth]{../images/tp0c1_0/distanceControlled100.png}
+\includegraphics[width=0.45\textwidth]{../images/tp0c1_0/distanceControlled100.png}
 \caption{Travel distance for simulated data when 100\% use \tech}
 \label{fig:TestResults:distance100}
 \end{figure}
+
 \begin{figure}[htb]
-\includegraphics[width=0.5\textwidth]{../images/tp0c1_0/speedControlled100.png}
+\includegraphics[width=0.45\textwidth]{../images/tp0c1_0/speedControlled100.png}
 \caption{Driving speed for simulated data when 100\% use \tech}
 \label{fig:TestResults:speed100}
 \end{figure}
@@ -162,8 +165,8 @@ Introducing the systemt to 10 \% of the vehicles does not change this significan
 However, as the penetration rate increase, we see a small reduction in travel time. 
 This is mostly due to the fact that vehicles do not make a full stop at traffic lights, and therefore are able to start faster.
 
-\begin{figure}[h]
-\includegraphics[width=0.5\textwidth]{../images/tp0c1_0/combinedTime.png}
+\begin{figure}[htb]
+\includegraphics[width=0.45\textwidth]{../images/tp0c1_0/combinedTime.png}
 \caption{Travel time for all routes at different level of vehicles using \tech}
 \label{fig:TestResults:combinedTime}
 \end{figure}
@@ -175,8 +178,8 @@ The fuel consumption at different penetration rates and congestion levels can be
 It is clear that the effect of the system decreases when the congestion level increases. 
 Traffic moves slower through the network and groups of blocking vehicles build up at the traffic lights. 
 This reduce the effect of the system as it can no longer predict an accurate distance to the traffic light.
-\begin{figure}[h]
-%\includegraphics[width=0.5\textwidth]{../images/tp0c1_0/}
+\begin{figure}[htb]
+\includegraphics[width=0.45\textwidth]{../images/fuelCongestion.png}
 \caption{Fuel consumption at different penetration and congestion levels}
 \label{fig:TestResults:congestionFuel}
 \end{figure}
@@ -188,8 +191,8 @@ In a congested network large queues of vehicles build up.
 A large portion of the time a traffic light is green is wasted on the time it takes to get the queue moving. 
 A queue of vehicles accelerrating spend less time gaining speed if they are already moving slowly. 
 This is likly the reasion that the average time of all vehicles improve if enough are using the system.
-\begin{figure}[h]
-%\includegraphics[width=0.5\textwidth]{../images/tp0c1_0/}
+\begin{figure}[htb]
+\includegraphics[width=0.45\textwidth]{../images/timeCongestion.png}
 \caption{Travel time at different penetration and congestion levels}
 \label{fig:TestResults:congestionTime}
 \end{figure}
