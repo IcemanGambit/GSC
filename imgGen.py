@@ -3,6 +3,7 @@ import os, subprocess, sys, random
 fuelRouteYMax = "250"
 fuelTotalYMax = "250"
 distanceYMax = "1600"
+xMax ="300"
 speedMaxY = "80"
 
 if(len(sys.argv) > 3):
@@ -131,7 +132,7 @@ if(len(sys.argv) > 3):
 	elif sys.argv[1].find("distance") > 0:
 		datasetPercentage = sys.argv[1][sys.argv[1].rfind("_")+1:]
 		conType = sys.argv[1][:sys.argv[1].find("_")]
-		print "set xrange [0:400]"
+		print "set xrange [0:"+xMax+"]"
 		print "set yrange [0:" + distanceYMax + "]"
 		print "set ylabel 'Distance (m)'"
 		print "set xlabel 'Time (s)'"
@@ -152,7 +153,7 @@ if(len(sys.argv) > 3):
 		print "plot" + plots
 		
 	elif sys.argv[1].find("Reald") >= 0:
-		print "set xrange [0:400]"
+		print "set xrange [0:"+xMax+"]"
 		print "set yrange [0:" + distanceYMax + "]"
 		print "set ylabel 'Distance (m)'"
 		print "set xlabel 'Time (s)'"
@@ -173,7 +174,7 @@ if(len(sys.argv) > 3):
 		print "plot" + plots
 	
 	elif sys.argv[1].find("RealSpeed") >= 0:
-		print "set xrange [0:400]"
+		print "set xrange [0:"+xMax+"]"
 		print "set yrange [0:" + speedMaxY + "]"
 		print "set ylabel 'Speed (m)'"
 		print "set xlabel 'Time (s)'"
@@ -196,7 +197,7 @@ if(len(sys.argv) > 3):
 	elif sys.argv[1].find("speed")> 0:
 		datasetPercentage = sys.argv[1][sys.argv[1].rfind("_")+1:]
 		conType = sys.argv[1][:sys.argv[1].find("_")]
-		print "set xrange [0:400]"
+		print "set xrange [0:"+xMax+"]"
 		print "set yrange [0:" + speedMaxY + "]"
 		print "set ylabel 'Speed (km/h)'"
 		print "set xlabel 'Time (s)'"

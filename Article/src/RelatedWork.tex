@@ -3,21 +3,21 @@ The main purpose of our work is to help drivers reduce their fuel consumption by
 
 SignalGURU\cite{SignalGURU} is a similar project that also work on matching driving speed to traffic lights.
 They use windscreen mounted smartphone cameras to capture the state of nearby traffic ligths and collaboration between other user to infer when the light will be green.
-In-field studies show a fuel reduction of 20.3 \% for both pre-timed and traffic-actualted traffic signals.
+Field studies show a fuel reduction of 20.3 \% for both pretimed and traffic actualted traffic signals.
 Their infrastructure-less approach requires collaboration between other vehicles, which is what we aim to avoid.
 Instead, we assume the actual programs of the traffic signal are aviable and use heuristics to account for blocking traffic.
 
 Audi Travolution\cite{audi} has also made an advisory system directly build into the vehicle to match speed to traffic lights.
 Results from a project in 2006 show a 17 \% reduction in fuel consumption.
 Their approach relies on direct communication with the traffic light systems via wireless LAN and UMTS links.
-Contrary to Audi Travolutions project we focus on a system that is detatched from the vehicle, and in return provides much more freedom of use.
+Contrary to Audi Travolutions project we focus on a system that is detatched from the vehicle, which means you do not have to by a new vheicle.
 
 The authors of \cite{VANETsim} have also proposed an idea similar to ours, in that they evaluate whether drivers should accelerate or decelerate when approaching a traffic light.
 They also use the simulator SUMO to simulate their methods.
 Contrary to our approach, they rely on communication between nearby vehicles to estimate the number of blocking vehicles such that they can calculate the exact distance.
 Their road network is very simple, and do not include any crossing traffic or road senors, and their results are therefore based on a very simplified environment. 
-The network that we use is a replica of an often used road in Aalborg, Denmark. 
-This one and a half kilometer section of Aalborg includes both traffic lights, crossing traffic and we model it using real observed dimensions, traffic light phases and congestion levels.
+The network that we use is a main road in Aalborg, Denmark. 
+This one and a half kilometer section of Aalborg includes both traffic lights, crossing traffic and we model it using real dimensions, traffic light phases and congestion levels.
 
 Road-side countdown timers and advisorly speed signs\cite{transyt} are already a widely used technique.
 Countdown timers show remaining time before the light changes and advisory speed signs show the speed.
@@ -25,16 +25,16 @@ Neither of the two can give frequent updates with short intervals and neither ca
 
 One method for designing traffic lights has been proposed in \cite{SOTL} that ensures green waves based on wireless communication between vehicles and traffic lights. 
 Their results show a decrease in waiting time by 50 \% in their comparisons. 
-Waiting time is the difference between the actual travel time and the minimal travel time (deviding the allowed speed with the travel distance).
+Waiting time is the difference between the actual travel time and the minimal travel time (dividing the allowed speed with the travel distance).
 The authors of \cite{ITLC} also propose a mehtod for adjusting the traffic lights to the traffic. 
 They use reinforcement learning and a voting system amongst vehicles at or near a traffic light to calculate the total gain of different light settings. 
-Their results show a reduction in congestion and in some cases they reduce the waiting time by more that 25 \%.
+Their results show a reduction in waiting time by more that 25 \%.
 
 Another related issue is to re-route vehicles in order to avoid congestion. 
 This way, drivers will be able to drive more smoothly an hence reduce their fuel consumption. 
 Three strategies for re-routing vehicles to avoid congestion has been proposed in \cite{congestionAvoidance}. 
 They collect real-time data on the congestion levels from both vehicles and road-side sensors, and provide individual re-routing strategies to the drivers based on the results. 
-Through simulations they show that the travel time is 104 \% longer with no re-routing than their best result.
+Through simulations their best result show a reduction in waiting at about 50 \% (based on provided graphs). %TODO:
 
 %Simulators
 Simulations are a widely used technique for testing hypothesis in the traffic worlds.
