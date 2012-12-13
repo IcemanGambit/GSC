@@ -1,22 +1,27 @@
 \section{Related Work}\label{sec:RelatedWork}
-%TODO: Rearrange this section
-
 The main purpose of our work is to help drivers reduce their fuel consumption by adjusting driving speed to traffic lights.
 
-%TODO: 
-% SignalGuru
-% http://www.audi.com/com/brand/en/tools/news/pool/2010/06/audi_travolution_.html
-% TRANSYT
+SignalGURU\cite{SignalGURU} is a similar project that also work on matching driving speed to traffic lights.
+They use windscreen mounted smartphone cameras to capture the state of nearby traffic ligths and collaboration between other user to infer when the light will be green.
+In-field studies show a fuel reduction of 20.3 \% for both pre-timed and traffic-actualted traffic signals.
+Their infrastructure-less approach requires collaboration between other vehicles, which is what we aim to avoid.
+Instead, we assume the actual programs of the traffic signal are aviable and use heuristics to account for blocking traffic.
 
-SignalGURU\cite{SignalGURU} is a similar project 
+Audi Travolution\cite{audi} has also made an advisory system directly build into the vehicle to match speed to traffic lights.
+Results from a project in 2006 show a 17 \% reduction in fuel consumption.
+Their approach relies on direct communication with the traffic light systems via wireless LAN and UMTS links.
+Contrary to Audi Travolutions project we focus on a system that is detatched from the vehicle, and in return provides much more freedom of use.
 
-
-The authors of \cite{VANETsim} have proposed an idea similar to ours, in that they evaluate whether drivers should accelerate or decelerate when approaching a traffic light.
-They also use the simulator SUMO to simulate their methods. 
+The authors of \cite{VANETsim} have also proposed an idea similar to ours, in that they evaluate whether drivers should accelerate or decelerate when approaching a traffic light.
+They also use the simulator SUMO to simulate their methods.
 Contrary to our approach, they rely on communication between nearby vehicles to estimate the number of blocking vehicles such that they can calculate the exact distance.
 Their road network is very simple, and do not include any crossing traffic or road senors, and their results are therefore based on a very simplified environment. 
 The network that we use is a replica of an often used road in Aalborg, Denmark. 
-This one and a half kilometer section of Aalborg includes both traffic lights, crossing traffic, road sensors, and we model it using real observed dimensions, traffic light phases and congestion levels.
+This one and a half kilometer section of Aalborg includes both traffic lights, crossing traffic and we model it using real observed dimensions, traffic light phases and congestion levels.
+
+Road-side countdown timers and advisorly speed signs\cite{transyt} are already a widely used technique.
+Countdown timers show remaining time before the light changes and advisory speed signs show the speed.
+Neither of the two can give frequent updates with short intervals and neither can take the vehicles individual factors into account.
 
 One method for designing traffic lights has been proposed in \cite{SOTL} that ensures green waves based on wireless communication between vehicles and traffic lights. 
 Their results show a decrease in waiting time by 50 \% in their comparisons. 

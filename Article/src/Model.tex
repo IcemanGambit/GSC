@@ -8,16 +8,7 @@ A vehicle, $\veh$, is an entity that moves along a route.
 Each vehicle has an identifier, $\vehid$, a constant acceleration, $\vehacc$ and deceleration, $\vehdec$ and a current position, \vehpos. 
 The position is either an edge or a connection (See below).
 The position is updated as the vehicle moves.
-For simplicity we do not consider different drivering behaviours, but operate with two types of vehicles: cars and trucks. See Table \ref{table.vehicleTypes} for their specifications.
-\begin{table}
-\centering
-\begin{tabular}{|l|l|l|}\hline
-					& Car 	& Truck \\\hline
-Acceleration ($m/s^2$)	& 1.9	& 0.3	\\\hline
-Deceleration ($m/s^2$)	& 3		& 3 	\\\hline
-\end{tabular}
-\caption{Types of vehicles}\label{table.vehicleTypes}
-\end{table}
+For simplicity we do not consider different drivering behaviours, and operate with one type of vehicle. See Table \ref{table.vehicleTypes} for the specification.
 
 \subsection{Map}
 A map is a directed graph, $G = (V, E, C)$ where $V$ is a set of vertices, $E$ is a set of edges representing road segments and $C$ is a set of connections between edges.
