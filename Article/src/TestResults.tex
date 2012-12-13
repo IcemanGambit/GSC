@@ -1,62 +1,55 @@
 \section{Test Results}\label{sec:Test}
-In this section, we test the proposed techinque on the use case explained in the previouse section.
+In this section, we verify that simualations give useful results, and evaluate to what extend \tech improve traffic flow and reduce fuel consumption.
 
-% Verfication
-% - Distance
-% - Speed
-% Fuel
-% Time
-% Congestion
-
-
-\begin{table}
-\centering
-\begin{tabular}{|l|l|cc|cc|}\hline
-Percent using 			& With/w.o. 	& \multicolumn{2}{c|}{Fuel} 	& \multicolumn{2}{c|}{Time}\\
-\tech					&\tech					& $ml$	& Diff.		&	$s$	& Diff.\\\hline
-\multirow{1}{*}{0\%}	& Without	&	150 &	0\%	&	108 & 0\%		\\\hline
-\multirow{2}{*}{10\%}	& With 	&	100 &	20\%	&	108 & 0\%		\\
-						& Without 	&	151 &	-1\%	&	108 & 0\%		\\\hline
-\multirow{2}{*}{50\%}	& With	&	100	&	\%		&	108 & 0\%\\
-						& Without	&	150	&	\%		&	108 & 0\%\\\hline
-\multirow{1}{*}{100\%}	& With	&	100	&	\%		&	108 & 0\%\\\hline
-\end{tabular}
-\caption{Average values with out sensors. Diff. is the difference compared to 0 \% using \tech}
-\label{tb:TestResults:total}
-\end{table}
-
-\subsection{Verification of Results}
+\subsection{Verification of the Simulator}
 It is imporant to verify that the results obtained from the simulator actually matches the real-world observations.
-We compare the results from the simulator with GPS trajectories collected in a project called Spar P\aa Farten\cite{}.
-If the results seem similar, we may deduce that the simulator accurately emulates the real world.
+We compare the results from the simulator with GPS trajectories collected in the project called Spar P\aa Farten.
+We only use GPS trajectories between 10 am and 2 pm on weekdays, and use a spawning rate of 1 vehicle per second.
+This, we belive, are comparable data.
+If the results seem similar, we may deduce that the simulator provides usable results.
 We compare the simulator with the GPS data on two fronts: travel distance and driving speed.
 We only look at data from the main road of Hobro in the northern direction.
 
 Travel distance as a function over time is plotted in Figure~\ref{fig:TestResults:realDistance}. 
-We see that the curves flatens at about 300 m, 600 m, 900 m and 1200 m, indicating that the vehicles are stationary.
-This corresponds well with the dimentions of Hobrovej and match the four regulated traffic lights.
+We see that the curves flatens at about 300 $m$, 600 $m$, 900 $m$ and 1200 $m$, indicating that the vehicles are stationary at these points.
+This corresponds well with the dimensions of Hobrovej and match the four regulated traffic lights.
 \begin{figure}[htb]
 \includegraphics[width=0.45\textwidth]{../images/Real/RealDistance.png}
 \caption{Travel distance for real GPS trajectories}
 \label{fig:TestResults:realDistance}
 \end{figure}
 
+\begin{table}
+\centering
+\begin{tabular}{|l|c|c|c|c|}\hline
+ &  \multicolumn{2}{c|}{Sumo} & \multicolumn{2}{c|}{GPS} \\\hline
+ & Value & STDEV & Value & STDEV \\\hline
+Avg Speed km/s & 37.45 & 7.86 & 36.11 & 6.32 \\\hline
+Avg Stops & 1.91 & 0.66 & 1.60 & 0.92 \\\hline
+Avg Wating Time s	& 66.90 & 33.97 & 63.90 & 28.15 \\\hline
+\end{tabular}
+\caption{Sumo validation Metric}\label{table.vehicleTypes}
+\end{table}
+
+
+
+
 Figure~\ref{fig:TestResults:distance0} also plots the travel distance as a function over time, only for the results of the simulator.
 We see that the simulation resembles the real-world results quite well, however, the simulated vehicles tend to hold longer at the traffic lights. 
-This is because the traffic light phases of the simulation are too different compared to real traffic lights. 
+This is because the phases of traffic lights of the simulation are too different compared to real traffic lights. 
 Besides that, the acceleration profiles look similar, and the map has the correct dimensions.
 
 \begin{figure}[htb]
-\includegraphics[width=0.45\textwidth]{../images/tp0c1_0/distanceUncontrolled0.png}
+\includegraphics[width=0.45\textwidth]{../images/tp0c0_8/distanceUncontrolled0.png}
 \caption{Travel distance for simulated data without \tech}
 \label{fig:TestResults:distance0}
 \end{figure}
 
 The driving speed as a function over time for the GPS trajectories is plotted in Figure~\ref{fig:TestResults:RealSpeed}.
-In order to read the data, only 20 trajectories have been plotted in this graph.
-First of all, we see that at most drivers drive at around 50 km/h, and not the speed limit of 60 km/h. 
+In order to read the data, only random 20 trajectories have been plotted in this graph.
+First of all, we see that most drivers drive at around $50 km/h$, and noone drives above the speed limit of $60 km/h$. 
 Some also drive much faster than that.
-Besides that, we see that many drop to around 0 km/h and that some are able to avoid a full stop.
+Besides that, we see that many drop to around $0 km/h$ and that some are able to avoid a full stop.
 
 \begin{figure}[htb]
 \includegraphics[width=0.45\textwidth]{../images/Real/RealSpeed.png}
@@ -66,22 +59,40 @@ Besides that, we see that many drop to around 0 km/h and that some are able to a
 
 Plots of the driving speed for the simulated vehicles can be seen in Figure~\ref{fig:TestResults:speed0} as a function over time.
 The behaviour of these simulated vehicles are much different from the real drivers.
-The simulated drivers almost always either accelerate to the maximum speed or decelerate to 0 $km/h$. 
-A few decelerates to 40 $km/h$, but that is most likely because the traffic light turns green just before the arrive.
-No one neither breaks the speed limit.
+The simulated drivers almost always either accelerate to the maximum speed or decelerate to $0 km/h$. 
+A few decelerates to $40 km/h$, but that is most likely because the traffic light turns green just before they arrive.
+No one breaks the speed limit.
 The simulated vehicles therefore have a much more aggresive driving behaviour than what we see in the real world data.
-This will also mean that the use more fuel than a real driver would use.
+This will also mean that they use more fuel than a real driver would use.
+
+%TODO:
+// Hvad skriver vi her?
 
 %TODO: Can we get 20 random plots in stead of the first 20?
 \begin{figure}[htb]
-\includegraphics[width=0.45\textwidth]{../images/tp0c1_0/speedUncontrolled0.png}
+\includegraphics[width=0.45\textwidth]{../images/tp0c0_8/speedUncontrolled0.png}
 \caption{Speed for simulated data without \tech}
 \label{fig:TestResults:speed0}
 \end{figure}
 
+\begin{table}
+\centering
+\begin{tabular}{|l|l|cc|cc|}\hline
+Percent using 			& With/w.o. & \multicolumn{2}{c|}{Fuel} 	& \multicolumn{2}{c|}{Time}\\
+\tech					&\tech		& $ml$		& Diff.			&	$s$	& Diff.\\\hline
+\multirow{1}{*}{0\%}	& Without	&	128.4	&	0\%			&	157 & 0\%		\\\hline
+\multirow{2}{*}{10\%}	& With 		&	93.5	&	27.2\%		&	151 & 3.8\%		\\
+						& Without 	&	127.5	&	0.7\%		&	151 & 3.8\%		\\\hline
+\multirow{2}{*}{50\%}	& With		&	89.0	&	30,7\%		&	144 & 8.3\%		\\
+						& Without	&	122.2	&	4.8\%		&	139 & 11.5\%		\\\hline
+\multirow{1}{*}{100\%}	& With		&	86.5	&	32.6\%		&	125 & 20.4\%	\\\hline
+\end{tabular}
+\caption{Average values with out sensors. Diff. is the difference compared to 0 \% using \tech}
+\label{tb:TestResults:total}
+\end{table}
+
 \subsection{Fuel Consumption}
-The purpose of \tech is to reduce the fuel consumption at least for the vehicles using the system. 
-We use SUMO's build-in function to calculate the vehicles fuel consumption, which is explained in \cite{SUMOFuel}.
+Reduce the fuel consumption at least for the vehicles using the system is one. 
 
 Figure~\ref{fig:TestResults:fuelTotal} plots the fuel consumption for all vehicles in the network for two different simulations: one where no vehicles use \tech (blue) and one where all vehicles are using \tech (green).
 The amount of vehicles are the same in both simulations, and they drive the same routes with the same departure times. 
@@ -93,13 +104,13 @@ Looking at just the selected route through the network, we see the same tendency
 The average fuel consumption with \tech is about $114 ml$ and about $166 ml$ without, resulting in a reduction at 31.3 \%.
 %TODO: Consider using 10% in stead of 100% in the two figures below.
 \begin{figure}[htb]
-\includegraphics[width=0.45\textwidth]{../images/tp0c1_0/fuelTotal.png}
+\includegraphics[width=0.45\textwidth]{../images/tp0c0_8/fuelTotal.png}
 \caption{Fuel consumption for all vehicles in the network. Blue: 100\% using \tech, green: 0\% using \tech}
 \label{fig:TestResults:fuelTotal}
 \end{figure}
 
 \begin{figure}[htb]
-\includegraphics[width=0.45\textwidth]{../images/tp0c1_0/fuelRoute.png}
+\includegraphics[width=0.45\textwidth]{../images/tp0c0_8/fuelRoute.png}
 \caption{Fuel consumption for all vehicles on the selected route}
 \label{fig:TestResults:fuelRoute}
 \end{figure}
@@ -143,13 +154,13 @@ Figure~\ref{fig:TestResults:distance100} shows the travel distance as a function
 We see that these curves are much more smooth, because they avoid stopping, and hence has to accelerate less.
 Some vehicles still have to stop, partly because it is impossible to drive the distance between the traffic lights in the amount of time left before it turns green, and partly because there are other vehicles blocking their path.
 \begin{figure}[htb]
-\includegraphics[width=0.45\textwidth]{../images/tp0c1_0/distanceControlled100.png}
+\includegraphics[width=0.45\textwidth]{../images/tp0c0_8/distanceControlled100.png}
 \caption{Travel distance for simulated data when 100\% use \tech}
 \label{fig:TestResults:distance100}
 \end{figure}
 
 \begin{figure}[htb]
-\includegraphics[width=0.45\textwidth]{../images/tp0c1_0/speedControlled100.png}
+\includegraphics[width=0.45\textwidth]{../images/tp0c0_8/speedControlled100.png}
 \caption{Driving speed for simulated data when 100\% use \tech}
 \label{fig:TestResults:speed100}
 \end{figure}
@@ -166,7 +177,7 @@ However, as the penetration rate increase, we see a small reduction in travel ti
 This is mostly due to the fact that vehicles do not make a full stop at traffic lights, and therefore are able to start faster.
 
 \begin{figure}[htb]
-\includegraphics[width=0.45\textwidth]{../images/tp0c1_0/combinedTime.png}
+\includegraphics[width=0.45\textwidth]{../images/tp0c0_8/combinedTime.png}
 \caption{Travel time for all routes at different level of vehicles using \tech}
 \label{fig:TestResults:combinedTime}
 \end{figure}
