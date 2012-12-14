@@ -3,7 +3,7 @@ In this section, we verify that simualations give useful results, and evaluate t
 
 \subsection{Verification of the Simulator}
 It is imporant to verify that the results obtained from the simulator actually matches the real-world observations.
-We compare the results from the simulator with GPS trajectories collected in the project "Spar P\aa Farten".
+We compare the results from the simulator with GPS trajectories collected in the project "Spar P\aa\ Farten".
 If the results are similar, we may deduce that the simulator provides usable results.
 We compare the simulator with the GPS data on three fronts: 
 \begin{enumerate*}
@@ -49,7 +49,7 @@ This corresponds well with the dimensions of Hobrovej and match the four regulat
 Figure~\ref{fig:TestResults:distance0} also plots the travel distance as a function over time, only for the results of the simulator.
 We see that the simulation resembles the real-world results, however, the simulated vehicles tend to hold longer at the traffic lights. 
 This is because the phases of traffic lights of the simulation are too different compared to real traffic lights. 
-Besides that, the acceleration profiles look similar, and the map has the correct dimensions.
+Besides that, the acceleration profiles look similar, and the map has the correct dimensions.%TODO: Det her er uklart
 
 \begin{figure}[htb]
 \includegraphics[width=0.45\textwidth]{../images/tp0c0_8/distanceUncontrolled0.png}
@@ -74,8 +74,8 @@ The behaviour of these simulated vehicles are much different from the real drive
 The simulated drivers almost always either accelerate to the maximum speed or decelerate to $0 km/h$. 
 A few decelerates to $40 km/h$, but that is most likely because the traffic light turns green just before they arrive.
 No one breaks the speed limit.
-The simulated vehicles therefore have a much more aggresive driving behaviour than what we see in the real world data.
-This will also mean that they use more fuel than a real driver would use.
+The simulated vehicles therefore have a much more aggresive driving behaviour than what we see in the real-world data.
+This will also mean that they use more fuel than a real driver would use. %TODO: Kristian har en eller anden kommentar. Kan ikke helt læse det, måske "How know?"
 However, we see that the metric values for the real and simulated data are not that different.
 
 \begin{figure}[htb]
@@ -107,7 +107,7 @@ Tabel~\ref{tb:TestResults:total} lists the average fuel consumption and travel t
 The value "Diff." is the difference to 0 \% using \tech.
 
 Figure~\ref{fig:TestResults:fuelTotal} plots the fuel consumption for all vehicles in the network for two different simulations: one where no vehicles use \tech (blue) and one where all vehicles are using \tech (green).
-The amount of vehicles are the same in both simulations, and they drive the same routes with the same departure times. 
+The number of vehicles are the same in both simulations, and they drive the same routes with the same departure times. 
 The only difference is whether they use \tech or not.
 
 The average fuel consumption when all vehicles use \tech is about $86.8 ml$ and about $125 ml$ when no one use \tech.
@@ -145,7 +145,7 @@ This is most likely because vehicles start platooning (driving in groups), where
 We see this fuel reduction because the vehicles accelerate less rapidly. 
 Figure~\ref{fig:TestResults:distance100} shows the travel distance as a function over time when all vehicles use \tech, and Figure~\ref{fig:TestResults:speed100} plots the driving speed as a function over time.
 We see that the curves are much more smooth than those in Figure~\ref{fig:TestResults:distance0} and~\ref{fig:TestResults:speed0}, because they avoid stopping, and hence has to accelerate less.
-Some vehicles still have to stop, partly because it is impossible to drive the distance between the traffic lights in the amount of time left before it turns green, and partly because there are other vehicles blocking their path.
+Some vehicles still have to stop, partly because it is impossible to drive the distance between the traffic lights in the time left before it turns green, and partly because there are other vehicles blocking their path.
 
 We can therefore conclude that in the tested use case, we see a significate reduction in fuel consumption at about 30 \% even when it is only implemented in a small subset of the vehicles.
 Moreover, vehicles using \tech does not have a negative influence on the fuel consumption of the other vehicles.
