@@ -20,7 +20,7 @@ Then, if $\velslow > \velmax$ then the driver should slow down and wait for the 
 \subsection{Green Spans}\label{sec:greenSpans}
 Algorithm~\ref{alg.getSpans} details how to find the next green periodes or spans of a connection, \con at a given timestamp, \ti. 
 The phase of \con is repeated, to give a sequence of spans that is terminated by an upper time limit, \tmax.
-\tmax is in the following simuations set to 400 seconds, about $6.6$ minuts. %TODO: Check
+\tmax is in the following simuations set to 400 seconds, about $6.6$ minutes. %TODO: Check
 The sequence consists of pairs of relative time values.
 \[\langle(\ti_0, \ti_1), (\ti_2, \ti_3), \dots, (\ti_{n-1}, \ti_n)\rangle\]
 Each value $\ti_i$ where $0\leq i\cdot 2\leq n$ is a timestamp after \ti when the signal for the connection turns green, and each value $\ti_j$ where $1\leq j\cdot 2\leq n-1$ is a timestamp after $\ti_{j-1}$ and before $\ti_{j+1}$ where the signal turns red.

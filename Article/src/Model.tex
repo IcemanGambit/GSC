@@ -32,14 +32,6 @@ With this abstraction, it is possible to use standard route computing algorithms
 \label{fig:Model:Connection}
 \end{figure}
 
-\begin{comment}
-\subsection{Sensors}
-A sensor can detect whether a vehicle is located at the sensor or not. 
-Sensors can for example be induction loops or video cameras.
-We only use induction loops, that register when a vehicle is directly on top of it. 
-An induction loop, $\indLoop\in\indLoopSet$, has a position, \indLoopPos which is the distance to the associated traffic light, a location, \indLoopLoc which is the lane it is located at and a vehicle count, $\indLoopVeh\in \mathbb{N}_0$ being the number of vehicles currently at the induction loop.
-\end{comment}
-
 \subsection{Traffic Light Phases}\label{sec:phases}
 Each connection in a traffic light has a phase that details the light setting for just this one connection.
 SUMO limits the allowed light settings to $red$, $yellow$ and $green$.
