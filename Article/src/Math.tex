@@ -9,20 +9,20 @@ where $\dist$ is the distance to the next traffic light and \ti is the time it h
 The driver should reach the junction just as it changes to green, because this will alow more vehichles to pass the junction afterwards.
 However, the driver may not drive faster than the speed limit, $\velmax$.
 If it is not possible to reach the next traffic light the first time it is green, then the driver should slow down and wait for the next time it is green.
-By setting \ti in Equation~\ref{eq:Math:velocityDefinition} to the time when the green periode ends, \tslow, we find how slow the driver can drive and still cross the junction.
+By setting \ti in Equation~\ref{eq:Math:velocityDefinition} to when the green periode ends, \tslow, we find how slow the driver can drive and still cross the junction.
 \begin{eqnarray}
 \velslow = \frac{\dist}{\tslow}\label{eq:Math:velocitySlow}
 \end{eqnarray}
 Then, if $\velslow > \velmax$ then the driver should slow down and wait for the next time the connection has a green light.
 
+%TODO: Do we need this paragraph, and where does it go?
+%A sequence is an ordered linked list and has three functions: $add(x)$ that adds a new value $x$ to the end of the sequence, $length$ that returns the number of elements in the sequence and $last$ that returns the last element in the sequence.
 \subsection{Green Spans}\label{sec:greenSpans}
-A sequence is an ordered linked list and has three functions: $add((x)$ that adds a new value $x$ to the end of the sequence, $length$ that returns the number of elements in the sequence and $last$ that returns the last element in the sequence.
-
-Algorithm~\ref{alg.getSpans} details how to find the next green periodes or spans of a connection, \con at a given timestamp, \ti when the simulation started at timestamp $\tsim$. 
+Algorithm~\ref{alg.getSpans} details how to find the next green periodes or spans of a connection, \con at a given timestamp, \ti. 
 The phase of \con is repeated, to give a sequence of spans that is terminated by an upper time limit, \tmax.
-This sequence is consists of pairs of relative time values.
+\tmax is in the following simuations set to 400 seconds, about $6.6$ minuts. %TODO: Check
+The sequence consists of pairs of relative time values.
 \[\langle(\ti_0, \ti_1), (\ti_2, \ti_3), \dots, (\ti_{n-1}, \ti_n)\rangle\]
-
 Each value $\ti_i$ where $0\leq i\cdot 2\leq n$ is a timestamp after \ti when the signal for the connection turns green, and each value $\ti_j$ where $1\leq j\cdot 2\leq n-1$ is a timestamp after $\ti_{j-1}$ and before $\ti_{j+1}$ where the signal turns red.
 
 To find these values, we first need to convert \phase into a sequence of green spans.
@@ -33,15 +33,17 @@ The start of a new green period has been found if the light setting is green, an
 The green periode ends when the light setting is not green and $s\neq -1$ (line~\ref{alg:getSpans:GreenEnd}) at which point the the start and end points are appended to $greens$ and \greenStart is reset.
 The sequenc $greens$ will hence end up containing the periods when the connection has a green signal.
 If $\cphase=\langle (green, 20), (yellow, 4), (red, 20), (yellow, 2)\rangle$ then $greens=\langle (0,20)\rangle$.
+%TODO: What is phase starts and ends with green? Algorithm, no work!
 
 The loops in line~\ref{alg:getSpans:whilebegin} and~\ref{alg:getSpans:forbegin} continuously loops through $greens$ and add spans until the condition in line~\ref{alg:getSpans:breakCond} is met.
-This happens when at least one span has been found and when the last element ends \tmax seconds relative to \ti.
+This happens when at least one span has been found and when the last element ends after \tmax seconds after \ti.
 \ncirc in line~\ref{alg:getSpans:ncirc} is the number of times the the light has made a full circulation based on the number of seconds passed since the begining of the simulation and the circulation time of the phase, \Ccirc{\phase}.
-The variable $i$ is the number of extra circulations we look at.
-Hence $\tvar$ in line~\ref{alg:getSpans:tvar} is the number of seconds we need to add to the values in $greens$.
+The variable $i$ in line~\ref{alg:getSpans:i} is the number of extra circulations we look what to look into the future.
+Hence $\tvar$ in line~\ref{alg:getSpans:tvar} is the number of seconds we need to add to the values in $greens$ from the start of the simuation.
 If the time the green span ends plus the offset is larger than number of seconds the simulaion has run, then the span is added to the return seqeuence, \spans in line~\ref{alg:getSpans:add}.
 By adding $\tstart + \tvar$ to the timestamp $\tsim$ we get the timestamp when the signal will be green. 
 Likewise for \tend.
+Using the same example as above, $\tmax=100$ and an abstract value for $\tsim=0$ we get that $getSpan(\con, 30)$ returns $\langle(46,66), (92,112)\rangle$.%TODO: Check
 
 \begin{algorithm}
 \caption{$getSpans(\con, \ti)$}\label{alg.getSpans}
@@ -59,7 +61,7 @@ Likewise for \tend.
 
 \State \ncirc = $\left \lfloor \frac{\tsim-\ti}{\Ccirc{\cphase}} \right \rfloor$\Comment Number of circulations\label{alg:getSpans:ncirc}
 \State $\spans = \langle\ \rangle$\label{alg:getSpans:initSpans}
-\State $i = 0$
+\State $i = 0$\label{alg:getSpans:i}
 \While{true}\label{alg:getSpans:whilebegin}
 \For{$(\tstart, \tend)\in greens$}\label{alg:getSpans:forbegin}
 \State $\tvar = (\ncirc+i)\cdot \Ccirc{\cphase}$\label{alg:getSpans:tvar}
@@ -83,44 +85,42 @@ Likewise for \tend.
 Algorithm~\ref{alg.recommendedSpeed} shows the procedure for finding the recommended speed $\velrec$.
 The input of the algorithm is the vehicle, \veh, the route that vehicle is traversing, \route and the map, $\map = (V, E, C)$.
 
-First, we find the current speed limit, \velmax in line~\ref{alg:recSpeed:injunction} through~\ref{alg:recSpeed:injunctionEnd}. 
+First, we find the current speed limit, \velmax in line~\ref{alg:recSpeed:injunction} through~\ref{alg:recSpeed:injunctionEnd}. %TODO: whould it not be easier to let a connection have a speed limit, or is that just wrong?
 If the vehicle currently is on a connection, i.e. in a junction, we use the speed limit of the previouse edge.
 Otherwise, we use that of the current edge.
 
-Next, we find the distance to the next connect, \cnext on the route, \route. 
-This is look up in line~\ref{alg:recSpeed:cnext}, and if there are no more connections, i.e. junctions, on the route then $\cnext=none$.
+Next, we find the distance to the next connection, \cnext on the route, \route. 
+This is looked up in line~\ref{alg:recSpeed:cnext}, and if there are no more connections, i.e. junctions, on the route then $\cnext=none$.
 The distance function on line~\ref{alg:recSpeed:distance} calculates the eucledian distance from the vehicle to the connection.
 In SUMO, one cannot get a distance to the connection, but only to the center point of the associated junction.
-We therefore calculate the distance to the center of the junction and substract the average distance from the center to the outer egdes of the junctions geometric object. 
+We therefore calculate the distance to the center of the junction and substract the average distance from the center to the outer egdes of the junctions geometric object. %TODO: Could we not just have added the lengths of the egdes? But then again this would not be a solution in the real world
 If the connection is $none$, the distance is infinite.
 
 In line~\ref{alg:recSpeed:getSpan}, we call the function $getSpans(\cnext, \ti)$ to get the sequence of timestamps where the phase is green.
 We initialise the recommended speed and the slowest speed in line~\ref{alg:recSpeed:velrec} and \ref{alg:recSpeed:velslow}, respectively.
-
 The for-loop in line~\ref{alg:recSpeed:loopSpans} to line~\ref{alg:recSpeed:loopSpansEnd} loops through the spans and finds the first span that the vehicle can reach.
 First, we calculate the number of seconds before the light turns green and red in line~\ref{alg:recSpeed:tg} and~\ref{alg:recSpeed:tr}, respectively, and then calculate the slowest speed at which we can drive in order to reach the first green light in line~\ref{alg:recSpeed:hr}.
 In line \ref{alg:recSpeed:continue} we check if this span is reachable and continue the for-loop to the next span if it is not. 
 The span is not reachable if the slowest speed is higher than the maximal speed, meaning we whould have to driver faster than the speed limit, in order to reach it.
 
 Knowing that this span is reachable, we calculate the recommended speed $\velrec$.
-If the light is green right know, i.e. $\tgreen \leq 0$, then set \velrec to the speed limit in line~\ref{alg:recSpeed:green}. 
+If the light is green right know, i.e. $\tgreen \leq 0$, then \velrec is the speed limit in line~\ref{alg:recSpeed:green}. 
 Otherwise, we calculate $\velrec$ in line~\ref{alg:recSpeed:h} as in Equation~\ref{eq:Math:velocityDefinition}.
-We return the recommended speed in line~\ref{alg:recSpeed:returnh}.
 
 It is difficult to drive very slow, and we therefore set a lower limit of $\vellower=15km/h$ on the recommeneded speed in line~\ref{alg:recSpeed:lowerLimit}. 
-At last, the recommended speed is returned in line~\ref{alg:recSpeed:returnh}.
-By returning the minimum of \velrec and \velmax we ensure that we do not recommend a speed higher than the speed limit.
+By returning the minimum of \velrec and \velmax in line~\ref{alg:recSpeed:returnh} we ensure that we do not recommend a speed higher than the speed limit.
 It might not be possible to find a reachable span, if the circulation time of the phase is larger than the look-ahead time, \tmax (see Section~\ref{sec:greenSpans}).
 If so, we just return the maximum speed in line~\ref{alg:recSpeed:returnmax}.
 
-Assume a speed limit of $\velmax = 16 m/s$ and that the vehicle is $500 m$ from the next connection, \con. 
-Let  the timestamps be abstacted to seconds.
-Then, if $getSpan(\con, 10)$ returns $\langle(0,20), (20,40), (60,80)\rangle$, Algorithm~\ref{} will return \velmax as $0-10 \leq 0$.
-If $getSpan(\con, 10)$ returns $\langle(20,50), (80,110)\rangle$, then \velslow is $12.5 m/s$.
+Assume a speed limit of $\velmax = 16 m/s$ and that the vehicle is $500 m$ from the next connection, \con, and let  the timestamps be abstacted to seconds.
+\begin{itemize}
+\item If $getSpan(\con, 10)$ returns $\langle(0,20), (20,40), (60,80)\rangle$, Algorithm~\ref{alg.recommendedSpeed} will simply return \velmax as $0-10 \leq 0$.
+\item If $getSpan(\con, 10)$ returns $\langle(20,50), (80,110)\rangle$, then \velslow is $12.5 m/s$.
 The first span is therefore reachable. 
 The recommeneded speed becomes $50m/s$ which is reduced to $16 m/s$ in order to stay below the speed limit.
-If $getSpan(\con, 10)$ returns $\langle(15,30), (70,85)\rangle$, then \velslow is $25 m/s$ and the first span is not reachable.
+\item If $getSpan(\con, 10)$ returns $\langle(15,30), (70,85)\rangle$, then \velslow is $25 m/s$ and the first span is not reachable.
 Looking at the next span, \velslow becomes $6.6m/s$ which is less than the speed limit, and the final recommended speed is $8.3 m/s$.
+\end{itemize}
 
 \begin{algorithm}
 \caption{recommendSpeed(\veh, \route, $(V, E, C)$)}\label{alg.recommendedSpeed}
@@ -162,3 +162,6 @@ Looking at the next span, \velslow becomes $6.6m/s$ which is less than the speed
 \State\Return $\velmax$\Comment No reachable green span\label{alg:recSpeed:returnmax}
 \end{algorithmic}
 \end{algorithm}
+
+\subsection{Complexity and Communication Analysis}
+%TODO: Do this.

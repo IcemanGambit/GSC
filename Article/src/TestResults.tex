@@ -26,7 +26,7 @@ This corresponds well with the dimensions of Hobrovej and match the four regulat
  & Value & STDEV & Value & STDEV \\\hline
 Avg Speed km/s & 37.45 & 7.86 & 36.11 & 6.32 \\\hline
 Avg Stops & 1.91 & 0.66 & 1.60 & 0.92 \\\hline
-Avg Wating Time s	& 66.90 & 33.97 & 63.90 & 28.15 \\\hline
+Avg Wating Time s & 66.90 & 33.97 & 63.90 & 28.15 \\\hline
 \end{tabular}
 \caption{Sumo validation Metric}\label{table.vehicleTypes}
 \end{table}
@@ -92,6 +92,7 @@ Percent using 			& With/w.o. & \multicolumn{2}{c|}{Fuel} 	& \multicolumn{2}{c|}{
 \end{table}
 
 \subsection{Fuel Consumption}
+%TODO: cannot compare with real data as they are not avaiable
 Reduce the fuel consumption at least for the vehicles using the system is one. 
 
 Figure~\ref{fig:TestResults:fuelTotal} plots the fuel consumption for all vehicles in the network for two different simulations: one where no vehicles use \tech (blue) and one where all vehicles are using \tech (green).
@@ -175,6 +176,7 @@ With 0 \% using \tech we see an average travel time of $150$ seconds.
 Introducing the systemt to 10 \% of the vehicles does not change this significantly. 
 However, as the penetration rate increase, we see a small reduction in travel time. 
 This is mostly due to the fact that vehicles do not make a full stop at traffic lights, and therefore are able to start faster.
+%TODO: We should compare with real data here!
 
 \begin{figure}[htb]
 \includegraphics[width=0.45\textwidth]{../images/tp0c0_8/combinedTime.png}
@@ -183,6 +185,7 @@ This is mostly due to the fact that vehicles do not make a full stop at traffic 
 \end{figure}
 
 \subsection{Congestion levels}
+%TODO: when does the traffic break? Do we break later than without \tech?
 Normal traffic usualy have peak periods where the traffic is higher than normal \cite{Vejdir}. 
 In order to test the effect of the system with different congestion levels we repeated the simulation while changing the rate with which vehicles are spwaning. 
 The fuel consumption at different penetration rates and congestion levels can be seen in Figure \ref{fig:TestResults:congestionFuel}. 
@@ -208,5 +211,6 @@ This is likly the reasion that the average time of all vehicles improve if enoug
 \label{fig:TestResults:congestionTime}
 \end{figure}
 
-
+\section{Potential Savings}
+%TODO: do this
 
