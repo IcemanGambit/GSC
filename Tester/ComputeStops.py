@@ -3,6 +3,7 @@ import os, sys ,math
 stopList = []
 speedList = []
 timeList = []
+FreeFlowList = []
 FreeFlow = 1550/(60/3.6)
 for f in os.listdir(sys.argv[1]):
 
@@ -41,10 +42,11 @@ for f in os.listdir(sys.argv[1]):
 
 	if i == 1:
 		time -= 3 #fix for the smoothing of real data
+	timeList.append(float(time))
 	time -=FreeFlow
 	speedList.append(avgSpeed/linecount)
 	stopList.append(float(stopCount))
-	timeList.append(float(time))
+	FreeFlowList.append(float(time))
 
 
 stopavg = sum(stopList)/len(stopList)
@@ -73,5 +75,15 @@ for i in timeList:
 	stdtimeList.append((i-timeavg) **2)
 Stdiv = math.sqrt(sum(stdtimeList)/(len(timeList)))
 print "STDEV time " + str(Stdiv)
+
+freeflowavg = sum(FreeFlowList)/len(FreeFlowList)
+print "avg waiting " + str(freeflowavg)
+
+stdfreeflowList = []
+for i in FreeFlowList:
+	stdfreeflowList.append((i-freeflowavg) **2)
+Stdiv = math.sqrt(sum(stdfreeflowList)/(len(FreeFlowList)))
+print "STDEV waiting " + str(Stdiv)
+
 
 print "FreeFlow "+str(FreeFlow)

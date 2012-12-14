@@ -112,8 +112,8 @@ for v in data.values():
 		out.write(str(j[0]) + "\t" + str(j[1]) + "\n")
 	out.flush()
 
-	if i in values:
-		out = open("speed/" + str(i) + ".dat", "w")
-		for j in v[5]:
-			out.write(str(j[0]) + "\t" + str(j[1]) + "\n")
-		out.flush()
+	#if i in values:
+	out = open("speed/" + str(i) + ".dat", "w")
+	for j in v[5]:
+		out.write(str(j[0]) + "\t" + str(j[1]) + "\n")
+	out.flush()

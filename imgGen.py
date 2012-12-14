@@ -203,7 +203,7 @@ if(len(sys.argv) > 3):
 		print "set xlabel 'Time (s)'"
 		plots = ""
 		counttotal = 0
-		for i in range(0,2000):
+		for i in range(0,2000,5):
 			datafile = "TestResults/" + dataset+ "/" +datasetPercentage+ "/"+ route+ "/"+ conType + "/" + str(i) + ".dat"
 			if(not os.path.exists(datafile)):
 				continue
