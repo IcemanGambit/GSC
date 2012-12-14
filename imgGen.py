@@ -176,7 +176,7 @@ if(len(sys.argv) > 3):
 	elif sys.argv[1].find("RealSpeed") >= 0:
 		print "set xrange [0:"+xMax+"]"
 		print "set yrange [0:" + speedMaxY + "]"
-		print "set ylabel 'Speed (m)'"
+		print "set ylabel 'Speed (m/)'"
 		print "set xlabel 'Time (s)'"
 		plots = ""
 		counttotal = 0
@@ -239,7 +239,7 @@ elif sys.argv[1].find("fuelCongestion") == 0:
 	
 	print "set terminal png size 700,400"
 	print "set output \"images/" + sys.argv[2]+ "\""
-	
+	print "set key left"
 	print "set ylabel 'Fuel (ml)'"
 	print "set xlabel 'Congestion (vehicls per second)'"
 	plots = ""
@@ -255,7 +255,7 @@ elif sys.argv[1].find("timeCongestion") == 0:
 	
 	print "set terminal png size 700,400"
 	print "set output \"images/" + sys.argv[2]+ "\""
-	
+	print "set key left"
 	print "set ylabel 'Time (s)'"
 	print "set xlabel 'Congestion (vehicls per second)'"
 	plots = ""
