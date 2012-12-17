@@ -5,6 +5,11 @@ We base the recommended speed, $\vel$ for arriving at the next traffic light whi
 \velrec = \frac{\dist}{\ti}\label{eq:Math:velocityDefinition}
 \end{eqnarray}
 where $\dist$ is the distance to the next traffic light and \ti is the time it has to cross that distance.
+This involves some inaccuracies as we do not take the acceleration time into account. %v = v0 + a*t
+In order to do this, we would need to integrate over time to get the distance travelled during acceleration.
+Such relative complex calculations are unnecessary because we recompute the recommended speed each second.
+By recomputing each second, the recommended speed will change each time until a fixed point is reached. 
+A driver will generally not detect this unless a green light suddenly cannot be reached, and the recommended speed is dramatically decreased. %TODO: More? I think so
 
 The driver should reach the junction just as it changes to green, because this will alow more vehichles to pass the junction afterwards.
 However, the driver may not drive faster than the speed limit, $\velmax$.
@@ -16,25 +21,37 @@ By setting \ti in Equation~\ref{eq:Math:velocityDefinition} to when the green pe
 Then, if $\velslow > \velmax$ then the driver should slow down and wait for the next time the connection has a green light.
 
 \subsection{Green Spans}\label{sec:greenSpans}
-Algorithm~\ref{alg.getSpans} details how to find the next green periodes or spans of a connection, \con at a given timestamp, \ti. 
+Algorithm~\ref{alg.getSpans} details how to find the next green periodes or spans of a connection, \con at a given timestamp, \ti, assuming the traffic light is pretimed.
 The phase of \con is repeated, to give a sequence of spans that is terminated by an upper time limit, \tmax.
-\tmax is in the following simuations set to 400 seconds, about $6.6$ minutes. %TODO: Check
-The sequence consists of pairs of relative time values.
+The sequence consists of pairs of timestamps.
 \[\langle(\ti_0, \ti_1), (\ti_2, \ti_3), \dots, (\ti_{n-1}, \ti_n)\rangle\]
 Each value $\ti_i$ where $0\leq i\cdot 2\leq n$ is a timestamp after \ti when the signal for the connection turns green, and each value $\ti_j$ where $1\leq j\cdot 2\leq n-1$ is a timestamp after $\ti_{j-1}$ and before $\ti_{j+1}$ where the signal turns red.
 
-To find these values, we first need to convert \phase into a sequence of green spans.
-The for-loop in line~\ref{alg:getSpans:GreensFor} loops through the phase and adds start and end times to the sequence $greens$ where the signal is green.
-A phase can have consecutive green signals, and while parsing a consecutive green periode, the starting time is stored in $\greenStart$.
-Otherwise $\greenStart=-1$.
-The start of a new green period has been found if the light setting is green, and $\greenStart=-1$, and $\ti'$ is stored (line~\ref{alg:getSpans:GreenBegin}).
-The green periode ends when the light setting is not green and $s\neq -1$ (line~\ref{alg:getSpans:GreenEnd}) at which point the the start and end points are appended to $greens$ and \greenStart is reset.
+To find the green spans, we first convert the phase, \phase into a sequence of green spans (line~\ref{alg:getSpans:initGreens} through~\ref{alg:getSpans:GreensEnd}).
+The converted phase will be stored in a sequence denoted \greens, which is initialised in line~\ref{alg:getSpans:initGreens}.
+The variable, \greenStart in line~\ref{alg:getSpans:initgreenS} is used to store the time when a green span begins, until it can be added \greens. 
+It is initialised to \notset, and will have this value when a time is not stored.
+The for-loop in line~\ref{alg:getSpans:GreensFor} loops through the phase.
+$f$ denotes the color of the signal and $t$ denotes how many seconds the signal will have this color.
+In line \ref{alg:getSpans:GreenBegin}, we check if the signal is green. 
+We also check if \greenStart is not set, because a phase can have consecutive green signals, and we only want to store the time of the first one.
+If a new green is found, we store its associative time in line~\ref{alg:getSpans:storet}.
+The green periode ends when the light setting is not green and \greenStart is not \notset (line~\ref{alg:getSpans:GreenEnd}).
+If such a case is found, the start and end times are appended to $greens$ in line~\ref{alg:getSpans:add} and \greenStart is set to \notset in line~\ref{alg:getSpans:resetnotset}.
 The sequenc $greens$ will hence end up containing the periods when the connection has a green signal.
 If $\cphase=\langle (green, 20), (yellow, 4), (red, 20), (yellow, 2)\rangle$ then $greens=\langle (0,20)\rangle$.
 
+Converting \greens to the desired spans is done in line~\ref{alg:getSpans:ncirc} through~\ref{alg:getSpans:endWhile}.
+\ncirc in line~\ref{alg:getSpans:ncirc} is the number of times that the signal has made a full circulation.% based on the number of seconds passed since the begining of the simulation and the circulation time of the phase, \Ccirc{\phase}.
+$\tsim-\ti$ is the number of seconds passed since the beginning of the simulation and $\Ccirc{\phase}$ is the circulation time of the phase. 
+By dividing these, we get the number of ciculations.
+\spans is initialised in line~\ref{alg:getSpans:initSpans} and will contain the desired green spans.
+$i$ in line~\ref{alg:getSpans:i} represent the extra number of circulations we want to look into the future.
+%TODO : Her til!!!!!
+
 The loops in line~\ref{alg:getSpans:whilebegin} and~\ref{alg:getSpans:forbegin} continuously loops through $greens$ and add spans until the condition in line~\ref{alg:getSpans:breakCond} is met.
 This happens when at least one span has been found and when the last element ends after \tmax seconds after \ti.
-\ncirc in line~\ref{alg:getSpans:ncirc} is the number of times the the light has made a full circulation based on the number of seconds passed since the begining of the simulation and the circulation time of the phase, \Ccirc{\phase}.
+
 The variable $i$ in line~\ref{alg:getSpans:i} is the number of extra circulations we look what to look into the future.
 Hence $\tvar$ in line~\ref{alg:getSpans:tvar} is the number of seconds we need to add to the values in $greens$ from the start of the simuation.
 If the time the green span ends plus the offset is larger than number of seconds the simulaion has run, then the span is added to the return seqeuence, \spans in line~\ref{alg:getSpans:add}.
@@ -45,14 +62,14 @@ Using the same example as above, $\tmax=100$ and an abstract value for $\tsim=0$
 \begin{algorithm}
 \caption{$getSpans(\con, \ti)$}\label{alg.getSpans}
 \begin{algorithmic}[1]
-\State $greens = \langle\ \rangle$
-\State $\greenStart = -1$
+\State $greens = \langle\ \rangle$\label{alg:getSpans:initGreens}
+\State $\greenStart = \notset$\label{alg:getSpans:initgreenS}
 \For{$(\light, \ti')\in \cphase$}\label{alg:getSpans:GreensFor}
-\If{$\light = green$ and $\greenStart=-1$}\label{alg:getSpans:GreenBegin}
-\State $\greenStart = \ti'$
-\ElsIf{$\light\neq green$ and $\greenStart\geq0$}\label{alg:getSpans:GreenEnd}
-\State $greens.add((\greenStart, \ti'))$
-\State $\greenStart=-1$
+\If{$\light = green$ and $\greenStart=\notset$}\label{alg:getSpans:GreenBegin}
+\State $\greenStart = \ti'$\label{alg:getSpans:storet}
+\ElsIf{$\light\neq green$ and $\greenStart\neq \notset$}\label{alg:getSpans:GreenEnd}
+\State $greens.add((\greenStart, \ti'))$\label{alg:getSpans:add}
+\State $\greenStart=\notset$\label{alg:getSpans:resetnotset}
 \EndIf
 \EndFor\label{alg:getSpans:GreensEnd}
 
@@ -71,7 +88,7 @@ Using the same example as above, $\tmax=100$ and an abstract value for $\tsim=0$
 \State break\Comment Last span ends after max time
 \EndIf
 \State $i=i+1$
-\EndWhile
+\EndWhile\label{alg:getSpans:endWhile}
 \State\Return \spans
 \end{algorithmic}
 \end{algorithm}
@@ -166,7 +183,7 @@ Understanding the complexity and communication costs of the algorithm is importa
 Algorithm~\ref{alg.getSpans} has two parts: converting the phase, \phase to green spans and expanding these spans.
 Remember $|\phase|$ is the number of elements in the phase, then converting the phase has a complexity of $O(|\phase|)$.
 Expanding the phase will be dependent on both $|\phase|$ and the look-ahead time, $\tmax$, as the returned sequence is terminated when the last element ends after $\tmax$ seconds.
-Hence the complexity of Algorithm~\ref{alg.getSpans} is  $O(|\phase|+ |\phase|\cdot \tmax)$ which can be reduced to $O(|\phase|\cdot \tmax)$.
+Hence the complexity of Algorithm~\ref{alg.getSpans} is  $O(|\phase|+ |\phase|\cdot \cfrac{\tmax}{\Ccirc{\phase}})$ which can be reduced to $O(|\phase|\cdot \cfrac{\tmax}{\Ccirc{\phase}})$.
 
 The complexity of Algorithm~\ref{alg.recommendedSpeed} is fourth fold: checking if the vehicle is on a connection, finding the next connection on the route, getting the green spans and finding the speed.
 Checking if the vehicles is on a connection will be $O(|C|)$ where $|C|$ denotes the number of connections in the network.
@@ -175,25 +192,24 @@ Using this type, finding the next connection will then have a complexity of $O(\
 This can however be precomputed such that the complexity also becomes $O(1)$.
 The route is be the sequence of egdes and connections to be visited.
 By keeping a reduced route with only the connections and the speed limit of the previouse egde, and popping this sequnce as connections are visited, then the complexity will be $O(1)$.
-The complexity of getting the green spans is, as stated, $O(|\phase|\cdot \tmax)$.
-Finding the speed is also $O(|\phase|\cdot \tmax)$ as it loops through the spans, and the content of the loop only has constant complexity.
-In total, the complexity of Algorithm~\ref{alg.recommendedSpeed} is $O(|\phase|\cdot\tmax)$.
+The complexity of getting the green spans is, as stated, $O(|\phase|\cdot \cfrac{\tmax}{\Ccirc{\phase}})$.
+Finding the speed is also $O(|\phase|\cdot \cfrac{\tmax}{\Ccirc{\phase}})$ as it loops through the spans, and the content of the loop only has constant complexity.
+In total, the complexity of Algorithm~\ref{alg.recommendedSpeed} is $O(|\phase|\cdot \cfrac{\tmax}{\Ccirc{\phase}})$.
 
 \tmax is how far into the future we what the spans to go.
 We predict that it often will not be neccessary to look more than $2\cdot |\phase|$ in to the future.
-Phases are very rarely more than 120 seconds, so \tmax will be a small number and always constant.
-The complexity of the algorithm will therefore be $O(|\phase|)$.
-Additionally, $|\phase|$ will in most case be short and cannot be more than than the circulation time.
-We can therefore conclude that the complexity of recommending a speed is minimal, and at most $O(\Ccirc{\phase})$.
+In the simulations, \tmax is set to 400 $s$, about 6 and a half minute, to ensure a span is always found.
+$\Ccirc{\phase}$ are very rarely more than 120 seconds, so $\cfrac{\tmax}{\Ccirc{\phase}}$ will be a small number.
+Additionally, $|\phase|$ will in most case be short and cannot be higher than than the circulation time.
+We can therefore conclude that the complexity of recommending a speed is small.
 
-The communication cost is also minimal.
+The communication cost is also low.
 We propose a anonymised, pull strategy where the smartphone asks a server for the spans of a traffic light given its identifier.
 The pull request will therfore only contain a integer identifing the next traffic light on the route.
 The respons will as explain above be propotional to the length of the phase, and hence $O(\Ccirc{\phase})$.
 Each entry will be a pair of integers.
 The request will in addition to the spans also contain the GPS location of the traffic light, being the latitude and longitude coordinates and hence two integers.
 The communication cost is thereby also minimal and at most, $3\cdot s + O(\Ccirc{\phase})\cdot 2\cdot s + 2\cdot s$, where $s$ is the size of an integer.
-
 
 
 

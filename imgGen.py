@@ -22,7 +22,7 @@ if(len(sys.argv) > 3):
 	print "unset key"
 
 	if sys.argv[1] == "fuelRoute":
-		print "set ylabel 'Fuel Consumption (ml)'"
+		print "set ylabel 'Fuel consumption (ml)'"
 		print "set xlabel 'Vehicles'"
 		print "set yrange[0:" + fuelRouteYMax + "]"
 		print "set boxwidth 0.5 absolute"
@@ -38,7 +38,7 @@ if(len(sys.argv) > 3):
 		else:
 			color = "\"blue\""
 		percent = sys.argv[1][sys.argv[1].rfind("_")+1:]
-		print "set ylabel 'Fuel Consumption (ml)'"
+		print "set ylabel 'Fuel consumption (ml)'"
 		print "set xlabel 'Vehicles'"
 		print "set boxwidth 0.5 absolute"
 		print "set yrange[0:" + fuelRouteYMax + "]"
@@ -47,7 +47,7 @@ if(len(sys.argv) > 3):
 		print "plot "+ datafile+"/totalFuel.dat\"" + " with boxes fill solid lc rgb " + color + ", `head -1 "+ datafile+"/avg.dat\"" + " | awk '{print $2}'` lt 1 lw 5 lc rgb " + color
 		
 	elif sys.argv[1] == "fuelTotal":
-		print "set ylabel 'Fuel Consumption (ml)'"
+		print "set ylabel 'Fuel consumption (ml)'"
 		print "set xlabel 'Vehicles'"
 		print "set xrange [0:]"
 		print "set yrange [0:" + fuelTotalYMax + "]"
@@ -63,7 +63,7 @@ if(len(sys.argv) > 3):
 		else:
 			color = "\"blue\""
 		percent = sys.argv[1][sys.argv[1].rfind("_")+1:]
-		print "set ylabel 'Fuel Consumption (ml)'"
+		print "set ylabel 'Fuel consumption (ml)'"
 		print "set xlabel 'Vehicles'"
 		print "set xrange [0:]"
 		print "set yrange [0:" + fuelTotalYMax + "]"
@@ -74,7 +74,7 @@ if(len(sys.argv) > 3):
 		
 	elif sys.argv[1].find("combinedFuel") == 0:
 		print "set boxwidth 0.9"
-		print "set ylabel 'Fuel Consumption (ml)'"
+		print "set ylabel 'Fuel consumption (ml)'"
 		print "set xlabel 'Percentage using the system'"
 		print "set xtics (\"0\" 0, \"10\" 1, \"50\" 2, \"10\" 3, \"50\" 4, \"100\" 5)"
 		print "set yrange [0:" + fuelRouteYMax + "]"
@@ -176,7 +176,7 @@ if(len(sys.argv) > 3):
 	elif sys.argv[1].find("RealSpeed") >= 0:
 		print "set xrange [0:"+xMax+"]"
 		print "set yrange [0:" + speedMaxY + "]"
-		print "set ylabel 'Speed (m/)'"
+		print "set ylabel 'Speed (m/s)'"
 		print "set xlabel 'Time (s)'"
 		plots = ""
 		counttotal = 0
@@ -241,7 +241,7 @@ elif sys.argv[1].find("fuelCongestion") == 0:
 	print "set output \"images/" + sys.argv[2]+ "\""
 	print "set key left"
 	print "set xrange [0.4:2.6]"
-	print "set ylabel 'Fuel (ml)'"
+	print "set ylabel 'Fuel consumption (ml)'"
 	print "set xlabel 'Congestion (vehicls per second)'"
 	plots = ""
 	temp = [0,10,50,100]
@@ -258,7 +258,7 @@ elif sys.argv[1].find("timeCongestion") == 0:
 	print "set output \"images/" + sys.argv[2]+ "\""
 	print "set key left"
 	print "set xrange [0.4:2.6]"
-	print "set ylabel 'Time (s)'"
+	print "set ylabel 'Average travel time (s)'"
 	print "set xlabel 'Congestion (vehicls per second)'"
 	plots = ""
 	temp = [0,10,50,100]
