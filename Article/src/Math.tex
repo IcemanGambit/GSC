@@ -183,7 +183,7 @@ Looking at the next span, \velslow becomes $6.6m/s$ which is less than the speed
 \end{algorithm}
 
 \subsection{Complexity and Communication Analysis}
-Understanding the complexity and communication costs of the algorithm is important in order to know whether for example a smartphone implementation is feasable.
+Understanding the complexity and communication costs of \tech is important in order to know whether for example a smartphone implementation is feasable.
 
 Algorithm~\ref{alg.getSpans} has two parts: converting the phase, \phase to green spans and expanding these spans.
 Remember $|\phase|$ is the number of elements in the phase, then converting the phase has a complexity of $O(|\phase|)$.
@@ -209,12 +209,12 @@ Additionally, $|\phase|$ will in most case be short and cannot be higher than th
 We can therefore conclude that the complexity of recommending a speed is small.
 
 The communication cost is also low.
-We propose a anonymised, pull strategy where the smartphone asks a server for the spans of a traffic light given its identifier.
-The pull request will therfore only contain a integer identifing the next traffic light on the route.
-The respons will as explain above be propotional to the length of the phase, and hence $O(\Ccirc{\phase})$.
-Each entry will be a pair of integers.
-The request will in addition to the spans also contain the GPS location of the traffic light, being the latitude and longitude coordinates and hence two integers.
-The communication cost is thereby also minimal and at most, $3\cdot s + O(\Ccirc{\phase})\cdot 2\cdot s + 2\cdot s$, where $s$ is the size of an integer.
+We propose a anonymised, pull strategy where the smartphone asks a server for the spans of a traffic light given its identifier. We estimate one pull request per second should be sufficient as this is the same frekvense SUMO updates.
+The pull request will therfore only contain a integer identifing the connection of the next traffic light on the route.
+The respons will as explain above be propotional to the length of the phase, and hence $O(\cfrac{\tmax}{\Ccirc{\phase}})$.
+Each entry will be a pair of flooting points.
+The respons will in addition to the spans also contain the GPS location of the traffic light, being the latitude and longitude coordinates and hence two integers.
+The communication cost is thereby also small and at most, $3\cdot s + O(\cfrac{\tmax}{\Ccirc{\phase}})\cdot 2\cdot s + 2\cdot s$, where $s$ is the size of an integer.
 
 
 
