@@ -209,7 +209,7 @@ Additionally, $|\phase|$ will in most case be short and cannot be higher than th
 We can therefore conclude that the complexity of recommending a speed is small.
 
 The communication cost is also low.
-We propose a anonymised, pull strategy where the smartphone asks a server for the spans of a traffic light given its identifier. We estimate one pull request per second should be sufficient as this is the same frekvense SUMO updates.
+We propose a anonymised, pull strategy where the smartphone asks a server for the spans of a traffic light given its identifier. We estimate one pull request per second should be sufficient, this is the same frequency SUMO updates.
 The pull request will therfore only contain a integer identifing the connection of the next traffic light on the route.
 The respons will as explain above be propotional to the length of the phase, and hence $O(\cfrac{\tmax}{\Ccirc{\phase}})$.
 Each entry will be a pair of flooting points.
