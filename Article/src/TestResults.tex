@@ -188,15 +188,18 @@ This is mostly due to the fact that vehicles do not make a full stop at traffic 
 
 \subsection{Congestion Levels}
 Normal traffic usually have peak periods where the traffic is higher than normal \cite{Vejdir}. 
-In order to test the effect of the system with different congestion levels we repeated the simulation while changing the rate with which vehicles are spwaning. 
-The fuel consumption and travel distance at different penetration rates (plots) and congestion levels (x-axis) can be seen in Figure~\ref{fig:TestResults:congestionFuel} and Figure~\ref{fig:TestResults:congestionTime}, respectively. 
-When more than 1.6 vehicles spawn per second, the network becomes so overloaded that the vehicles start to deadlock and the simulator is forced to teleport them(see Section~\ref{sec:methodology:sumo}).
-The results at congestion levels above 1.6 vehicles per second are therefore not as reliable as at he lower levels.
+In order to test the effect of the system with different congestion levels we repeated the simulation while changing the rate with which vehicles are spwaning (see Section~\ref{sec:UseCase}). 
 
-When noone use \tech, we see the fuel consumption and travel time increases rapidly at 1 vehicle per second, indicating that the network becomes too loaded at this congestion level. 
+The fuel consumption and travel distance at different penetration rates (plots) and congestion levels (x-axis) can be seen in Figure~\ref{fig:TestResults:congestionFuel} and Figure~\ref{fig:TestResults:congestionTime}, respectively. 
+When more than 1.6 vehicles spawn per second, the network becomes so overloaded that the vehicles start to deadlock and the simulator is forced to teleport them (see Section~\ref{sec:methodology:sumo}).
+The results at congestion levels above 1.6 vehicles per second are therefore not reliable not included in the results.
+
+When noone use \tech, we see that the fuel consumption and travel time increases rapidly at 1 vehicle per second, indicating that the network becomes too loaded at this congestion level. 
 The same happens when 10\% use \tech. 
 When 50 \% use \tech, we also see an increase, however, the increase is less steep.
 The increase is even more moderate when 100 \% use \tech, and the rapid increase is first present when 1.4 vehicle spawn per second.
+
+It therefore looks like the network can handle more vehicles when they use \tech.
 
 %In a congested network large queues of vehicles build up. 
 %A large portion of the time a traffic light is green is wasted on the time it takes to get the queue moving. 
