@@ -1,10 +1,11 @@
 import os, subprocess, sys, random
 
-fuelRouteYMax = "250"
-fuelTotalYMax = "250"
+fuelRouteYMax = "200"
+fuelTotalYMax = "300"
 distanceYMax = "1600"
 xMax ="300"
 speedMaxY = "80"
+timeYmax = "150"
 
 if(len(sys.argv) > 3):
 	dataset = sys.argv[3]
@@ -93,7 +94,7 @@ if(len(sys.argv) > 3):
 		print "set ylabel 'Average travel time (s)'"
 		print "set xlabel 'Percentage using the system'"
 		print "set xtics (\"0\" 0, \"10\" 1, \"50\" 2, \"100\" 3)"
-		print "set yrange [0:170]"
+		print "set yrange [0:" + timeYmax + "]"
 		output = "plot "
 		output += "\"TestResults/" + dataset + "/0/avg.dat\" using (0):1 with boxes fill solid lc rgb '#778899',"
 		output += "\"TestResults/" + dataset + "/10/avg.dat\" using (1):1 with boxes fill solid lc rgb '#778899',"
