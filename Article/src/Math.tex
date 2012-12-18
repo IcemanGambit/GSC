@@ -42,22 +42,22 @@ The sequenc $greens$ will hence end up containing the periods when the connectio
 If $\cphase=\langle (green, 20), (yellow, 4), (red, 20), (yellow, 2)\rangle$ then $greens=\langle (0,20)\rangle$.
 
 Converting \greens to the desired spans is done in line~\ref{alg:getSpans:ncirc} through~\ref{alg:getSpans:endWhile}.
-\ncirc in line~\ref{alg:getSpans:ncirc} is the number of times that the signal has made a full circulation.% based on the number of seconds passed since the begining of the simulation and the circulation time of the phase, \Ccirc{\phase}.
+\ncirc in line~\ref{alg:getSpans:ncirc} is the number of times that the signal has made a full circulation.
 $\tsim-\ti$ is the number of seconds passed since the beginning of the simulation and $\Ccirc{\phase}$ is the circulation time of the phase. 
 By dividing these, we get the number of ciculations.
 \spans is initialised in line~\ref{alg:getSpans:initSpans} and will contain the desired green spans.
 $i$ in line~\ref{alg:getSpans:i} represent the extra number of circulations we want to look into the future.
-%TODO : Her til!!!!!
-
-The loops in line~\ref{alg:getSpans:whilebegin} and~\ref{alg:getSpans:forbegin} continuously loops through $greens$ and add spans until the condition in line~\ref{alg:getSpans:breakCond} is met.
+The loops in line~\ref{alg:getSpans:whilebegin} and~\ref{alg:getSpans:forbegin} continuously loops through $greens$ and add spans to \spans.
+\tstart is the relative time in seconds when a green span begins and \tend is when the span ends. %TODO: Too much repeat?
+With $\ncirc$ being the number of circulations since the begining of the simulation and $i$ being the number of extra circulations, $\tvar$ in line~\ref{alg:getSpans:tvar} becomes the number of seconds we need to add to the values in $greens$ from the start of the simuation.
+In line~\ref{alg:getSpans:ifReachable}, we check if this span is reachable.
+If the time the end of the span plus the offset, \tvar is larger than number of seconds the simulaion has run, then the span is added to the return seqeuence, \spans in line~\ref{alg:getSpans:add}.
+By adding $\tstart + \tvar$ to the timestamp $\tsim$ we get the timestamp when the signal will be green. Likewise for \tend.
+The while loop runs until the condition in line~\ref{alg:getSpans:breakCond} is met.
 This happens when at least one span has been found and when the last element ends after \tmax seconds after \ti.
+Having reached the end of the while loop in line~\ref{alg:getSpans:i++}, we increment $i$, and loop one more extra circulation into the future in the next loop.
 
-The variable $i$ in line~\ref{alg:getSpans:i} is the number of extra circulations we look what to look into the future.
-Hence $\tvar$ in line~\ref{alg:getSpans:tvar} is the number of seconds we need to add to the values in $greens$ from the start of the simuation.
-If the time the green span ends plus the offset is larger than number of seconds the simulaion has run, then the span is added to the return seqeuence, \spans in line~\ref{alg:getSpans:add}.
-By adding $\tstart + \tvar$ to the timestamp $\tsim$ we get the timestamp when the signal will be green. 
-Likewise for \tend.
-Using the same example as above, $\tmax=100$ and an abstract value for $\tsim=0$ we get that $getSpan(\con, 30)$ returns $\langle(46,66), (92,112)\rangle$.%TODO: Check
+Using the same example as above, $\tmax=100$ and $\tsim=\verb#12:42:13#$ we get that $getSpan(\con, \verb#12:53:49#)$ returns $\langle(\verb#12:53:43#,$ $\verb#12:54:03#),$ $(\verb#12:54:29#,$ $\verb#12:54:49#),$ $(\verb#12:55:15#,$ $\verb#12:55:35#)\rangle$.%TODO: Check
 
 \begin{algorithm}
 \caption{$getSpans(\con, \ti)$}\label{alg.getSpans}
@@ -79,7 +79,7 @@ Using the same example as above, $\tmax=100$ and an abstract value for $\tsim=0$
 \While{true}\label{alg:getSpans:whilebegin}
 \For{$(\tstart, \tend)\in greens$}\label{alg:getSpans:forbegin}
 \State $\tvar = (\ncirc+i)\cdot \Ccirc{\cphase}$\label{alg:getSpans:tvar}
-\If {$\tend+\tvar> \tsim-\ti$}\Comment Reachable span
+\If {$\tend+\tvar> \tsim-\ti$}\Comment Reachable span\label{alg:getSpans:ifReachable}
 \State $\spans.add((\tstart + \tvar+\tsim, \tend + \tvar+ \tsim))$\label{alg:getSpans:add}
 \EndIf
 \EndFor
@@ -87,7 +87,7 @@ Using the same example as above, $\tmax=100$ and an abstract value for $\tsim=0$
 \If {$\spans.length > 0$ and $\tend' \geq \ti+\tmax$}\label{alg:getSpans:breakCond}
 \State break\Comment Last span ends after max time
 \EndIf
-\State $i=i+1$
+\State $i=i+1$\label{alg:getSpans:i++}
 \EndWhile\label{alg:getSpans:endWhile}
 \State\Return \spans
 \end{algorithmic}

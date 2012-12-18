@@ -24,7 +24,7 @@ The road network should have the same dimensions, the traffic signals should beh
 
 The section has seven junctions: two large regulated junctions with $12$ to $16$ connections, two small regulated junctions with $4$ to $6$ connections, and three small unregulated junctions.
 The network is an exact replica of Hobrovej, with the same distance between segments and the same number of lanes and connections.
-We will many focus on the route going from the south end of Hobrovej to the north end of Hobrovej.
+We will mainly focus on the route going from the south end of Hobrovej to the north end of Hobrovej where $158$ of the simulated vehicles will drive.
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.2\textwidth]{../images/HobrovejNy.png}
@@ -37,7 +37,7 @@ The number of routes and vehicles in the network is also based on local knowledg
 Each simulation has $2362$ vehicles spawning on a random route, keeping with the values of the OD matix.
 The spawn rate is defined as the number of vehicles entering the network per second.
 To evaluate \tech at different levels of congestion, we run the tests with different spawn rates ranging from $0.4$ to $1.8$ vehicles per second.
-At each congestion level, we run the simulation four times with 0\%, 10\%, 50\%, 100\% vehicles using the system.
+At each congestion level, we run the simulation four times with 0\%, 10\%, 50\%, 100\% vehicles using \tech.
 Initially, we will focus on the tests with a spawn rate of $0.8$ vehicle per second. %TODO:  check this 0.8
 This corresponds to the average congestion in the daytime outside peak loads on the primary route in the network.
 

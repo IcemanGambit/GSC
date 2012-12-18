@@ -13,23 +13,23 @@ We compare the simulator with the GPS data on three fronts:
 \item Comparison of the driving speed
 \end{enumerate*}
 
-We only look at data from the main road of Hobrovej in the northern direction, only use GPS trajectories between 10 am and 2 pm on weekdays, and use a spawning rate of $0.8$ vehicle per second.
+We only look at data from the main road of Hobrovej in the northern direction, using only GPS trajectories between 10 am and 2 pm on weekdays, and use a spawning rate of $0.8$ vehicle per second.
 Tests show that this give comparable data.
 
 \subsubsection{Validation Metric}
 The validation metric is based on three key measurements: speed, waiting time and number of stops. 
 Waiting time is the difference between the travel time and free flow time, which is how long it will take to drive the same distance driving at the speed limit and never stopping.
 The free flow time is $93s$.
-We say a vehicle has stop when its speed drops below $10km/s$, and say that it move again when it drives faster than $15km/h$.%TODO: Check
-The average value for all vehicles on the main road of Hobrovej togeather with the population standard deviation (STDEV) can be seen in Table~\ref{table.valMetric}.
-The difference between simulated and GPS data are minimal indicating that SUMO simulates these factors satisfactory.
+We say a vehicle has stop when its speed drops below $10km/s$, and say that it move again when it drives faster than $15km/h$.
+The average value for all vehicles on the main road of Hobrovej together with the population standard deviation $\sigma$ can be seen in Table~\ref{table.valMetric}.
+The difference between simulated and GPS data are small, indicating that SUMO simulates these factors satisfactory.
 The deviation is quite large for waiting time and number of stops.
 The is, however, expected as there is a large difference between those that drive through all junctions without stopping, and those that have to stop every time.
 \begin{table}
 \centering
 \begin{tabular}{|l|c|c|c|c|}\hline
  						&  \multicolumn{2}{c|}{SUMO} & \multicolumn{2}{c|}{GPS} \\\hline
- 						& Value & STDEV & Value & STDEV \\\hline
+ 						& Value & $\sigma$ & Value & $\sigma$ \\\hline
 Avg. speed ($km/h$) 	& 37.45 & 7.86 	& 35.03 & 6.28 \\\hline
 Avg. waiting time ($s$) & 66.90 & 33.97 & 70.35 & 33.07 \\\hline
 Avg. number of stops 	& 1.91 	& 0.66 	& 1.80 	& 1.08 \\\hline
@@ -43,7 +43,7 @@ We see that the curves flatens at about 300 $m$, 600 $m$, 900 $m$ and 1200 $m$, 
 This corresponds well with the dimensions of Hobrovej and match the four regulated traffic lights.
 \begin{figure}[htb]
 \includegraphics[width=0.45\textwidth]{../images/Real/RealDistance.png}
-\caption{Travel distance for real GPS trajectories}
+\caption{Travel distance for $158$ real GPS trajectories}
 \label{fig:TestResults:realDistance}
 \end{figure}
 
@@ -54,7 +54,7 @@ Besides that, the acceleration profiles look similar, and the map has the correc
 
 \begin{figure}[htb]
 \includegraphics[width=0.45\textwidth]{../images/tp0c0_8/distanceUncontrolled0.png}
-\caption{Travel distance for simulated data without \tech}
+\caption{Travel distance for $158$ simulated vehicles without \tech}
 \label{fig:TestResults:distance0}
 \end{figure}
 
