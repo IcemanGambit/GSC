@@ -159,7 +159,7 @@ if(len(sys.argv) > 3):
 		print "set xlabel 'Time (s)'"
 		plots = ""
 		counttotal = 0
-		for i in range(0,2000):
+		for i in range(0,157):
 			datafile = "TestResults/" + dataset + "/0/"+ route + "/distance/" + str(i) + ".dat"
 			if(not os.path.exists(datafile)):
 				continue
@@ -180,7 +180,7 @@ if(len(sys.argv) > 3):
 		print "set xlabel 'Time (s)'"
 		plots = ""
 		counttotal = 0
-		for i in range(0,2000):
+		for i in range(0,20):
 			datafile = "TestResults/" + dataset + "/0/"+ route + "/speed/" + str(i) + ".dat"
 			if(not os.path.exists(datafile)):
 				continue
@@ -203,7 +203,7 @@ if(len(sys.argv) > 3):
 		print "set xlabel 'Time (s)'"
 		plots = ""
 		counttotal = 0
-		for i in range(0,2000,5):
+		for i in range(0,2000):
 			datafile = "TestResults/" + dataset+ "/" +datasetPercentage+ "/"+ route+ "/"+ conType + "/" + str(i) + ".dat"
 			if(not os.path.exists(datafile)):
 				continue
@@ -240,7 +240,7 @@ elif sys.argv[1].find("fuelCongestion") == 0:
 	print "set terminal png size 700,400"
 	print "set output \"images/" + sys.argv[2]+ "\""
 	print "set key left"
-	print "set xrange [0.4:2.6]"
+	print "set xrange [0.4:1.6]"
 	print "set ylabel 'Fuel (ml)'"
 	print "set xlabel 'Congestion (vehicls per second)'"
 	plots = ""
@@ -257,7 +257,7 @@ elif sys.argv[1].find("timeCongestion") == 0:
 	print "set terminal png size 700,400"
 	print "set output \"images/" + sys.argv[2]+ "\""
 	print "set key left"
-	print "set xrange [0.4:2.6]"
+	print "set xrange [0.4:1.6]"
 	print "set ylabel 'Time (s)'"
 	print "set xlabel 'Congestion (vehicls per second)'"
 	plots = ""
