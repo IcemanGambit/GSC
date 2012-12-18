@@ -6,12 +6,13 @@ It is imporant to verify that the results obtained from the simulator actually m
 We compare the results from the simulator with GPS trajectories collected in the project "Spar P\aa\ Farten".
 If the results are similar, we may deduce that the simulator provides usable results.
 We compare the simulator with the GPS data on three fronts: 
-\vspace{-5mm}
+\vspace{-4mm}
 \begin{enumerate*}
 \item Comparison based on a metric based on average speed, number of stops and waiting time
 \item Comparison of the travel distance 
 \item Comparison of the driving speed
 \end{enumerate*}
+\vspace{-4mm}
 
 We only look at data from the main road of Hobrovej in the northern direction, using only GPS trajectories between 10 am and 2 pm on weekdays, and use a spawning rate of $0.8$ vehicle per second.
 Tests show that this give comparable data.
@@ -48,9 +49,10 @@ This corresponds well with the dimensions of Hobrovej and match the four regulat
 \end{figure}
 
 Figure~\ref{fig:TestResults:distance0} also plots the travel distance as a function over time, only for the results of the simulator.
-We see that the simulation resembles the real-world results, however, the simulated vehicles tend to hold longer at the traffic lights. 
-This is because the phases of traffic lights of the simulation are too different compared to real traffic lights. 
-Besides that, the acceleration profiles look similar, and the map has the correct dimensions.%TODO: Det her er uklart
+We see that the simulation resembles the real-world results, even though the simulated vehicles seem to hold longer at the traffic lights. 
+The average waiting time is, however, not that different (see Table~\ref{table.valMetric}), indicating that this is just a small difference that accumulates over time. %TODO: Is this good enough?.
+The main reason for the difference is because the phases of traffic lights are estimated in the simulations. 
+The actual phases was not avaiable, and hence, had to be estimated based on GPS trajecotories and local knowledge of the area.
 
 \begin{figure}[htb]
 \includegraphics[width=0.45\textwidth]{../images/tp0c0_8/distanceUncontrolled0.png}
@@ -78,6 +80,8 @@ No one breaks the speed limit.
 The simulated vehicles therefore have a much more aggresive driving behaviour than what we see in the real-world data.
 This will also mean that they use more fuel than a real driver would use. %TODO: Kristian har en eller anden kommentar. Kan ikke helt læse det, måske "How know?"
 However, we see that the metric values for the real and simulated data are not that different.
+
+In summary, we find that the simulations are a usable approximation of the real work traffic in this area.
 
 \begin{figure}[htb]
 \includegraphics[width=0.45\textwidth]{../images/tp0c0_8/speedUncontrolled0.png}
@@ -115,7 +119,6 @@ The average fuel consumption when all vehicles use \tech is about $86.8 ml$ and 
 We therefore see a significant overall reduction in fuel consumption on 31 \% in this setting if \tech is used by everybody.
 Looking at just the selected route through the network, we see the same tendency (see Figure~\ref{fig:TestResults:fuelRoute}). 
 The average fuel consumption with \tech is about $115 ml$ and about $159 ml$ without, resulting in a reduction of about 28 \%.
-%TODO: Consider using 10% in stead of 100% in the two figures below.
 \begin{figure}[htb]
 \includegraphics[width=0.45\textwidth]{../images/tp0c0_8/fuelTotal.png}
 \caption{Fuel consumption for all vehicles in the network. Blue: 100\% using \tech, green: 0\% using \tech}
@@ -129,11 +132,16 @@ The average fuel consumption with \tech is about $115 ml$ and about $159 ml$ wit
 \end{figure}
 
 It is, however, more interesting to investigate the influence \tech has when only a few drivers use it.
+In the beginning, \tech will most likely not be used by every one, and it will take some time before the penetration rate will increase.
+Therefore, it will be interessting to know the effeciency of \tech when only 10 \% of the vehicles use it. 
+By looking at different penetration rates, it will be possible to understand how scalable the system is.
+If the effeciency is independend on the penetration rate, and the first vehicle using \tech will benefit as much as the last vehicle, then the system will be highly scalable.
+
 Figure~\ref{fig:TestResults:combinedFuel} shows the average fuel consumption for four different penetration rates (0 \%, 10 \%, 50 \% and 100 \%) on the main route.
 The blue columns show the average fuel consumption for those not using \tech, and the green columns show the average fuel consumption for those using \tech.
 The left- and rightmost columns hence show the same average levels as in Figure~\ref{fig:TestResults:fuelRoute}.
 When \tech is used in 10 \% of the vehicles, we see a small decrease in fuel consumption for those not using it, and a significant reduction for those using \tech.
-The reduction is about 29 \% (reduced to $ml$).
+The reduction is about 29 \% (reduced to $88.7 ml$).
 When the penetration rate increases to 50 \%, we again see that the fuel consumption decreases slightly for those not using \tech, but see that it increases slightly for those using it.
 This is most likely because vehicles start platooning (driving in groups), where vehicles using \tech force other vehicles to drive slower and the recommended speed may match the traffic lights less when the vehicles huddle together.
 
@@ -143,14 +151,17 @@ This is most likely because vehicles start platooning (driving in groups), where
 \label{fig:TestResults:combinedFuel}
 \end{figure}
 
-We see this fuel reduction because the vehicles accelerate less rapidly. 
+We see a reduction in fuel consumption because the vehicles accelerate less rapidly. 
 Figure~\ref{fig:TestResults:distance100} shows the travel distance as a function over time when all vehicles use \tech, and Figure~\ref{fig:TestResults:speed100} plots the driving speed as a function over time. 
 Only every fifth entry is plotted in Figure~\ref{fig:TestResults:speed100} for ease of readablity.
 We see that the curves are much more smooth than those in Figure~\ref{fig:TestResults:distance0} and~\ref{fig:TestResults:speed0}, because they avoid stopping, and hence has to accelerate less.
 Some vehicles still have to stop, partly because it is impossible to drive the distance between the traffic lights in the time left before it turns green, and partly because there are other vehicles blocking their path.
 
 We can therefore conclude that in the tested use case, we see a significate reduction in fuel consumption at about 30 \% even when it is only implemented in a small subset of the vehicles.
-Moreover, vehicles using \tech does not have a negative influence on the fuel consumption of the other vehicles.
+Moreover, vehicles using \tech do not have a negative influence on the fuel consumption of the other vehicles.
+It is very important that neither the fuel consumption or the travel time of vehicles not using \tech increases.
+If so, it would greatly reduce the overall benefit of \tech, even though it has a large benefit for the users.
+
 \begin{figure}[htb]
 \includegraphics[width=0.45\textwidth]{../images/tp0c0_8/distanceControlled100.png}
 \caption{Travel distance for simulated data when 100\% use \tech}
@@ -179,20 +190,18 @@ This is mostly due to the fact that vehicles do not make a full stop at traffic 
 
 \subsection{Congestion Levels}
 Normal traffic usually have peak periods where the traffic is higher than normal \cite{Vejdir}. 
-In order to test the effect of the system with different congestion levels we repeated the simulation while changing the rate with which vehicles are spwaning. 
-The fuel consumption and travel distance at different penetration rates (plots) and congestion levels (x-axis) can be seen in Figure~\ref{fig:TestResults:congestionFuel} and Figure~\ref{fig:TestResults:congestionTime}, respectively. 
-When more than 1.6 vehicles spawn per second, the network becomes so overloaded that the vehicles start to deadlock and the simulator is forced to teleport them(see Section~\ref{sec:methodology:sumo}).
-The results at congestion levels above 1.6 vehicles per second are therefore not as reliable as at he lower levels.
+In order to test the effect of the system with different congestion levels we repeated the simulation while changing the rate with which vehicles are spwaning (see Section~\ref{sec:UseCase}). 
 
-When noone use \tech, we see the fuel consumption and travel time increases rapidly at 1 vehicle per second, indicating that the network becomes too loaded at this congestion level. 
+The fuel consumption and travel distance at different penetration rates (plots) and congestion levels (x-axis) can be seen in Figure~\ref{fig:TestResults:congestionFuel} and Figure~\ref{fig:TestResults:congestionTime}, respectively. 
+When more than 1.6 vehicles spawn per second, the network becomes so overloaded that the vehicles start to deadlock and the simulator is forced to teleport them (see Section~\ref{sec:methodology:sumo}).
+The results at congestion levels above 1.6 vehicles per second are therefore not reliable not included in the results.
+
+When noone use \tech, we see that the fuel consumption and travel time increases rapidly at 1 vehicle per second, indicating that the network becomes too loaded at this congestion level. 
 The same happens when 10\% use \tech. 
 When 50 \% use \tech, we also see an increase, however, the increase is less steep.
 The increase is even more moderate when 100 \% use \tech, and the rapid increase is first present when 1.4 vehicle spawn per second.
 
-%In a congested network large queues of vehicles build up. 
-%A large portion of the time a traffic light is green is wasted on the time it takes to get the queue moving. 
-%A queue of vehicles accelerrating spend less time gaining speed if they are already moving slowly. 
-%This is likly the reason that the average time of all vehicles improve if enough are using the system.
+It therefore looks like the network can handle more vehicles when they use \tech, which will increase traffic flow in peak periodes.
 
 \begin{figure}[htb]
 \includegraphics[width=0.45\textwidth]{../images/fuelCongestion.png}
@@ -205,7 +214,7 @@ The increase is even more moderate when 100 \% use \tech, and the rapid increase
 \label{fig:TestResults:congestionTime}
 \end{figure}
 
-\subsection{Potential Savings}%TODO: A lot of numbers, how do we make it easier to read? Should it be someting else?
+\subsection{Potential Savings}
 Say that $20,000$ vehicles drive this route a day on average across a year and 78\% drive outside the peak periods, then $15,600$ vehicles can potential benefit from using \tech.
 $15,600$ vehicles driving without \tech will in a day use $1,965.6 l$ of fuel according to the simulations.
 If just 10 \% of these use \tech this is reduced to $1,893.8 l$ where the 10 \% spend $138.84 l$ and the 90 \% use $1,755 l$.

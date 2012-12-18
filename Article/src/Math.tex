@@ -7,11 +7,12 @@ We base the recommended speed, $\vel$ for arriving at the next traffic light whi
 where $\dist$ is the distance to the next traffic light and \ti is the time it has to cross that distance.
 This involves some inaccuracies as we do not take the acceleration time into account. %v = v0 + a*t
 In order to do this, we would need to integrate over time to get the distance travelled during acceleration.
-Such relative complex calculations are unnecessary because we recompute the recommended speed each second.
-By recomputing each second, the recommended speed will change each time until a fixed point is reached. 
-A driver will generally not detect this unless a green light suddenly cannot be reached, and the recommended speed is dramatically decreased. %TODO: More? I think so
+Such calculations are relativly complex and in many cases unnecessary. 
+By recomputing each second, the recommended speed will, however, change each time until a fixed point is reached. 
+A driver will generally not detect this unless a green light suddenly cannot be reached, and the recommended speed is dramatically decreased.
+This is acceptable, for the sake of simple calculations.
 
-The driver should reach the junction just as it changes to green, because this will alow more vehichles to pass the junction afterwards.
+The driver should reach the junction just as it changes to green, because this will allow more vehichles to pass the junction afterwards.
 However, the driver may not drive faster than the speed limit, $\velmax$.
 If it is not possible to reach the next traffic light the first time it is green, then the driver should slow down and wait for the next time it is green.
 By setting \ti in Equation~\ref{eq:Math:velocityDefinition} to when the green periode ends, \tslow, we find how slow the driver can drive and still cross the junction.
@@ -99,7 +100,7 @@ Using the same example as above, $\tmax=100$ and $\tsim=\verb#12:42:13#$ we get 
 Algorithm~\ref{alg.recommendedSpeed} shows the procedure for finding the recommended speed $\velrec$.
 The input of the algorithm is the vehicle, \veh, the route that vehicle is traversing, \route and the map, $\map = (V, E, C)$.
 
-First, we find the current speed limit, \velmax in line~\ref{alg:recSpeed:injunction} through~\ref{alg:recSpeed:injunctionEnd}. %TODO: whould it not be easier to let a connection have a speed limit, or is that just wrong?
+First, we find the current speed limit, \velmax in line~\ref{alg:recSpeed:injunction} through~\ref{alg:recSpeed:injunctionEnd}. %Comment: whould it not be easier to let a connection have a speed limit, or is that just wrong?
 If the vehicle currently is on a connection, i.e. in a junction, we use the speed limit of the previouse edge.
 Otherwise, we use that of the current edge.
 
@@ -131,14 +132,18 @@ By returning the minimum of \velrec and \velmax in line~\ref{alg:recSpeed:return
 It might not be possible to find a reachable span, if the circulation time of the phase is larger than the look-ahead time, \tmax (see Section~\ref{sec:greenSpans}).
 If so, we just return the maximum speed in line~\ref{alg:recSpeed:returnmax}.
 
-Assume a speed limit of $\velmax = 16 m/s$ and that the vehicle is $500 m$ from the next connection, \con.
+Assume a speed limit of $\velmax = 16 m/s$ and that the vehicle is $200 m$ from the next connection, \con.
+\vspace{-4mm}
 \begin{itemize}
-\item If $getSpan(\con, \verb#12:53:49#)$ returns $\langle(\verb#12:53:39#,$ $\verb#12:53:59#),$ $(\verb#12:54:25#,$ $\verb#12:54:45#),$ $(\verb#12:55:11#,$ $\verb#12:55:31#)\rangle$, then Algorithm~\ref{alg.recommendedSpeed} will simply return \velmax as $\verb#12:53:39#$ $-$ $\verb#12:53:49#$ $ \leq 0$.
-\item If $getSpan(\con, \verb#12:53:49#)$ returns $\langle(\verb#12:53:59#,$ $\verb#12:54:29#),$ $(\verb#12:55:05#,$ $\verb#12:55:35#)\rangle$, then \velslow is $12.5 m/s$.
+\item Assume $getSpan(\con, \verb#12:53:49#)$ returns $\langle(\verb#12:53:39#,$\\$\verb#12:54:09#),$ $(\verb#12:54:45#,$ $\verb#12:55:15#),$ $(\verb#12:55:51#,$ $\verb#12:56:21#)\rangle$, then $\velslow < \velmax$ and Algorithm~\ref{alg.recommendedSpeed} returns \velmax as $\verb#12:53:39#-\verb#12:53:49# \leq 0$.
+
+\item Assume $getSpan(\con, \verb#12:53:49#)$ returns $\langle(\verb#12:53:59#,$ $\verb#12:54:29#),$ $(\verb#12:55:05#,$ $\verb#12:55:35#)\rangle$, then \velslow is $5 m/s$.
 The first span is therefore reachable. 
-The recommeneded speed is calculated to $50m/s$ which is reduced to $16 m/s$ in order to stay below the speed limit.
-\item If $getSpan(\con, \verb#12:53:49#)$ returns $\langle(\verb#12:53:54#,$ $\verb#12:54:09#),$ $(\verb#12:54:49#,$ $\verb#12:55:04#)\rangle$, then \velslow is $25 m/s$ and the first span is not reachable.
-Looking at the next span, \velslow becomes $6.6m/s$ which is less than the speed limit, and the final recommended speed is $8.3 m/s$.
+The recommeneded speed is calculated to $20m/s$ which is reduced to $16 m/s$ in order to stay below the speed limit.
+
+\item Assume $getSpan(\con, \verb#12:53:49#)$ returns $\langle(\verb#12:53:44#,$ $\verb#12:53:59#),$ $(\verb#12:54:39#,$ $\verb#12:54:54#)\rangle$, then \velslow is $20 m/s$ and the first span is not reachable.
+Looking at the next span, \velslow becomes $3.1m/s$ which is less than the speed limit and $\velrec = 4 m/s$. 
+This is less than the lower limit and the recommended speed becomes 4.1 $m/s$.
 \end{itemize}
 
 \begin{algorithm}
@@ -183,39 +188,45 @@ Looking at the next span, \velslow becomes $6.6m/s$ which is less than the speed
 \end{algorithm}
 
 \subsection{Complexity and Communication Analysis}
-Understanding the complexity and communication costs of the algorithm is important in order to know whether for example a smartphone implementation is feasable.
+Understanding the complexity and communication costs of \tech is important in order to know whether for example a smartphone implementation is feasable.
 
 Algorithm~\ref{alg.getSpans} has two parts: converting the phase, \phase to green spans and expanding these spans.
-Remember $|\phase|$ is the number of elements in the phase, then converting the phase has a complexity of $O(|\phase|)$.
-Expanding the phase will be dependent on both $|\phase|$ and the look-ahead time, $\tmax$, as the returned sequence is terminated when the last element ends after $\tmax$ seconds.
-Hence the complexity of Algorithm~\ref{alg.getSpans} is  $O(|\phase|+ |\phase|\cdot \cfrac{\tmax}{\Ccirc{\phase}})$ which can be reduced to $O(|\phase|\cdot \cfrac{\tmax}{\Ccirc{\phase}})$.
+Remembering that $|\phase|$ is the number of elements in the phase, then converting the phase has a complexity of $O(|\phase|)$.
+Expanding the phase will be dependent on both $|\phase|$ and the number of extra circulations will look into the future. 
+The number of extra circulations are 
+\[\fcirc = \cfrac{\tmax}{\Ccirc{\phase}}\]
+as the returned sequence is terminated when the last element ends after $\tmax$ seconds.
+Hence the complexity of Algorithm~\ref{alg.getSpans} is  $O(|\phase|+ |\phase|\cdot \fcirc)$ which can be reduced to $O(|\phase|\cdot \fcirc)$.
 
 The complexity of Algorithm~\ref{alg.recommendedSpeed} is fourth fold: checking if the vehicle is on a connection, finding the next connection on the route, getting the green spans and finding the speed.
 Checking if the vehicles is on a connection will be $O(|C|)$ where $|C|$ denotes the number of connections in the network.
 However, by setting a type on egdes and connections, this can be reduced to a simple lookup and hence $O(1)$.
-Using this type, finding the next connection will then have a complexity of $O(\route)$.
-This can however be precomputed such that the complexity also becomes $O(1)$.
-The route is be the sequence of egdes and connections to be visited.
-By keeping a reduced route with only the connections and the speed limit of the previouse egde, and popping this sequnce as connections are visited, then the complexity will be $O(1)$.
-The complexity of getting the green spans is, as stated, $O(|\phase|\cdot \cfrac{\tmax}{\Ccirc{\phase}})$.
-Finding the speed is also $O(|\phase|\cdot \cfrac{\tmax}{\Ccirc{\phase}})$ as it loops through the spans, and the content of the loop only has constant complexity.
-In total, the complexity of Algorithm~\ref{alg.recommendedSpeed} is $O(|\phase|\cdot \cfrac{\tmax}{\Ccirc{\phase}})$.
+Using these types, finding the next connection will then have a complexity of $O(|\route|)$.
+This can be precomputed such that the complexity also becomes $O(1)$.
+The route is the sequence of egdes and connections to be visited.
+By keeping a reduced route with only the connections and the speed limit of the previouse egde, and popping this sequnce as connections are visited, the complexity will be $O(1)$.
+The complexity of getting the green spans is, as stated, $O(|\phase|\cdot \fcirc)$.
+Finding the speed is also $O(|\phase|\cdot \fcirc)$ as it loops through the spans, and the content of the loop only has constant complexity.
+In total, the complexity of Algorithm~\ref{alg.recommendedSpeed} is $O(|\phase|\cdot \fcirc)$.
 
-\tmax is how far into the future we what the spans to go.
+The value \fcirc is how many extra circulations of the phase is needed to get the spans. 
 We predict that it often will not be neccessary to look more than $2\cdot |\phase|$ in to the future.
 In the simulations, \tmax is set to 400 $s$, about 6 and a half minute, to ensure a span is always found.
-$\Ccirc{\phase}$ are very rarely more than 120 seconds, so $\cfrac{\tmax}{\Ccirc{\phase}}$ will be a small number.
+The circulation time, $\Ccirc{\phase}$ is rarely more than 120 seconds, so $\fcirc$ will be a small number.
 Additionally, $|\phase|$ will in most case be short and cannot be higher than than the circulation time.
-We can therefore conclude that the complexity of recommending a speed is small.
+We can therefore conclude that the complexity of recommending a speed is low.
 
 The communication cost is also low.
 We propose a anonymised, pull strategy where the smartphone asks a server for the spans of a traffic light given its identifier.
-The pull request will therfore only contain a integer identifing the next traffic light on the route.
-The respons will as explain above be propotional to the length of the phase, and hence $O(\Ccirc{\phase})$.
-Each entry will be a pair of integers.
-The request will in addition to the spans also contain the GPS location of the traffic light, being the latitude and longitude coordinates and hence two integers.
-The communication cost is thereby also minimal and at most, $3\cdot s + O(\Ccirc{\phase})\cdot 2\cdot s + 2\cdot s$, where $s$ is the size of an integer.
-
+We estimate one pull request per second should be sufficient.
+This is the same frequency used in the the following simulations.
+The pull request will only contain an integer identifing the connection of the next traffic light on the route.
+The respons will as explained above be propotional to the length of the green spans, and hence $O(|\phase|\cdot \fcirc)$.
+Each span entry will be a pair of integers.
+The communication cost is thereby also small and asymptotic to $O(|\phase|\cdot \fcirc)\cdot 2\cdot size\_of(integer)$. %, where $si$ is the size of an integer ($4$ bytes). 
+Simple experiments show that $|\phase|\cdot \fcirc$ is rarely more than ten. 
+This gives an estimated communication cost of 4 $bytes/s$ in the request and 80 $bytes/s$ in the respons, not including communication headers and time synchronisation.
+The total communication cost can therefore be estimated to 84 $bytes/s$ and about 5 kilobytes per minute.
 
 
 

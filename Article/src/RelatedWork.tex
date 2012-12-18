@@ -10,14 +10,14 @@ Instead, we assume the actual programs of the traffic signal are aviable and use
 Audi Travolution\cite{audi} has also made an advisory system directly build into the vehicle to match speed to traffic lights.
 Results from a project in 2006 show a 17 \% reduction in fuel consumption.
 Their approach relies on direct communication with the traffic light systems via wireless LAN and UMTS links.
-Contrary to Audi Travolutions project we focus on a system that is detatched from the vehicle, which means you do not have to by a new vheicle.
+Contrary to Audi Travolutions project we focus on a system that is detatched from the vehicle, which means you do not have to by a new vehicle.
 
 The authors of \cite{VANETsim} have also proposed an idea similar to ours, in that they evaluate whether drivers should accelerate or decelerate when approaching a traffic light.
 They also use the simulator SUMO to simulate their methods.
 Contrary to our approach, they rely on communication between nearby vehicles to estimate the number of blocking vehicles such that they can calculate the exact distance.
-Their road network is very simple, and do not include any crossing traffic or road senors, and their results are therefore based on a very simplified environment. 
+Their road network is very simple, and do not include any crossing traffic, and their results are therefore based on a very simplified environment. 
 The network that we use is a main road in Aalborg, Denmark. 
-This one and a half kilometer section of Aalborg includes both traffic lights, crossing traffic and we model it using real dimensions, traffic light phases and congestion levels.
+This one and a half kilometer section of Aalborg includes both traffic lights, crossing traffic and we model it using real dimensions and congestion levels.
 
 Road-side countdown timers and advisorly speed signs\cite{transyt} are already a widely used technique.
 Countdown timers show remaining time before the light changes and advisory speed signs show the speed.
@@ -34,7 +34,7 @@ Another related issue is to re-route vehicles in order to avoid congestion.
 This way, drivers will be able to drive more smoothly an hence reduce their fuel consumption. 
 Three strategies for re-routing vehicles to avoid congestion has been proposed in \cite{congestionAvoidance}. 
 They collect real-time data on the congestion levels from both vehicles and road-side sensors, and provide individual re-routing strategies to the drivers based on the results. 
-Through simulations their best result show a reduction in waiting at about 50 \% (based on provided graphs). %TODO:
+Through simulations their graphs show a reduction in waiting time at about 50 \%.
 
 %Simulators
 Simulations are a widely used technique for testing hypothesis in the traffic worlds.
@@ -46,9 +46,6 @@ Two major microscopic traffic simulators of today are SUMO (Simulation of Urban 
 Both are microscopic simulators, which we will need in order to model for exampel turn lanes.
 VISSIM is a comercial tool whereas SUMO is an open source project.
 We will be using SUMO when evaluating \tech.
-
-%Several methods for modeling the movement of vehicles also exist.  %TODO: Need cites
-%Amongst these are Monte Carlo models \cite{} that use random data, car following models \cite{} where cars follow leading cars, automatas where vehicles follow deterministc rules \cite{} and much more.
 
 
 

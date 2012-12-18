@@ -14,7 +14,7 @@ SUMO handles this problem by eventually teleporting the vehicles along the netwo
 This is often just at the opposite side of the traffic light.
 
 SUMO has a build-in function to calculate the vehicles fuel consumption, which is explained in \cite{SUMOFuel}.
-This function is used to estimate the reduction in fuel consumption.
+This function is used to estimate the fuel consumption.
 
 \subsection{Use Case}\label{sec:UseCase}
 %Best guess configuration
@@ -36,7 +36,7 @@ We have estimated the phases of traffic lights based on local knowledge of the a
 The number of routes and vehicles in the network is also based on local knowledge of the area and an OD (Origin-Destination) matrix extracted from GPS trajectories from the project "Spar På Farten"\cite{SparPaFarten}.
 Each simulation has $2362$ vehicles spawning on a random route, keeping with the values of the OD matix.
 The spawn rate is defined as the number of vehicles entering the network per second.
-To evaluate \tech at different levels of congestion, we run the tests with different spawn rates ranging from $0.4$ to $1.8$ vehicles per second.
+To evaluate \tech at different levels of congestion, we run the tests with different spawn rates ranging from $0.4$ to $1.6$ vehicles per second.
 At each congestion level, we run the simulation four times with 0\%, 10\%, 50\%, 100\% vehicles using \tech.
 Initially, we will focus on the tests with a spawn rate of $0.8$ vehicle per second. %TODO:  check this 0.8
 This corresponds to the average congestion in the daytime outside peak loads on the primary route in the network.
