@@ -42,22 +42,22 @@ The sequenc $greens$ will hence end up containing the periods when the connectio
 If $\cphase=\langle (green, 20), (yellow, 4), (red, 20), (yellow, 2)\rangle$ then $greens=\langle (0,20)\rangle$.
 
 Converting \greens to the desired spans is done in line~\ref{alg:getSpans:ncirc} through~\ref{alg:getSpans:endWhile}.
-\ncirc in line~\ref{alg:getSpans:ncirc} is the number of times that the signal has made a full circulation.% based on the number of seconds passed since the begining of the simulation and the circulation time of the phase, \Ccirc{\phase}.
+\ncirc in line~\ref{alg:getSpans:ncirc} is the number of times that the signal has made a full circulation.
 $\tsim-\ti$ is the number of seconds passed since the beginning of the simulation and $\Ccirc{\phase}$ is the circulation time of the phase. 
 By dividing these, we get the number of ciculations.
 \spans is initialised in line~\ref{alg:getSpans:initSpans} and will contain the desired green spans.
 $i$ in line~\ref{alg:getSpans:i} represent the extra number of circulations we want to look into the future.
-%TODO : Her til!!!!!
-
-The loops in line~\ref{alg:getSpans:whilebegin} and~\ref{alg:getSpans:forbegin} continuously loops through $greens$ and add spans until the condition in line~\ref{alg:getSpans:breakCond} is met.
+The loops in line~\ref{alg:getSpans:whilebegin} and~\ref{alg:getSpans:forbegin} continuously loops through $greens$ and add spans to \spans.
+\tstart is the relative time in seconds when a green span begins and \tend is when the span ends. %TODO: Too much repeat?
+With $\ncirc$ being the number of circulations since the begining of the simulation and $i$ being the number of extra circulations, $\tvar$ in line~\ref{alg:getSpans:tvar} becomes the number of seconds we need to add to the values in $greens$ from the start of the simuation.
+In line~\ref{alg:getSpans:ifReachable}, we check if this span is reachable.
+If the time the end of the span plus the offset, \tvar is larger than number of seconds the simulaion has run, then the span is added to the return seqeuence, \spans in line~\ref{alg:getSpans:add}.
+By adding $\tstart + \tvar$ to the timestamp $\tsim$ we get the timestamp when the signal will be green. Likewise for \tend.
+The while loop runs until the condition in line~\ref{alg:getSpans:breakCond} is met.
 This happens when at least one span has been found and when the last element ends after \tmax seconds after \ti.
+Having reached the end of the while loop in line~\ref{alg:getSpans:i++}, we increment $i$, and loop one more extra circulation into the future in the next loop.
 
-The variable $i$ in line~\ref{alg:getSpans:i} is the number of extra circulations we look what to look into the future.
-Hence $\tvar$ in line~\ref{alg:getSpans:tvar} is the number of seconds we need to add to the values in $greens$ from the start of the simuation.
-If the time the green span ends plus the offset is larger than number of seconds the simulaion has run, then the span is added to the return seqeuence, \spans in line~\ref{alg:getSpans:add}.
-By adding $\tstart + \tvar$ to the timestamp $\tsim$ we get the timestamp when the signal will be green. 
-Likewise for \tend.
-Using the same example as above, $\tmax=100$ and an abstract value for $\tsim=0$ we get that $getSpan(\con, 30)$ returns $\langle(46,66), (92,112)\rangle$.%TODO: Check
+Using the same example as above, $\tmax=100$ and $\tsim=\verb#12:42:13#$ we get that $getSpan(\con, \verb#12:53:49#)$ returns $\langle(\verb#12:53:43#,$ $\verb#12:54:03#),$ $(\verb#12:54:29#,$ $\verb#12:54:49#),$ $(\verb#12:55:15#,$ $\verb#12:55:35#)\rangle$.%TODO: Check
 
 \begin{algorithm}
 \caption{$getSpans(\con, \ti)$}\label{alg.getSpans}
@@ -79,7 +79,7 @@ Using the same example as above, $\tmax=100$ and an abstract value for $\tsim=0$
 \While{true}\label{alg:getSpans:whilebegin}
 \For{$(\tstart, \tend)\in greens$}\label{alg:getSpans:forbegin}
 \State $\tvar = (\ncirc+i)\cdot \Ccirc{\cphase}$\label{alg:getSpans:tvar}
-\If {$\tend+\tvar> \tsim-\ti$}\Comment Reachable span
+\If {$\tend+\tvar> \tsim-\ti$}\Comment Reachable span\label{alg:getSpans:ifReachable}
 \State $\spans.add((\tstart + \tvar+\tsim, \tend + \tvar+ \tsim))$\label{alg:getSpans:add}
 \EndIf
 \EndFor
@@ -87,7 +87,7 @@ Using the same example as above, $\tmax=100$ and an abstract value for $\tsim=0$
 \If {$\spans.length > 0$ and $\tend' \geq \ti+\tmax$}\label{alg:getSpans:breakCond}
 \State break\Comment Last span ends after max time
 \EndIf
-\State $i=i+1$
+\State $i=i+1$\label{alg:getSpans:i++}
 \EndWhile\label{alg:getSpans:endWhile}
 \State\Return \spans
 \end{algorithmic}
@@ -103,13 +103,18 @@ First, we find the current speed limit, \velmax in line~\ref{alg:recSpeed:injunc
 If the vehicle currently is on a connection, i.e. in a junction, we use the speed limit of the previouse edge.
 Otherwise, we use that of the current edge.
 
-Next, we find the distance to the next connection, \cnext on the route, \route. 
-This is looked up in line~\ref{alg:recSpeed:cnext}, and if there are no more connections, i.e. junctions, on the route then $\cnext=none$.
+Next, we find the distance to the next connection, \cnext on the route, \route in line~\ref{alg:recSpeed:cnext}. 
+If there are no more connections, i.e. junctions, on the route then $\cnext=none$.
+We find the distance from the vehicle to the next connection in line~\ref{alg:recSpeed:distance} and~\ref{alg:recSpeed:dinfty}.
 The distance function on line~\ref{alg:recSpeed:distance} calculates the eucledian distance from the vehicle to the connection.
 In SUMO, one cannot get a distance to the connection, but only to the center point of the associated junction.
-We therefore calculate the distance to the center of the junction and substract the average distance from the center to the outer egdes of the junctions geometric object. %TODO: Could we not just have added the lengths of the egdes? But then again this would not be a solution in the real world
-If the connection is $none$, the distance is infinite.
+We therefore calculate the distance to the center of the junction and substract the average distance from the center to the outer egdes of the junctions geometric object. %Comment: Could we not just have added the lengths of the egdes? But then again this would not be a solution in the real world
+If the connection is $none$, the distance is set to infinite in line~\ref{alg:recSpeed:dinfty}.
+If the next connection is too far ahead, we just recommend driving at the speed limit. 
+Therefore, we simply return \velmax in line~\ref{alg:recSpeed:dmax} if \dist is larger than some maximum look-ahead distance.
+We say that $\infty> k$ where $k\in \mathbb{R}$ is always true. %TODO: unnecessary?
 
+The current time, \ti is set in line~\ref{alg:recSpeed:ti} where $current\_time()$ returns a timestamp.
 In line~\ref{alg:recSpeed:getSpan}, we call the function $getSpans(\cnext, \ti)$ to get the sequence of timestamps where the phase is green.
 We initialise the recommended speed and the slowest speed in line~\ref{alg:recSpeed:velrec} and \ref{alg:recSpeed:velslow}, respectively.
 The for-loop in line~\ref{alg:recSpeed:loopSpans} to line~\ref{alg:recSpeed:loopSpansEnd} loops through the spans and finds the first span that the vehicle can reach.
@@ -126,13 +131,13 @@ By returning the minimum of \velrec and \velmax in line~\ref{alg:recSpeed:return
 It might not be possible to find a reachable span, if the circulation time of the phase is larger than the look-ahead time, \tmax (see Section~\ref{sec:greenSpans}).
 If so, we just return the maximum speed in line~\ref{alg:recSpeed:returnmax}.
 
-Assume a speed limit of $\velmax = 16 m/s$ and that the vehicle is $500 m$ from the next connection, \con, and let  the timestamps be abstacted to seconds.
+Assume a speed limit of $\velmax = 16 m/s$ and that the vehicle is $500 m$ from the next connection, \con.
 \begin{itemize}
-\item If $getSpan(\con, 10)$ returns $\langle(0,20), (20,40), (60,80)\rangle$, Algorithm~\ref{alg.recommendedSpeed} will simply return \velmax as $0-10 \leq 0$.
-\item If $getSpan(\con, 10)$ returns $\langle(20,50), (80,110)\rangle$, then \velslow is $12.5 m/s$.
+\item If $getSpan(\con, \verb#12:53:49#)$ returns $\langle(\verb#12:53:39#,$ $\verb#12:53:59#),$ $(\verb#12:54:25#,$ $\verb#12:54:45#),$ $(\verb#12:55:11#,$ $\verb#12:55:31#)\rangle$, then Algorithm~\ref{alg.recommendedSpeed} will simply return \velmax as $\verb#12:53:39#$ $-$ $\verb#12:53:49#$ $ \leq 0$.
+\item If $getSpan(\con, \verb#12:53:49#)$ returns $\langle(\verb#12:53:59#,$ $\verb#12:54:29#),$ $(\verb#12:55:05#,$ $\verb#12:55:35#)\rangle$, then \velslow is $12.5 m/s$.
 The first span is therefore reachable. 
-The recommeneded speed becomes $50m/s$ which is reduced to $16 m/s$ in order to stay below the speed limit.
-\item If $getSpan(\con, 10)$ returns $\langle(15,30), (70,85)\rangle$, then \velslow is $25 m/s$ and the first span is not reachable.
+The recommeneded speed is calculated to $50m/s$ which is reduced to $16 m/s$ in order to stay below the speed limit.
+\item If $getSpan(\con, \verb#12:53:49#)$ returns $\langle(\verb#12:53:54#,$ $\verb#12:54:09#),$ $(\verb#12:54:49#,$ $\verb#12:55:04#)\rangle$, then \velslow is $25 m/s$ and the first span is not reachable.
 Looking at the next span, \velslow becomes $6.6m/s$ which is less than the speed limit, and the final recommended speed is $8.3 m/s$.
 \end{itemize}
 
@@ -146,12 +151,12 @@ Looking at the next span, \velslow becomes $6.6m/s$ which is less than the speed
 
 \State $\cnext= $ next \con in \route\Comment $\cnext=none$ if no junction ahead \label{alg:recSpeed:cnext}
 \If {$\cnext\neq none$}\ $\dist=distance(\veh,\cnext)$ \label{alg:recSpeed:distance}
-\Else\ $\dist = \infty$
+\Else\ $\dist = \infty$\label{alg:recSpeed:dinfty}
 \EndIf
 
-\If{$d>\distmax$} \Return \velmax\Comment \cnext too far ahead
+\If{$d>\distmax$} \Return \velmax\Comment \cnext too far ahead\label{alg:recSpeed:dmax}
 \EndIf
-\State $\ti=$ current\_time()
+\State $\ti=$ current\_time()\label{alg:recSpeed:ti}
 \State $spans = getSpans(\cnext, \ti)$ \Comment Green spans of \cnext \label{alg:recSpeed:getSpan}
 
 \State $\velrec = 0$ \Comment Recommended speed \label{alg:recSpeed:velrec}
@@ -210,7 +215,6 @@ The respons will as explain above be propotional to the length of the phase, and
 Each entry will be a pair of integers.
 The request will in addition to the spans also contain the GPS location of the traffic light, being the latitude and longitude coordinates and hence two integers.
 The communication cost is thereby also minimal and at most, $3\cdot s + O(\Ccirc{\phase})\cdot 2\cdot s + 2\cdot s$, where $s$ is the size of an integer.
-
 
 
 

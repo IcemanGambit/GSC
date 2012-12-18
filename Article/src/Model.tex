@@ -38,7 +38,7 @@ SUMO limits the allowed light settings to $red$, $yellow$ and $green$.
 A phase of a traffic light, $\phase$ is defined as $\langle(\light_0, \ti_0),(\light_1, \ti_1),\dots, (\light_n, \ti_n) \rangle$ where $t_i>0$ and the light setting is $\light_i\in \{red, yellow, green\}$ in $\ti_i$ seconds for $0 \leq i \leq n$.
 There must exist at least one occurence where $\light_i = green$ for $i \in \{0 \dots n\}$. 
 A connection in an unregulated junction will simply have the phase $\langle(green, \infty)\rangle$.
-Let $\Ccirc{\phase} = \sum_{i=0}^{n}\ti_i$ be the circulation time of \phase where $(\light_i, \ti_i)\in \phase$.
+Let $\Ccirc{\phase} = \sum_{i=0}^{n}\ti_i$ be the circulation time of \phase where $(\light_i, \ti_i)\in \phase$, and $|\phase|=n$.
 A typical circulation time of a phase is between $35$ to $80$ seconds but can up to $110$ seconds. 
 The yellow periodes are often $4s$ before a red periode and $2s$ before a green period\cite{vejtrafik}.
 
@@ -52,7 +52,6 @@ A junction is said to be unregulated iff $\forall c \in \jucons | \cphase = \lan
 \subsection{Routes}
 A route, $\route$, is a sequence of edges on the map, $\langle \edge_0, \edge_1, \dots \edge_n \rangle$, where $\exists \con$ such that $\eendi{i} = \cestart$ and $\estarti{i+1} = \ceend$ for $0\leq i< n$.
 The vehicle starts at $\edge_0$ and moves along the sequence until $\edge_n$ has been reached.
-
 
 
 
