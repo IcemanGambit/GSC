@@ -1,3 +1,6 @@
+"""
+This file is used only for recording the testresults and do only pull data from the simulater
+"""
 import traci, Vehicle, os, random, shutil
 from sets import Set
 
