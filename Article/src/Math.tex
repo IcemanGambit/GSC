@@ -58,7 +58,7 @@ The while loop runs until the condition in line~\ref{alg:getSpans:breakCond} is 
 This happens when at least one span has been found and when the last element ends after \tmax seconds after \ti.
 Having reached the end of the while loop in line~\ref{alg:getSpans:i++}, we increment $i$, and loop one more extra circulation into the future in the next loop.
 
-Using the same example as above, $\tmax=100$ and $\tsim=\verb#12:42:13#$ we get that $getSpan(\con, \verb#12:53:49#)$ returns $\langle(\verb#12:53:43#,$ $\verb#12:54:03#),$ $(\verb#12:54:29#,$ $\verb#12:54:49#),$ $(\verb#12:55:15#,$ $\verb#12:55:35#)\rangle$.%TODO: Check
+Using the same example as above, $\tmax=100$ and $\tsim=\verb#12:42:13#$ we get that $getSpan(\con, \verb#12:53:49#)$ returns $\langle(\verb#12:53:43#,$ $\verb#12:54:03#),$ $(\verb#12:54:29#,$ $\verb#12:54:49#),$ $(\verb#12:55:15#,$ $\verb#12:55:35#)\rangle$.
 
 \begin{algorithm}
 \caption{$getSpans(\con, \ti)$}\label{alg.getSpans}
@@ -113,7 +113,6 @@ We therefore calculate the distance to the center of the junction and substract 
 If the connection is $none$, the distance is set to infinite in line~\ref{alg:recSpeed:dinfty}.
 If the next connection is too far ahead, we just recommend driving at the speed limit. 
 Therefore, we simply return \velmax in line~\ref{alg:recSpeed:dmax} if \dist is larger than some maximum look-ahead distance.
-We say that $\infty> k$ where $k\in \mathbb{R}$ is always true. %TODO: unnecessary?
 
 The current time, \ti is set in line~\ref{alg:recSpeed:ti} where $current\_time()$ returns a timestamp.
 In line~\ref{alg:recSpeed:getSpan}, we call the function $getSpans(\cnext, \ti)$ to get the sequence of timestamps where the phase is green.
