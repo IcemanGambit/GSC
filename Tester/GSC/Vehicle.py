@@ -74,16 +74,16 @@ def _getGreenSpans(vhId, maxtime):
 """
 	getNextTrafficLight(string) > [string, string, string]
 
-	Returns the next traffic light id, the incomming and outgoing egdes on the route
+	Returns the next traffic light id, the incomming and outgoing edges on the route
 	The traffic light is visisted to reduce the complexity of getTrafficLightsOnRoute(vhId)
 
 """
 def _getNextTrafficLight(vhId):
-	egde = traci.vehicle.getRoadID(vhId)
+	edge = traci.vehicle.getRoadID(vhId)
 	nextTL = Route.getTrafficLightsOnRoute(vhId)
 	if len(nextTL)== 0:
 		return None
-	if egde == nextTL[0][2]:
+	if edge == nextTL[0][2]:
 		Route.visitTrafficLight(vhId)
 	if len(nextTL)== 0: 
 		return None
@@ -109,7 +109,7 @@ def _getDistanceNextTrafficLight(vhId):
 	Note: This is not avaiable through TraCI, and we therefore made a hack. 
 		This function must be called at each simulation step in order to function.
 	
-	The total distance driven is recoded in _previousDistance for each vehicle where first element is the distance, the second is the previous egde and the third is the previous lane.
+	The total distance driven is recoded in _previousDistance for each vehicle where first element is the distance, the second is the previous edge and the third is the previous lane.
 	The route contain road ids, and only lanes have a length.
 	getLanePosition(vhId) returns how far the vehicle has driven on this lane.
 """
