@@ -243,7 +243,7 @@ elif sys.argv[1].find("fuelCongestion") == 0:
 	print "set key left"
 	print "set xrange [0.4:1.6]"
 	print "set ylabel 'Fuel consumption (ml)'"
-	print "set xlabel 'Congestion (vehicls per second)'"
+	print "set xlabel 'Congestion (vehicles per second)'"
 	plots = ""
 	temp = [0,10,50,100]
 	for i in temp:
@@ -260,7 +260,7 @@ elif sys.argv[1].find("timeCongestion") == 0:
 	print "set key left"
 	print "set xrange [0.4:1.6]"
 	print "set ylabel 'Average travel time (s)'"
-	print "set xlabel 'Congestion (vehicls per second)'"
+	print "set xlabel 'Congestion (vehicles per second)'"
 	plots = ""
 	temp = [0,10,50,100]
 	for i in temp:
