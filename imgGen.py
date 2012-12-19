@@ -213,7 +213,7 @@ if(len(sys.argv) > 3):
 				plots += ","
 			
 			plots += "\"" + datafile + "\" using 1:3 with lines lt 1 lc "+ str(counttotal+1)+" "
-			if counttotal > 15:
+			if counttotal > 20:
 				break
 		if(plots == ""):
 			print "ERROR dataset "+datasetPercentage+" do not exist"
