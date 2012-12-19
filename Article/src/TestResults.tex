@@ -121,7 +121,7 @@ Looking at just the selected route through the network, we see the same tendency
 The average fuel consumption with \tech is about $115 ml$ and about $159 ml$ without, resulting in a reduction of about 28 \%.
 \begin{figure}[htb]
 \includegraphics[width=0.45\textwidth]{../images/tp0c0_8/fuelTotal.png}
-\caption{Fuel consumption for all vehicles in the network. Blue: 100\% using \tech, green: 0\% using \tech}
+\caption{Fuel consumption for all vehicles in the network. Blue: 0\% using \tech, green: 100\% using \tech}
 \label{fig:TestResults:fuelTotal}
 \end{figure}
 
@@ -154,7 +154,7 @@ The recommended speed may then match the traffic lights less when the vehicles h
 
 We see a reduction in fuel consumption because the vehicles accelerate less rapidly. 
 Figure~\ref{fig:TestResults:distance100} shows the travel distance as a function over time when all vehicles use \tech, and Figure~\ref{fig:TestResults:speed100} plots the driving speed as a function over time. 
-Only every fifth entry is plotted in Figure~\ref{fig:TestResults:speed100} for ease of readability.
+Only 20 entries are plotted in Figure~\ref{fig:TestResults:speed100} for ease of readability.
 We see that the curves are much more smooth than those in Figure~\ref{fig:TestResults:distance0} and~\ref{fig:TestResults:speed0}, because they avoid stopping, and hence has to accelerate less.
 Some vehicles still have to stop, partly because we do not recommend a speed below 15 $km/h$, and partly because there are other vehicles blocking their path.
 
@@ -184,7 +184,7 @@ This is mostly due to the fact that vehicles do not make a full stop at traffic 
 
 \begin{figure}[htb]
 \includegraphics[width=0.45\textwidth]{../images/tp0c0_8/combinedTime.png}
-\caption{Travel time for all routes at different level of vehicles using \tech}
+\caption{Travel time for all routes at different penetration rates}
 \label{fig:TestResults:combinedTime}
 \end{figure}
 
