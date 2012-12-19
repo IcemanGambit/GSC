@@ -2,12 +2,12 @@ How to run the simulator
 
 ./run mapdir/ [arg]
 
-where mapdir/ is the folder where the xml definition of the map is located along with the gentrips and simulate script
+where mapdir/ is the folder where the xml definition of the map is located along with the stripts genTrips.py and simulate.py
 
-arguments
--u # ---percentage vehicles using the system
--tp # ---generate new vehicle spwaning times from the OD matrix in gentrips.py with # percentage busses 
--c # ---only work if tp is given set the congestion level recommend between 0.4 - 2.0 default 1.4
--g ---system starts with GUI
+Arguments
+-u # ---percentage of vehicles using the system
+-tp # ---generate new vehicle spawning times from the OD matrix in genTrips.py with # percentage busses 
+-c # ---the congestion level, recommend between 0.4 - 2.0. Default is 1.4. Note: only works if tp is given
+-g ---system runs as GUI
 -n ---rebuild the map
--o ---set output of the testresults
+-o ---set output of the test results

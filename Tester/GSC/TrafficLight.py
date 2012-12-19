@@ -19,8 +19,6 @@ vh_counter = 0
 # 'string' -> [timer, vh_counter, [allow phases], timeout] """ This map is only used when testing with induction loops """
 inductionLoopCounters = {'cluster_Ju_Hobrovej_sonderSkov_O_Ju_Hobrovej_sonderSkov_OS_Ju_Hobrovej_sonderSkov_V_Ju_Hobrovej_sonderSkov_VS' :[0,0,[[0,0,True],[1,1,False]], 5,False,[2]] ,'cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO': [0,0,[[0,0,True],[1,1,False]], 5,False,[2]]  }
 
-#
-#'
 """
 	_getNextGreen(string, string, string, int) -> [[int, int],]
 
@@ -31,10 +29,10 @@ inductionLoopCounters = {'cluster_Ju_Hobrovej_sonderSkov_O_Ju_Hobrovej_sonderSko
 
 def getNextGreen(tlId, inEgdeId, outEgdeId, maxtime):
 	global runningdir
-	
 	cur = traci.simulation.getCurrentTime()
+	
 	#If phase already parsed then
-	#return calculate next green time span
+	#Calculate and return next green span
 	if (tlId, inEgdeId, outEgdeId) in lights:
 		m = lights[tlId, inEgdeId, outEgdeId][0]
 		if not m == 0:
@@ -45,7 +43,7 @@ def getNextGreen(tlId, inEgdeId, outEgdeId, maxtime):
 
 		greenSpan = []
 		i=-1
-		#calculate the timestamps and check they are within tmax
+		#calculate the timestamps and check they are within maxtime
 		while True:
 			for t in lights[tlId, inEgdeId, outEgdeId][1]:
 				if t[1]+((omloeb+i)*m) > cur:
@@ -54,7 +52,7 @@ def getNextGreen(tlId, inEgdeId, outEgdeId, maxtime):
 			if len(greenSpan) > 0 and greenSpan[len(greenSpan)-1][1]>=cur+maxtime:
 				break
 			i+=1
-		return greenSpan #return the final greenspan array
+		return greenSpan #return the final green span array
 	
 
 	### Begin parsing the phase description###
@@ -68,7 +66,7 @@ def getNextGreen(tlId, inEgdeId, outEgdeId, maxtime):
 			break
 		p+=1
 	
-	#get the phaseDefinition via traci 
+	#Get the phase definition via traci 
 	PhaseDefinition = traci.trafficlights.getCompleteRedYellowGreenDefinition(tlId)	
 	f = StringIO.StringIO(PhaseDefinition)
 	step = 0
@@ -90,7 +88,7 @@ def getNextGreen(tlId, inEgdeId, outEgdeId, maxtime):
 	offset *= 1000
 	offsetRead.close()
 
-	#parse the phaseDefinition and create the greens array with relative times of the phases
+	#Parse the phase definition and create the greens array with relative times of the phases
 	while True:
 		line = f.readline()
 		
@@ -165,8 +163,8 @@ def processTrafficLights():
 
 """
 	getRadius(string) -> int
-	calculate the average distance from the center of the traffic light to the edges connected to it 
-	returns radius of a traffic light
+	Calculate the average distance from the center of the traffic light to the edges connected to it 
+	Returns radius of a traffic light
 """
 def getRadius(tlId):	
 	assert type(tlId) is StringType, "tlId is not a string: %r" % id
@@ -182,14 +180,12 @@ def getRadius(tlId):
 			r += math.sqrt(pow(float(x)-float(p[0]),2)+pow(float(y)-float(p[1]),2))
 		return (r / len(points))
 
-	#xml handler functions read the coordinates from the map file
+	#xml handler function reads the coordinates from the map file
 	def _start_element(name, attrs):		
 		if name == "junction" and "shape" in attrs and "id" in attrs and "x" in attrs and "y" in attrs:
 			lightSize[attrs["id"]] = _calculateSize(attrs["x"],attrs["y"],attrs["shape"].split(" "))
 			
-		
 	p = xml.parsers.expat.ParserCreate()
-
 	p.StartElementHandler = _start_element
 
 	if sys.argv[1][-1:] == "/":
@@ -202,11 +198,9 @@ def getRadius(tlId):
 
 """
 	inductionLoopAhead(string) -> bool
-	input a vehicle id
-	check if the is an induction loop on the edge we are driving.
-	returns radius of a traffic light
+	The input is a vehicle id
+	Checks if there is an induction loop on the edge we are driving.
 """
-
 def inductionLoopAhead(vhId):
 	if vhId not in inductionLoopsOnRoute: #not calculated for vhId
 		route = traci.vehicle.getRoute(vhId)
@@ -217,7 +211,7 @@ def inductionLoopAhead(vhId):
 			lane = traci.inductionloop.getLaneID(l)
 			inductionLoopEdges[lane[:lane.rfind('_')]] = [lane, traci.inductionloop.getPosition(l)]
 
-		for e in route: #check the route for any edges with induction loops and add them to the list of induction loops the Vhid drive over
+		for e in route: #check the route for any edges with induction loops and add them to the list of induction loops the vhId drive over
 			if e in inductionLoopEdges:
 				if vhId not in inductionLoopsOnRoute:
 					inductionLoopsOnRoute[vhId] = [[inductionLoopEdges[e][0], inductionLoopEdges[e][1]]]
@@ -226,7 +220,7 @@ def inductionLoopAhead(vhId):
 
 	
 	
-	if vhId in inductionLoopsOnRoute: #we already know our list of induction loop we have to drive over
+	if vhId in inductionLoopsOnRoute: #we already know the list of induction loops we have to drive over
 		vhLane = traci.vehicle.getLaneID(vhId)
 		
 		if vhLane == inductionLoopsOnRoute[vhId][0][0]:
@@ -235,7 +229,7 @@ def inductionLoopAhead(vhId):
 			if vhPosition < inductionLoopsOnRoute[vhId][0][1]:#we have an induction loop on the lane we are driving
 				return True
 			else:
-				inductionLoopsOnRoute[vhId].pop(0) #we have just parsed the induction loop pop it from the list
+				inductionLoopsOnRoute[vhId].pop(0) #we have just parsed the induction loop so pop it from the list
 				if len(inductionLoopsOnRoute[vhId]) == 0:
 					inductionLoopsOnRoute.pop(vhId)
 	return False #no more induction loop on our route
