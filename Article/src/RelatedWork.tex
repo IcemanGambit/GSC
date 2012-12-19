@@ -3,14 +3,14 @@ The main purpose of our work is to help drivers reduce their fuel consumption by
 
 SignalGURU\cite{SignalGURU} is a similar project that also work on matching driving speed to traffic lights.
 They use windscreen mounted smartphone cameras to capture the state of nearby traffic lights and collaboration between other user to infer when the light will be green.
-Field studies show a fuel reduction of 20.3 \% for both pretimed and traffic actualted traffic signals.
+Field studies show a fuel reduction of 20.3 \% for both pre-timed and traffic actuated traffic signals.
 Their infrastructure-less approach requires collaboration between other vehicles, which is what we aim to avoid.
-Instead, we assume the actual programs of the traffic signal are aviable and use heuristics to account for blocking traffic.
+Instead, we assume the actual programs of the traffic signal are available.
 
 Audi Travolution\cite{audi} has also made an advisory system directly build into the vehicle to match speed to traffic lights.
 Results from a project in 2006 show a 17 \% reduction in fuel consumption.
 Their approach relies on direct communication with the traffic light systems via wireless LAN and UMTS links.
-Contrary to Audi Travolutions project we focus on a system that is detatched from the vehicle, which means you do not have to by a new vehicle.
+Contrary to Audi Travolutions project we focus on a system that is detached from the vehicle, which means you do not have to by a new vehicle.
 
 The authors of \cite{VANETsim} have also proposed an idea similar to ours, in that they evaluate whether drivers should accelerate or decelerate when approaching a traffic light.
 They also use the simulator SUMO to simulate their methods.
@@ -19,14 +19,14 @@ Their road network is very simple, and do not include any crossing traffic, and 
 The network that we use is a main road in Aalborg, Denmark. 
 This one and a half kilometer section of Aalborg includes both traffic lights, crossing traffic and we model it using real dimensions and congestion levels.
 
-Road-side countdown timers and advisorly speed signs\cite{transyt} are already a widely used technique.
+Road-side countdown timers and advisory speed signs\cite{transyt} are already a widely used technique.
 Countdown timers show remaining time before the light changes and advisory speed signs show the speed.
-Neither of the two can give frequent updates with short intervals and neither can take the vehicles individual factors into account.
+Neither of the two can give frequent updates with short intervals and neither can take the individual factors of the vehicles into account.
 
-One method for designing traffic lights has been proposed in \cite{SOTL} that ensures green waves based on wireless communication between vehicles and traffic lights. 
+A method for designing traffic lights has been proposed in \cite{SOTL} that ensures green waves based on wireless communication between vehicles and traffic lights. 
 Their results show a decrease in waiting time by 50 \% in their comparisons. 
 Waiting time is the difference between the actual travel time and the minimal travel time (dividing the allowed speed with the travel distance).
-The authors of \cite{ITLC} also propose a mehtod for adjusting the traffic lights to the traffic. 
+The authors of \cite{ITLC} also propose a method for adjusting the traffic lights to the traffic. 
 They use reinforcement learning and a voting system amongst vehicles at or near a traffic light to calculate the total gain of different light settings. 
 Their results show a reduction in waiting time by more that 25 \%.
 
@@ -34,7 +34,7 @@ Another related issue is to re-route vehicles in order to avoid congestion.
 This way, drivers will be able to drive more smoothly an hence reduce their fuel consumption. 
 Three strategies for re-routing vehicles to avoid congestion has been proposed in \cite{congestionAvoidance}. 
 They collect real-time data on the congestion levels from both vehicles and road-side sensors, and provide individual re-routing strategies to the drivers based on the results. 
-Through simulations their graphs show a reduction in waiting time at about 50 \%.
+Through simulations their graphs show a reduction in waiting time off about 50 \%.
 
 %Simulators
 Simulations are a widely used technique for testing hypothesis in the traffic worlds.
@@ -42,8 +42,8 @@ Several types of simulation algorithms exist including macroscopic, mesoscopic, 
 Macroscopic algorithms model the flow of traffic abstracting the individual vehicles away, whereas mesoscopic models the vehicles but still at an abstract level. 
 Microscopic algorithms models vehicles and their behaviour in detail which allows a much more detailed analysis \cite{meso-micro}. 
 Hybrid algorithms can be any combination of the aforementioned.
-Two major microscopic traffic simulators of today are SUMO (Simulation of Urban Mobility)\cite{sumo} and VISSIM (VISSIM: A microscopic Simulation Tool to Evaluate Actuated Signal Control including Bus Priority)\cite{vissim}.
-Both are microscopic simulators, which we will need in order to model for exampel turn lanes.
+Two major microscopic traffic simulators of today are SUMO (Simulation of Urban Mobility)\cite{sumo} and VISSIM\cite{vissim}.
+Both are microscopic simulators, which we will need in order to model for example turn lanes.
 VISSIM is a comercial tool whereas SUMO is an open source project.
 We will be using SUMO when evaluating \tech.
 

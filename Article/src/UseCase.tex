@@ -7,11 +7,11 @@ SUMO is a large-scale open source project rooted in the institute of Transportat
 SUMO is a microscopic simulator, that models individual vehicles, detailed road networks and traffic lights as explained in Section~\ref{sec:Model}.
 
 As SUMO is a microscopic simulator it imposes a number of restrictions and simplifications.
-No vehicle may drive above the maximum speed of the road, acceleration and deceleration is a constant value independent of the speed, no vehicle can drive into other vehicles, vehicles always waits for blocking traffic, but they do not show consideration for others and wait if someone needs to change lanes.
+No vehicle may drive above the maximum speed of the edge, acceleration and deceleration is a constant value independent of the speed, no vehicle can drive into other vehicles, vehicles always waits for blocking traffic, but they do not show consideration for others and wait if someone needs to change lanes.
 This last fact introduces a dead lock problem.
-If an area has a high congestion, two vehicles might end up waiting to change to into each others lanes, but at the same time blocking the other vehicle in doing so. 
+If an area has a high congestion, two vehicles might end up waiting to change to into each others lanes, but at the same time block the other vehicle in doing so. 
 SUMO handles this problem by eventually teleporting the vehicles along the network until they can be reinserted. 
-This is often just at the opposite side of the traffic light.
+This is might be just at the opposite side of the traffic light if there is room.
 
 SUMO has a build-in function to calculate the vehicles fuel consumption, which is explained in \cite{SUMOFuel}.
 This function is used to estimate the fuel consumption.
@@ -19,15 +19,15 @@ This function is used to estimate the fuel consumption.
 \subsection{Use Case}\label{sec:UseCase}
 %Best guess configuration
 \tech is evaluated on a frequently used section of Hobrovej in Aalborg, Denmark (See Figure~\ref{fig:Introduction:hobro}).
-The simulations should be as realistic as possible and therefore based on real data. 
-The road network should have the same dimensions, the traffic signals should behave similar and the congestion levels should be similar to what is observed in the real world.
+The simulations must be as realistic as possible and are therefore based on real data. 
+The road network have the same dimensions, the traffic signals behave similar to the real ones and the congestion levels must be similar to what is observed in the real world.
 
 The section has seven junctions: two large regulated junctions with $12$ to $16$ connections, two small regulated junctions with $4$ to $6$ connections, and three small unregulated junctions.
 The network is an exact replica of Hobrovej, with the same distance between segments and the same number of lanes and connections.
-We will mainly focus on the route going from the south end of Hobrovej to the north end of Hobrovej where $158$ of the simulated vehicles will drive.
+We will mainly focus on the route going from the south end of Hobrovej to the north end of Hobrovej on which $158$ of the simulated vehicles drive.
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.2\textwidth]{../images/HobrovejNy.png}
+\includegraphics[width=0.25\textwidth]{../images/HobrovejNy.png}
 \caption{Road network}
 \label{fig:Introduction:hobro}
 \end{figure}
@@ -42,7 +42,7 @@ Initially, we will focus on the tests with a spawn rate of $0.8$ vehicle per sec
 This corresponds to the average congestion in the daytime outside peak loads on the primary route in the network.
 
 We only model vehicles of the types detailed in Tabel~\ref{table.vehicleTypes}, and do not model neither pedestrians nor cyclists.
-The maximum speed on the network is $60km/h$ which was the speed limit when the data from "Spar På Farten" was collected.
+The maximum speed on all edges in the network is $60km/h$ which was the speed limit when the data from "Spar På Farten" was collected.
 In the evaluations, we only use one type of vehicle, detailed in Table~\ref{table.vehicleTypes}. 
 All values are based on common knowledge and the GPS trajectories from "Spar På Farten".
 
