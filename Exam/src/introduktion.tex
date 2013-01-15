@@ -1,10 +1,171 @@
-\section{Introduktion}
+\section{Ide}
 
-\begin{frame}{Motivation}
+\begin{frame}{Idé}%TODO: rename
+\begin{center}
+Kan man med \textbf{information} om trafiksignaler og evt. trængsel\\\textbf{spare brændstof} for den enkelte bil\\uden \textbf{nævneværdig negativ påvirkning} af anden trafik?
+\end{center}
+\includegraphics[width=1\textwidth]{../images/idea.png}
 \end{frame}
 
-\begin{frame}{Problemformulering}
+\begin{frame}{Hvad er problemet?}
+\textbf{Reducere brændsstofforbug} (miljø og økonomi)
+
+\textbf{Maksimering af trafikflow}
+
+Øge trafiksikkerhed
+
+\vspace{5mm}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+Muligheder
+\begin{itemize}
+\item Brændstofbesparende kørsel
+\item \textbf{Minimere acceleration}
+\item \textbf{Undgå fuld stop}
+\end{itemize}
+
+\end{column}
+\begin{column}{0.4\textwidth}
+Forhindinger
+\begin{itemize}
+\item Anden trafik
+\item \textbf{Trafiklys}
+\end{itemize}
+\end{column}
+\end{columns}
 \end{frame}
 
-\begin{frame}{Eksempel}
+\begin{frame}{Trafiklys}
+Minimering af acceleration ved trafiklys
+\begin{itemize}
+\item Adaptive trafiklys
+\item \textbf{Tilpasse bilers hastighed til trafiklysene}
+\end{itemize}
+
+
+\begin{center}
+\begin{columns}
+\begin{column}{0.4\textwidth}
+Fordele
+\begin{itemize}
+\item Ingen ombygning af eksisterende lys
+\item Få invisteringsudgifter 
+\item Virker ved lav penetrationsrate
+\end{itemize}
+\end{column}
+
+\begin{column}{0.5\textwidth}
+Ulemper
+\begin{itemize}
+\item Kræver biler løbende kan aflæse trafiksignaler
+\item Påvirkning af øvrig trafik?
+\end{itemize}
+\vspace{8mm}
+\end{column}
+\end{columns}
+\end{center}
 \end{frame}
+
+\begin{frame}{Hastighedstilpasning}
+\begin{columns}
+\begin{column}{0.4\textwidth}
+\begin{itemize}
+\item Et tænkt lyskryds
+\item Minimim 15 km/t
+\end{itemize}
+\end{column}
+\begin{column}{0.6\textwidth}
+\begin{itemize}
+\item Blå biler: uden \tech
+\item Røde biler: med \tech
+\end{itemize}
+\end{column}
+\end{columns}
+
+\vspace{3mm}
+\includegraphics[width=1\textwidth]{../images/introNetworkSimple.png}
+\end{frame}
+
+\begin{frame}{Hastighedstilpasning}
+\begin{columns}
+\begin{column}{0.4\textwidth}
+\begin{itemize}
+\item Et tænkt lyskryds
+\item Minimim 15 km/t
+\end{itemize}
+\end{column}
+\begin{column}{0.6\textwidth}
+\begin{itemize}
+\item Blå biler: uden GreenFlow
+\item Røde biler: med GreenFlow
+\end{itemize}
+\end{column}
+\end{columns}
+\vspace{3mm}
+\includegraphics[width=1\textwidth]{../images/introNetworkSimple2.png}
+\end{frame}
+
+\begin{frame}{Vision}
+\begin{center}
+\includegraphics[width=1\textwidth]{../images/product.png}
+\end{center}
+\end{frame}
+
+\begin{comment}
+\begin{frame}{Relateret arbejde}
+Efter vores kendskab
+\begin{itemize}
+\item SignalGuru
+\begin{itemize}
+\item Smartphone applikation
+\item Anbefaler hastighed for at undgå at stoppe for et rødt lys
+\item Indsamler information om trafiklys via kameraet
+\begin{itemize}
+\item Kræver dermed højere penetrations rate
+\end{itemize}
+\item Sparer ca. 20 \% brændstof
+\item Ikke kommerciel endnu
+\end{itemize}
+
+\item Teoritisk forskning
+\begin{itemize}
+\item Simulering i meget simple opsætninger
+\item Bygger på kommunikation mellem biler
+\end{itemize}
+\end{itemize}
+\end{frame}
+\end{comment}
+
+\begin{frame}{Relateret arbejde}
+\textbf{SignalGuru}
+\vspace{2mm}
+\begin{columns}
+	\begin{column}{0.45\textwidth}
+		Ligheder
+		\begin{itemize}
+			\item Anbefaler hastighed for at undgå at stoppe for et rødt lys
+			\item Sparer ca. 20 \% brændstof
+			\item Smartphone applikation
+			\item Ikke kommerciel endnu
+		\end{itemize}
+	\end{column}
+
+	\begin{column}{0.45\textwidth}
+		Forskelle
+		\begin{itemize}
+			\item Indsamler information om trafiklys via kameraet
+			\item Kræver tid og mange brugere, før nok informationer er opsamlet
+		\end{itemize}
+		\vspace{5mm}
+	\end{column}
+\end{columns}
+\vspace{5mm}
+
+\textbf{Teoritisk forskning}
+\vspace{1mm}
+\begin{itemize}
+	\item Simulering i meget simple opsætninger
+	\item Bygger på kommunikation mellem biler
+\end{itemize}
+\end{frame}
+
