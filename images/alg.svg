@@ -1254,9 +1254,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.0000001"
-     inkscape:cx="845.96577"
-     inkscape:cy="685.20656"
+     inkscape:zoom="1.0000001"
+     inkscape:cx="244.42915"
+     inkscape:cy="-659.2516"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1273,7 +1273,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1281,6 +1281,22 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="-1094.2242"
+       y="1310.8971"
+       id="text4782-3-9"
+       sodipodi:linespacing="125%"
+       transform="matrix(0.70659421,-0.70761898,0.70761898,0.70659421,0,0)"
+       inkscape:export-filename="/home/sabrine/speciale/images/algphases5.png"
+       inkscape:export-xdpi="75"
+       inkscape:export-ydpi="75"><tspan
+         sodipodi:role="line"
+         id="tspan4784-9-8"
+         x="-1094.2242"
+         y="1310.8971"
+         style="font-size:20px">aktuel tid</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:7;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        d="m 114.32999,266.4635 c 45.83971,26.92202 77.13199,58.69319 107.07616,90.91373 l -105.05587,69.70053"
@@ -1972,8 +1988,8 @@
        inkscape:export-xdpi="75"
        inkscape:export-ydpi="75" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 1;stroke-dashoffset:0;marker-start:none;marker-mid:none;marker-end:none"
-       d="m 25.353676,1517.1691 435.980474,0.25"
+       style="fill:none;stroke:#000000;stroke-width:1.00049138;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3.00147421, 1.0004914;stroke-dashoffset:0;marker-start:none;marker-mid:none;marker-end:none"
+       d="m 25.353676,1517.1691 556.920814,0.25"
        id="path5136-6-4-3-6"
        inkscape:connector-curvature="0"
        inkscape:export-filename="/home/sabrine/speciale/images/algphases4.png"
@@ -2395,7 +2411,7 @@
        inkscape:export-ydpi="75" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow1Lend)"
-       d="m 142.91804,1696.777 c 0,47.376 0,47.376 0,47.376"
+       d="m 150.10002,1696.777 c 0,47.376 0,47.376 0,47.376"
        id="path4123-55-0-4-8-5-0-4"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc"
@@ -2617,21 +2633,6 @@
          id="tspan6033"
          x="-1101.459"
          y="1295.7306">12:53:44</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="-1097.6749"
-       y="1313.0098"
-       id="text6035"
-       sodipodi:linespacing="125%"
-       transform="matrix(0.70710678,-0.70710678,0.70710678,0.70710678,0,0)"
-       inkscape:export-filename="/home/sabrine/speciale/images/algphases5.png"
-       inkscape:export-xdpi="75"
-       inkscape:export-ydpi="75"><tspan
-         sodipodi:role="line"
-         id="tspan6037"
-         x="-1097.6749"
-         y="1313.0098">12:53:49</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"

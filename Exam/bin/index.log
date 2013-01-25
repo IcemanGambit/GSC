@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.5)  15 JAN 2013 13:27
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.5)  25 JAN 2013 11:05
 entering extended mode
  file:line:error style messages enabled.
  %&-line parsing enabled.
@@ -1170,38 +1170,38 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 
 ] (/usr/share/texmf-texlive/tex/latex/ucs/data/uni-0.def
 File: uni-0.def 2004/10/17 UCS: Unicode data U+0000..U+00FF
-) <../images/idea.png, id=88, 720.91556pt x 208.78pt>
+) <../images/idea.png, id=81, 720.91556pt x 208.78pt>
 File: ../images/idea.png Graphic file (type png)
 <use ../images/idea.png> [4
 
  <../images/idea.png>]
-LaTeX Font Info:    Try loading font information for U+msa on input line 36.
+LaTeX Font Info:    Try loading font information for U+msa on input line 30.
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 36.
+LaTeX Font Info:    Try loading font information for U+msb on input line 30.
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 36.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 30.
 (/usr/share/texmf-texlive/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+stmry on input line 36.
+LaTeX Font Info:    Try loading font information for U+stmry on input line 30.
 (/usr/share/texmf-texlive/tex/latex/stmaryrd/Ustmry.fd) [5
 
 ] [6
 
-] <../images/introNetworkSimple.png, id=108, 195.6108pt x 66.87384pt>
+] <../images/introNetworkSimple.png, id=101, 195.6108pt x 66.87384pt>
 File: ../images/introNetworkSimple.png Graphic file (type png)
 <use ../images/introNetworkSimple.png> [7
 
- <../images/introNetworkSimple.png>] <../images/introNetworkSimple2.png, id=116
+ <../images/introNetworkSimple.png>] <../images/introNetworkSimple2.png, id=109
 , 196.18896pt x 66.87384pt>
 File: ../images/introNetworkSimple2.png Graphic file (type png)
 <use ../images/introNetworkSimple2.png> [8
 
- <../images/introNetworkSimple2.png>] <../images/product.png, id=123, 286.671pt
+ <../images/introNetworkSimple2.png>] <../images/product.png, id=116, 286.671pt
  x 151.767pt>
 File: ../images/product.png Graphic file (type png)
 <use ../images/product.png> [9
@@ -1214,108 +1214,109 @@ File: ../images/product.png Graphic file (type png)
 
 ] [13
 
-]) (./src/model.tex
-File: ../images/introNetworkSimple.png Graphic file (type png)
-<use ../images/introNetworkSimple.png> [14
+]) (./src/model.tex (./bin//index.toc) [14
 
-] <../images/ConnectionNetwork.png, id=165, 115.84262pt x 42.12459pt>
+]
+File: ../images/introNetworkSimple.png Graphic file (type png)
+<use ../images/introNetworkSimple.png> [15
+
+] <../images/ConnectionNetwork.png, id=168, 115.84262pt x 42.12459pt>
 File: ../images/ConnectionNetwork.png Graphic file (type png)
-<use ../images/ConnectionNetwork.png> [15
+<use ../images/ConnectionNetwork.png> [16
 
  <../images/ConnectionNetwork.png>]
 File: ../images/introNetworkSimple.png Graphic file (type png)
-<use ../images/introNetworkSimple.png> [16
+<use ../images/introNetworkSimple.png> [17
 
-]) (./src/algoritmerne.tex (./bin//index.toc) [17
+]) (./src/algoritmerne.tex [18
 
-] [18
-
-] <../images/algdistance.png, id=195, 333.69112pt x 87.43777pt>
+] <../images/algdistance.png, id=186, 333.69112pt x 87.43777pt>
 File: ../images/algdistance.png Graphic file (type png)
 <use ../images/algdistance.png> [19
 
- <../images/algdistance.png>] <../images/algphases4.png, id=203, 477.9456pt x 8
+ <../images/algdistance.png>] <../images/algphases4.png, id=194, 477.9456pt x 8
 2.8696pt>
 File: ../images/algphases4.png Graphic file (type png)
-<use ../images/algphases4.png> <../images/algphases5.png, id=204, 497.2176pt x 
+<use ../images/algphases4.png> <../images/algphases5.png, id=195, 497.2176pt x 
 128.1588pt>
 File: ../images/algphases5.png Graphic file (type png)
 <use ../images/algphases5.png> [20
 
  <../images/algphases4.png> <../images/algphases5.png>] <../images/algphases1.p
-ng, id=212, 477.33888pt x 87.43777pt>
+ng, id=203, 477.33888pt x 87.43777pt>
 File: ../images/algphases1.png Graphic file (type png)
-<use ../images/algphases1.png> <../images/algphases2.png, id=213, 474.0912pt x 
+<use ../images/algphases1.png> [21
+
+ <../images/algphases1.png>]
+File: ../images/algphases1.png Graphic file (type png)
+<use ../images/algphases1.png> <../images/algphases2.png, id=211, 474.0912pt x 
 82.8696pt>
 File: ../images/algphases2.png Graphic file (type png)
-<use ../images/algphases2.png> <../images/algphases3.png, id=214, 474.0912pt x 
+<use ../images/algphases2.png> <../images/algphases3.png, id=212, 474.0912pt x 
 85.7604pt>
 File: ../images/algphases3.png Graphic file (type png)
-<use ../images/algphases3.png> [21
+<use ../images/algphases3.png> [22
 
- <../images/algphases1.png> <../images/algphases2.png> <../images/algphases3.pn
-g>] [22
+ <../images/algphases2.png> <../images/algphases3.png>] [23
 
-]) (./src/analyse.tex (./bin//index.toc) [23
+]) (./src/analyse.tex (./bin//index.toc) [24
 
-] [24
+] [25
 
-]) (./src/demonstration.tex (./bin//index.toc) [25
+]) (./src/demonstration.tex (./bin//index.toc) [26
 
-] <../images/HobrovejNy.png, id=259, 464.59285pt x 526.53857pt>
+] <../images/HobrovejNy.png, id=253, 464.59285pt x 526.53857pt>
 File: ../images/HobrovejNy.png Graphic file (type png)
-<use ../images/HobrovejNy.png> [26
+<use ../images/HobrovejNy.png> [27
 
- <../images/HobrovejNy.png>] [27
+ <../images/HobrovejNy.png>] [28
 
-]) (./src/testresultater.tex (./bin//index.toc) [28
+]) (./src/testresultater.tex (./bin//index.toc) [29
 
 ]
 File: ../images/HobrovejNy.png Graphic file (type png)
-<use ../images/HobrovejNy.png> [29
+<use ../images/HobrovejNy.png> [30
 
-] <../images/Real/RealDistance.png, id=288, 702.625pt x 401.5pt>
+] <../images/Real/RealDistance.png, id=281, 702.625pt x 401.5pt>
 File: ../images/Real/RealDistance.png Graphic file (type png)
-<use ../images/Real/RealDistance.png> [30
+<use ../images/Real/RealDistance.png> [31
 
  <../images/Real/RealDistance.png (PNG copy)>] <../images/tp0c0_8/distanceUncon
-trolled0.png, id=295, 702.625pt x 401.5pt>
+trolled0.png, id=289, 702.625pt x 401.5pt>
 File: ../images/tp0c0_8/distanceUncontrolled0.png Graphic file (type png)
-<use ../images/tp0c0_8/distanceUncontrolled0.png> [31
+<use ../images/tp0c0_8/distanceUncontrolled0.png> [32
 
- <../images/tp0c0_8/distanceUncontrolled0.png (PNG copy)>] [32
+ <../images/tp0c0_8/distanceUncontrolled0.png (PNG copy)>] [33
 
-] <../images/tp0c0_8/distanceUncontrolled10.png, id=308, 702.625pt x 401.5pt>
+] <../images/tp0c0_8/distanceUncontrolled10.png, id=301, 702.625pt x 401.5pt>
 File: ../images/tp0c0_8/distanceUncontrolled10.png Graphic file (type png)
-<use ../images/tp0c0_8/distanceUncontrolled10.png> [33
+<use ../images/tp0c0_8/distanceUncontrolled10.png> [34
 
  <../images/tp0c0_8/distanceUncontrolled10.png (PNG copy)>] <../images/tp0c0_8/
-distanceControlled10.png, id=315, 702.625pt x 401.5pt>
+distanceControlled10.png, id=308, 702.625pt x 401.5pt>
 File: ../images/tp0c0_8/distanceControlled10.png Graphic file (type png)
-<use ../images/tp0c0_8/distanceControlled10.png> [34
+<use ../images/tp0c0_8/distanceControlled10.png> [35
 
  <../images/tp0c0_8/distanceControlled10.png (PNG copy)>] <../images/tp0c0_8/co
-mbinedFuel.png, id=322, 702.625pt x 401.5pt>
+mbinedFuel.png, id=315, 702.625pt x 401.5pt>
 File: ../images/tp0c0_8/combinedFuel.png Graphic file (type png)
-<use ../images/tp0c0_8/combinedFuel.png> [35
+<use ../images/tp0c0_8/combinedFuel.png> [36
 
  <../images/tp0c0_8/combinedFuel.png (PNG copy)>] <../images/fuelCongestion.png
-, id=329, 702.625pt x 401.5pt>
+, id=322, 702.625pt x 401.5pt>
 File: ../images/fuelCongestion.png Graphic file (type png)
-<use ../images/fuelCongestion.png> [36
+<use ../images/fuelCongestion.png> [37
 
  <../images/fuelCongestion.png (PNG copy)>] <../images/timeCongestion.png, id=3
-36, 702.625pt x 401.5pt>
+30, 702.625pt x 401.5pt>
 File: ../images/timeCongestion.png Graphic file (type png)
-<use ../images/timeCongestion.png> [37
+<use ../images/timeCongestion.png> [38
 
- <../images/timeCongestion.png (PNG copy)>] [38
+ <../images/timeCongestion.png (PNG copy)>] [39
 
-]) (./src/konklusion.tex (./bin//index.toc) [39
+]) (./src/konklusion.tex (./bin//index.toc) [40
 
-] [40
-
-] (./bin//index.toc) [41
+] [41
 
 ] [42
 
@@ -1336,13 +1337,13 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 24832 strings out of 495042
- 500621 string characters out of 1181749
+ 24825 strings out of 495042
+ 500540 string characters out of 1181749
  602265 words of memory out of 3000000
- 27217 multiletter control sequences out of 15000+50000
+ 27213 multiletter control sequences out of 15000+50000
  13093 words of font info for 52 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 50i,11n,61p,465b,618s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 50i,11n,61p,465b,617s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/sha
 re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-te
 xlive/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-texlive/fonts
@@ -1352,9 +1353,9 @@ s/cm/cmssi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmssi
 8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
 /share/texmf-texlive/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share
 /texmf-texlive/fonts/type1/public/amsfonts/symbols/msam7.pfb>
-Output written on ./bin//index.pdf (42 pages, 490471 bytes).
+Output written on ./bin//index.pdf (42 pages, 490048 bytes).
 PDF statistics:
- 440 PDF objects out of 1000 (max. 8388607)
- 94 named destinations out of 1000 (max. 500000)
- 200 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 420 PDF objects out of 1000 (max. 8388607)
+ 93 named destinations out of 1000 (max. 500000)
+ 192 words of extra memory for PDF output out of 10000 (max. 10000000)
 
