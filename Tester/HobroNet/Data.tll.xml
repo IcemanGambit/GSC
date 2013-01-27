@@ -22,7 +22,7 @@
 -->
 
 <tlLogics version="0.13" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.sf.net/xsd/tllogic_file.xsd">
-	<tlLogic id="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" type="static" programID="0" offset="70">
+	<tlLogic id="cluster_Ju_Vesterbro_Ostre_KongCh_hobro_NO_Ju_Vesterbro_Ostre_KongCh_hobro_NV_Ju_Vesterbro_Ostre_KongCh_hobro_SO_Ju_Vesterbro_Ostre_KongCh_hobro_SV" type="static" programID="0" offset="0"> <!-- offset 70 -->
 		<phase duration="32" state="GGGgrrrrrrrrGGGg"/> <!-- 2 -->
 		<phase duration="4"  state="yyygrrrrrrrryyyg"/>
 		<phase duration="6"  state="rrrGrrrrrrrrrrrG"/>
@@ -86,7 +86,7 @@
 	
 	
 	<!-- Hobrovej_MollerPark -->
-	<tlLogic id="cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" type="static" programID="0" offset="15">
+	<tlLogic id="cluster_Ju_Hobrovej_MollerPark_Ju_Hobrovej_MollerPark_NO" type="static" programID="0" offset="0"> <!-- offset 15 -->
 		<phase duration="44" state="GGGrrGGg"/> <!-- 1 -->
 		<phase duration="4"  state="yyyrrGGg"/>
 		<phase duration="15" state="rrrrrGGG"/> <!-- 2 -->

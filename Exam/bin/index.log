@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.5)  27 JAN 2013 14:07
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.5)  27 JAN 2013 21:49
 entering extended mode
  file:line:error style messages enabled.
  %&-line parsing enabled.
@@ -1212,113 +1212,93 @@ File: ../images/product.png Graphic file (type png)
 
 ] [12
 
-] [13
-
-]) (./src/model.tex (./bin//index.toc) [14
+]) (./src/model.tex (./bin//index.toc) [13
 
 ]
 File: ../images/introNetworkSimple.png Graphic file (type png)
-<use ../images/introNetworkSimple.png> [15
+<use ../images/introNetworkSimple.png> [14
 
-] <../images/ConnectionNetwork.png, id=168, 115.84262pt x 42.12459pt>
+] <../images/ConnectionNetwork.png, id=163, 115.84262pt x 42.12459pt>
 File: ../images/ConnectionNetwork.png Graphic file (type png)
-<use ../images/ConnectionNetwork.png> [16
+<use ../images/ConnectionNetwork.png> [15
 
  <../images/ConnectionNetwork.png>]
 File: ../images/introNetworkSimple.png Graphic file (type png)
-<use ../images/introNetworkSimple.png> [17
+<use ../images/introNetworkSimple.png> [16
 
-]) (./src/algoritmerne.tex [18
+]) (./src/algoritmerne.tex [17
 
-] <../images/algdistance.png, id=186, 333.69112pt x 87.43777pt>
+] <../images/algdistance.png, id=181, 333.69112pt x 87.43777pt>
 File: ../images/algdistance.png Graphic file (type png)
-<use ../images/algdistance.png> [19
+<use ../images/algdistance.png> [18
 
- <../images/algdistance.png>] <../images/algphases4.png, id=194, 477.9456pt x 8
+ <../images/algdistance.png>] <../images/algphases4.png, id=188, 477.9456pt x 8
 2.8696pt>
 File: ../images/algphases4.png Graphic file (type png)
-<use ../images/algphases4.png> <../images/algphases5.png, id=195, 497.2176pt x 
+<use ../images/algphases4.png> <../images/algphases5.png, id=189, 497.2176pt x 
 128.1588pt>
 File: ../images/algphases5.png Graphic file (type png)
-<use ../images/algphases5.png> [20
+<use ../images/algphases5.png> [19
 
  <../images/algphases4.png> <../images/algphases5.png>] <../images/algphases1.p
-ng, id=203, 477.33888pt x 87.43777pt>
+ng, id=198, 477.33888pt x 87.43777pt>
 File: ../images/algphases1.png Graphic file (type png)
-<use ../images/algphases1.png> [21
+<use ../images/algphases1.png> [20
 
  <../images/algphases1.png>]
 File: ../images/algphases1.png Graphic file (type png)
-<use ../images/algphases1.png> <../images/algphases2.png, id=211, 474.0912pt x 
-82.8696pt>
-File: ../images/algphases2.png Graphic file (type png)
-<use ../images/algphases2.png> <../images/algphases3.png, id=212, 474.0912pt x 
-85.7604pt>
-File: ../images/algphases3.png Graphic file (type png)
-<use ../images/algphases3.png> [22
+<use ../images/algphases1.png> [21
 
- <../images/algphases2.png> <../images/algphases3.png>] [23
+]) (./src/analyse.tex (./bin//index.toc) [22
 
-]) (./src/analyse.tex (./bin//index.toc) [24
+] [23
 
-] [25
+]) (./src/demonstration.tex (./bin//index.toc) [24
 
-]) (./src/demonstration.tex (./bin//index.toc) [26
-
-] <../images/HobrovejNy.png, id=253, 464.59285pt x 526.53857pt>
+] <../images/HobrovejNy.png, id=238, 464.59285pt x 526.53857pt>
 File: ../images/HobrovejNy.png Graphic file (type png)
-<use ../images/HobrovejNy.png> [27
+<use ../images/HobrovejNy.png> [25
 
- <../images/HobrovejNy.png>] [28
+ <../images/HobrovejNy.png>] [26
 
-]) (./src/testresultater.tex (./bin//index.toc) [29
+]) (./src/testresultater.tex (./bin//index.toc) [27
 
 ]
 File: ../images/HobrovejNy.png Graphic file (type png)
-<use ../images/HobrovejNy.png> [30
+<use ../images/HobrovejNy.png> [28
 
-] <../images/Real/RealDistance.png, id=281, 702.625pt x 401.5pt>
+] <../images/Real/RealDistance.png, id=267, 702.625pt x 401.5pt>
 File: ../images/Real/RealDistance.png Graphic file (type png)
-<use ../images/Real/RealDistance.png> [31
+<use ../images/Real/RealDistance.png> [29
 
  <../images/Real/RealDistance.png (PNG copy)>] <../images/tp0c0_8/distanceUncon
-trolled0.png, id=289, 702.625pt x 401.5pt>
+trolled0.png, id=274, 702.625pt x 401.5pt>
 File: ../images/tp0c0_8/distanceUncontrolled0.png Graphic file (type png)
-<use ../images/tp0c0_8/distanceUncontrolled0.png> [32
+<use ../images/tp0c0_8/distanceUncontrolled0.png> [30
 
- <../images/tp0c0_8/distanceUncontrolled0.png (PNG copy)>] [33
+ <../images/tp0c0_8/distanceUncontrolled0.png (PNG copy)>] [31
 
-] <../images/tp0c0_8/distanceUncontrolled10.png, id=301, 702.625pt x 401.5pt>
-File: ../images/tp0c0_8/distanceUncontrolled10.png Graphic file (type png)
-<use ../images/tp0c0_8/distanceUncontrolled10.png> [34
-
- <../images/tp0c0_8/distanceUncontrolled10.png (PNG copy)>] <../images/tp0c0_8/
-distanceControlled10.png, id=308, 702.625pt x 401.5pt>
-File: ../images/tp0c0_8/distanceControlled10.png Graphic file (type png)
-<use ../images/tp0c0_8/distanceControlled10.png> [35
-
- <../images/tp0c0_8/distanceControlled10.png (PNG copy)>] <../images/tp0c0_8/co
-mbinedFuel.png, id=315, 702.625pt x 401.5pt>
+] <../images/tp0c0_8/combinedFuel.png, id=287, 702.625pt x 401.5pt>
 File: ../images/tp0c0_8/combinedFuel.png Graphic file (type png)
-<use ../images/tp0c0_8/combinedFuel.png> [36
+<use ../images/tp0c0_8/combinedFuel.png> [32
 
  <../images/tp0c0_8/combinedFuel.png (PNG copy)>] <../images/fuelCongestion.png
-, id=322, 702.625pt x 401.5pt>
+, id=294, 702.625pt x 401.5pt>
 File: ../images/fuelCongestion.png Graphic file (type png)
-<use ../images/fuelCongestion.png> [37
+<use ../images/fuelCongestion.png> [33
 
  <../images/fuelCongestion.png (PNG copy)>] <../images/timeCongestion.png, id=3
-30, 702.625pt x 401.5pt>
+01, 702.625pt x 401.5pt>
 File: ../images/timeCongestion.png Graphic file (type png)
-<use ../images/timeCongestion.png> [38
+<use ../images/timeCongestion.png> [34
 
- <../images/timeCongestion.png (PNG copy)>] [39
+ <../images/timeCongestion.png (PNG copy)>] [35
 
-]) (./src/konklusion.tex (./bin//index.toc) [40
+]) (./src/konklusion.tex (./bin//index.toc) [36
 
-] [41
+] [37
 
-] [42
+] [38
 
 ]))
 \tf@nav=\write7
@@ -1337,10 +1317,10 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 24839 strings out of 495042
- 500709 string characters out of 1181749
+ 24807 strings out of 495042
+ 499933 string characters out of 1181749
  602265 words of memory out of 3000000
- 27225 multiletter control sequences out of 15000+50000
+ 27201 multiletter control sequences out of 15000+50000
  15774 words of font info for 64 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  50i,11n,61p,465b,615s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1353,9 +1333,9 @@ s/cm/cmssi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmssi
 8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
 /share/texmf-texlive/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share
 /texmf-texlive/fonts/type1/public/amsfonts/symbols/msam7.pfb>
-Output written on ./bin//index.pdf (42 pages, 484257 bytes).
+Output written on ./bin//index.pdf (38 pages, 450698 bytes).
 PDF statistics:
- 420 PDF objects out of 1000 (max. 8388607)
- 93 named destinations out of 1000 (max. 500000)
- 192 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 391 PDF objects out of 1000 (max. 8388607)
+ 85 named destinations out of 1000 (max. 500000)
+ 172 words of extra memory for PDF output out of 10000 (max. 10000000)
 
