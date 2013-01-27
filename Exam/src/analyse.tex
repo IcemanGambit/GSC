@@ -5,13 +5,15 @@ Tidskompleksitet
 \begin{itemize}
 \item $O(|\phase|\cdot \fcirc)$
 \end{itemize}
-Hvor $|\phase|$ er antallet af faser i et omløb og $\fcirc$ er antallet af omløb vi ønsker at beregne ud i fremtiden.
+Hvor $|\phase|$ er antallet af indstillinger i et omløb og $\fcirc$ er antallet af omløb vi ønsker at beregne ud i fremtiden.
 
 \vspace{0.5cm}
 Netværksforbrug med én updatering i sekundet
 \begin{itemize}
 \item $O(|\phase|\cdot \fcirc)\cdot 2\cdot size\_of(integer)$
 \item 84 $bytes/s$, ca. 5 kilobytes per minut
+\begin{itemize}
+\item Da $|\phase|\cdot \fcirc$ sjælent er større en 10
 \end{itemize}
-Da $|\phase|\cdot \fcirc$ sjælent er støre en 10
+\end{itemize}
 \end{frame}

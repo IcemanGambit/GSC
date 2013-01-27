@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.5)  27 JAN 2013 14:00
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.5)  27 JAN 2013 14:07
 entering extended mode
  file:line:error style messages enabled.
  %&-line parsing enabled.
@@ -1337,11 +1337,11 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 24825 strings out of 495042
- 500540 string characters out of 1181749
+ 24839 strings out of 495042
+ 500709 string characters out of 1181749
  602265 words of memory out of 3000000
- 27213 multiletter control sequences out of 15000+50000
- 13093 words of font info for 52 fonts, out of 3000000 for 9000
+ 27225 multiletter control sequences out of 15000+50000
+ 15774 words of font info for 64 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  50i,11n,61p,465b,615s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/sha
@@ -1353,7 +1353,7 @@ s/cm/cmssi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmssi
 8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
 /share/texmf-texlive/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share
 /texmf-texlive/fonts/type1/public/amsfonts/symbols/msam7.pfb>
-Output written on ./bin//index.pdf (42 pages, 484161 bytes).
+Output written on ./bin//index.pdf (42 pages, 484257 bytes).
 PDF statistics:
  420 PDF objects out of 1000 (max. 8388607)
  93 named destinations out of 1000 (max. 500000)
