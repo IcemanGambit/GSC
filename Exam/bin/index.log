@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.5)  27 JAN 2013 14:00
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.4.22)  27 JAN 2013 16:57
 entering extended mode
  file:line:error style messages enabled.
  %&-line parsing enabled.
@@ -6,7 +6,13 @@ entering extended mode
 (./bin/index.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
-yphenation, danish, loaded.
+yphenation, farsi, arabic, croatian, bulgarian, ukrainian, russian, czech, slov
+ak, danish, dutch, finnish, french, basque, ngerman, german, german-x-2009-06-1
+9, ngerman-x-2009-06-19, ibycus, monogreek, greek, ancientgreek, hungarian, san
+skrit, italian, latin, latvian, lithuanian, mongolian2a, mongolian, bokmal, nyn
+orsk, romanian, irish, coptic, serbian, turkish, welsh, esperanto, uppersorbian
+, estonian, indonesian, interlingua, icelandic, kurmanji, slovenian, polish, po
+rtuguese, spanish, galician, catalan, swedish, ukenglish, pinyin, loaded.
 (/usr/share/texmf/tex/latex/beamer/base/beamer.cls (/usr/share/texmf/tex/latex/
 beamer/base/beamerbasercs.sty
 Package: beamerbasercs 2010/06/12 (rcs-revision c3821710bb40)
@@ -93,7 +99,8 @@ Package ifvtex Info: VTeX not detected.
 \Gm@odd@mp=\dimen121
 \Gm@even@mp=\dimen122
 \Gm@dimlist=\toks15
-) (/usr/share/texmf-texlive/tex/latex/base/size11.clo
+(/usr/share/texmf-texlive/tex/xelatex/xetexconfig/geometry.cfg)) (/usr/share/te
+xmf-texlive/tex/latex/base/size11.clo
 File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 ) (/usr/share/texmf/tex/latex/pgf/basiclayer/pgfcore.sty (/usr/share/texmf-texl
 ive/tex/latex/graphics/graphicx.sty
@@ -558,7 +565,7 @@ Package: inputenc 2008/03/30 v1.1d Input encoding file
 \inpenc@posthook=\toks45
 (/usr/share/texmf-texlive/tex/latex/ucs/utf8x.def
 File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
-)) (/usr/share/texmf-texlive/tex/generic/babel/babel.sty
+)) (/var/lib/texmf/tex/generic/babel/babel.sty
 Package: babel 2008/07/06 v3.8l The Babel package
 (/usr/share/texmf-texlive/tex/generic/babel/english.ldf
 Language: english 2005/03/30 v3.3o English support from the babel system
@@ -568,8 +575,6 @@ LaTeX Info: Redefining \textlatin on input line 82.
 \babel@savecnt=\count152
 \U@D=\dimen178
 )
-\l@british = a dialect from \language\l@english 
-\l@UKenglish = a dialect from \language\l@english 
 \l@canadian = a dialect from \language\l@american 
 \l@australian = a dialect from \language\l@british 
 \l@newzealand = a dialect from \language\l@british 
@@ -1288,37 +1293,32 @@ File: ../images/tp0c0_8/distanceUncontrolled0.png Graphic file (type png)
 
  <../images/tp0c0_8/distanceUncontrolled0.png (PNG copy)>] [33
 
-] <../images/tp0c0_8/distanceUncontrolled10.png, id=301, 702.625pt x 401.5pt>
-File: ../images/tp0c0_8/distanceUncontrolled10.png Graphic file (type png)
-<use ../images/tp0c0_8/distanceUncontrolled10.png> [34
-
- <../images/tp0c0_8/distanceUncontrolled10.png (PNG copy)>] <../images/tp0c0_8/
-distanceControlled10.png, id=308, 702.625pt x 401.5pt>
+] <../images/tp0c0_8/distanceControlled10.png, id=301, 702.625pt x 401.5pt>
 File: ../images/tp0c0_8/distanceControlled10.png Graphic file (type png)
-<use ../images/tp0c0_8/distanceControlled10.png> [35
+<use ../images/tp0c0_8/distanceControlled10.png> [34
 
  <../images/tp0c0_8/distanceControlled10.png (PNG copy)>] <../images/tp0c0_8/co
-mbinedFuel.png, id=315, 702.625pt x 401.5pt>
+mbinedFuel.png, id=308, 702.625pt x 401.5pt>
 File: ../images/tp0c0_8/combinedFuel.png Graphic file (type png)
-<use ../images/tp0c0_8/combinedFuel.png> [36
+<use ../images/tp0c0_8/combinedFuel.png> [35
 
  <../images/tp0c0_8/combinedFuel.png (PNG copy)>] <../images/fuelCongestion.png
-, id=322, 702.625pt x 401.5pt>
+, id=315, 702.625pt x 401.5pt>
 File: ../images/fuelCongestion.png Graphic file (type png)
-<use ../images/fuelCongestion.png> [37
+<use ../images/fuelCongestion.png> [36
 
  <../images/fuelCongestion.png (PNG copy)>] <../images/timeCongestion.png, id=3
-30, 702.625pt x 401.5pt>
+22, 702.625pt x 401.5pt>
 File: ../images/timeCongestion.png Graphic file (type png)
-<use ../images/timeCongestion.png> [38
+<use ../images/timeCongestion.png> [37
 
- <../images/timeCongestion.png (PNG copy)>] [39
+ <../images/timeCongestion.png (PNG copy)>] [38
 
-]) (./src/konklusion.tex (./bin//index.toc) [40
+]) (./src/konklusion.tex (./bin//index.toc) [39
+
+] [40
 
 ] [41
-
-] [42
 
 ]))
 \tf@nav=\write7
@@ -1337,12 +1337,12 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 24825 strings out of 495042
- 500540 string characters out of 1181749
- 602265 words of memory out of 3000000
- 27213 multiletter control sequences out of 15000+50000
+ 24820 strings out of 493848
+ 500475 string characters out of 1152823
+ 603785 words of memory out of 3000000
+ 27302 multiletter control sequences out of 15000+50000
  13093 words of font info for 52 fonts, out of 3000000 for 9000
- 28 hyphenation exceptions out of 8191
+ 714 hyphenation exceptions out of 8191
  50i,11n,61p,465b,615s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/sha
 re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-te
@@ -1353,9 +1353,9 @@ s/cm/cmssi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmssi
 8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
 /share/texmf-texlive/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share
 /texmf-texlive/fonts/type1/public/amsfonts/symbols/msam7.pfb>
-Output written on ./bin//index.pdf (42 pages, 484161 bytes).
+Output written on ./bin//index.pdf (41 pages, 465719 bytes).
 PDF statistics:
- 420 PDF objects out of 1000 (max. 8388607)
- 93 named destinations out of 1000 (max. 500000)
- 192 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 413 PDF objects out of 1000 (max. 8388607)
+ 91 named destinations out of 1000 (max. 500000)
+ 187 words of extra memory for PDF output out of 10000 (max. 10000000)
 
