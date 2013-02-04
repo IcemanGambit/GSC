@@ -1,0 +1,74 @@
+%problemstilling/Motivation
+%Problemformulering
+%Overordnet løsning
+%Antagelser
+%Relateret arbejde - ikke det hele
+
+
+\section{Introduction}
+\begin{frame}{Problem}
+Fuel is a major expenditure in traffic
+\vspace{5mm}
+
+Want to use as little fuel as possible
+\vspace{5mm}
+
+Drive at constant speed use less fuel than accelerating
+\end{frame}
+
+\begin{frame}{Traffic Ligths}
+Traffic ligths disrupt the flow of traffic
+\vspace{5mm}
+
+Not always designed for free flow in all directions
+\vspace{5mm}
+
+Difficult to adjust speed to traffic light when the phases are unknown
+\end{frame}
+
+\begin{frame}{Problem Statement}
+\begin{center}
+Is it possible to reduce fuel consumption by adjusting the velocity of vehicles to traffic lights in a real life setting?
+\end{center}
+\end{frame}
+
+\begin{frame}{Solution}
+Simulate real world traffic flow on a real world section of road
+\vspace{5mm}
+
+For a subset of vehicles:\\
+Calculate a speed to reach the next traffic ligth as it turns green
+\vspace{5mm}
+
+Investigate if the fuel consumption is reducsed
+\end{frame}
+
+\begin{frame}{Assumptions}
+The used simulator simulates the real world correctly
+\begin{itemize}
+\item Driving behaviour
+\item Fuel consumption
+\end{itemize}
+Information about the traffic lights can be accessed by vehicles
+\begin{itemize}
+\item The location
+\item The phases, i.e. light setting time frames 
+\end{itemize}
+
+Vehicles 
+\begin{itemize}
+\item have a predefined route that is followed and not changed
+\item know its location
+\item need not communicate with other vehicles
+\item have a constant acceleration and deceleration
+\end{itemize}
+
+Follow the rules of traffic, e.g. 
+\begin{itemize}
+\item wait at a red light
+\item drives below the speed limit
+\item do not drive into other vehicles
+\item wait for crossing crossing traffic
+\end{itemize}
+
+\end{frame}

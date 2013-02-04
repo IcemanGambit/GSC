@@ -1,0 +1,6 @@
+\beamer@endinputifotherversion {3.10pt}
+\select@language {english}
+\beamer@sectionintoc {1}{Ide}{3}{0}{1}
+\beamer@sectionintoc {2}{Demonstration}{11}{0}{2}
+\beamer@sectionintoc {3}{Resultater}{14}{0}{3}
+\beamer@sectionintoc {4}{Fremtidig arbejde}{26}{0}{4}

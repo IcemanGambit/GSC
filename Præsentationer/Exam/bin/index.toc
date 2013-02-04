@@ -1,0 +1,8 @@
+\beamer@endinputifotherversion {3.10pt}
+\select@language {english}
+\beamer@sectionintoc {1}{Introduktion}{3}{0}{1}
+\beamer@sectionintoc {2}{Udregn anbefalet hastighed}{10}{0}{2}
+\beamer@sectionintoc {3}{Analyse}{19}{0}{3}
+\beamer@sectionintoc {4}{Demonstration}{21}{0}{4}
+\beamer@sectionintoc {5}{Evaluering}{24}{0}{5}
+\beamer@sectionintoc {6}{Konklusion og fremtidigt arbejde}{33}{0}{6}
